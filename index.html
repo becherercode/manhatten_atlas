@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nachbarschaften von Manhatten</title>
+    <link rel="preconnect" href="https://en.wikipedia.org" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="Hauptnavigation">
+        <a class="brand" href="#top" aria-label="Manhattan Atlas Start">Manhattan Atlas</a>
+        <div class="navlinks">
+          <a href="#viertel" data-i18n="navNeighborhoods">Viertel</a>
+          <a href="#vergleich" data-i18n="navCompare">Vergleich</a>
+          <a href="#quellen" data-i18n="navSources">Quellen</a>
+          <label class="language-menu">
+            <span data-i18n="languageLabel">Sprache</span>
+            <select id="languageSelect" aria-label="Sprache auswählen">
+              <option value="de">Deutsch</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+            </select>
+          </label>
+        </div>
+      </nav>
+
+      <div class="hero-inner" id="top">
+        <p class="eyebrow" data-i18n="heroEyebrow">Geschichte, Preise, Zukunft</p>
+        <h1 data-i18n="heroTitle">Nachbarschaften von Manhatten</h1>
+        <p class="hero-copy" data-i18n="heroCopy">
+          Kacheln fuer die wichtigsten Viertel, kurze Analysen und Bildmotive, die den Charakter jedes
+          Ortes zeigen. Die Preisangaben sind bewusst als Marktspannen und Niveau eingeordnet.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="control-band" aria-label="Filter und Suche">
+        <div class="controls">
+          <label class="search">
+            <span data-i18n="searchLabel">Suchen</span>
+            <input id="searchInput" type="search" placeholder="z.B. Harlem, SoHo, Chelsea" data-i18n-placeholder="searchPlaceholder" />
+          </label>
+          <div class="segments" role="group" aria-label="Region filtern">
+            <button class="segment active" type="button" data-region="all" data-i18n="regionAll">Alle</button>
+            <button class="segment" type="button" data-region="uptown">Uptown</button>
+            <button class="segment" type="button" data-region="midtown">Midtown</button>
+            <button class="segment" type="button" data-region="downtown">Downtown</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="atlas-section" id="viertel">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="chooseEyebrow">Viertel waehlen</p>
+          <h2 data-i18n="neighborhoodsTitle">Nachbarschaften</h2>
+        </div>
+        <div class="neighborhood-grid" id="neighborhoodGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="compare-section" id="vergleich" aria-label="Viertel vergleichen">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="compareEyebrow">Zwei Viertel</p>
+          <h2 data-i18n="compareTitle">Viertel vergleichen</h2>
+        </div>
+
+        <div class="intro-grid" aria-label="Manhattan Marktueberblick">
+          <article>
+            <span class="stat">$5.1k</span>
+            <h2 data-i18n="statRentTitle">Median-Miete Manhattan</h2>
+            <p data-i18n="statRentCopy">Realtor.com meldete fuer Maerz 2026 eine mediane Angebotsmiete von etwa 5.100 Dollar pro Monat.</p>
+          </article>
+          <article>
+            <span class="stat">+6.8</span>
+            <h2>Rent Index</h2>
+            <p data-i18n="statIndexCopy">NYCEDC zeigte im April 2026 einen StreetEasy Rent Index deutlich ueber Vor-Covid-Niveau.</p>
+          </article>
+          <article>
+            <span class="stat">26</span>
+            <h2>Profile</h2>
+            <p data-i18n="statProfilesCopy">Vom historischen Inwood bis zum Financial District: kompakte Kacheln fuer schnelle Vergleiche.</p>
+          </article>
+        </div>
+
+        <div class="compare-tool">
+          <div class="compare-selectors">
+            <label>
+              <span data-i18n="compareFirst">Erstes Viertel</span>
+              <select id="compareA"></select>
+            </label>
+            <label>
+              <span data-i18n="compareSecond">Zweites Viertel</span>
+              <select id="compareB"></select>
+            </label>
+          </div>
+          <div class="comparison-output" id="comparisonOutput" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="detail-band" id="detailPanel" aria-live="polite">
+        <div class="empty-state">
+          <p class="eyebrow" data-i18n="analysisEyebrow">Analyse</p>
+          <h2 data-i18n="emptyTitle">Waehle eine Kachel aus.</h2>
+          <p data-i18n="emptyCopy">Dann erscheinen hier Geschichte, Preisniveau, Zukunftsdynamik und ein kurzer Charaktercheck.</p>
+        </div>
+      </section>
+
+      <section class="sources" id="quellen">
+        <h2 data-i18n="sourcesTitle">Quellen & Einordnung</h2>
+        <p>
+          Preis- und Markthinweise basieren auf oeffentlichen Marktindikatoren von
+          <a href="https://www.realtor.com/local/market/new-york/new-york-county/manhattan" target="_blank" rel="noreferrer">Realtor.com</a>,
+          <a href="https://streeteasy.com/blog/manhattan-rental-inventory-falls-24th-consecutive-month/" target="_blank" rel="noreferrer">StreetEasy</a>,
+          <a href="https://edc.nyc/sites/default/files/2026-04/NYCEDC-NYC-Economic-Snapshot-April-2026-Part2.pdf" target="_blank" rel="noreferrer">NYCEDC</a>,
+          <a href="https://www.mta.info/project/second-avenue-subway-phase-2" target="_blank" rel="noreferrer">MTA</a>,
+          <a href="https://www.hydc.org/" target="_blank" rel="noreferrer">Hudson Yards Development Corporation</a>,
+          <a href="https://edc.nyc/project/sparc-kips-bay" target="_blank" rel="noreferrer">SPARC Kips Bay</a>,
+          <a href="https://www.nyc.gov/site/escr/index.page" target="_blank" rel="noreferrer">East Side Coastal Resiliency</a>,
+          <a href="https://bpca.ny.gov/nature-and-sustainability/resiliency/" target="_blank" rel="noreferrer">Battery Park City Authority</a>
+          und Nachbarschaftsdaten aus Wikipedia. Die Website ersetzt keine Immobilienberatung.
+        </p>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

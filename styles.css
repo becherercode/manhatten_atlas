@@ -267,6 +267,59 @@ a {
   padding: 64px 0 24px;
 }
 
+.market-snapshot {
+  position: relative;
+  overflow: hidden;
+  margin-top: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 8px;
+  background:
+    linear-gradient(120deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.24)),
+    url("https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=1800&q=82")
+      center / cover;
+  color: #fff;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.18);
+  padding: clamp(22px, 4vw, 38px);
+}
+
+.market-snapshot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 38%),
+    radial-gradient(circle at 18% 16%, rgba(162, 210, 255, 0.24), transparent 22rem);
+  pointer-events: none;
+}
+
+.snapshot-copy,
+.market-snapshot .intro-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.snapshot-copy {
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+
+.snapshot-copy .eyebrow {
+  margin-bottom: 12px;
+}
+
+.snapshot-copy h3 {
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  font-weight: 800;
+  line-height: 0.96;
+  margin: 0;
+}
+
+.snapshot-copy p:last-child {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.62;
+  margin: 16px 0 0;
+}
+
 .intro-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -276,18 +329,18 @@ a {
 }
 
 .intro-grid article {
-  background: var(--panel-soft);
-  border: 1px solid rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 8px;
   padding: 30px;
   min-height: 190px;
-  box-shadow: var(--soft-shadow);
-  backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(22px) saturate(180%);
 }
 
 .stat {
   display: block;
-  color: var(--ink);
+  color: #fff;
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1;
@@ -299,7 +352,14 @@ a {
   font-size: 1.1rem;
 }
 
-.intro-grid p,
+.intro-grid h2 {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.intro-grid p {
+  color: rgba(255, 255, 255, 0.74);
+}
+
 .sources p {
   margin: 0;
   color: var(--muted);

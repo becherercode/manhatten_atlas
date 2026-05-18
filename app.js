@@ -377,7 +377,7 @@ const neighborhoods = [
     name: "Chinatown",
     region: "downtown",
     area: "Lower Manhattan",
-    imageTitle: "On Leong Chinese Merchants Association Building",
+    imageTitle: "Doyers Street",
     vibe: "Märkte, Restaurants, Familienbetriebe und Dichte",
     price: "$$",
     rent: "3.2k-4.8k",
@@ -843,8 +843,26 @@ function imageUrl(title) {
   return `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
 }
 
+const customImageSources = {
+  "Doyers Street":
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Doyers_Street_Chinatown.jpg?width=2400",
+  "Church of the Transfiguration, Mott Street":
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Church_of_the_Transfiguration%2C_Mott_Street%2C_Chinatown%2C_Manhattan%2C_New_York_%287237360222%29.jpg?width=2400",
+  "Mott Street":
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Mott_Street%2C_Chinatown%2C_Manhattan%2C_New_York_%287237361180%29.jpg?width=2400",
+  "Canal Street (Manhattan)":
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Canal_Street%2C_Chinatown%2C_Manhattan%2C_New_York_%287237368412%29.jpg?width=2400"
+};
+
 function safeAttr(value) {
   return String(value).replaceAll("&", "&amp;").replaceAll('"', "&quot;");
+}
+
+function setElementImage(element, source) {
+  const cleanSource = source.replace(/"/g, "%22");
+  element.style.setProperty("--image", `url("${cleanSource}")`);
+  element.style.setProperty("--detail-image", `url("${cleanSource}")`);
+  element.style.setProperty("--gallery-image", `url("${cleanSource}")`);
 }
 
 async function hydrateImages() {
@@ -852,14 +870,18 @@ async function hydrateImages() {
 
   cards.forEach(async (card) => {
     try {
+      const customSource = customImageSources[card.dataset.imageTitle];
+      if (customSource) {
+        setElementImage(card, customSource);
+        return;
+      }
+
       const response = await fetch(imageUrl(card.dataset.imageTitle), { mode: "cors" });
       if (!response.ok) return;
       const data = await response.json();
       const source = data?.originalimage?.source || data?.thumbnail?.source;
       if (source) {
-        card.style.setProperty("--image", `url("${source.replace(/"/g, "%22")}")`);
-        card.style.setProperty("--detail-image", `url("${source.replace(/"/g, "%22")}")`);
-        card.style.setProperty("--gallery-image", `url("${source.replace(/"/g, "%22")}")`);
+        setElementImage(card, source);
       }
     } catch {
       card.classList.add("image-fallback");
@@ -1131,10 +1153,10 @@ function galleryTitles(item) {
     "SoHo": ["SoHo, Manhattan", "Cast-iron architecture", "Greene Street", "Haughwout Building"],
     "TriBeCa": ["Tribeca", "Tribeca Festival", "Hudson River Park", "New York Mercantile Exchange"],
     "Chinatown": [
-      "On Leong Chinese Merchants Association Building",
+      "Doyers Street",
+      "Church of the Transfiguration, Mott Street",
       "Mott Street",
-      "Mahayana Buddhist Temple",
-      "Edward Mooney House"
+      "Canal Street (Manhattan)"
     ],
     "NoHo": ["NoHo, Manhattan", "Astor Place", "The Public Theater", "Cooper Union"],
     "Financial District": ["Financial District, Manhattan", "Wall Street", "New York Stock Exchange", "South Street Seaport"],

@@ -1400,16 +1400,16 @@ function renderDetail(item) {
           <div class="fact"><span>${t("rentFact")}</span><strong>$${item.rent}</strong></div>
           <div class="fact"><span>${t("futureFact")}</span><strong>${item.future}</strong></div>
         </div>
-        <div class="analysis-grid">
-          ${analysisCard(t("analysisOverview"), extra.description, expandedText(item, extra, "overview"), { featured: true })}
-          ${analysisCard(t("analysisHistory"), item.history, expandedText(item, extra, "history"))}
-          ${analysisCard(t("analysisPrices"), item.prices, expandedText(item, extra, "prices"))}
-          ${analysisCard(t("analysisFuture"), item.outlook, expandedText(item, extra, "outlook"))}
-          ${analysisCard(t("analysisProjects"), extra.developments, expandedText(item, extra, "developments"))}
-          ${analysisCard(t("analysisEvents"), extra.events, expandedText(item, extra, "events"))}
-          ${analysisCard(t("analysisExpectation"), extra.expectation, expandedText(item, extra, "expectation"), { featured: true })}
-          ${analysisCard(t("analysisCharacter"), item.character, expandedText(item, extra, "character"))}
-        </div>
+      </div>
+      <div class="analysis-grid">
+        ${analysisCard(t("analysisOverview"), extra.description, expandedText(item, extra, "overview"), { featured: true })}
+        ${analysisCard(t("analysisHistory"), item.history, expandedText(item, extra, "history"))}
+        ${analysisCard(t("analysisPrices"), item.prices, expandedText(item, extra, "prices"))}
+        ${analysisCard(t("analysisFuture"), item.outlook, expandedText(item, extra, "outlook"))}
+        ${analysisCard(t("analysisProjects"), extra.developments, expandedText(item, extra, "developments"))}
+        ${analysisCard(t("analysisEvents"), extra.events, expandedText(item, extra, "events"))}
+        ${analysisCard(t("analysisExpectation"), extra.expectation, expandedText(item, extra, "expectation"), { featured: true })}
+        ${analysisCard(t("analysisCharacter"), item.character, expandedText(item, extra, "character"))}
       </div>
     </article>
   `;

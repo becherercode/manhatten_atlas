@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nachbarschaften von Manhatten</title>
     <link rel="preconnect" href="https://en.wikipedia.org" />
-    <link rel="stylesheet" href="./styles.css?v=16" />
+    <link rel="stylesheet" href="./styles.css?v=17" />
   </head>
   <body>
     <header class="hero">
@@ -71,9 +71,9 @@
 
         <div class="market-snapshot" aria-label="Manhattan Marktueberblick">
           <div class="snapshot-copy">
-            <p class="eyebrow">Market snapshot</p>
-            <h3>Manhattan auf einen Blick</h3>
-            <p>Ein kurzer Marktimpuls, bevor du zwei Nachbarschaften direkt vergleichst.</p>
+            <p class="eyebrow" data-i18n="marketEyebrow">Market snapshot</p>
+            <h3 data-i18n="marketTitle">Manhattan auf einen Blick</h3>
+            <p data-i18n="marketCopy">Ein kurzer Marktimpuls, bevor du zwei Nachbarschaften direkt vergleichst.</p>
           </div>
           <div class="intro-grid">
             <article>
@@ -83,12 +83,12 @@
             </article>
             <article>
               <span class="stat">+6.8</span>
-              <h2>Rent Index</h2>
+              <h2 data-i18n="statIndexTitle">Rent Index</h2>
               <p data-i18n="statIndexCopy">NYCEDC zeigte im April 2026 einen StreetEasy Rent Index deutlich ueber Vor-Covid-Niveau.</p>
             </article>
             <article>
               <span class="stat">26</span>
-              <h2>Profile</h2>
+              <h2 data-i18n="statProfilesTitle">Profile</h2>
               <p data-i18n="statProfilesCopy">Vom historischen Inwood bis zum Financial District: kompakte Kacheln fuer schnelle Vergleiche.</p>
             </article>
           </div>
@@ -120,7 +120,7 @@
       <section class="sources" id="quellen">
         <h2 data-i18n="sourcesTitle">Quellen & Einordnung</h2>
         <p>
-          Preis- und Markthinweise basieren auf oeffentlichen Marktindikatoren von
+          <span data-i18n="sourcesPrefix">Preis- und Markthinweise basieren auf oeffentlichen Marktindikatoren von</span>
           <a href="https://www.realtor.com/local/market/new-york/new-york-county/manhattan" target="_blank" rel="noreferrer">Realtor.com</a>,
           <a href="https://streeteasy.com/blog/manhattan-rental-inventory-falls-24th-consecutive-month/" target="_blank" rel="noreferrer">StreetEasy</a>,
           <a href="https://edc.nyc/sites/default/files/2026-04/NYCEDC-NYC-Economic-Snapshot-April-2026-Part2.pdf" target="_blank" rel="noreferrer">NYCEDC</a>,
@@ -129,11 +129,11 @@
           <a href="https://edc.nyc/project/sparc-kips-bay" target="_blank" rel="noreferrer">SPARC Kips Bay</a>,
           <a href="https://www.nyc.gov/site/escr/index.page" target="_blank" rel="noreferrer">East Side Coastal Resiliency</a>,
           <a href="https://bpca.ny.gov/nature-and-sustainability/resiliency/" target="_blank" rel="noreferrer">Battery Park City Authority</a>
-          und Nachbarschaftsdaten aus Wikipedia. Die Website ersetzt keine Immobilienberatung.
+          <span data-i18n="sourcesSuffix">und Nachbarschaftsdaten aus Wikipedia. Die Website ersetzt keine Immobilienberatung.</span>
         </p>
       </section>
     </main>
 
-    <script src="./app.js?v=16"></script>
+    <script src="./app.js?v=17"></script>
   </body>
 </html>

@@ -493,6 +493,13 @@ const translations = {
       "NYCEDC zeigte im April 2026 einen StreetEasy Rent Index deutlich ueber Vor-Covid-Niveau.",
     statProfilesCopy:
       "Vom historischen Inwood bis zum Financial District: kompakte Kacheln fuer schnelle Vergleiche.",
+    marketEyebrow: "Market snapshot",
+    marketTitle: "Manhattan auf einen Blick",
+    marketCopy: "Ein kurzer Marktimpuls, bevor du zwei Nachbarschaften direkt vergleichst.",
+    statIndexTitle: "Rent Index",
+    statProfilesTitle: "Profile",
+    sourcesPrefix: "Preis- und Markthinweise basieren auf oeffentlichen Marktindikatoren von",
+    sourcesSuffix: "und Nachbarschaftsdaten aus Wikipedia. Die Website ersetzt keine Immobilienberatung.",
     compareEyebrow: "Zwei Viertel",
     compareTitle: "Viertel vergleichen",
     compareFirst: "Erstes Viertel",
@@ -544,6 +551,13 @@ const translations = {
       "In April 2026, NYCEDC showed a StreetEasy rent index clearly above its pre-Covid level.",
     statProfilesCopy:
       "From historic Inwood to the Financial District: compact cards for quick comparison.",
+    marketEyebrow: "Market snapshot",
+    marketTitle: "Manhattan at a glance",
+    marketCopy: "A quick market pulse before comparing two neighborhoods directly.",
+    statIndexTitle: "Rent Index",
+    statProfilesTitle: "Profiles",
+    sourcesPrefix: "Price and market notes are based on public indicators from",
+    sourcesSuffix: "and neighborhood data from Wikipedia. This website does not replace real-estate advice.",
     compareEyebrow: "Two neighborhoods",
     compareTitle: "Compare neighborhoods",
     compareFirst: "First neighborhood",
@@ -595,6 +609,13 @@ const translations = {
       "En abril de 2026, NYCEDC mostro un indice de renta de StreetEasy claramente por encima del nivel previo al Covid.",
     statProfilesCopy:
       "Desde el historico Inwood hasta el Financial District: tarjetas compactas para comparar rapido.",
+    marketEyebrow: "Resumen del mercado",
+    marketTitle: "Manhattan de un vistazo",
+    marketCopy: "Un pulso rapido del mercado antes de comparar dos barrios directamente.",
+    statIndexTitle: "Indice de renta",
+    statProfilesTitle: "Perfiles",
+    sourcesPrefix: "Las notas de precios y mercado se basan en indicadores publicos de",
+    sourcesSuffix: "y datos de barrios de Wikipedia. Esta web no sustituye el asesoramiento inmobiliario.",
     compareEyebrow: "Dos barrios",
     compareTitle: "Comparar barrios",
     compareFirst: "Primer barrio",
@@ -646,6 +667,13 @@ const translations = {
       "En avril 2026, NYCEDC montrait un indice de loyers StreetEasy nettement au-dessus du niveau pre-Covid.",
     statProfilesCopy:
       "De l'historique Inwood au Financial District : des cartes compactes pour comparer rapidement.",
+    marketEyebrow: "Apercu du marche",
+    marketTitle: "Manhattan en un coup d'oeil",
+    marketCopy: "Un signal rapide du marche avant de comparer deux quartiers directement.",
+    statIndexTitle: "Indice des loyers",
+    statProfilesTitle: "Profils",
+    sourcesPrefix: "Les indications de prix et de marche s'appuient sur des indicateurs publics de",
+    sourcesSuffix: "et des donnees de quartier issues de Wikipedia. Ce site ne remplace pas un conseil immobilier.",
     compareEyebrow: "Deux quartiers",
     compareTitle: "Comparer les quartiers",
     compareFirst: "Premier quartier",
@@ -697,6 +725,13 @@ const translations = {
       "Em abril de 2026, a NYCEDC mostrou um indice de aluguel StreetEasy claramente acima do nivel pre-Covid.",
     statProfilesCopy:
       "Do historico Inwood ao Financial District: cartoes compactos para comparar rapidamente.",
+    marketEyebrow: "Resumo do mercado",
+    marketTitle: "Manhattan em um olhar",
+    marketCopy: "Um pulso rapido do mercado antes de comparar dois bairros diretamente.",
+    statIndexTitle: "Indice de aluguel",
+    statProfilesTitle: "Perfis",
+    sourcesPrefix: "As notas de preco e mercado se baseiam em indicadores publicos de",
+    sourcesSuffix: "e dados de bairros da Wikipedia. Este site nao substitui consultoria imobiliaria.",
     compareEyebrow: "Dois bairros",
     compareTitle: "Comparar bairros",
     compareFirst: "Primeiro bairro",
@@ -748,6 +783,13 @@ const translations = {
       "NYCEDC 在 2026 年 4 月显示，StreetEasy 租金指数明显高于疫情前水平。",
     statProfilesCopy:
       "从历史悠久的 Inwood 到 Financial District：用紧凑卡片快速比较。",
+    marketEyebrow: "市场概览",
+    marketTitle: "曼哈顿一览",
+    marketCopy: "在直接比较两个街区之前，先快速了解市场脉搏。",
+    statIndexTitle: "租金指数",
+    statProfilesTitle: "街区档案",
+    sourcesPrefix: "价格和市场说明基于以下公开指标：",
+    sourcesSuffix: "以及 Wikipedia 的街区资料。本网站不能替代房地产建议。",
     compareEyebrow: "两个街区",
     compareTitle: "比较街区",
     compareFirst: "第一个街区",
@@ -841,12 +883,13 @@ function renderCards() {
     ? filtered
         .map((item) => {
           const originalIndex = neighborhoods.indexOf(item);
+          const localized = localizedNeighborhood(item);
           return `
             <button class="card" type="button" data-name="${item.name}" data-image-title="${item.imageTitle}" style="--image: ${fallbackGradient(originalIndex)}">
               <span class="card-content">
                 <span class="card-kicker"><span>${item.area}</span><span>${stars(item.price)}</span></span>
                 <h3>${item.name}</h3>
-                <p>${item.vibe}</p>
+                <p>${localized.vibe}</p>
                 <span class="price-row"><span>${t("rentLabel")}</span><strong>$${item.rent}/${t("monthLabel")}</strong></span>
               </span>
             </button>
@@ -880,7 +923,116 @@ function paragraphs(items) {
   return items.map((text) => `<span class="analysis-paragraph">${text}</span>`).join("");
 }
 
+function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) {
+  if (currentLanguage === "de") {
+    return {
+      vibe: item.vibe,
+      future: item.future,
+      history: item.history,
+      prices: item.prices,
+      outlook: item.outlook,
+      character: item.character,
+      description: extra.description || item.character,
+      developments: extra.developments || item.outlook,
+      events: extra.events || "Lokale Parks, Restaurants, Kulturorte und saisonale Strassenprogramme praegen den Alltag.",
+      expectation: extra.expectation || item.future
+    };
+  }
+
+  const copy = {
+    en: {
+      vibe: `${item.name} combines architecture, street life and local identity in ${item.area}.`,
+      future: "active long-term transformation",
+      description: `${item.name} is best understood through its location, architecture and everyday rhythm. The neighborhood mixes housing, public life, cultural anchors and changing real-estate demand into a distinct Manhattan profile.`,
+      history: `${item.name} developed through several layers of Manhattan history: transport corridors, housing growth, immigration, commerce, cultural institutions and later waves of reinvestment. Those layers are still visible in the street grid, building types and local businesses.`,
+      prices: `The rent range of about $${item.rent} per month is a practical orientation point. Actual prices vary strongly by building age, light, elevator, amenities, subway access and proximity to parks or the waterfront. The relative price level here is ${item.price}.`,
+      outlook: `${item.name} is likely to keep evolving through a mix of housing demand, public-space upgrades, climate resilience, transit access and commercial change. Its future depends on whether new investment supports everyday neighborhood life.`,
+      developments: `Development pressure in and around ${item.name} is shaped by selective renovation, new housing where zoning allows it, upgraded public space and nearby institutional or infrastructure projects. The most visible change will probably appear along key corridors rather than on every block.`,
+      events: `The cultural life of ${item.name} is carried by parks, restaurants, galleries, performance spaces, schools, markets and recurring neighborhood events. These moments show when the area becomes more than a residential market and turns into a public stage.`,
+      expectation: `The likely outlook is continued demand with uneven change from block to block. ${item.name} should become more valuable when it combines mobility, identity, public space and stable local services.`,
+      character: `${item.name} feels defined by ${item.vibe.toLowerCase()}. Its appeal comes from the way daily routines, architecture and public life meet at street level.`
+    },
+    es: {
+      vibe: `${item.name} combina arquitectura, vida urbana e identidad local en ${item.area}.`,
+      future: "transformacion activa a largo plazo",
+      description: `${item.name} se entiende mejor por su ubicacion, su arquitectura y su ritmo cotidiano. El barrio mezcla vivienda, vida publica, cultura y demanda inmobiliaria en un perfil muy propio de Manhattan.`,
+      history: `${item.name} se formo por capas de historia urbana: transporte, crecimiento residencial, inmigracion, comercio, instituciones culturales y nuevas olas de inversion. Esas capas todavia se leen en las calles, los edificios y los negocios locales.`,
+      prices: `La renta estimada de unos $${item.rent} al mes sirve como orientacion. Los precios reales cambian mucho segun edificio, luz, ascensor, servicios, metro y cercania a parques o al agua. El nivel relativo de precios aqui es ${item.price}.`,
+      outlook: `${item.name} seguira cambiando por la demanda de vivienda, mejoras del espacio publico, resiliencia climatica, transporte y transformacion comercial. Su futuro dependera de que la inversion mejore tambien la vida diaria del barrio.`,
+      developments: `Los proyectos alrededor de ${item.name} se concentran en renovaciones, vivienda nueva donde la normativa lo permite, mejores espacios publicos e infraestructura cercana. El cambio sera mas visible en corredores clave que en cada manzana.`,
+      events: `La vida cultural de ${item.name} se apoya en parques, restaurantes, galerias, espacios de espectaculo, escuelas, mercados y eventos recurrentes. Ahi se ve cuando el barrio es mas que un mercado residencial.`,
+      expectation: `La expectativa es una demanda sostenida con cambios desiguales por manzana. ${item.name} ganara valor si combina movilidad, identidad, espacio publico y servicios locales estables.`,
+      character: `${item.name} se define por ${item.vibe.toLowerCase()}. Su atractivo nace del encuentro entre rutinas diarias, arquitectura y vida en la calle.`
+    },
+    fr: {
+      vibe: `${item.name} associe architecture, vie de rue et identite locale dans ${item.area}.`,
+      future: "transformation active a long terme",
+      description: `${item.name} se comprend par sa position, son architecture et son rythme quotidien. Le quartier combine logement, vie publique, lieux culturels et demande immobiliere dans un profil tres manhattanien.`,
+      history: `${item.name} s'est construit par couches successives : transports, habitat, immigration, commerce, institutions culturelles puis reinvestissement. Ces traces restent visibles dans les rues, les immeubles et les commerces.`,
+      prices: `La fourchette d'environ $${item.rent} par mois sert de repere. Les prix varient selon l'immeuble, la lumiere, l'ascenseur, les services, le metro et la proximite des parcs ou de l'eau. Le niveau relatif est ${item.price}.`,
+      outlook: `${item.name} devrait continuer a evoluer avec la demande residentielle, les espaces publics, la resilience climatique, les transports et le commerce. Son avenir dependra de la qualite de cette transformation au quotidien.`,
+      developments: `Les projets autour de ${item.name} passent par des renovations, du logement neuf lorsque le zonage le permet, des espaces publics ameliores et des infrastructures proches. Le changement sera surtout visible sur certains axes.`,
+      events: `La vie culturelle de ${item.name} s'appuie sur parcs, restaurants, galeries, scenes, ecoles, marches et evenements recurrents. Ces moments montrent quand le quartier devient une scene publique.`,
+      expectation: `La perspective la plus probable est une demande durable avec des changements inegaux selon les rues. ${item.name} prendra de la valeur s'il combine mobilite, identite et services locaux solides.`,
+      character: `${item.name} est marque par ${item.vibe.toLowerCase()}. Son attrait vient de la rencontre entre usages quotidiens, architecture et vie de rue.`
+    },
+    pt: {
+      vibe: `${item.name} combina arquitetura, vida de rua e identidade local em ${item.area}.`,
+      future: "transformacao ativa de longo prazo",
+      description: `${item.name} e melhor entendido pela localizacao, pela arquitetura e pelo ritmo cotidiano. O bairro mistura moradia, vida publica, cultura e demanda imobiliaria em um perfil tipico de Manhattan.`,
+      history: `${item.name} cresceu em camadas: transporte, habitacao, imigracao, comercio, instituicoes culturais e novas ondas de investimento. Essas camadas ainda aparecem nas ruas, nos edificios e nos negocios locais.`,
+      prices: `A faixa de aluguel de cerca de $${item.rent} por mes serve como orientacao. Os precos variam conforme predio, luz, elevador, servicos, acesso ao metro e proximidade de parques ou da agua. O nivel relativo aqui e ${item.price}.`,
+      outlook: `${item.name} deve continuar mudando com demanda por moradia, melhorias urbanas, resiliencia climatica, transporte e comercio. O futuro depende de a nova valorizacao tambem fortalecer a vida diaria do bairro.`,
+      developments: `Os projetos em torno de ${item.name} passam por reformas, novas moradias onde o zoneamento permite, espacos publicos melhores e infraestrutura proxima. A mudanca deve aparecer mais em corredores especificos.`,
+      events: `A vida cultural de ${item.name} vem de parques, restaurantes, galerias, espacos de apresentacao, escolas, mercados e eventos recorrentes. Esses momentos mostram o bairro como palco publico.`,
+      expectation: `A tendencia e demanda continua, com mudancas diferentes de rua para rua. ${item.name} ganha valor quando combina mobilidade, identidade, espaco publico e servicos locais estaveis.`,
+      character: `${item.name} se define por ${item.vibe.toLowerCase()}. O apelo esta no encontro entre rotina diaria, arquitetura e vida nas ruas.`
+    },
+    zh: {
+      vibe: `${item.name} 将建筑、街道生活和本地身份结合在 ${item.area}。`,
+      future: "长期持续转型",
+      description: `${item.name} 可以从位置、建筑和日常节奏来理解。这里把居住、公共生活、文化节点和房地产需求结合成一个具有曼哈顿特征的街区。`,
+      history: `${item.name} 的形成经历了多层城市历史：交通发展、住宅增长、移民、商业、文化机构以及后来的再投资。这些层次仍然体现在街道、建筑类型和本地商铺中。`,
+      prices: `约 $${item.rent} 每月的租金区间可作为参考。实际价格会因楼龄、采光、电梯、配套、地铁距离以及公园或水岸位置而变化。这里的相对价格水平是 ${item.price}。`,
+      outlook: `${item.name} 未来会继续受到住房需求、公共空间改善、气候韧性、交通和商业变化的影响。关键在于新的投资能否同时提升日常街区生活。`,
+      developments: `${item.name} 周边的发展主要来自翻新、允许范围内的新住宅、公共空间升级以及附近基础设施项目。变化通常会先出现在主要街道和走廊。`,
+      events: `${item.name} 的文化生活来自公园、餐厅、画廊、表演空间、学校、市场和定期活动。这些活动让街区不只是居住市场，也成为公共舞台。`,
+      expectation: `更可能的趋势是需求持续，但不同街段变化不均。若 ${item.name} 能结合交通、身份、公共空间和稳定的本地服务，它的价值会继续增强。`,
+      character: `${item.name} 的气质来自${item.vibe}。它的吸引力在于日常生活、建筑和街道公共性之间的结合。`
+    }
+  };
+
+  return copy[currentLanguage] || copy.en;
+}
+
 function expandedText(item, extra, type) {
+  const localized = localizedNeighborhood(item, extra);
+  if (currentLanguage !== "de") {
+    const texts = {
+      overview: [
+        localized.description,
+        localized.outlook,
+        localized.expectation
+      ],
+      history: [
+        localized.history,
+        currentLanguage === "zh"
+          ? `从街道尺度、建筑形式和公共空间可以读出 ${item.name} 的历史。新的项目不仅改变价格，也改变人群、商业和日常节奏。`
+          : `${item.name} should be read through street scale, building types and public life. New projects do not only change prices; they also change who uses the area, how businesses work and how the neighborhood feels day to day.`,
+        currentLanguage === "zh"
+          ? `因此，历史不是附加信息，而是理解 ${item.name} 未来变化的基础。`
+          : `For that reason, history is not background decoration. It is the foundation for understanding how ${item.name} may change in the coming years.`
+      ],
+      prices: [localized.prices, localized.expectation],
+      outlook: [localized.outlook, localized.expectation],
+      developments: [localized.developments, localized.outlook],
+      events: [localized.events, localized.character],
+      expectation: [localized.expectation, localized.outlook],
+      character: [localized.character, localized.description]
+    };
+    return texts[type] || [localized.character];
+  }
+
   const texts = {
     overview: [
       extra.description,
@@ -1092,27 +1244,29 @@ function renderComparison() {
 
   const firstExtra = extendedProfiles[first.name];
   const secondExtra = extendedProfiles[second.name];
+  const firstLocalized = localizedNeighborhood(first, firstExtra);
+  const secondLocalized = localizedNeighborhood(second, secondExtra);
 
   comparisonOutput.innerHTML = `
     <div class="comparison-grid">
       <article class="comparison-card">
         <span>${first.area}</span>
         <h3>${first.name}</h3>
-        <p>${shortText(firstExtra.description, 210)}</p>
+        <p>${shortText(firstLocalized.description, 210)}</p>
       </article>
       <article class="comparison-card">
         <span>${second.area}</span>
         <h3>${second.name}</h3>
-        <p>${shortText(secondExtra.description, 210)}</p>
+        <p>${shortText(secondLocalized.description, 210)}</p>
       </article>
     </div>
     <div class="comparison-table">
       ${compareRow(t("comparePrice"), first.price, second.price)}
       ${compareRow(t("compareRent"), `$${first.rent}/${t("monthLabel")}`, `$${second.rent}/${t("monthLabel")}`)}
-      ${compareRow(t("compareFuture"), first.future, second.future)}
-      ${compareRow(t("compareCharacter"), first.character, second.character)}
-      ${compareRow(t("compareProjects"), firstExtra.developments, secondExtra.developments)}
-      ${compareRow(t("compareEvents"), firstExtra.events, secondExtra.events)}
+      ${compareRow(t("compareFuture"), firstLocalized.future, secondLocalized.future)}
+      ${compareRow(t("compareCharacter"), firstLocalized.character, secondLocalized.character)}
+      ${compareRow(t("compareProjects"), firstLocalized.developments, secondLocalized.developments)}
+      ${compareRow(t("compareEvents"), firstLocalized.events, secondLocalized.events)}
     </div>
   `;
 }
@@ -1388,28 +1542,29 @@ function renderDetail(item) {
     events: "Lokale Parks, Restaurants, Kulturorte und saisonale Strassenprogramme praegen den Alltag.",
     expectation: item.future
   };
+  const localized = localizedNeighborhood(item, extra);
   detailPanel.innerHTML = `
     <article class="detail">
       ${galleryMarkup(item, index)}
       <div class="detail-copy">
         <p class="eyebrow">${item.area}</p>
         <h2>${item.name}</h2>
-        <p class="summary">${extra.description}</p>
+        <p class="summary">${localized.description}</p>
         <div class="facts" aria-label="Kurzwerte">
           <div class="fact"><span>${t("priceLevel")}</span><strong>${item.price}</strong></div>
           <div class="fact"><span>${t("rentFact")}</span><strong>$${item.rent}</strong></div>
-          <div class="fact"><span>${t("futureFact")}</span><strong>${item.future}</strong></div>
+          <div class="fact"><span>${t("futureFact")}</span><strong>${localized.future}</strong></div>
         </div>
       </div>
       <div class="analysis-grid">
-        ${analysisCard(t("analysisOverview"), extra.description, expandedText(item, extra, "overview"), { featured: true })}
-        ${analysisCard(t("analysisHistory"), item.history, expandedText(item, extra, "history"))}
-        ${analysisCard(t("analysisPrices"), item.prices, expandedText(item, extra, "prices"))}
-        ${analysisCard(t("analysisFuture"), item.outlook, expandedText(item, extra, "outlook"))}
-        ${analysisCard(t("analysisProjects"), extra.developments, expandedText(item, extra, "developments"))}
-        ${analysisCard(t("analysisEvents"), extra.events, expandedText(item, extra, "events"))}
-        ${analysisCard(t("analysisCharacter"), item.character, expandedText(item, extra, "character"))}
-        ${analysisCard(t("analysisExpectation"), extra.expectation, expandedText(item, extra, "expectation"), { featured: true })}
+        ${analysisCard(t("analysisOverview"), localized.description, expandedText(item, extra, "overview"), { featured: true })}
+        ${analysisCard(t("analysisHistory"), localized.history, expandedText(item, extra, "history"))}
+        ${analysisCard(t("analysisPrices"), localized.prices, expandedText(item, extra, "prices"))}
+        ${analysisCard(t("analysisFuture"), localized.outlook, expandedText(item, extra, "outlook"))}
+        ${analysisCard(t("analysisProjects"), localized.developments, expandedText(item, extra, "developments"))}
+        ${analysisCard(t("analysisEvents"), localized.events, expandedText(item, extra, "events"))}
+        ${analysisCard(t("analysisCharacter"), localized.character, expandedText(item, extra, "character"))}
+        ${analysisCard(t("analysisExpectation"), localized.expectation, expandedText(item, extra, "expectation"), { featured: true })}
       </div>
     </article>
   `;

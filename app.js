@@ -801,6 +801,10 @@ function imageUrl(title) {
   return `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
 }
 
+function safeAttr(value) {
+  return String(value).replaceAll("&", "&amp;").replaceAll('"', "&quot;");
+}
+
 async function hydrateImages() {
   const cards = document.querySelectorAll("[data-image-title]");
 
@@ -813,6 +817,7 @@ async function hydrateImages() {
       if (source) {
         card.style.setProperty("--image", `url("${source.replace(/"/g, "%22")}")`);
         card.style.setProperty("--detail-image", `url("${source.replace(/"/g, "%22")}")`);
+        card.style.setProperty("--gallery-image", `url("${source.replace(/"/g, "%22")}")`);
       }
     } catch {
       card.classList.add("image-fallback");
@@ -922,6 +927,101 @@ function expandedText(item, extra, type) {
   };
 
   return texts[type] || [item.character];
+}
+
+function galleryTitles(item) {
+  const galleries = {
+    "Inwood": ["Inwood Hill Park", "Fort Tryon Park", "The Cloisters", "Dyckman Street"],
+    "Washington Heights": [
+      "Washington Heights, Manhattan",
+      "George Washington Bridge",
+      "United Palace",
+      "Fort Tryon Park"
+    ],
+    "Hamilton Heights": [
+      "Hamilton Heights, Manhattan",
+      "Hamilton Grange National Memorial",
+      "City College of New York",
+      "Riverbank State Park"
+    ],
+    "Harlem": ["Harlem", "Apollo Theater", "125th Street (Manhattan)", "Strivers' Row"],
+    "East Harlem": ["East Harlem", "El Museo del Barrio", "Museum of the City of New York", "La Marqueta"],
+    "Morningside Heights": [
+      "Morningside Heights",
+      "Columbia University",
+      "Riverside Church",
+      "Cathedral of Saint John the Divine"
+    ],
+    "Upper West Side": [
+      "Upper West Side",
+      "American Museum of Natural History",
+      "Lincoln Center",
+      "Riverside Park (Manhattan)"
+    ],
+    "Upper East Side": [
+      "Upper East Side",
+      "Metropolitan Museum of Art",
+      "Guggenheim Museum",
+      "Park Avenue"
+    ],
+    "Hell's Kitchen": ["Hell's Kitchen, Manhattan", "Restaurant Row (New York City)", "Hudson River Park", "Theater District, Manhattan"],
+    "Midtown": ["Midtown Manhattan", "Grand Central Terminal", "Rockefeller Center", "Empire State Building"],
+    "Murray Hill": ["Murray Hill, Manhattan", "The Morgan Library & Museum", "United Nations Headquarters", "Park Avenue"],
+    "Kips Bay": ["Kips Bay, Manhattan", "Bellevue Hospital", "NYU Langone Health", "East River"],
+    "Chelsea": ["Chelsea, Manhattan", "High Line", "Chelsea Market", "Chelsea Piers"],
+    "Hudson Yards": ["Hudson Yards, Manhattan", "30 Hudson Yards", "The Shed (Hudson Yards)", "Vessel (structure)"],
+    "Flatiron": ["Flatiron Building", "Flatiron District", "Madison Square", "Metropolitan Life Insurance Company Tower"],
+    "Gramercy": ["Gramercy Park", "Gramercy Park Historic District", "The Players (New York City)", "Irving Plaza"],
+    "Greenwich Village": ["Greenwich Village", "Washington Square Park", "Stonewall Inn", "Village Vanguard"],
+    "West Village": ["West Village", "Bleecker Street", "Stonewall Inn", "Hudson River Park"],
+    "East Village": ["East Village, Manhattan", "Tompkins Square Park", "St. Mark's Place", "Cooper Union"],
+    "Lower East Side": ["Lower East Side", "Tenement Museum", "Essex Market", "Katz's Delicatessen"],
+    "SoHo": ["SoHo, Manhattan", "Cast-iron architecture", "Greene Street", "Haughwout Building"],
+    "TriBeCa": ["Tribeca", "Tribeca Festival", "Hudson River Park", "New York Mercantile Exchange"],
+    "Chinatown": ["Chinatown, Manhattan", "Doyers Street", "Canal Street (Manhattan)", "Mahayana Buddhist Temple"],
+    "NoHo": ["NoHo, Manhattan", "Astor Place", "The Public Theater", "Cooper Union"],
+    "Financial District": ["Financial District, Manhattan", "Wall Street", "New York Stock Exchange", "South Street Seaport"],
+    "Battery Park City": ["Battery Park City", "Brookfield Place (New York City)", "Wagner Park", "Hudson River Park"]
+  };
+
+  return [...new Set(galleries[item.name] || [item.imageTitle, item.name, `${item.name}, Manhattan`])].slice(0, 4);
+}
+
+function galleryMarkup(item, index) {
+  const titles = galleryTitles(item);
+  return `
+    <div class="detail-image gallery-shell" aria-label="Bildgalerie ${safeAttr(item.name)}">
+      <div class="gallery-track" data-gallery-track>
+        ${titles
+          .map(
+            (title, imageIndex) => `
+              <div class="gallery-slide" data-image-title="${safeAttr(title)}" style="--gallery-image: ${fallbackGradient(index + imageIndex)}">
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+      <div class="gallery-dots" aria-hidden="true">
+        ${titles.map((_, dotIndex) => `<span class="gallery-dot${dotIndex === 0 ? " active" : ""}"></span>`).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function bindGalleries() {
+  document.querySelectorAll("[data-gallery-track]").forEach((track) => {
+    const shell = track.closest(".gallery-shell");
+    const dots = shell?.querySelectorAll(".gallery-dot") || [];
+    if (!dots.length) return;
+
+    const updateDots = () => {
+      const index = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+      dots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === index));
+    };
+
+    track.addEventListener("scroll", updateDots, { passive: true });
+    updateDots();
+  });
 }
 
 function analysisCard(title, summary, fullParagraphs, options = {}) {
@@ -1290,7 +1390,7 @@ function renderDetail(item) {
   };
   detailPanel.innerHTML = `
     <article class="detail">
-      <div class="detail-image" data-image-title="${item.imageTitle}" style="--detail-image: ${fallbackGradient(index)}" aria-label="Bildmotiv ${item.name}"></div>
+      ${galleryMarkup(item, index)}
       <div class="detail-copy">
         <p class="eyebrow">${item.area}</p>
         <h2>${item.name}</h2>
@@ -1315,6 +1415,7 @@ function renderDetail(item) {
   `;
   hydrateImages();
   bindAnalysisCards();
+  bindGalleries();
 }
 
 function applyLanguage(language) {

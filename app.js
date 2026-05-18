@@ -377,7 +377,7 @@ const neighborhoods = [
     name: "Chinatown",
     region: "downtown",
     area: "Lower Manhattan",
-    imageTitle: "Chinatown, Manhattan",
+    imageTitle: "On Leong Chinese Merchants Association Building",
     vibe: "Märkte, Restaurants, Familienbetriebe und Dichte",
     price: "$$",
     rent: "3.2k-4.8k",
@@ -1130,7 +1130,12 @@ function galleryTitles(item) {
     "Lower East Side": ["Lower East Side", "Tenement Museum", "Essex Market", "Katz's Delicatessen"],
     "SoHo": ["SoHo, Manhattan", "Cast-iron architecture", "Greene Street", "Haughwout Building"],
     "TriBeCa": ["Tribeca", "Tribeca Festival", "Hudson River Park", "New York Mercantile Exchange"],
-    "Chinatown": ["Chinatown, Manhattan", "Doyers Street", "Canal Street (Manhattan)", "Mahayana Buddhist Temple"],
+    "Chinatown": [
+      "On Leong Chinese Merchants Association Building",
+      "Mott Street",
+      "Mahayana Buddhist Temple",
+      "Edward Mooney House"
+    ],
     "NoHo": ["NoHo, Manhattan", "Astor Place", "The Public Theater", "Cooper Union"],
     "Financial District": ["Financial District, Manhattan", "Wall Street", "New York Stock Exchange", "South Street Seaport"],
     "Battery Park City": ["Battery Park City", "Brookfield Place (New York City)", "Wagner Park", "Hudson River Park"]

@@ -482,7 +482,7 @@ const translations = {
     heroEyebrow: "Geschichte, Preise, Zukunft",
     heroTitle: "Nachbarschaften von Manhatten",
     heroCopy:
-      "Kacheln für die wichtigsten Viertel, kurze Analysen und Bildmotive, die den Charakter jedes Ortes zeigen. Die Preisangaben sind bewusst als Marktspannen und Niveau eingeordnet.",
+      "Ein kuratierter Atlas der wichtigsten Manhattan-Viertel mit prägnanten Markt-, Geschichts- und Zukunftsanalysen sowie hochwertigen Bildern, die den Charakter jedes Ortes sichtbar machen.",
     searchLabel: "Suchen",
     searchPlaceholder: "z.B. Harlem, SoHo, Chelsea",
     regionAll: "Alle",
@@ -540,7 +540,7 @@ const translations = {
     heroEyebrow: "History, prices, future",
     heroTitle: "Neighborhoods of Manhattan",
     heroCopy:
-      "Clickable cards for the most important neighborhoods, concise analysis and images that show the character of each place. Prices are framed as market ranges and relative levels.",
+      "A curated atlas of Manhattan's key neighborhoods, combining concise market, history and future analysis with high-quality imagery that reveals each place's character.",
     searchLabel: "Search",
     searchPlaceholder: "e.g. Harlem, SoHo, Chelsea",
     regionAll: "All",
@@ -598,7 +598,7 @@ const translations = {
     heroEyebrow: "Historia, precios, futuro",
     heroTitle: "Barrios de Manhattan",
     heroCopy:
-      "Tarjetas clicables para los barrios mas importantes, analisis breve e imagenes que muestran el caracter de cada lugar. Los precios se presentan como rangos de mercado.",
+      "Un atlas curado de los barrios clave de Manhattan, con análisis de mercado, historia y futuro, además de imágenes de alta calidad que revelan el carácter de cada lugar.",
     searchLabel: "Buscar",
     searchPlaceholder: "p. ej. Harlem, SoHo, Chelsea",
     regionAll: "Todos",
@@ -656,7 +656,7 @@ const translations = {
     heroEyebrow: "Histoire, prix, avenir",
     heroTitle: "Quartiers de Manhattan",
     heroCopy:
-      "Des cartes cliquables pour les quartiers les plus importants, une analyse concise et des images qui montrent le caractere de chaque lieu. Les prix sont presentes comme des fourchettes de marche.",
+      "Un atlas éditorial des quartiers clés de Manhattan, avec des analyses de marché, d'histoire et d'avenir, ainsi que des images de haute qualité révélant le caractère de chaque lieu.",
     searchLabel: "Rechercher",
     searchPlaceholder: "ex. Harlem, SoHo, Chelsea",
     regionAll: "Tous",
@@ -714,7 +714,7 @@ const translations = {
     heroEyebrow: "Historia, precos, futuro",
     heroTitle: "Bairros de Manhattan",
     heroCopy:
-      "Cartoes clicaveis para os bairros mais importantes, analises curtas e imagens que mostram o caracter de cada lugar. Os precos sao apresentados como faixas de mercado.",
+      "Um atlas curado dos principais bairros de Manhattan, com análises de mercado, história e futuro, além de imagens de alta qualidade que revelam o caráter de cada lugar.",
     searchLabel: "Buscar",
     searchPlaceholder: "ex. Harlem, SoHo, Chelsea",
     regionAll: "Todos",
@@ -772,7 +772,7 @@ const translations = {
     heroEyebrow: "历史、价格、未来",
     heroTitle: "曼哈顿街区",
     heroCopy:
-      "通过可点击的卡片浏览主要街区，查看简洁分析和展现每个地方气质的图片。价格以市场区间和相对水平呈现。",
+      "一份精心策划的曼哈顿重点街区图鉴，结合市场、历史与未来分析，并通过图片画廊呈现每个地方的独特气质。",
     searchLabel: "搜索",
     searchPlaceholder: "例如 Harlem、SoHo、Chelsea",
     regionAll: "全部",

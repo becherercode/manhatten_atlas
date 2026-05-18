@@ -1030,7 +1030,7 @@ function analysisCard(title, summary, fullParagraphs, options = {}) {
     <button class="analysis-block expandable${featured}" type="button" aria-expanded="false">
       <span class="analysis-head">
         <span class="analysis-title">${title}</span>
-        <span class="analysis-icon" aria-hidden="true">+</span>
+        <span class="analysis-icon" aria-hidden="true"></span>
       </span>
       <span class="analysis-summary">${shortText(summary)}</span>
       <span class="analysis-full">${paragraphs(fullParagraphs)}</span>
@@ -1408,8 +1408,8 @@ function renderDetail(item) {
         ${analysisCard(t("analysisFuture"), item.outlook, expandedText(item, extra, "outlook"))}
         ${analysisCard(t("analysisProjects"), extra.developments, expandedText(item, extra, "developments"))}
         ${analysisCard(t("analysisEvents"), extra.events, expandedText(item, extra, "events"))}
-        ${analysisCard(t("analysisExpectation"), extra.expectation, expandedText(item, extra, "expectation"), { featured: true })}
         ${analysisCard(t("analysisCharacter"), item.character, expandedText(item, extra, "character"))}
+        ${analysisCard(t("analysisExpectation"), extra.expectation, expandedText(item, extra, "expectation"), { featured: true })}
       </div>
     </article>
   `;

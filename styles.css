@@ -632,8 +632,6 @@ a {
     var(--detail-image, linear-gradient(135deg, #7b897c, #d5b879));
   background-position: center;
   background-size: cover;
-  position: sticky;
-  top: 104px;
   box-shadow: var(--shadow);
   border: 1px solid rgba(255, 255, 255, 0.62);
 }

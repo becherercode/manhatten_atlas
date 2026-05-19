@@ -1366,6 +1366,11 @@ const compareB = document.querySelector("#compareB");
 const comparisonOutput = document.querySelector("#comparisonOutput");
 const segmentGroup = document.querySelector(".segments");
 const profileCount = document.querySelector("#profileCount");
+const cookieBanner = document.querySelector("#cookieBanner");
+const cookieAccept = document.querySelector("#cookieAccept");
+const cookieEssential = document.querySelector("#cookieEssential");
+const resetCookieChoice = document.querySelector("#resetCookieChoice");
+const legalToggles = document.querySelectorAll(".legal-toggle");
 
 let selectedRegion = "all";
 let selectedNeighborhood = null;
@@ -1387,6 +1392,32 @@ function saveBorough(borough) {
 }
 
 let activeBoroughKey = boroughs[getSavedBorough()] ? getSavedBorough() : "manhattan";
+
+function getCookieChoice() {
+  try {
+    return localStorage.getItem("nycAtlasCookieChoice");
+  } catch {
+    return null;
+  }
+}
+
+function saveCookieChoice(choice) {
+  try {
+    localStorage.setItem("nycAtlasCookieChoice", choice);
+  } catch {
+    // Direct file previews may block storage; the banner can still be dismissed visually.
+  }
+}
+
+function showCookieBanner() {
+  if (!cookieBanner) return;
+  cookieBanner.classList.toggle("visible", !getCookieChoice());
+}
+
+function hideCookieBanner(choice) {
+  saveCookieChoice(choice);
+  cookieBanner?.classList.remove("visible");
+}
 
 function currentBorough() {
   return boroughs[activeBoroughKey] || boroughs.manhattan;
@@ -2716,9 +2747,37 @@ boroughSelect?.addEventListener("change", (event) => {
 });
 compareA?.addEventListener("change", renderComparison);
 compareB?.addEventListener("change", renderComparison);
+legalToggles.forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    const allCards = document.querySelectorAll(".legal-card");
+    const shouldOpenAll = !Array.from(allCards).every((card) => card.classList.contains("open"));
+
+    allCards.forEach((card) => {
+      card.classList.toggle("open", shouldOpenAll);
+      card.querySelector(".legal-toggle")?.setAttribute("aria-expanded", String(shouldOpenAll));
+      const content = card.querySelector(".legal-content");
+      if (shouldOpenAll) {
+        content?.removeAttribute("hidden");
+      } else {
+        content?.setAttribute("hidden", "");
+      }
+    });
+  });
+});
+cookieAccept?.addEventListener("click", () => hideCookieBanner("accepted"));
+cookieEssential?.addEventListener("click", () => hideCookieBanner("essential"));
+resetCookieChoice?.addEventListener("click", () => {
+  try {
+    localStorage.removeItem("nycAtlasCookieChoice");
+  } catch {
+    // Ignore storage errors in direct file previews.
+  }
+  showCookieBanner();
+});
 
 selectedNeighborhood =
   activeNeighborhoods().find((item) => item.name === currentBorough().defaultSelected) ||
   activeNeighborhoods()[0];
 applyLanguage(currentLanguage);
 renderDetail(selectedNeighborhood);
+showCookieBanner();

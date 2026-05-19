@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New York Neighborhood Atlas</title>
     <link rel="preconnect" href="https://en.wikipedia.org" />
-    <link rel="stylesheet" href="./styles.css?v=28" />
+    <link rel="stylesheet" href="./styles.css?v=33" />
   </head>
   <body>
     <header class="hero">
@@ -24,6 +24,7 @@
           <a href="#viertel" data-i18n="navNeighborhoods">Viertel</a>
           <a href="#vergleich" data-i18n="navCompare">Vergleich</a>
           <a href="#quellen" data-i18n="navSources">Quellen</a>
+          <a href="#rechtliches">Rechtliches</a>
           <label class="language-menu">
             <span data-i18n="languageLabel">Sprache</span>
             <select id="languageSelect" aria-label="Sprache auswählen">
@@ -141,8 +142,113 @@
           <span data-i18n="sourcesSuffix">und Nachbarschaftsdaten aus Wikipedia. Die Website ersetzt keine Immobilienberatung.</span>
         </p>
       </section>
+
+      <section class="legal-section" id="rechtliches" aria-label="Rechtliche Informationen">
+        <div class="section-heading">
+          <p class="eyebrow">Rechtliches</p>
+          <h2>Impressum, Datenschutz & Cookies</h2>
+        </div>
+
+        <div class="legal-grid">
+          <article class="legal-card" id="impressum">
+            <button class="legal-toggle" type="button" aria-expanded="false" aria-controls="impressumContent">
+              <span>Impressum</span>
+              <span class="legal-icon" aria-hidden="true"></span>
+            </button>
+            <div class="legal-content" id="impressumContent" hidden>
+              <p><strong>Anbieterkennzeichnung gemäß § 5 DDG</strong></p>
+              <p>
+                Constantin Becherer<br />
+                Bühlengasse 11<br />
+                77749 Hohberg<br />
+                Deutschland
+              </p>
+              <p>
+                E-Mail: <a href="mailto:constantinbecherer727@gmail.com">constantinbecherer727@gmail.com</a>
+              </p>
+              <p>
+                Verantwortlich für journalistisch-redaktionelle Inhalte gemäß § 18 Abs. 2 MStV:<br />
+                Constantin Becherer, Bühlengasse 11, 77749 Hohberg, Deutschland
+              </p>
+              <p>
+                Diese Website ist ein redaktionelles Informationsangebot über New Yorker Nachbarschaften.
+                Die Inhalte stellen keine Immobilien-, Rechts- oder Finanzberatung dar.
+              </p>
+            </div>
+          </article>
+
+          <article class="legal-card" id="datenschutz">
+            <button class="legal-toggle" type="button" aria-expanded="false" aria-controls="privacyContent">
+              <span>Datenschutzerklärung</span>
+              <span class="legal-icon" aria-hidden="true"></span>
+            </button>
+            <div class="legal-content" id="privacyContent" hidden>
+              <p>
+                Verantwortlich für die Datenverarbeitung ist die im Impressum genannte Person oder Stelle.
+                Beim Besuch dieser Website können durch den Hostinganbieter technische Zugriffsdaten
+                verarbeitet werden, zum Beispiel IP-Adresse, Zeitpunkt des Abrufs, Browsertyp und
+                aufgerufene Datei. Diese Daten dienen der sicheren und stabilen Bereitstellung der Website.
+              </p>
+              <p>
+                Die Website verwendet derzeit keine Analyse-Tools, keine Newsletter-Anmeldung und keine
+                personalisierte Werbung. Es werden lediglich lokale Einstellungen im Browser gespeichert,
+                etwa die gewählte Sprache, der ausgewählte Borough und die Cookie-Auswahl.
+              </p>
+              <p>
+                Auf der Website sind externe Links und Bilder aus öffentlichen Quellen eingebunden. Beim
+                Aufruf externer Inhalte können die jeweiligen Anbieter eigene Zugriffsdaten verarbeiten.
+                Wenn später Google AdSense, Affiliate-Links oder Tracking eingebaut werden, muss diese
+                Datenschutzerklärung entsprechend erweitert werden.
+              </p>
+              <p>
+                Betroffene Personen haben im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft,
+                Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch und Datenübertragbarkeit.
+              </p>
+            </div>
+          </article>
+
+          <article class="legal-card" id="cookies">
+            <button class="legal-toggle" type="button" aria-expanded="false" aria-controls="cookiesContent">
+              <span>Cookies</span>
+              <span class="legal-icon" aria-hidden="true"></span>
+            </button>
+            <div class="legal-content" id="cookiesContent" hidden>
+              <p>
+                Diese Website nutzt aktuell keine Marketing-Cookies. Für die Bedienung werden nur lokale
+                Browser-Einstellungen gespeichert, damit Sprache, Borough-Auswahl und Cookie-Hinweis beim
+                nächsten Besuch erhalten bleiben.
+              </p>
+              <p>
+                Wenn künftig Werbung, Analyse-Tools oder eingebettete Drittanbieter-Dienste genutzt werden,
+                sollte ein erweitertes Cookie-Banner mit echter Auswahlmöglichkeit ergänzt werden.
+              </p>
+              <button class="legal-button" id="resetCookieChoice" type="button">Cookie-Auswahl zurücksetzen</button>
+            </div>
+          </article>
+        </div>
+      </section>
     </main>
 
-    <script src="./app.js?v=28"></script>
+    <footer class="site-footer">
+      <a href="#impressum">Impressum</a>
+      <a href="#datenschutz">Datenschutz</a>
+      <a href="#cookies">Cookies</a>
+    </footer>
+
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie-Hinweis">
+      <div>
+        <strong>Cookie-Hinweis</strong>
+        <p>
+          Diese Website speichert nur notwendige lokale Einstellungen wie Sprache, Borough-Auswahl
+          und diese Cookie-Entscheidung. Es werden aktuell keine Marketing-Cookies genutzt.
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookieEssential">Nur notwendige</button>
+        <button type="button" id="cookieAccept">OK</button>
+      </div>
+    </div>
+
+    <script src="./app.js?v=33"></script>
   </body>
 </html>

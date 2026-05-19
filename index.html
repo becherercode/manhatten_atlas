@@ -3,14 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nachbarschaften von Manhatten</title>
+    <title>New York Neighborhood Atlas</title>
     <link rel="preconnect" href="https://en.wikipedia.org" />
-    <link rel="stylesheet" href="./styles.css?v=23" />
+    <link rel="stylesheet" href="./styles.css?v=28" />
   </head>
   <body>
     <header class="hero">
       <nav class="topbar" aria-label="Hauptnavigation">
-        <a class="brand" href="#top" aria-label="Manhattan Atlas Start">Manhattan Atlas</a>
+        <div class="brand-group">
+          <a class="brand" href="#top" aria-label="New York Atlas Start">NYC Atlas</a>
+          <select id="boroughSelect" class="borough-select" aria-label="Bezirk auswählen">
+            <option value="manhattan">Manhattan</option>
+            <option value="brooklyn">Brooklyn</option>
+            <option value="queens">Queens</option>
+            <option value="bronx">Bronx</option>
+            <option value="staten-island">Staten Island</option>
+          </select>
+        </div>
         <div class="navlinks">
           <a href="#viertel" data-i18n="navNeighborhoods">Viertel</a>
           <a href="#vergleich" data-i18n="navCompare">Vergleich</a>
@@ -31,9 +40,9 @@
 
       <div class="hero-inner" id="top">
         <p class="eyebrow" data-i18n="heroEyebrow">Geschichte, Preise, Zukunft</p>
-        <h1 data-i18n="heroTitle">Nachbarschaften von Manhatten</h1>
+        <h1 data-i18n="heroTitle">Nachbarschaften von New York</h1>
         <p class="hero-copy" data-i18n="heroCopy">
-          Ein kuratierter Atlas der wichtigsten Manhattan-Viertel mit prägnanten Markt-, Geschichts-
+          Ein kuratierter Atlas der wichtigsten New-York-Viertel mit prägnanten Markt-, Geschichts-
           und Zukunftsanalysen sowie hochwertigen Bildern, die den Charakter jedes Ortes sichtbar machen.
         </p>
       </div>
@@ -44,13 +53,10 @@
         <div class="controls">
           <label class="search">
             <span data-i18n="searchLabel">Suchen</span>
-            <input id="searchInput" type="search" placeholder="z.B. Harlem, SoHo, Chelsea" data-i18n-placeholder="searchPlaceholder" />
+            <input id="searchInput" type="search" placeholder="z.B. Harlem, Williamsburg, Astoria" data-i18n-placeholder="searchPlaceholder" />
           </label>
           <div class="segments" role="group" aria-label="Region filtern">
             <button class="segment active" type="button" data-region="all" data-i18n="regionAll">Alle</button>
-            <button class="segment" type="button" data-region="uptown">Uptown</button>
-            <button class="segment" type="button" data-region="midtown">Midtown</button>
-            <button class="segment" type="button" data-region="downtown">Downtown</button>
           </div>
         </div>
       </section>
@@ -69,16 +75,16 @@
           <h2 data-i18n="compareTitle">Viertel vergleichen</h2>
         </div>
 
-        <div class="market-snapshot" aria-label="Manhattan Marktüberblick">
+        <div class="market-snapshot" aria-label="New York Marktüberblick">
           <div class="snapshot-copy">
             <p class="eyebrow" data-i18n="marketEyebrow">Market snapshot</p>
-            <h3 data-i18n="marketTitle">Manhattan auf einen Blick</h3>
+            <h3 data-i18n="marketTitle">New York auf einen Blick</h3>
             <p data-i18n="marketCopy">Ein kurzer Marktimpuls, bevor du zwei Nachbarschaften direkt vergleichst.</p>
           </div>
           <div class="intro-grid">
             <article>
               <span class="stat">$5.1k</span>
-              <h2 data-i18n="statRentTitle">Median-Miete Manhattan</h2>
+              <h2 data-i18n="statRentTitle">Median-Miete</h2>
               <p data-i18n="statRentCopy">Realtor.com meldete für März 2026 eine mediane Angebotsmiete von etwa 5.100 Dollar pro Monat.</p>
             </article>
             <article>
@@ -87,7 +93,7 @@
               <p data-i18n="statIndexCopy">NYCEDC zeigte im April 2026 einen StreetEasy Rent Index deutlich über Vor-Covid-Niveau.</p>
             </article>
             <article>
-              <span class="stat">26</span>
+              <span class="stat" id="profileCount">26</span>
               <h2 data-i18n="statProfilesTitle">Profile</h2>
               <p data-i18n="statProfilesCopy">Vom historischen Inwood bis zum Financial District: kompakte Kacheln für schnelle Vergleiche.</p>
             </article>
@@ -128,12 +134,15 @@
           <a href="https://www.hydc.org/" target="_blank" rel="noreferrer">Hudson Yards Development Corporation</a>,
           <a href="https://edc.nyc/project/sparc-kips-bay" target="_blank" rel="noreferrer">SPARC Kips Bay</a>,
           <a href="https://www.nyc.gov/site/escr/index.page" target="_blank" rel="noreferrer">East Side Coastal Resiliency</a>,
-          <a href="https://bpca.ny.gov/nature-and-sustainability/resiliency/" target="_blank" rel="noreferrer">Battery Park City Authority</a>
+          <a href="https://bpca.ny.gov/nature-and-sustainability/resiliency/" target="_blank" rel="noreferrer">Battery Park City Authority</a>,
+          <a href="https://edc.nyc/building-neighborhoods" target="_blank" rel="noreferrer">NYCEDC Borough Projects</a>,
+          <a href="https://edc.nyc/project/broadway-junction" target="_blank" rel="noreferrer">Broadway Junction</a>,
+          <a href="https://esd.ny.gov/queens-west-development-corporation-subsidiary" target="_blank" rel="noreferrer">Queens West</a>
           <span data-i18n="sourcesSuffix">und Nachbarschaftsdaten aus Wikipedia. Die Website ersetzt keine Immobilienberatung.</span>
         </p>
       </section>
     </main>
 
-    <script src="./app.js?v=23"></script>
+    <script src="./app.js?v=28"></script>
   </body>
 </html>

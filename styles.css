@@ -44,7 +44,10 @@ a {
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.48)),
     linear-gradient(90deg, rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.04)),
-    url("https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=2200&q=80")
+    var(
+        --hero-image,
+        url("https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=2200&q=80")
+      )
       center / cover;
   color: #fff;
   display: flex;
@@ -72,10 +75,45 @@ a {
   text-decoration: none;
 }
 
+.brand-group {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+}
+
 .brand {
   font-weight: 700;
   letter-spacing: 0;
   padding: 8px 12px;
+  white-space: nowrap;
+}
+
+.borough-select {
+  appearance: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.1)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 20 20'%3E%3Cpath fill='white' fill-opacity='.9' d='M5.4 7.4 10 12l4.6-4.6 1.1 1.2-5.7 5.7-5.7-5.7z'/%3E%3C/svg%3E")
+      right 12px center / 14px no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 650;
+  min-height: 38px;
+  min-width: 150px;
+  outline: none;
+  padding: 0 36px 0 14px;
+}
+
+.borough-select:focus-visible {
+  box-shadow: 0 0 0 4px rgba(162, 210, 255, 0.24);
+}
+
+.borough-select option {
+  color: var(--ink);
 }
 
 .navlinks {
@@ -1001,6 +1039,16 @@ a {
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+
+  .brand-group {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .borough-select {
+    flex: 1;
+    min-width: 0;
   }
 
   .language-menu {

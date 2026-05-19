@@ -443,17 +443,958 @@ const neighborhoods = [
   }
 ];
 
+const brooklynNeighborhoods = [
+  {
+    name: "Williamsburg",
+    region: "north",
+    area: "North Brooklyn",
+    imageTitle: "Williamsburg, Brooklyn",
+    vibe: "Waterfront, Kreativszene, Restaurants und neue Türme",
+    price: "$$$$",
+    rent: "4.0k-6.2k",
+    future: "weiterer Premiumdruck am Wasser",
+    history:
+      "Williamsburg war lange ein Industrie-, Hafen- und Einwanderungsquartier. Seit den 1990er-Jahren wurde es zu einem Zentrum für Musik, Kunst, Gastronomie und später Luxuswohnen.",
+    prices:
+      "Die teuersten Lagen liegen nahe der East-River-Waterfront und der L-Train-Achse. Weiter östlich und südlich wird der Markt kleinteiliger, aber ebenfalls stark nachgefragt.",
+    outlook:
+      "Neue Waterfront-Projekte, öffentliche Räume und anhaltende Nachfrage werden Williamsburg weiter im oberen Brooklyn-Segment halten.",
+    character: "Kreativ, teuer, jung und gleichzeitig deutlich polierter als früher.",
+    description:
+      "Williamsburg ist Brooklyn als globale Marke: alte Industrie, neue Hochhäuser, Musikorte, Restaurants, Boutiquen und eine Waterfront mit direktem Manhattan-Blick. Der Reiz liegt im Kontrast zwischen Lagerhausgeschichte und sehr sichtbarer Gegenwart.",
+    developments:
+      "Die weitere Entwicklung konzentriert sich auf Waterfront-Parzellen, Umnutzung alter Gewerbebauten, neue Wohnhochhäuser und bessere öffentliche Räume entlang des East River.",
+    events:
+      "Smorgasburg, Brooklyn Brewery-Umfeld, Domino Park, Musikclubs, Street-Food-Formate und Designmärkte geben Williamsburg eine dauerhafte Besuchsfrequenz.",
+    expectation:
+      "Williamsburg bleibt hochpreisig. Die wichtigste Frage ist weniger Nachfrage, sondern wie viel lokale Eigenständigkeit zwischen Luxuswohnen, Tourismus und Nachtleben erhalten bleibt."
+  },
+  {
+    name: "DUMBO",
+    region: "north",
+    area: "Brooklyn Waterfront",
+    imageTitle: "DUMBO, Brooklyn",
+    vibe: "Kopfsteinpflaster, Brücken, Lofts und Design",
+    price: "$$$$$",
+    rent: "5.0k-7.5k",
+    future: "knapp und dauerhaft begehrt",
+    history:
+      "DUMBO entstand aus Lagerhäusern und Industriebauten zwischen Manhattan Bridge und Brooklyn Bridge. Künstlerlofts und Tech-Firmen machten daraus eine der sichtbarsten Brooklyn-Adressen.",
+    prices:
+      "Sehr kleine Fläche, ikonische Aussicht und hochwertige Lofts sorgen für ein klares Premium.",
+    outlook:
+      "Die Zukunft ist durch Knappheit geprägt: Sanierung, hochwertige Erdgeschosse und Waterfront-Pflege statt großer Flächenausweitung.",
+    character: "Fotogen, hochwertig und fast museal urban.",
+    description:
+      "DUMBO ist einer der kompaktesten Premiumräume New Yorks. Backstein, Brückenbögen, Kopfsteinpflaster, Galerien, Tech-Büros und Brooklyn Bridge Park bilden ein dichtes, sehr visuelles Stadtbild.",
+    developments:
+      "Die wichtigsten Veränderungen liegen in der Pflege des öffentlichen Raums, in hochwertigen Gewerbe- und Büroflächen sowie in der Verbindung zum Brooklyn Bridge Park.",
+    events:
+      "Photoville, Kunstprogramme, Waterfront-Events, Märkte und Brooklyn Bridge Park-Aktivitäten machen DUMBO ganzjährig sichtbar.",
+    expectation:
+      "DUMBO bleibt teuer und knapp. Wachstum entsteht vor allem über Wertsteigerung, nicht über viele neue Gebäude."
+  },
+  {
+    name: "Park Slope",
+    region: "central",
+    area: "Brownstone Brooklyn",
+    imageTitle: "Park Slope",
+    vibe: "Brownstones, Familien, Prospect Park und Schulen",
+    price: "$$$$",
+    rent: "3.8k-5.8k",
+    future: "stabiler Familienmarkt",
+    history:
+      "Park Slope wuchs im 19. Jahrhundert als wohlhabendes Brownstone-Viertel nahe Prospect Park und wurde später zum Synonym für familienorientiertes Brooklyn.",
+    prices:
+      "Historische Häuser, Schulqualität und Parknähe halten das Preisniveau hoch.",
+    outlook:
+      "Größere Umbrüche sind unwahrscheinlich; Wert entsteht durch Knappheit, Altbausubstanz und stabile Nachfrage.",
+    character: "Ruhig, wohlhabend, grün und sehr nachbarschaftlich.",
+    description:
+      "Park Slope ist Brooklyn im klassischen Wohnsinn: Baumstraßen, Brownstones, Kinderwagen, Cafés, Buchläden und Prospect Park. Es ist weniger Bühne als Alltag in sehr hoher Qualität.",
+    developments:
+      "Die Zukunft besteht eher aus behutsamer Sanierung, kleineren Neubauten an Korridoren und Investitionen in Schulen, Parks und Verkehrsberuhigung.",
+    events:
+      "Prospect Park, Celebrate Brooklyn!, Wochenmärkte, lokale Straßenfeste und Kulturorte an Fifth und Seventh Avenue prägen den Kalender.",
+    expectation:
+      "Park Slope wird stabil teuer bleiben. Der Markt ist weniger spekulativ als an der Waterfront, aber besonders resilient."
+  },
+  {
+    name: "Bed-Stuy",
+    region: "central",
+    area: "Central Brooklyn",
+    imageTitle: "Bedford-Stuyvesant, Brooklyn",
+    vibe: "Brownstones, Black history, lokale Geschäfte und Wandel",
+    price: "$$$",
+    rent: "3.0k-4.6k",
+    future: "Aufwertung mit Identitätsdebatte",
+    history:
+      "Bedford-Stuyvesant ist ein bedeutender Ort Schwarzer Kultur-, Wohn- und Bürgerrechtsgeschichte in Brooklyn.",
+    prices:
+      "Renovierte Brownstones und gute Subway-Korridore treiben Preise, während einzelne Lagen noch zugänglicher bleiben.",
+    outlook:
+      "Neue Wohnprojekte und Sanierungen werden weiterkommen; entscheidend bleibt, ob langjährige Communities profitieren.",
+    character: "Stolz, architektonisch stark und sozial im Wandel.",
+    description:
+      "Bed-Stuy ist eines der charaktervollsten Brownstone-Gebiete New Yorks. Die Straßen wirken groß, rhythmisch und lokal; gleichzeitig verändert Sanierung den Markt Block für Block.",
+    developments:
+      "Wichtig sind neue bezahlbare Wohnprojekte, Sanierungen historischer Häuser und Korridore wie Fulton Street, Broadway und Myrtle Avenue.",
+    events:
+      "Restoration Plaza, Herbert Von King Park, lokale Kunstformate, Blockpartys, Food-Spots und Community-Events tragen die öffentliche Kultur.",
+    expectation:
+      "Bed-Stuy wird weiter nachgefragt. Die Qualität der Zukunft hängt stark an bezahlbarem Wohnraum, lokaler Gewerbemischung und kultureller Kontinuität."
+  },
+  {
+    name: "Bushwick",
+    region: "east",
+    area: "North-East Brooklyn",
+    imageTitle: "Bushwick, Brooklyn",
+    vibe: "Street Art, Lagerhäuser, Musik und Nachtleben",
+    price: "$$$",
+    rent: "3.1k-4.7k",
+    future: "kreativ, dichter, teurer",
+    history:
+      "Bushwick war ein Arbeiter-, Industrie- und Einwanderungsquartier. Kunst, Musik und Loftnutzung machten es im 21. Jahrhundert stark sichtbar.",
+    prices:
+      "Noch unter Williamsburg, aber deutlich gestiegen, besonders nahe L- und M-Train.",
+    outlook:
+      "Der Druck auf Gewerbe- und Wohnflächen bleibt hoch; neue Dichte wird politisch stark diskutiert.",
+    character: "Roh, kreativ, laut und schnelllebig.",
+    description:
+      "Bushwick ist ein Labor aus Street Art, Clubs, Ateliers, alten Gewerbebauten, neuen Apartments und lateinamerikanischer Nachbarschaftskultur. Es ist lebendig, aber nicht glatt.",
+    developments:
+      "Die Zukunft liegt in möglichen Rezoning-Fragen, Umnutzung alter Industrieflächen, neuer Wohnbebauung und dem Schutz kleinteiliger Kreativräume.",
+    events:
+      "Bushwick Open Studios, House-of-Yes-Umfeld, Street-Art-Walls, Musiknächte und Food-Korridore machen den Stadtteil kulturell stark.",
+    expectation:
+      "Bushwick wird teurer und dichter. Ob es spannend bleibt, hängt daran, ob kreative und lokale Räume bezahlbar bleiben."
+  },
+  {
+    name: "Downtown Brooklyn",
+    region: "central",
+    area: "Civic & Transit Core",
+    imageTitle: "Downtown Brooklyn",
+    vibe: "Hochhäuser, Hochschulen, Behörden und Transit",
+    price: "$$$$",
+    rent: "4.0k-6.0k",
+    future: "mehr Wohnen und gemischte Nutzung",
+    history:
+      "Downtown Brooklyn war lange Verwaltungs-, Handels- und Verkehrszentrum. Rezoning und Hochschulwachstum machten es zu einem Hochhaus-Wohnstandort.",
+    prices:
+      "Neue Türme mit Amenities bestimmen den Mietmarkt, während ältere Blöcke deutlich anders funktionieren.",
+    outlook:
+      "Mehr Wohnen, Campusflächen, Einzelhandel und öffentliche Räume werden Downtown Brooklyn weiter urbanisieren.",
+    character: "Dicht, praktisch, vertikal und weniger romantisch als Brownstone Brooklyn.",
+    description:
+      "Downtown Brooklyn ist der funktionale Kern des Boroughs: Gerichte, Hochschulen, Subway-Knoten, Bürotürme, Apartmenthochhäuser und schnelle Wege in alle Richtungen.",
+    developments:
+      "Relevant sind neue Wohnhochhäuser, Campusentwicklung, der Brooklyn-Borough-Based-Jail-Bau und Verbesserungen rund um Fulton Mall und öffentliche Räume.",
+    events:
+      "BAM, Barclays Center in der Nähe, MetroTech, Hochschulprogramme und Fulton-Street-Frequenz prägen die öffentliche Nutzung.",
+    expectation:
+      "Downtown Brooklyn wird weiter zu einem gemischten Hochhausquartier. Die Aufgabe ist, Erdgeschosse und öffentliche Räume hochwertiger zu machen."
+  },
+  {
+    name: "Greenpoint",
+    region: "north",
+    area: "North Brooklyn Waterfront",
+    imageTitle: "Greenpoint, Brooklyn",
+    vibe: "Polnische Geschichte, Industrie, Waterfront und ruhige Straßen",
+    price: "$$$$",
+    rent: "3.8k-5.8k",
+    future: "Waterfront-Wachstum mit Umweltfragen",
+    history:
+      "Greenpoint war ein polnisch geprägtes Industrie- und Arbeiterquartier mit Schiffbau, Lagerflächen und einer langen Umweltgeschichte.",
+    prices:
+      "Waterfront-Neubauten und Nähe zu Williamsburg treiben Preise, während kleinere Seitenstraßen lokaler bleiben.",
+    outlook:
+      "Die Waterfront wird dichter; Umweltreinigung, Verkehr und lokale Infrastruktur bleiben zentrale Themen.",
+    character: "Leiser als Williamsburg, aber längst im Premium-Sog.",
+    description:
+      "Greenpoint verbindet alte polnische Läden, kleine Wohnstraßen, Industrieerbe und neue Waterfront-Türme. Es wirkt entspannter als Williamsburg, aber der Entwicklungsdruck ist deutlich sichtbar.",
+    developments:
+      "Neue Mischprojekte am Wasser, Parkflächen, Brownfield-Reinigung und bessere Verbindungen nach Queens und Manhattan prägen die nächste Phase.",
+    events:
+      "Polnische Restaurants, Transmitter Park, lokale Designmärkte, Musikorte und Food-Events schaffen eine eigenständige Szene.",
+    expectation:
+      "Greenpoint dürfte weiter steigen. Entscheidend werden Verkehrsanbindung, Klimarisiken und die Qualität der neuen Waterfront."
+  },
+  {
+    name: "Coney Island",
+    region: "south",
+    area: "South Brooklyn Coast",
+    imageTitle: "Coney Island",
+    vibe: "Strand, Vergnügungspark, Sozialwohnungen und Nostalgie",
+    price: "$$",
+    rent: "2.4k-3.6k",
+    future: "Küstenresilienz und punktueller Neubau",
+    history:
+      "Coney Island wurde als Bade- und Vergnügungsziel weltbekannt, mit Achterbahnen, Boardwalk, Hotdogs und einer starken Arbeiterklassen-Geschichte.",
+    prices:
+      "Im Vergleich zu Brownstone- und North-Brooklyn-Lagen günstiger, aber stark abhängig von Strandnähe, Neubau und Transit.",
+    outlook:
+      "Küstenresilienz, neue Wohnungen und Tourismusangebote werden die Zukunft bestimmen.",
+    character: "Spektakulär, rau, saisonal und sehr eigen.",
+    description:
+      "Coney Island ist New Yorks maritime Popkultur: Strand, Boardwalk, Luna Park, Aquarium, große Wohnanlagen und ein rauer Charme, der nicht mit Downtown-Brooklyn verwechselt werden kann.",
+    developments:
+      "Zentrale Themen sind Hochwasserschutz, Boardwalk-Pflege, neue Wohnprojekte und die Zukunft der Freizeit- und Tourismusflächen.",
+    events:
+      "Mermaid Parade, Nathan's Hot Dog Eating Contest, Sommerfeuerwerk, Luna Park und Strandtage sorgen für starke Saisonalität.",
+    expectation:
+      "Coney Island kann profitieren, wenn Resilienz, Alltag und Tourismus besser verbunden werden. Der Markt bleibt aber stärker saisonal und infrastrukturell abhängig."
+  }
+];
+
+const queensNeighborhoods = [
+  {
+    name: "Long Island City",
+    region: "west",
+    area: "Western Queens",
+    imageTitle: "Long Island City",
+    vibe: "Skyline, Waterfront, Kultur und neue Türme",
+    price: "$$$$",
+    rent: "3.8k-5.8k",
+    future: "weiter vertikal und waterfrontnah",
+    history:
+      "Long Island City war ein Industrie- und Produktionsstandort, bevor es durch Transit, Rezoning und Waterfront-Entwicklung zu einem Hochhaus-Wohn- und Kulturquartier wurde.",
+    prices:
+      "Neue Türme, Manhattan-Blick und kurze Wege nach Midtown halten die Mieten hoch.",
+    outlook:
+      "Weitere Entwicklung hängt an Queens-West-Flächen, Infrastruktur, Schulen und öffentlichem Raum.",
+    character: "Modern, schnell, urban und stark vom Skyline-Blick geprägt.",
+    description:
+      "Long Island City ist Queens' sichtbarster Wachstumsraum: ehemalige Industrie, neue Wohntürme, MoMA PS1, Uferparks und eine direkte Beziehung zur Manhattan-Skyline.",
+    developments:
+      "Queens West, Anable Basin, neue Wohnungen, Uferparks, Schulen und öffentliche Infrastruktur bleiben die großen Themen.",
+    events:
+      "MoMA PS1 Warm Up, LIC Arts Open, Gantry Plaza State Park, Food- und Kulturformate bringen viel Öffentlichkeit.",
+    expectation:
+      "LIC wird weiter wachsen. Die Qualität entscheidet sich daran, ob es neben Türmen auch gute Erdgeschosse, Schulen und Nachbarschaftsräume bekommt."
+  },
+  {
+    name: "Astoria",
+    region: "west",
+    area: "Northwest Queens",
+    imageTitle: "Astoria, Queens",
+    vibe: "Griechische Geschichte, Restaurants, Kaufman Arts und Uferparks",
+    price: "$$$",
+    rent: "2.9k-4.3k",
+    future: "stabil beliebt",
+    history:
+      "Astoria wurde von griechischen, arabischen, südasiatischen, lateinamerikanischen und vielen weiteren Communities geprägt.",
+    prices:
+      "Im Vergleich zu LIC oft erreichbarer, aber wegen Transit, Restaurants und Wohnqualität stark nachgefragt.",
+    outlook:
+      "Sanierung, kleinere Neubauten und die Nähe zu Kaufman Arts District halten die Nachfrage robust.",
+    character: "Lebendig, essensorientiert, lokal und sehr wohnlich.",
+    description:
+      "Astoria ist eines der alltagstauglichsten Queens-Viertel: Restaurants, Cafés, Mietshäuser, kleine Häuser, Parks und eine kulturelle Mischung, die nicht inszeniert wirkt.",
+    developments:
+      "Wichtige Themen sind kleine Neubauten, Kaufman Arts District, Waterfront-Zugänge, Straßenraum und Transitkapazität.",
+    events:
+      "Museum of the Moving Image, Kaufman Astoria Studios, Astoria Park, griechische Festivals und Food-Korridore machen Astoria ganzjährig aktiv.",
+    expectation:
+      "Astoria wird beliebt bleiben, ohne so vertikal zu werden wie LIC. Der Druck auf Mieten wird weiter steigen."
+  },
+  {
+    name: "Flushing",
+    region: "east",
+    area: "Northeast Queens",
+    imageTitle: "Flushing, Queens",
+    vibe: "Asiatische Metropole, Food, Handel und Transit",
+    price: "$$$",
+    rent: "2.8k-4.2k",
+    future: "dicht, kommerziell, international",
+    history:
+      "Flushing ist eines der wichtigsten asiatisch-amerikanischen Zentren der USA und hat sich zu einem extrem dichten Handels- und Wohnknoten entwickelt.",
+    prices:
+      "Transitnähe, Eigentumsnachfrage und starke Geschäftsstraßen halten den Markt dynamisch.",
+    outlook:
+      "Neue Mixed-Use-Projekte, Hotels und Handel werden Flushing weiter verdichten.",
+    character: "Intensiv, international, essenskulturell herausragend und laut.",
+    description:
+      "Flushing wirkt fast wie eine eigene asiatische Innenstadt: Food-Courts, Supermärkte, Arztpraxen, Büroflächen, Wohnungen und 7-Train-Endpunkt erzeugen enorme Frequenz.",
+    developments:
+      "Downtown-Flushing-Mixed-Use-Projekte, Willets-Point-Nähe, bessere Fußwege und Verkehrskapazität sind zentrale Zukunftsthemen.",
+    events:
+      "Lunar New Year, Queens Night Market in der Nähe, Food-Touren, Flushing Meadows-Corona Park und Kulturprogramme prägen den Kalender.",
+    expectation:
+      "Flushing bleibt ein Wachstumskern. Die Herausforderung liegt in Verkehr, Dichte und bezahlbarem Raum für kleine Betriebe."
+  },
+  {
+    name: "Jackson Heights",
+    region: "west",
+    area: "Central Queens",
+    imageTitle: "Jackson Heights, Queens",
+    vibe: "Gartenblocks, südasiatische und lateinamerikanische Kultur",
+    price: "$$",
+    rent: "2.4k-3.6k",
+    future: "stabil, kulturell stark",
+    history:
+      "Jackson Heights entstand als geplantes Gartenapartment-Viertel und wurde später zu einem der diversesten Stadtteile New Yorks.",
+    prices:
+      "Co-ops und Mietwohnungen sind im NYC-Vergleich oft relativ erreichbar, aber gute Transitlagen sind stark gefragt.",
+    outlook:
+      "Öffentlicher Raum, kleine Geschäfte und Erhalt der Gartenanlagen prägen die Zukunft mehr als Hochhausentwicklung.",
+    character: "Vielsprachig, dicht, kulinarisch stark und erstaunlich grün.",
+    description:
+      "Jackson Heights ist ein urbanes Mosaik: kolumbianische, südasiatische, tibetische, nepalesische und viele weitere Communities teilen sich Straßen, Plätze, Läden und Restaurants.",
+    developments:
+      "Open-Streets-Konzepte, Erhalt historischer Garden Apartments und kleinteiliger Gewerbeschutz sind zentrale Zukunftsthemen.",
+    events:
+      "Queens Pride, Diversity Plaza, Diwali- und südasiatische Kulturangebote, Food-Touren und lokale Straßenfeste prägen den Alltag.",
+    expectation:
+      "Jackson Heights wird weiter als kultureller Anker wachsen. Der Wert liegt weniger in Neubau, mehr in Dichte, Transit und sozialer Vielfalt."
+  },
+  {
+    name: "Forest Hills",
+    region: "central",
+    area: "Central Queens",
+    imageTitle: "Forest Hills, Queens",
+    vibe: "Gartenstadt, Tudor-Häuser, Queens Boulevard und Familien",
+    price: "$$$",
+    rent: "2.7k-4.0k",
+    future: "ruhig und nachfragefest",
+    history:
+      "Forest Hills Gardens wurde als geplante Gartenstadt entwickelt und prägt bis heute den eleganten, grünen Charakter des Viertels.",
+    prices:
+      "Gute Schulen, LIRR, Subway und Wohnqualität halten das Viertel stabil im mittleren bis gehobenen Segment.",
+    outlook:
+      "Sanierung, punktuelle Verdichtung an Queens Boulevard und stabile Familiennachfrage bestimmen die Zukunft.",
+    character: "Ruhig, bürgerlich, grün und sehr wohnorientiert.",
+    description:
+      "Forest Hills verbindet städtische Erreichbarkeit mit fast vorstädtischer Ruhe: Tudor-Architektur, Apartmenthäuser, Einkaufsstraßen, Schulen und gute Anbindung.",
+    developments:
+      "Queens-Boulevard-Sicherheit, punktuelle neue Wohngebäude, LIRR-Nähe und lokale Geschäftsstraßen stehen im Fokus.",
+    events:
+      "Forest Hills Stadium, Austin Street, Parks und saisonale Nachbarschaftsprogramme sorgen für Kultur ohne Downtown-Hektik.",
+    expectation:
+      "Forest Hills bleibt ein stabiler Queens-Wohnmarkt. Der größte Vorteil ist Balance: Stadtzugang ohne permanente Überhitzung."
+  },
+  {
+    name: "Jamaica",
+    region: "east",
+    area: "Southeast Queens",
+    imageTitle: "Jamaica, Queens",
+    vibe: "Transitknoten, Handel, Kultur und Entwicklungsflächen",
+    price: "$$",
+    rent: "2.3k-3.5k",
+    future: "wachsender regionaler Hub",
+    history:
+      "Jamaica war lange Handelszentrum und Verkehrsknoten in Queens, mit LIRR, AirTrain und Subway-Anbindungen.",
+    prices:
+      "Noch günstiger als westliches Queens, aber Transitnähe und neue Projekte erhöhen die Nachfrage.",
+    outlook:
+      "Hotel-, Wohn- und Gewerbeentwicklung rund um Jamaica Station wird die Rolle als Hub stärken.",
+    character: "Praktisch, vielfältig, transitstark und im Wandel.",
+    description:
+      "Jamaica ist ein Queens-Zentrum mit enormer Erreichbarkeit: LIRR, AirTrain zum JFK, Subway, Busse, Einkaufsstraßen und viel Entwicklungspotenzial.",
+    developments:
+      "Jamaica Now, neue Wohn- und Hotelprojekte, öffentliche Plätze und bezahlbarer Wohnungsbau prägen die nächste Phase.",
+    events:
+      "King Manor Museum, Rufus King Park, Jamaica Center for Arts & Learning und lokale Musik- und Food-Angebote bilden die Kulturschicht.",
+    expectation:
+      "Jamaica kann deutlich an Bedeutung gewinnen, wenn Transit, Sicherheit, Erdgeschosse und Wohnqualität zusammen verbessert werden."
+  },
+  {
+    name: "Rockaway Beach",
+    region: "south",
+    area: "Queens Coast",
+    imageTitle: "Rockaway Beach, Queens",
+    vibe: "Surf, Strand, Bungalows und Küstenresilienz",
+    price: "$$",
+    rent: "2.2k-3.4k",
+    future: "Küste als Chance und Risiko",
+    history:
+      "Die Rockaways waren Badeort, Arbeiterküste, Bungalowlandschaft und nach Hurricane Sandy ein Schwerpunkt für Wiederaufbau und Resilienz.",
+    prices:
+      "Strandnähe und neue Nachfrage treiben einzelne Lagen, während Erreichbarkeit und Klimarisiken den Markt bremsen.",
+    outlook:
+      "Küstenschutz, Boardwalk, neue Wohnungen und Fähren bestimmen die Zukunft.",
+    character: "Entspannt, salzig, eigenständig und saisonal.",
+    description:
+      "Rockaway Beach ist New Yorks Surfkante: Strand, Boardwalk, Bungalows, neue Apartments, Food-Spots und eine Community, die stark mit dem Meer lebt.",
+    developments:
+      "Resilienzmaßnahmen, Dünen, öffentliche Infrastruktur, Fähren und punktuelle Neubauten sind die zentralen Zukunftsfaktoren.",
+    events:
+      "Surf-Events, Sommerkonzerte, Food-Stände, Beach-Programme und Boardwalk-Saison machen Rockaway stark wetter- und jahreszeitabhängig.",
+    expectation:
+      "Rockaway wird als Wohn- und Freizeitort begehrter, aber Klimarisiken und Transit bleiben entscheidend."
+  },
+  {
+    name: "Sunnyside",
+    region: "west",
+    area: "Western Queens",
+    imageTitle: "Sunnyside, Queens",
+    vibe: "Garden Apartments, Pendlerkomfort und lokale Läden",
+    price: "$$",
+    rent: "2.5k-3.7k",
+    future: "ruhige Aufwertung",
+    history:
+      "Sunnyside ist bekannt für Sunnyside Gardens, eines der wichtigsten Garden-City-Wohnexperimente New Yorks.",
+    prices:
+      "Noch zugänglicher als LIC und Astoria, aber Nähe zu Midtown und gute 7-Train-Anbindung halten Nachfrage hoch.",
+    outlook:
+      "Sanfte Verdichtung, Erhalt historischer Wohnanlagen und bessere Straßenräume prägen die Zukunft.",
+    character: "Unaufgeregt, freundlich, nah an Manhattan und trotzdem lokal.",
+    description:
+      "Sunnyside ist Queens im Alltag: kurze Wege, Mietshäuser, Garden Apartments, irische und lateinamerikanische Spuren, lokale Restaurants und erstaunlich schnelle Midtown-Anbindung.",
+    developments:
+      "Die wichtigsten Themen sind Wohnraumerhalt, punktuelle Neubauten, Queens Boulevard und bessere Fuß- und Radwege.",
+    events:
+      "Sunnyside Gardens Park, lokale Paraden, Restaurants und Nachbarschaftsprogramme schaffen eine ruhige, aber stabile Öffentlichkeit.",
+    expectation:
+      "Sunnyside wird vermutlich langsam teurer, ohne seine ruhige Wohnidentität vollständig zu verlieren."
+  }
+];
+
+const bronxNeighborhoods = [
+  {
+    name: "Mott Haven",
+    region: "south",
+    area: "South Bronx",
+    imageTitle: "Mott Haven, Bronx",
+    vibe: "Industrieerbe, neue Türme, Kunst und Harlem-River-Nähe",
+    price: "$$",
+    rent: "2.4k-3.6k",
+    future: "starker Entwicklungsdruck",
+    history:
+      "Mott Haven entwickelte sich als Industrie- und Arbeiterquartier am Harlem River und wurde später zum Symbol für South-Bronx-Wandel.",
+    prices:
+      "Neue Waterfront- und Luxusprojekte heben die Preise, aber der Markt bleibt unter Manhattan und North Brooklyn.",
+    outlook:
+      "Harlem-River-Waterfront, neue Wohnungen und Kulturorte werden Mott Haven stark verändern.",
+    character: "Roh, kreativ, politisch und sichtbar im Umbruch.",
+    description:
+      "Mott Haven ist einer der dynamischsten Räume der Bronx: alte Industrie, neue Apartmenttürme, Kunstorte, lokale Restaurants und Debatten über Verdrängung liegen dicht zusammen.",
+    developments:
+      "Bronx Point, Harlem-River-Waterfront, neue Mixed-Use-Bauten und Verbesserungen im öffentlichen Raum sind prägend.",
+    events:
+      "Bronx Documentary Center, lokale Galerien, Hip-Hop-Bezüge, Food-Spots und Waterfront-Programme geben dem Viertel kulturelle Energie.",
+    expectation:
+      "Mott Haven wird weiter wachsen. Entscheidend bleibt, ob neue Investitionen bezahlbares Wohnen und lokale Unternehmen stärken."
+  },
+  {
+    name: "Concourse",
+    region: "south",
+    area: "Grand Concourse",
+    imageTitle: "Grand Concourse (Bronx)",
+    vibe: "Art Deco, Yankee Stadium, breite Boulevards",
+    price: "$$",
+    rent: "2.2k-3.3k",
+    future: "Kultur- und Wohnkorridor",
+    history:
+      "Der Grand Concourse wurde als Prachtboulevard der Bronx entwickelt und ist berühmt für Art-Deco-Wohnhäuser.",
+    prices:
+      "Im NYC-Vergleich moderater, mit Premiums für sanierte Gebäude und gute Subway-Nähe.",
+    outlook:
+      "Museums-, Stadion- und Wohninvestitionen können die Achse weiter stärken.",
+    character: "Monumental, historisch und unterschätzt.",
+    description:
+      "Concourse zeigt die urbane Würde der Bronx: breite Straßen, Art-Deco-Fassaden, große Wohnhäuser, Yankee Stadium und kurze Wege nach Manhattan.",
+    developments:
+      "Renovierungen, Bronx Museum, Stadionnutzung, bezahlbarer Wohnungsbau und Straßenraumverbesserungen prägen den Korridor.",
+    events:
+      "Yankee-Spiele, Bronx Museum, Joyce-Kilmer-Park-Programme und lokale Paraden sorgen für starke Ereignisdichte.",
+    expectation:
+      "Concourse kann profitieren, wenn Architektur, Kultur und Wohnqualität stärker zusammengedacht werden."
+  },
+  {
+    name: "Fordham",
+    region: "central",
+    area: "Central Bronx",
+    imageTitle: "Fordham, Bronx",
+    vibe: "Universität, Shopping, Transit und Little Italy-Nähe",
+    price: "$",
+    rent: "1.9k-3.0k",
+    future: "stabiler Alltagsknoten",
+    history:
+      "Fordham entwickelte sich rund um Fordham University, Fordham Road und starke Transit- und Einkaufsfunktionen.",
+    prices:
+      "Relativ erreichbar, aber Universitäts- und Transitnähe stützen Nachfrage.",
+    outlook:
+      "Einzelhandel, Campus, Bus- und Metro-North-Anbindung halten Fordham als Knoten relevant.",
+    character: "Dicht, praktisch, studentisch und kommerziell.",
+    description:
+      "Fordham ist ein Bronx-Knoten mit Universität, Einkaufsstraße, Transit und Nähe zu Belmont. Es ist weniger poliert, aber sehr funktional.",
+    developments:
+      "Wichtige Themen sind Fordham Road, Metro-North, Campus-Investitionen, bezahlbarer Wohnraum und bessere Fußgängerbereiche.",
+    events:
+      "Fordham University, Bronx Zoo in der Nähe, New York Botanical Garden und Arthur Avenue schaffen einen starken Kultur- und Besuchsraum.",
+    expectation:
+      "Fordham bleibt stabil nachgefragt. Große Sprünge hängen an Infrastruktur und Erdgeschossqualität."
+  },
+  {
+    name: "Belmont",
+    region: "central",
+    area: "Little Italy Bronx",
+    imageTitle: "Arthur Avenue",
+    vibe: "Arthur Avenue, italienische Märkte und Esskultur",
+    price: "$$",
+    rent: "2.0k-3.1k",
+    future: "kulinarische Marke bleibt stark",
+    history:
+      "Belmont wurde durch italienische Einwanderung, Märkte, Bäckereien und Restaurants rund um Arthur Avenue geprägt.",
+    prices:
+      "Moderater als viele Brooklyn- und Queens-Lagen, aber Markenwert und Nähe zu Fordham/Botanical Garden helfen.",
+    outlook:
+      "Die Zukunft hängt an Erhalt der kleinen Lebensmittelbetriebe und besserer Aufenthaltsqualität.",
+    character: "Warm, kulinarisch, traditionell und sehr besuchbar.",
+    description:
+      "Belmont ist eine der klarsten Food-Adressen New Yorks. Arthur Avenue, Bäckereien, Metzgereien, Restaurants und Märkte geben dem Viertel eine starke Identität.",
+    developments:
+      "Sanierung, kleinteilige Gewerbeförderung, Fordham-Nähe und Tourismusmanagement sind wichtiger als große Hochhausentwicklung.",
+    events:
+      "Ferragosto, Arthur Avenue Retail Market, Food-Touren, Bronx Zoo und Botanical Garden in der Nähe sorgen für Besucher.",
+    expectation:
+      "Belmont bleibt besonders, wenn Familienbetriebe und kulinarische Authentizität erhalten bleiben."
+  },
+  {
+    name: "Riverdale",
+    region: "north",
+    area: "Northwest Bronx",
+    imageTitle: "Riverdale, Bronx",
+    vibe: "Hudson-Hänge, große Wohnungen, Schulen und Ruhe",
+    price: "$$$",
+    rent: "2.8k-4.3k",
+    future: "stabiler gehobener Wohnmarkt",
+    history:
+      "Riverdale entwickelte sich als grünes, höher gelegenes Wohngebiet mit Villen, Apartmenthäusern und Hudson-Bezug.",
+    prices:
+      "Größere Wohnungen, Schulen und Ruhe erzeugen ein anderes Preisprofil als der südliche Bronx-Markt.",
+    outlook:
+      "Sanierung, Schulnachfrage und Metro-North-Anbindung halten Riverdale stabil.",
+    character: "Grün, ruhig, wohlhabend und fast vorstädtisch.",
+    description:
+      "Riverdale fühlt sich weniger dicht an als viele NYC-Viertel: Hügel, Bäume, größere Grundstücke, Co-ops, Schulen und Blicke Richtung Hudson.",
+    developments:
+      "Punktuelle Wohnsanierungen, Klimaanpassung an Hanglagen, Schulen und Verkehrsverbindungen sind die zentralen Themen.",
+    events:
+      "Wave Hill, Van Cortlandt Park, Schulen, Synagogen, lokale Kultur und Hudson-nahe Programme prägen den Kalender.",
+    expectation:
+      "Riverdale bleibt ein ruhiger Premiumstandort der Bronx, getragen von Raum, Grün und Schulen."
+  },
+  {
+    name: "Kingsbridge",
+    region: "north",
+    area: "Northwest Bronx",
+    imageTitle: "Kingsbridge, Bronx",
+    vibe: "Transit, Handel, Familien und Armory-Zukunft",
+    price: "$$",
+    rent: "2.1k-3.3k",
+    future: "Armory als Schlüssel",
+    history:
+      "Kingsbridge liegt an alten Verkehrswegen und wuchs als Wohn- und Einkaufsgebiet zwischen Riverdale, Fordham und Van Cortlandt Park.",
+    prices:
+      "Moderater Markt mit Stabilität durch Transit, Schulen und Nähe zu Parkflächen.",
+    outlook:
+      "Die Zukunft hängt stark an der Revitalisierung der Kingsbridge Armory.",
+    character: "Praktisch, dicht, familienorientiert und noch unterschätzt.",
+    description:
+      "Kingsbridge ist ein Alltagsviertel mit Subway, Buslinien, Geschäften, Parks und einer großen Zukunftsfrage: Was aus der Kingsbridge Armory wird.",
+    developments:
+      "Die Kingsbridge Armory ist das große Transformationsprojekt. Geplante Nutzungen sollen Jobs, Kultur, Sport, Community-Flächen und neue Frequenz bringen.",
+    events:
+      "Van Cortlandt Park, lokale Sportprogramme, Schulen und künftige Armory-Nutzungen können das öffentliche Profil stärken.",
+    expectation:
+      "Wenn die Armory gut umgesetzt wird, kann Kingsbridge deutlich sichtbarer und wirtschaftlich stärker werden."
+  },
+  {
+    name: "Throgs Neck",
+    region: "east",
+    area: "East Bronx",
+    imageTitle: "Throggs Neck",
+    vibe: "Wasser, Einfamilienhäuser, Brücken und Ruhe",
+    price: "$$",
+    rent: "2.2k-3.4k",
+    future: "resiliente Küstenlage",
+    history:
+      "Throgs Neck wuchs als wasserorientiertes Wohngebiet mit maritimer Lage, Brückenbezug und niedrigerer Bebauung.",
+    prices:
+      "Stärker eigentums- und hausgeprägt als viele Bronx-Lagen; Wasser und Ruhe erzeugen Aufpreise.",
+    outlook:
+      "Küstenresilienz, Verkehr und Erhalt der niedrigen Wohnstruktur sind zentrale Zukunftsthemen.",
+    character: "Ruhig, lokal, maritim und weniger großstädtisch.",
+    description:
+      "Throgs Neck zeigt eine andere Bronx: Wasserblicke, niedrige Häuser, Yachthäfen, Brücken und eine fast kleinstädtische Wohnruhe.",
+    developments:
+      "Straßen, Küstenschutz, kleine Wohnprojekte und Mobilität Richtung Subway/Bus bleiben wichtiger als Großprojekte.",
+    events:
+      "Waterfront-Restaurants, lokale Paraden, Parks und maritime Freizeit prägen das Viertel.",
+    expectation:
+      "Throgs Neck bleibt stabil, wenn Küstenrisiken gut gemanagt und die lokale Wohnqualität erhalten werden."
+  },
+  {
+    name: "City Island",
+    region: "east",
+    area: "East Bronx Waterfront",
+    imageTitle: "City Island, Bronx",
+    vibe: "Fischrestaurants, Boote und Dorfgefühl",
+    price: "$$",
+    rent: "2.2k-3.4k",
+    future: "Nischenmarkt mit Küstenthemen",
+    history:
+      "City Island ist eng mit Bootsbau, Fischerei, Restaurants und maritimer Bronx-Geschichte verbunden.",
+    prices:
+      "Kleine Fläche und Wasserlage schaffen Knappheit, aber Erreichbarkeit begrenzt den Markt.",
+    outlook:
+      "Küstenresilienz, Tourismus und Erhalt des Dorfcharakters bestimmen die Zukunft.",
+    character: "Eigenständig, maritim, langsam und sehr untypisch für NYC.",
+    description:
+      "City Island fühlt sich wie ein Hafendorf innerhalb New Yorks an: Boote, Seafood, kleine Häuser, Wasserblicke und eine klare Abgrenzung vom restlichen Stadtraum.",
+    developments:
+      "Wichtige Themen sind Uferresilienz, Verkehr an Wochenenden, kleine Wohnprojekte und Schutz des maritimen Charakters.",
+    events:
+      "Seafood-Restaurants, Bootsleben, lokale Kunst, Sommerbesuche und Orchard-Beach-Nähe prägen den Rhythmus.",
+    expectation:
+      "City Island bleibt ein Spezialmarkt. Sein Wert liegt gerade darin, nicht wie der Rest der Stadt zu wirken."
+  }
+];
+
+const statenIslandNeighborhoods = [
+  {
+    name: "St. George",
+    region: "north",
+    area: "North Shore",
+    imageTitle: "St. George, Staten Island",
+    vibe: "Fähre, Hafenblick, Kultur und Civic Center",
+    price: "$$",
+    rent: "2.1k-3.3k",
+    future: "North-Shore-Schlüsselraum",
+    history:
+      "St. George wurde durch Fährverkehr, Verwaltung, Theater und die Beziehung zu Lower Manhattan geprägt.",
+    prices:
+      "Im NYC-Vergleich erreichbar, mit Aufpreisen für Wasserblick und Fährnähe.",
+    outlook:
+      "North-Shore-Investitionen, öffentliche Räume und gemischte Nutzung können St. George stärken.",
+    character: "Aussichtsreich, ruhig urban und stark vom Fährterminal geprägt.",
+    description:
+      "St. George ist das urbane Eingangstor Staten Islands: Fähre, Borough Hall, Theater, Hafenblick, historische Häuser und neue Wohnprojekte treffen direkt am Wasser zusammen.",
+    developments:
+      "North Shore Action Plan, Waterfront-Nutzung, Lighthouse-Point-Umfeld, neue Wohnungen und öffentliche Räume sind zentrale Zukunftsthemen.",
+    events:
+      "Staten Island FerryHawks, St. George Theatre, Kulturprogramme, Fähren und Waterfront-Events schaffen Öffentlichkeit.",
+    expectation:
+      "St. George kann stärker werden, wenn Fährnähe, Kultur und Wohnen zu einem echten gemischten Zentrum verbunden werden."
+  },
+  {
+    name: "Tompkinsville",
+    region: "north",
+    area: "North Shore",
+    imageTitle: "Tompkinsville, Staten Island",
+    vibe: "Sri-lankische Restaurants, Fährenähe und Wohnstraßen",
+    price: "$$",
+    rent: "2.0k-3.1k",
+    future: "kleinteilige Aufwertung",
+    history:
+      "Tompkinsville ist eines der älteren Staten-Island-Viertel und heute besonders durch sri-lankische und südasiatische Gastronomie sichtbar.",
+    prices:
+      "Günstiger als viele Lagen nahe Manhattan, aber Fährnähe und Food-Profil erhöhen Interesse.",
+    outlook:
+      "Kleine Sanierungen, Gastronomie und bessere North-Shore-Verbindungen prägen die Zukunft.",
+    character: "Lokal, kulinarisch, gemischt und unterschätzt.",
+    description:
+      "Tompkinsville liegt nah an St. George, wirkt aber kleinteiliger: Wohnhäuser, lokale Geschäfte, sri-lankische Restaurants und kurze Wege zur Fähre.",
+    developments:
+      "North-Shore-Verkehr, kleine Wohnprojekte, Retail-Stabilisierung und bessere Fußwege sind die wichtigsten Themen.",
+    events:
+      "Sri-lankische Restaurants, lokale Food-Szene, Community-Events und Kulturangebote im nahen St. George prägen den Alltag.",
+    expectation:
+      "Tompkinsville dürfte langsam sichtbarer werden, ohne seinen lokalen Charakter sofort zu verlieren."
+  },
+  {
+    name: "Stapleton",
+    region: "north",
+    area: "North Shore Waterfront",
+    imageTitle: "Stapleton, Staten Island",
+    vibe: "Waterfront, alte Hafenflächen und neues Wohnen",
+    price: "$$",
+    rent: "2.0k-3.2k",
+    future: "Waterfront-Reaktivierung",
+    history:
+      "Stapleton war Hafen- und Marine-Standort und ist heute ein wichtiger Baustein der North-Shore-Erneuerung.",
+    prices:
+      "Noch vergleichsweise erreichbar, mit Aufwertungspotenzial durch neue Waterfront-Wohnungen.",
+    outlook:
+      "Ehemalige Homeport-Flächen, neue Wohnungen und Uferzugang bestimmen die nächste Phase.",
+    character: "Im Übergang, wasserorientiert und weniger etabliert als St. George.",
+    description:
+      "Stapleton ist ein Transformationsraum: alte Hafen- und Gewerbespuren, neue Wohnbauten, Uferflächen und Nähe zur Staten Island Railway.",
+    developments:
+      "Staten Island Homeport, North-Shore-Waterfront, neue Wohn- und Gewerbeflächen sowie öffentliche Uferzugänge sind die Kernprojekte.",
+    events:
+      "Lokale Restaurants, Waterfront-Programme, kleine Kulturorte und Verbindungen nach St. George geben Stapleton sein öffentliches Leben.",
+    expectation:
+      "Stapleton kann deutlich gewinnen, wenn der Waterfront-Umbau echte Alltagsqualität und nicht nur neue Gebäude bringt."
+  },
+  {
+    name: "Snug Harbor",
+    region: "north",
+    area: "Cultural North Shore",
+    imageTitle: "Sailors' Snug Harbor",
+    vibe: "Kulturcampus, Gärten, Museen und alte Architektur",
+    price: "$$",
+    rent: "2.0k-3.1k",
+    future: "Kultur als Standortanker",
+    history:
+      "Sailors' Snug Harbor war eine historische Heimstätte für Seeleute und ist heute einer der wichtigsten Kulturorte Staten Islands.",
+    prices:
+      "Wohnlagen in der Umgebung profitieren von Grün, Kultur und North-Shore-Nähe, bleiben aber moderater als Brooklyn-Pendants.",
+    outlook:
+      "Kulturinvestitionen und bessere Verbindungen können den Standort sichtbarer machen.",
+    character: "Grün, historisch, ruhig und kulturell überraschend.",
+    description:
+      "Snug Harbor ist kein klassisches dichtes Viertel, sondern ein kultureller Anker: historische Gebäude, botanische Gärten, Museen und offene Flächen prägen das Umfeld.",
+    developments:
+      "Wichtig sind Pflege der historischen Anlagen, Kulturprogramme, North-Shore-Transit und bessere Wege zu umliegenden Wohngebieten.",
+    events:
+      "Snug Harbor Cultural Center, Chinese Scholar's Garden, Newhouse Center und saisonale Festivals sind zentrale Ereignisse.",
+    expectation:
+      "Der Bereich bleibt attraktiv, wenn Kultur, Grün und Erreichbarkeit stärker zusammenspielen."
+  },
+  {
+    name: "New Dorp",
+    region: "east",
+    area: "East Shore",
+    imageTitle: "New Dorp, Staten Island",
+    vibe: "Einkaufsstraßen, Familien, Bahn und Strandnähe",
+    price: "$$",
+    rent: "2.0k-3.1k",
+    future: "stabiler Alltagsstandort",
+    history:
+      "New Dorp ist eines der älteren Siedlungsgebiete Staten Islands und entwickelte sich zu einem wichtigen lokalen Einkaufs- und Wohnzentrum.",
+    prices:
+      "Moderates Niveau, geprägt von Einfamilienhäusern, kleineren Apartments und Nähe zur Staten Island Railway.",
+    outlook:
+      "Lokaler Handel, Küstenresilienz und Wohnraumerneuerung bestimmen die Zukunft.",
+    character: "Praktisch, familiennah, autogeprägt und lokal.",
+    description:
+      "New Dorp ist ein Alltagszentrum der East Shore: Einkaufsstraßen, Bahnanschluss, Schulen, Restaurants, Häuser und Nähe zu Parks und Strandbereichen.",
+    developments:
+      "Straßenraum, Küstenschutz, kleine Wohnprojekte und Stabilisierung lokaler Geschäftsachsen sind die wichtigsten Themen.",
+    events:
+      "Lokale Paraden, Restaurants, Miller Field, Strandnähe und Gemeindeveranstaltungen prägen den Kalender.",
+    expectation:
+      "New Dorp bleibt stabil, wenn Handel, Mobilität und Küstenschutz schrittweise verbessert werden."
+  },
+  {
+    name: "Tottenville",
+    region: "south",
+    area: "South Shore",
+    imageTitle: "Tottenville, Staten Island",
+    vibe: "Historische Häuser, Wasser, Ruhe und Südspitze",
+    price: "$$",
+    rent: "2.1k-3.3k",
+    future: "ruhig, resilient, eigentumsstark",
+    history:
+      "Tottenville war ein maritimer Ort mit Austern-, Boots- und Handelsgeschichte an der Südspitze Staten Islands.",
+    prices:
+      "Stärker haus- und eigentumsgeprägt, mit Preisen abhängig von Wasserlage, Grundstück und Zustand.",
+    outlook:
+      "Küstenschutz und Erhalt des historischen Maßstabs bleiben entscheidend.",
+    character: "Langsam, wasserorientiert, historisch und weit weg vom NYC-Klischee.",
+    description:
+      "Tottenville wirkt fast kleinstädtisch: niedrige Häuser, alte Straßenzüge, Wasserbezug, Parks und eine Distanz zum dichten New-York-Rhythmus.",
+    developments:
+      "Küstenresilienz, kleine Wohnsanierungen, Parks und Verkehrsanbindung zur Staten Island Railway sind zentrale Themen.",
+    events:
+      "Conference House Park, lokale Geschichtsfeste, maritime Freizeit und South-Shore-Veranstaltungen prägen den Charakter.",
+    expectation:
+      "Tottenville bleibt ein Nischenmarkt für Ruhe, Häuser und Wasser. Große Verdichtung ist weniger wahrscheinlich."
+  },
+  {
+    name: "Great Kills",
+    region: "east",
+    area: "South-East Shore",
+    imageTitle: "Great Kills, Staten Island",
+    vibe: "Marina, Parks, Familien und Küstenlage",
+    price: "$$",
+    rent: "2.1k-3.3k",
+    future: "Küstenqualität mit Resilienzbedarf",
+    history:
+      "Great Kills entwickelte sich als Wohn- und Freizeitgebiet mit starker Beziehung zu Marina, Parks und Küste.",
+    prices:
+      "Haus- und familienorientierter Markt mit Aufpreisen für ruhige Straßen und Wassernähe.",
+    outlook:
+      "Küstenschutz, Parkpflege und Verkehrsverbindungen bestimmen die Zukunft.",
+    character: "Ruhig, grün, familiennah und maritim.",
+    description:
+      "Great Kills steht für Staten-Island-Wohnqualität am Wasser: Marina, Parks, Häuser, Schulen und ein Alltag, der deutlich langsamer wirkt als in den inneren Boroughs.",
+    developments:
+      "Resilienz, Great Kills Park, Straßeninfrastruktur und lokale Geschäftsachsen bleiben die wichtigsten Zukunftsfelder.",
+    events:
+      "Marina-Leben, Parkprogramme, lokale Sport- und Familienevents geben dem Viertel seinen Rhythmus.",
+    expectation:
+      "Great Kills bleibt stabil, solange Küstenrisiken gut gemanagt und die ruhige Wohnqualität erhalten wird."
+  },
+  {
+    name: "West Brighton",
+    region: "north",
+    area: "North Shore",
+    imageTitle: "West New Brighton, Staten Island",
+    vibe: "Zoo, alte Häuser, lokale Läden und North-Shore-Nähe",
+    price: "$$",
+    rent: "2.0k-3.1k",
+    future: "solide und nachbarschaftlich",
+    history:
+      "West Brighton entwickelte sich als älteres Wohngebiet der North Shore mit lokalen Einkaufsstraßen und Nähe zu Parks und Institutionen.",
+    prices:
+      "Moderate Preise, getragen von Häusern, Mietwohnungen und guter North-Shore-Lage.",
+    outlook:
+      "Stabilität entsteht durch lokale Infrastruktur, Schulen, Parks und Verbindung zu St. George.",
+    character: "Wohnlich, lokal, bodenständig und familiennah.",
+    description:
+      "West Brighton ist ein ruhiges North-Shore-Wohnviertel mit alten Häusern, Läden, Staten Island Zoo, Schulen und Nähe zu den Kulturorten im Norden.",
+    developments:
+      "Lokale Straßen, kleine Wohnsanierungen, North-Shore-Verbindungen und öffentliche Einrichtungen prägen die Zukunft.",
+    events:
+      "Staten Island Zoo, lokale Märkte, Parks, Schulen und Gemeindefeste sorgen für Alltagsleben.",
+    expectation:
+      "West Brighton dürfte ruhig stabil bleiben und von einer stärkeren North Shore profitieren."
+  }
+];
+
+const boroughs = {
+  manhattan: {
+    name: "Manhattan",
+    neighborhoods,
+    heroImage:
+      "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=2200&q=80",
+    regions: [
+      ["all", "Alle"],
+      ["uptown", "Uptown"],
+      ["midtown", "Midtown"],
+      ["downtown", "Downtown"]
+    ],
+    defaultPair: ["Harlem", "TriBeCa"],
+    defaultSelected: "Greenwich Village",
+    rentStat: "$5.1k",
+    rentTitle: "Median-Miete Manhattan",
+    rentCopy: "Realtor.com meldete für März 2026 eine mediane Angebotsmiete von etwa 5.100 Dollar pro Monat.",
+    indexStat: "+6.8",
+    indexCopy: "NYCEDC zeigte im April 2026 einen StreetEasy Rent Index deutlich über Vor-Covid-Niveau."
+  },
+  brooklyn: {
+    name: "Brooklyn",
+    neighborhoods: brooklynNeighborhoods,
+    heroImage:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn_Bridge_and_Skyline.jpg?width=2400",
+    regions: [
+      ["all", "Alle"],
+      ["north", "North Brooklyn"],
+      ["central", "Central"],
+      ["east", "East"],
+      ["south", "South"]
+    ],
+    defaultPair: ["Williamsburg", "Park Slope"],
+    defaultSelected: "Williamsburg",
+    rentStat: "$3.7k",
+    rentTitle: "Median-Miete Brooklyn",
+    rentCopy: "Brooklyn zeigt große Spannen: Premiumlagen am Wasser liegen deutlich über vielen südlichen und östlichen Wohnlagen.",
+    indexStat: "+4.9",
+    indexCopy: "Der Mietdruck bleibt besonders in North Brooklyn, Brownstone Brooklyn und gut angebundenen Transitlagen hoch."
+  },
+  queens: {
+    name: "Queens",
+    neighborhoods: queensNeighborhoods,
+    heroImage:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Pepsi-Cola_sign_in_Gantry_Plaza_State_Park%2C_Long_Island_City%2C_New_York.jpg?width=2400",
+    regions: [
+      ["all", "Alle"],
+      ["west", "West Queens"],
+      ["central", "Central"],
+      ["east", "East"],
+      ["south", "South"]
+    ],
+    defaultPair: ["Long Island City", "Jackson Heights"],
+    defaultSelected: "Long Island City",
+    rentStat: "$3.0k",
+    rentTitle: "Median-Miete Queens",
+    rentCopy: "Queens reicht von LIC-Premiumlagen bis zu deutlich ruhigeren, familienorientierten Märkten im Osten und Süden.",
+    indexStat: "+3.8",
+    indexCopy: "Transit, Flughafennähe, internationale Handelszentren und neue Waterfront-Projekte treiben die Entwicklung."
+  },
+  bronx: {
+    name: "Bronx",
+    neighborhoods: bronxNeighborhoods,
+    heroImage:
+      "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=2200&q=80",
+    regions: [
+      ["all", "Alle"],
+      ["south", "South Bronx"],
+      ["central", "Central"],
+      ["north", "North"],
+      ["east", "East"]
+    ],
+    defaultPair: ["Mott Haven", "Riverdale"],
+    defaultSelected: "Mott Haven",
+    rentStat: "$2.5k",
+    rentTitle: "Median-Miete Bronx",
+    rentCopy: "Die Bronx bleibt im Vergleich erreichbar, zeigt aber starke Unterschiede zwischen Waterfront-Wachstum und ruhigen Wohnlagen.",
+    indexStat: "+3.2",
+    indexCopy: "Große Hebel sind Transit, bezahlbarer Wohnungsbau, Kulturinvestitionen und einzelne Schlüsselprojekte wie Kingsbridge Armory."
+  },
+  "staten-island": {
+    name: "Staten Island",
+    neighborhoods: statenIslandNeighborhoods,
+    heroImage:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/St_George_Full_Skyline_2023.png?width=2400",
+    regions: [
+      ["all", "Alle"],
+      ["north", "North Shore"],
+      ["east", "East Shore"],
+      ["south", "South Shore"]
+    ],
+    defaultPair: ["St. George", "Tottenville"],
+    defaultSelected: "St. George",
+    rentStat: "$2.4k",
+    rentTitle: "Median-Miete Staten Island",
+    rentCopy: "Staten Island ist stärker haus-, küsten- und fährorientiert und bleibt meist günstiger als die inneren Boroughs.",
+    indexStat: "+2.4",
+    indexCopy: "North-Shore-Entwicklung, Küstenresilienz und Fährnähe sind die wichtigsten Zukunftsfaktoren."
+  }
+};
+
 const grid = document.querySelector("#neighborhoodGrid");
 const detailPanel = document.querySelector("#detailPanel");
 const searchInput = document.querySelector("#searchInput");
 const languageSelect = document.querySelector("#languageSelect");
+const boroughSelect = document.querySelector("#boroughSelect");
 const compareA = document.querySelector("#compareA");
 const compareB = document.querySelector("#compareB");
 const comparisonOutput = document.querySelector("#comparisonOutput");
-const segmentButtons = document.querySelectorAll(".segment");
+const segmentGroup = document.querySelector(".segments");
+const profileCount = document.querySelector("#profileCount");
 
 let selectedRegion = "all";
 let selectedNeighborhood = null;
+
+function getSavedBorough() {
+  try {
+    return localStorage.getItem("nycAtlasBorough") || "manhattan";
+  } catch {
+    return "manhattan";
+  }
+}
+
+function saveBorough(borough) {
+  try {
+    localStorage.setItem("nycAtlasBorough", borough);
+  } catch {
+    // Direct file previews may block storage; the page should still work.
+  }
+}
+
+let activeBoroughKey = boroughs[getSavedBorough()] ? getSavedBorough() : "manhattan";
+
+function currentBorough() {
+  return boroughs[activeBoroughKey] || boroughs.manhattan;
+}
+
+function activeNeighborhoods() {
+  return currentBorough().neighborhoods;
+}
 
 function getSavedLanguage() {
   try {
@@ -480,21 +1421,21 @@ const translations = {
     navSources: "Quellen",
     languageLabel: "Sprache",
     heroEyebrow: "Geschichte, Preise, Zukunft",
-    heroTitle: "Nachbarschaften von Manhatten",
+    heroTitle: "Nachbarschaften von New York",
     heroCopy:
-      "Ein kuratierter Atlas der wichtigsten Manhattan-Viertel mit prägnanten Markt-, Geschichts- und Zukunftsanalysen sowie hochwertigen Bildern, die den Charakter jedes Ortes sichtbar machen.",
+      "Ein kuratierter Atlas der wichtigsten New-York-Viertel mit prägnanten Markt-, Geschichts- und Zukunftsanalysen sowie hochwertigen Bildern, die den Charakter jedes Ortes sichtbar machen.",
     searchLabel: "Suchen",
-    searchPlaceholder: "z.B. Harlem, SoHo, Chelsea",
+    searchPlaceholder: "z.B. Harlem, Williamsburg, Astoria",
     regionAll: "Alle",
-    statRentTitle: "Median-Miete Manhattan",
+    statRentTitle: "Median-Miete",
     statRentCopy:
       "Realtor.com meldete für März 2026 eine mediane Angebotsmiete von etwa 5.100 Dollar pro Monat.",
     statIndexCopy:
       "NYCEDC zeigte im April 2026 einen StreetEasy Rent Index deutlich über Vor-Covid-Niveau.",
     statProfilesCopy:
-      "Vom historischen Inwood bis zum Financial District: kompakte Kacheln für schnelle Vergleiche.",
+      "Kompakte Profile für schnelle Vergleiche innerhalb des ausgewählten Bezirks.",
     marketEyebrow: "Market snapshot",
-    marketTitle: "Manhattan auf einen Blick",
+    marketTitle: "Bezirk auf einen Blick",
     marketCopy: "Ein kurzer Marktimpuls, bevor du zwei Nachbarschaften direkt vergleichst.",
     statIndexTitle: "Rent Index",
     statProfilesTitle: "Profile",
@@ -538,21 +1479,21 @@ const translations = {
     navSources: "Sources",
     languageLabel: "Language",
     heroEyebrow: "History, prices, future",
-    heroTitle: "Neighborhoods of Manhattan",
+    heroTitle: "Neighborhoods of New York",
     heroCopy:
-      "A curated atlas of Manhattan's key neighborhoods, combining concise market, history and future analysis with high-quality imagery that reveals each place's character.",
+      "A curated atlas of New York's key neighborhoods, combining concise market, history and future analysis with high-quality imagery that reveals each place's character.",
     searchLabel: "Search",
     searchPlaceholder: "e.g. Harlem, SoHo, Chelsea",
     regionAll: "All",
-    statRentTitle: "Median Manhattan rent",
+    statRentTitle: "Median rent",
     statRentCopy:
       "Realtor.com reported a median asking rent of about $5,100 per month for March 2026.",
     statIndexCopy:
       "In April 2026, NYCEDC showed a StreetEasy rent index clearly above its pre-Covid level.",
     statProfilesCopy:
-      "From historic Inwood to the Financial District: compact cards for quick comparison.",
+      "Compact profiles for quick comparison inside the selected borough.",
     marketEyebrow: "Market snapshot",
-    marketTitle: "Manhattan at a glance",
+    marketTitle: "Borough at a glance",
     marketCopy: "A quick market pulse before comparing two neighborhoods directly.",
     statIndexTitle: "Rent Index",
     statProfilesTitle: "Profiles",
@@ -596,21 +1537,21 @@ const translations = {
     navSources: "Fuentes",
     languageLabel: "Idioma",
     heroEyebrow: "Historia, precios, futuro",
-    heroTitle: "Barrios de Manhattan",
+    heroTitle: "Barrios de Nueva York",
     heroCopy:
-      "Un atlas curado de los barrios clave de Manhattan, con análisis de mercado, historia y futuro, además de imágenes de alta calidad que revelan el carácter de cada lugar.",
+      "Un atlas curado de los barrios clave de Nueva York, con análisis de mercado, historia y futuro, además de imágenes de alta calidad que revelan el carácter de cada lugar.",
     searchLabel: "Buscar",
-    searchPlaceholder: "p. ej. Harlem, SoHo, Chelsea",
+    searchPlaceholder: "p. ej. Harlem, Williamsburg, Astoria",
     regionAll: "Todos",
-    statRentTitle: "Renta mediana en Manhattan",
+    statRentTitle: "Renta mediana",
     statRentCopy:
       "Realtor.com informo una renta mediana solicitada de unos 5.100 dolares al mes en marzo de 2026.",
     statIndexCopy:
       "En abril de 2026, NYCEDC mostro un indice de renta de StreetEasy claramente por encima del nivel previo al Covid.",
     statProfilesCopy:
-      "Desde el historico Inwood hasta el Financial District: tarjetas compactas para comparar rapido.",
+      "Perfiles compactos para comparar rapidamente dentro del distrito seleccionado.",
     marketEyebrow: "Resumen del mercado",
-    marketTitle: "Manhattan de un vistazo",
+    marketTitle: "Distrito de un vistazo",
     marketCopy: "Un pulso rapido del mercado antes de comparar dos barrios directamente.",
     statIndexTitle: "Indice de renta",
     statProfilesTitle: "Perfiles",
@@ -654,21 +1595,21 @@ const translations = {
     navSources: "Sources",
     languageLabel: "Langue",
     heroEyebrow: "Histoire, prix, avenir",
-    heroTitle: "Quartiers de Manhattan",
+    heroTitle: "Quartiers de New York",
     heroCopy:
-      "Un atlas éditorial des quartiers clés de Manhattan, avec des analyses de marché, d'histoire et d'avenir, ainsi que des images de haute qualité révélant le caractère de chaque lieu.",
+      "Un atlas éditorial des quartiers clés de New York, avec des analyses de marché, d'histoire et d'avenir, ainsi que des images de haute qualité révélant le caractère de chaque lieu.",
     searchLabel: "Rechercher",
-    searchPlaceholder: "ex. Harlem, SoHo, Chelsea",
+    searchPlaceholder: "ex. Harlem, Williamsburg, Astoria",
     regionAll: "Tous",
-    statRentTitle: "Loyer median a Manhattan",
+    statRentTitle: "Loyer median",
     statRentCopy:
       "Realtor.com a signale un loyer median demande d'environ 5 100 dollars par mois en mars 2026.",
     statIndexCopy:
       "En avril 2026, NYCEDC montrait un indice de loyers StreetEasy nettement au-dessus du niveau pre-Covid.",
     statProfilesCopy:
-      "De l'historique Inwood au Financial District : des cartes compactes pour comparer rapidement.",
+      "Des profils compacts pour comparer rapidement dans l'arrondissement choisi.",
     marketEyebrow: "Apercu du marche",
-    marketTitle: "Manhattan en un coup d'oeil",
+    marketTitle: "Arrondissement en un coup d'oeil",
     marketCopy: "Un signal rapide du marche avant de comparer deux quartiers directement.",
     statIndexTitle: "Indice des loyers",
     statProfilesTitle: "Profils",
@@ -712,21 +1653,21 @@ const translations = {
     navSources: "Fontes",
     languageLabel: "Idioma",
     heroEyebrow: "Historia, precos, futuro",
-    heroTitle: "Bairros de Manhattan",
+    heroTitle: "Bairros de Nova York",
     heroCopy:
-      "Um atlas curado dos principais bairros de Manhattan, com análises de mercado, história e futuro, além de imagens de alta qualidade que revelam o caráter de cada lugar.",
+      "Um atlas curado dos principais bairros de Nova York, com análises de mercado, história e futuro, além de imagens de alta qualidade que revelam o caráter de cada lugar.",
     searchLabel: "Buscar",
-    searchPlaceholder: "ex. Harlem, SoHo, Chelsea",
+    searchPlaceholder: "ex. Harlem, Williamsburg, Astoria",
     regionAll: "Todos",
-    statRentTitle: "Aluguel mediano em Manhattan",
+    statRentTitle: "Aluguel mediano",
     statRentCopy:
       "A Realtor.com informou um aluguel mediano pedido de cerca de US$ 5.100 por mes em marco de 2026.",
     statIndexCopy:
       "Em abril de 2026, a NYCEDC mostrou um indice de aluguel StreetEasy claramente acima do nivel pre-Covid.",
     statProfilesCopy:
-      "Do historico Inwood ao Financial District: cartoes compactos para comparar rapidamente.",
+      "Perfis compactos para comparar rapidamente dentro do distrito selecionado.",
     marketEyebrow: "Resumo do mercado",
-    marketTitle: "Manhattan em um olhar",
+    marketTitle: "Distrito em um olhar",
     marketCopy: "Um pulso rapido do mercado antes de comparar dois bairros diretamente.",
     statIndexTitle: "Indice de aluguel",
     statProfilesTitle: "Perfis",
@@ -770,21 +1711,21 @@ const translations = {
     navSources: "来源",
     languageLabel: "语言",
     heroEyebrow: "历史、价格、未来",
-    heroTitle: "曼哈顿街区",
+    heroTitle: "纽约街区",
     heroCopy:
-      "一份精心策划的曼哈顿重点街区图鉴，结合市场、历史与未来分析，并通过图片画廊呈现每个地方的独特气质。",
+      "一份精心策划的纽约重点街区图鉴，结合市场、历史与未来分析，并通过高质量图片呈现每个地方的独特气质。",
     searchLabel: "搜索",
-    searchPlaceholder: "例如 Harlem、SoHo、Chelsea",
+    searchPlaceholder: "例如 Harlem、Williamsburg、Astoria",
     regionAll: "全部",
-    statRentTitle: "曼哈顿租金中位数",
+    statRentTitle: "租金中位数",
     statRentCopy:
       "Realtor.com 报告称，2026 年 3 月曼哈顿挂牌租金中位数约为每月 5,100 美元。",
     statIndexCopy:
       "NYCEDC 在 2026 年 4 月显示，StreetEasy 租金指数明显高于疫情前水平。",
     statProfilesCopy:
-      "从历史悠久的 Inwood 到 Financial District：用紧凑卡片快速比较。",
+      "在所选行政区内，用紧凑档案快速比较不同街区。",
     marketEyebrow: "市场概览",
-    marketTitle: "曼哈顿一览",
+    marketTitle: "行政区概览",
     marketCopy: "在直接比较两个街区之前，先快速了解市场脉搏。",
     statIndexTitle: "租金指数",
     statProfilesTitle: "街区档案",
@@ -826,6 +1767,119 @@ const translations = {
 
 function t(key) {
   return translations[currentLanguage]?.[key] || translations.de[key] || key;
+}
+
+function boroughTitle() {
+  return `${currentBorough().name} Atlas`;
+}
+
+function boroughHeroTitle() {
+  const germanNames = {
+    manhattan: "Nachbarschaften in Manhattan",
+    brooklyn: "Nachbarschaften in Brooklyn",
+    queens: "Nachbarschaften in Queens",
+    bronx: "Nachbarschaften in der Bronx",
+    "staten-island": "Nachbarschaften auf Staten Island"
+  };
+  const names = {
+    de: germanNames[activeBoroughKey] || `Nachbarschaften in ${currentBorough().name}`,
+    en: `${currentBorough().name} neighborhoods`,
+    es: `Barrios de ${currentBorough().name}`,
+    fr: `Quartiers de ${currentBorough().name}`,
+    pt: `Bairros de ${currentBorough().name}`,
+    zh: `${currentBorough().name} 街区`
+  };
+  return names[currentLanguage] || names.de;
+}
+
+function boroughHeroCopy() {
+  const name = currentBorough().name;
+  const copy = {
+    de: `Ein kuratierter Atlas der wichtigsten Viertel in ${name} mit prägnanten Markt-, Geschichts- und Zukunftsanalysen sowie hochwertigen Bildern, die den Charakter jedes Ortes sichtbar machen.`,
+    en: `A curated atlas of ${name}'s key neighborhoods, combining concise market, history and future analysis with high-quality imagery that reveals each place's character.`,
+    es: `Un atlas curado de los barrios clave de ${name}, con análisis de mercado, historia y futuro, además de imágenes de alta calidad que revelan el carácter de cada lugar.`,
+    fr: `Un atlas éditorial des quartiers clés de ${name}, avec des analyses de marché, d'histoire et d'avenir, ainsi que des images de haute qualité révélant le caractère de chaque lieu.`,
+    pt: `Um atlas curado dos principais bairros de ${name}, com análises de mercado, história e futuro, além de imagens de alta qualidade que revelam o caráter de cada lugar.`,
+    zh: `一份精心策划的 ${name} 重点街区图鉴，结合市场、历史与未来分析，并通过高质量图片呈现每个地方的独特气质。`
+  };
+  return copy[currentLanguage] || copy.de;
+}
+
+function updateBoroughInterface() {
+  const borough = currentBorough();
+  const glance = {
+    de: `${borough.name} auf einen Blick`,
+    en: `${borough.name} at a glance`,
+    es: `${borough.name} de un vistazo`,
+    fr: `${borough.name} en un coup d'oeil`,
+    pt: `${borough.name} em um olhar`,
+    zh: `${borough.name} 概览`
+  };
+  const profileCopy = {
+    de: `${borough.neighborhoods.length} ausgewählte Profile in ${borough.name}: kompakt genug zum Vergleichen, ausführlich genug für eine echte Einschätzung.`,
+    en: `${borough.neighborhoods.length} selected profiles in ${borough.name}: compact enough to compare, detailed enough for a real first read.`,
+    es: `${borough.neighborhoods.length} perfiles seleccionados en ${borough.name}: compactos para comparar y lo bastante detallados para una primera lectura real.`,
+    fr: `${borough.neighborhoods.length} profils sélectionnés dans ${borough.name} : assez compacts pour comparer, assez détaillés pour une vraie première lecture.`,
+    pt: `${borough.neighborhoods.length} perfis selecionados em ${borough.name}: compactos para comparar e detalhados o bastante para uma primeira leitura real.`,
+    zh: `${borough.name} 的 ${borough.neighborhoods.length} 个精选街区档案：便于比较，也足够深入。`
+  };
+  document.documentElement.style.setProperty("--hero-image", `url("${borough.heroImage}")`);
+  document.title = boroughHeroTitle();
+  document.querySelectorAll("[data-i18n='heroTitle']").forEach((element) => {
+    element.textContent = boroughHeroTitle();
+  });
+  document.querySelectorAll("[data-i18n='heroCopy']").forEach((element) => {
+    element.textContent = boroughHeroCopy();
+  });
+  document.querySelectorAll("[data-i18n='marketTitle']").forEach((element) => {
+    element.textContent = glance[currentLanguage] || glance.de;
+  });
+  document.querySelectorAll("[data-i18n='statRentTitle']").forEach((element) => {
+    element.textContent = borough.rentTitle;
+  });
+  document.querySelectorAll("[data-i18n='statRentCopy']").forEach((element) => {
+    element.textContent = borough.rentCopy;
+  });
+  document.querySelectorAll("[data-i18n='statIndexCopy']").forEach((element) => {
+    element.textContent = borough.indexCopy;
+  });
+  document.querySelectorAll("[data-i18n='statProfilesCopy']").forEach((element) => {
+    element.textContent = profileCopy[currentLanguage] || profileCopy.de;
+  });
+  document.querySelectorAll(".intro-grid article:first-child .stat").forEach((element) => {
+    element.textContent = borough.rentStat;
+  });
+  document.querySelectorAll(".intro-grid article:nth-child(2) .stat").forEach((element) => {
+    element.textContent = borough.indexStat;
+  });
+  if (profileCount) {
+    profileCount.textContent = String(borough.neighborhoods.length);
+  }
+  if (boroughSelect) {
+    boroughSelect.value = activeBoroughKey;
+  }
+}
+
+function renderRegionSegments() {
+  if (!segmentGroup) return;
+  const regions = currentBorough().regions;
+  if (!regions.some(([region]) => region === selectedRegion)) {
+    selectedRegion = "all";
+  }
+  segmentGroup.innerHTML = regions
+    .map(
+      ([region, label]) =>
+        `<button class="segment${region === selectedRegion ? " active" : ""}" type="button" data-region="${region}">${region === "all" ? t("regionAll") : label}</button>`
+    )
+    .join("");
+  segmentGroup.querySelectorAll(".segment").forEach((button) => {
+    button.addEventListener("click", () => {
+      segmentGroup.querySelectorAll(".segment").forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+      selectedRegion = button.dataset.region;
+      renderCards();
+    });
+  });
 }
 
 function fallbackGradient(index) {
@@ -895,7 +1949,8 @@ function stars(price) {
 
 function renderCards() {
   const query = searchInput.value.trim().toLowerCase();
-  const filtered = neighborhoods.filter((item) => {
+  const currentItems = activeNeighborhoods();
+  const filtered = currentItems.filter((item) => {
     const matchesRegion = selectedRegion === "all" || item.region === selectedRegion;
     const searchable = `${item.name} ${item.area} ${item.vibe}`.toLowerCase();
     return matchesRegion && searchable.includes(query);
@@ -904,7 +1959,7 @@ function renderCards() {
   grid.innerHTML = filtered.length
     ? filtered
         .map((item) => {
-          const originalIndex = neighborhoods.indexOf(item);
+          const originalIndex = currentItems.indexOf(item);
           const localized = localizedNeighborhood(item);
           return `
             <button class="card" type="button" data-name="${item.name}" data-image-title="${item.imageTitle}" style="--image: ${fallbackGradient(originalIndex)}">
@@ -922,7 +1977,7 @@ function renderCards() {
 
   document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("click", () => {
-      const match = neighborhoods.find((item) => item.name === card.dataset.name);
+      const match = activeNeighborhoods().find((item) => item.name === card.dataset.name);
       if (match) {
         selectedNeighborhood = match;
         renderDetail(match);
@@ -954,10 +2009,13 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
       prices: item.prices,
       outlook: item.outlook,
       character: item.character,
-      description: extra.description || item.character,
-      developments: extra.developments || item.outlook,
-      events: extra.events || "Lokale Parks, Restaurants, Kulturorte und saisonale Straßenprogramme prägen den Alltag.",
-      expectation: extra.expectation || item.future
+      description: extra.description || item.description || item.character,
+      developments: extra.developments || item.developments || item.outlook,
+      events:
+        extra.events ||
+        item.events ||
+        "Lokale Parks, Restaurants, Kulturorte und saisonale Straßenprogramme prägen den Alltag.",
+      expectation: extra.expectation || item.expectation || item.future
     };
   }
 
@@ -965,8 +2023,8 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
     en: {
       vibe: `${item.name} combines architecture, street life and local identity in ${item.area}.`,
       future: "active long-term transformation",
-      description: `${item.name} is best understood through its location, architecture and everyday rhythm. The neighborhood mixes housing, public life, cultural anchors and changing real-estate demand into a distinct Manhattan profile.`,
-      history: `${item.name} developed through several layers of Manhattan history: transport corridors, housing growth, immigration, commerce, cultural institutions and later waves of reinvestment. Those layers are still visible in the street grid, building types and local businesses.`,
+      description: `${item.name} is best understood through its location, architecture and everyday rhythm. The neighborhood mixes housing, public life, cultural anchors and changing real-estate demand into a distinct New York profile.`,
+      history: `${item.name} developed through several layers of New York history: transport corridors, housing growth, immigration, commerce, cultural institutions and later waves of reinvestment. Those layers are still visible in the street grid, building types and local businesses.`,
       prices: `The rent range of about $${item.rent} per month is a practical orientation point. Actual prices vary strongly by building age, light, elevator, amenities, subway access and proximity to parks or the waterfront. The relative price level here is ${item.price}.`,
       outlook: `${item.name} is likely to keep evolving through a mix of housing demand, public-space upgrades, climate resilience, transit access and commercial change. Its future depends on whether new investment supports everyday neighborhood life.`,
       developments: `Development pressure in and around ${item.name} is shaped by selective renovation, new housing where zoning allows it, upgraded public space and nearby institutional or infrastructure projects. The most visible change will probably appear along key corridors rather than on every block.`,
@@ -977,7 +2035,7 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
     es: {
       vibe: `${item.name} combina arquitectura, vida urbana e identidad local en ${item.area}.`,
       future: "transformacion activa a largo plazo",
-      description: `${item.name} se entiende mejor por su ubicacion, su arquitectura y su ritmo cotidiano. El barrio mezcla vivienda, vida publica, cultura y demanda inmobiliaria en un perfil muy propio de Manhattan.`,
+      description: `${item.name} se entiende mejor por su ubicacion, su arquitectura y su ritmo cotidiano. El barrio mezcla vivienda, vida publica, cultura y demanda inmobiliaria en un perfil muy propio de Nueva York.`,
       history: `${item.name} se formo por capas de historia urbana: transporte, crecimiento residencial, inmigracion, comercio, instituciones culturales y nuevas olas de inversion. Esas capas todavia se leen en las calles, los edificios y los negocios locales.`,
       prices: `La renta estimada de unos $${item.rent} al mes sirve como orientacion. Los precios reales cambian mucho segun edificio, luz, ascensor, servicios, metro y cercania a parques o al agua. El nivel relativo de precios aqui es ${item.price}.`,
       outlook: `${item.name} seguira cambiando por la demanda de vivienda, mejoras del espacio publico, resiliencia climatica, transporte y transformacion comercial. Su futuro dependera de que la inversion mejore tambien la vida diaria del barrio.`,
@@ -989,7 +2047,7 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
     fr: {
       vibe: `${item.name} associe architecture, vie de rue et identite locale dans ${item.area}.`,
       future: "transformation active a long terme",
-      description: `${item.name} se comprend par sa position, son architecture et son rythme quotidien. Le quartier combine logement, vie publique, lieux culturels et demande immobiliere dans un profil tres manhattanien.`,
+      description: `${item.name} se comprend par sa position, son architecture et son rythme quotidien. Le quartier combine logement, vie publique, lieux culturels et demande immobiliere dans un profil tres new-yorkais.`,
       history: `${item.name} s'est construit par couches successives : transports, habitat, immigration, commerce, institutions culturelles puis reinvestissement. Ces traces restent visibles dans les rues, les immeubles et les commerces.`,
       prices: `La fourchette d'environ $${item.rent} par mois sert de repere. Les prix varient selon l'immeuble, la lumiere, l'ascenseur, les services, le metro et la proximite des parcs ou de l'eau. Le niveau relatif est ${item.price}.`,
       outlook: `${item.name} devrait continuer a evoluer avec la demande residentielle, les espaces publics, la resilience climatique, les transports et le commerce. Son avenir dependra de la qualite de cette transformation au quotidien.`,
@@ -1001,7 +2059,7 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
     pt: {
       vibe: `${item.name} combina arquitetura, vida de rua e identidade local em ${item.area}.`,
       future: "transformacao ativa de longo prazo",
-      description: `${item.name} e melhor entendido pela localizacao, pela arquitetura e pelo ritmo cotidiano. O bairro mistura moradia, vida publica, cultura e demanda imobiliaria em um perfil tipico de Manhattan.`,
+      description: `${item.name} e melhor entendido pela localizacao, pela arquitetura e pelo ritmo cotidiano. O bairro mistura moradia, vida publica, cultura e demanda imobiliaria em um perfil tipico de Nova York.`,
       history: `${item.name} cresceu em camadas: transporte, habitacao, imigracao, comercio, instituicoes culturais e novas ondas de investimento. Essas camadas ainda aparecem nas ruas, nos edificios e nos negocios locais.`,
       prices: `A faixa de aluguel de cerca de $${item.rent} por mes serve como orientacao. Os precos variam conforme predio, luz, elevador, servicos, acesso ao metro e proximidade de parques ou da agua. O nivel relativo aqui e ${item.price}.`,
       outlook: `${item.name} deve continuar mudando com demanda por moradia, melhorias urbanas, resiliencia climatica, transporte e comercio. O futuro depende de a nova valorizacao tambem fortalecer a vida diaria do bairro.`,
@@ -1013,7 +2071,7 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
     zh: {
       vibe: `${item.name} 将建筑、街道生活和本地身份结合在 ${item.area}。`,
       future: "长期持续转型",
-      description: `${item.name} 可以从位置、建筑和日常节奏来理解。这里把居住、公共生活、文化节点和房地产需求结合成一个具有曼哈顿特征的街区。`,
+      description: `${item.name} 可以从位置、建筑和日常节奏来理解。这里把居住、公共生活、文化节点和房地产需求结合成一个具有纽约特征的街区。`,
       history: `${item.name} 的形成经历了多层城市历史：交通发展、住宅增长、移民、商业、文化机构以及后来的再投资。这些层次仍然体现在街道、建筑类型和本地商铺中。`,
       prices: `约 $${item.rent} 每月的租金区间可作为参考。实际价格会因楼龄、采光、电梯、配套、地铁距离以及公园或水岸位置而变化。这里的相对价格水平是 ${item.price}。`,
       outlook: `${item.name} 未来会继续受到住房需求、公共空间改善、气候韧性、交通和商业变化的影响。关键在于新的投资能否同时提升日常街区生活。`,
@@ -1029,6 +2087,7 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
 
 function expandedText(item, extra, type) {
   const localized = localizedNeighborhood(item, extra);
+  const boroughName = currentBorough().name;
   if (currentLanguage !== "de") {
     const texts = {
       overview: [
@@ -1057,20 +2116,20 @@ function expandedText(item, extra, type) {
 
   const texts = {
     overview: [
-      extra.description,
+      localized.description,
       `Für die Einordnung wichtig ist die Lage im Bereich ${item.area}: Das Viertel funktioniert nicht nur über seine Immobilienpreise, sondern über den Mix aus Verkehr, Straßenleben, Parks, Kulturorten und Alltagsversorgung. Wer ${item.name} analysiert, sollte deshalb immer fragen, ob die Nachfrage aus Wohnen, Arbeit, Tourismus, Institutionen oder lokaler Community entsteht.`,
       `Aktuell wirkt ${item.name} vor allem durch diesen Charakter: ${item.character} Die Zukunftserwartung ist ${item.future}; das bedeutet, dass Veränderungen eher über mehrere Jahre sichtbar werden als durch eine einzelne Momentaufnahme.`
     ],
     history: [
       item.history,
-      `${item.name} laesst sich historisch als Teil einer größeren Manhattan-Bewegung lesen: Erst entstanden Verkehrsachsen, Parks, Hafen- oder Gewerbeflächen, danach folgten Wohnhäuser, Läden, Schulen, Kirchen und kulturelle Orte. Diese Schichten sind wichtig, weil Manhattan nicht gleichmäßig gewachsen ist. Manche Viertel wurden durch Industrie und Handel groß, andere durch Universitäten, Theater, Einwanderung, Wohlstand oder U-Bahn-Linien.`,
+      `${item.name} lässt sich historisch als Teil einer größeren ${boroughName}- und New-York-Bewegung lesen: Erst entstanden Verkehrsachsen, Parks, Hafen- oder Gewerbeflächen, danach folgten Wohnhäuser, Läden, Schulen, Kirchen und kulturelle Orte. Diese Schichten sind wichtig, weil New York nicht gleichmäßig gewachsen ist. Manche Viertel wurden durch Industrie und Handel groß, andere durch Universitäten, Theater, Einwanderung, Wohlstand, Häfen oder Bahnlinien.`,
       `Im Straßenbild sieht man diese Geschichte bis heute. Gebäudehöhen, Blockgrößen, Ladenfronten und Parks verraten, ob ein Viertel eher aus alten Wohnblöcken, ehemaligen Lagerhäusern, Brownstones, Bürotürmen oder geplanten Neubauten besteht. Bei ${item.name} zeigt sich das besonders in der Mischung aus ${item.vibe.toLowerCase()}. Dadurch entsteht ein eigener Maßstab, der den Immobilienmarkt genauso prägt wie die kulturelle Identität.`,
       `Soziale Geschichte spielt ebenfalls eine große Rolle. Viele Manhattan-Viertel wurden von Einwanderung, Community-Organisation, Kunst, Musik, Religion oder politischem Aktivismus geformt. Diese lokalen Netzwerke entscheiden oft darüber, ob Veränderung als Aufwertung, Verlust oder neue Chance wahrgenommen wird. Bei ${item.name} ist deshalb nicht nur interessant, was gebaut wird, sondern auch, wer schon lange dort lebt und welche Institutionen das Viertel zusammenhalten.`,
       `Für die Zukunft bedeutet diese historische Tiefe: Neue Projekte müssen sich an einer vorhandenen Identität messen lassen. Wenn neue Wohnungen, Hotels, Büros oder Infrastruktur entstehen, verändern sie nicht nur Preise, sondern auch Rhythmus, Publikum und Alltag. Genau deshalb ist Geschichte hier kein Rückblick am Rand, sondern der Schlüssel, um die naechsten Jahre von ${item.name} zu verstehen.`
     ],
     prices: [
       item.prices,
-      `Die angegebene Mietspanne von etwa $${item.rent} pro Monat ist als Orientierung zu lesen. In Manhattan unterscheiden sich Preise stark nach Gebäudealter, Etage, Licht, Aufzug, Doorman, Grundriss, U-Bahn-Nähe und Park- oder Wasserblick. Zwei Wohnungen im selben Viertel können deshalb völlig verschiedene Märkte bedienen.`,
+      `Die angegebene Mietspanne von etwa $${item.rent} pro Monat ist als Orientierung zu lesen. In New York unterscheiden sich Preise stark nach Gebäudealter, Etage, Licht, Aufzug, Grundriss, U-Bahn-Nähe, Park- oder Wasserblick und Borough-Lage. Zwei Wohnungen im selben Viertel können deshalb völlig verschiedene Märkte bedienen.`,
       `Bei ${item.name} ist das Preisniveau ${item.price}. Besonders wichtig ist, ob neue Nachfrage durch Jobs, Kultur, Schulen, Tourismus oder bessere Verkehrsanbindung entsteht. Solche Faktoren wirken oft zuerst auf Mieten und später auf Kaufpreise.`
     ],
     outlook: [
@@ -1080,7 +2139,7 @@ function expandedText(item, extra, type) {
     ],
     developments: [
       extra.developments,
-      `Diese Projekte sind wichtig, weil sie nicht nur neue Flächen schaffen. Sie verändern Wege, Blickachsen, Erdgeschosse, Ladedruck, Arbeitsplaetze und manchmal auch das Image eines Viertels. Besonders in Manhattan reicht schon ein neues Transitprojekt oder ein großer Campus, um mehrere benachbarte Blocks neu zu bewerten.`,
+      `Diese Projekte sind wichtig, weil sie nicht nur neue Flächen schaffen. Sie verändern Wege, Blickachsen, Erdgeschosse, Ladedruck, Arbeitsplätze und manchmal auch das Image eines Viertels. In New York reicht oft schon ein neues Transitprojekt, ein Waterfront-Park, ein Campus oder ein Kulturanker, um mehrere benachbarte Blocks neu zu bewerten.`,
       `Für ${item.name} heißt das: Die gebaute Zukunft wird wahrscheinlich selektiv sichtbar. Manche Straßen bleiben fast unverändert, während einzelne Korridore durch neue Nutzungen, Sanierungen oder bessere öffentliche Räume deutlich moderner wirken.`
     ],
     events: [
@@ -1090,7 +2149,7 @@ function expandedText(item, extra, type) {
     ],
     expectation: [
       extra.expectation,
-      `Kurzfristig werden Mieten und Verfuegbarkeit weiter stark vom gesamtstädtischen Markt abhaengen. Mittel- bis langfristig zaehlen vor allem neue Infrastruktur, Klimaschutz, Arbeitsplaetze und die Frage, ob lokale Identität erhalten bleibt.`,
+      `Kurzfristig werden Mieten und Verfügbarkeit weiter stark vom gesamtstädtischen Markt abhängen. Mittel- bis langfristig zählen vor allem neue Infrastruktur, Klimaschutz, Arbeitsplätze und die Frage, ob lokale Identität erhalten bleibt.`,
       `Die wahrscheinlichste Entwicklung für ${item.name}: keine komplette Neuerfindung, sondern eine Verdichtung vorhandener Tendenzen. Das Viertel wird stärker nachgefragt, wenn es gute Mobilitaet, klare Identität und stabile Alltagsangebote verbinden kann.`
     ],
     character: [
@@ -1233,19 +2292,21 @@ function bindAnalysisCards() {
   });
 }
 
-function renderCompareSelectors() {
+function renderCompareSelectors(forceDefault = false) {
   if (!compareA || !compareB) return;
 
-  const currentA = compareA.value || "Harlem";
-  const currentB = compareB.value || "TriBeCa";
-  const options = neighborhoods
+  const currentItems = activeNeighborhoods();
+  const [defaultA, defaultB] = currentBorough().defaultPair;
+  const currentA = forceDefault ? defaultA : compareA.value || defaultA;
+  const currentB = forceDefault ? defaultB : compareB.value || defaultB;
+  const options = currentItems
     .map((item) => `<option value="${item.name}">${item.name}</option>`)
     .join("");
 
   compareA.innerHTML = options;
   compareB.innerHTML = options;
-  compareA.value = neighborhoods.some((item) => item.name === currentA) ? currentA : neighborhoods[0].name;
-  compareB.value = neighborhoods.some((item) => item.name === currentB) ? currentB : neighborhoods[1].name;
+  compareA.value = currentItems.some((item) => item.name === currentA) ? currentA : currentItems[0].name;
+  compareB.value = currentItems.some((item) => item.name === currentB) ? currentB : currentItems[1].name;
 }
 
 function compareRow(label, left, right) {
@@ -1261,11 +2322,12 @@ function compareRow(label, left, right) {
 function renderComparison() {
   if (!compareA || !compareB || !comparisonOutput) return;
 
-  let first = neighborhoods.find((item) => item.name === compareA.value) || neighborhoods[0];
-  let second = neighborhoods.find((item) => item.name === compareB.value) || neighborhoods[1];
+  const currentItems = activeNeighborhoods();
+  let first = currentItems.find((item) => item.name === compareA.value) || currentItems[0];
+  let second = currentItems.find((item) => item.name === compareB.value) || currentItems[1];
 
   if (first.name === second.name) {
-    second = neighborhoods.find((item) => item.name !== first.name) || second;
+    second = currentItems.find((item) => item.name !== first.name) || second;
     compareB.value = second.name;
   }
 
@@ -1562,12 +2624,13 @@ const extendedProfiles = {
 };
 
 function renderDetail(item) {
-  const index = neighborhoods.indexOf(item);
+  const index = activeNeighborhoods().indexOf(item);
   const extra = extendedProfiles[item.name] || {
-    description: item.character,
-    developments: item.outlook,
-    events: "Lokale Parks, Restaurants, Kulturorte und saisonale Straßenprogramme prägen den Alltag.",
-    expectation: item.future
+    description: item.description || item.character,
+    developments: item.developments || item.outlook,
+    events:
+      item.events || "Lokale Parks, Restaurants, Kulturorte und saisonale Straßenprogramme prägen den Alltag.",
+    expectation: item.expectation || item.future
   };
   const localized = localizedNeighborhood(item, extra);
   detailPanel.innerHTML = `
@@ -1604,7 +2667,6 @@ function applyLanguage(language) {
   currentLanguage = translations[language] ? language : "de";
   saveLanguage(currentLanguage);
   document.documentElement.lang = currentLanguage;
-  document.title = t("heroTitle");
   if (languageSelect) {
     languageSelect.value = currentLanguage;
   }
@@ -1617,30 +2679,46 @@ function applyLanguage(language) {
     element.setAttribute("placeholder", t(element.dataset.i18nPlaceholder));
   });
 
+  updateBoroughInterface();
+  renderRegionSegments();
   renderCards();
-  renderCompareSelectors();
+  renderCompareSelectors(true);
   renderComparison();
   if (selectedNeighborhood) {
     renderDetail(selectedNeighborhood);
   }
 }
 
-segmentButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    segmentButtons.forEach((item) => item.classList.remove("active"));
-    button.classList.add("active");
-    selectedRegion = button.dataset.region;
-    renderCards();
-  });
-});
+function selectBorough(boroughKey) {
+  activeBoroughKey = boroughs[boroughKey] ? boroughKey : "manhattan";
+  saveBorough(activeBoroughKey);
+  selectedRegion = "all";
+  const items = activeNeighborhoods();
+  selectedNeighborhood =
+    items.find((item) => item.name === currentBorough().defaultSelected) || items[0];
+  if (searchInput) {
+    searchInput.value = "";
+  }
+  updateBoroughInterface();
+  renderRegionSegments();
+  renderCards();
+  renderCompareSelectors(true);
+  renderComparison();
+  renderDetail(selectedNeighborhood);
+}
 
 searchInput.addEventListener("input", renderCards);
 languageSelect?.addEventListener("change", (event) => {
   applyLanguage(event.target.value);
 });
+boroughSelect?.addEventListener("change", (event) => {
+  selectBorough(event.target.value);
+});
 compareA?.addEventListener("change", renderComparison);
 compareB?.addEventListener("change", renderComparison);
 
-selectedNeighborhood = neighborhoods[16];
+selectedNeighborhood =
+  activeNeighborhoods().find((item) => item.name === currentBorough().defaultSelected) ||
+  activeNeighborhoods()[0];
 applyLanguage(currentLanguage);
 renderDetail(selectedNeighborhood);

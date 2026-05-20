@@ -2953,6 +2953,7 @@ const tripMapBounds = {
   east: -73.511,
   zoom: 11
 };
+const maxTripMapZoomLevel = 3;
 
 function mapWorldPoint(lat, lng, zoom = tripMapBounds.zoom) {
   const scale = 256 * 2 ** zoom;
@@ -2963,27 +2964,60 @@ function mapWorldPoint(lat, lng, zoom = tripMapBounds.zoom) {
   };
 }
 
-function mapPosition(lat, lng) {
+function tripMapBaseViewport() {
   const northwest = mapWorldPoint(tripMapBounds.north, tripMapBounds.west);
   const southeast = mapWorldPoint(tripMapBounds.south, tripMapBounds.east);
+  return {
+    height: southeast.y - northwest.y,
+    northwest,
+    southeast,
+    width: southeast.x - northwest.x,
+    zoom: tripMapBounds.zoom
+  };
+}
+
+function tripMapViewport(centerLat, centerLng, zoomLevel = 0) {
+  const base = tripMapBaseViewport();
+  if (zoomLevel <= 0) return base;
+
+  const zoom = tripMapBounds.zoom + zoomLevel;
+  const center = mapWorldPoint(centerLat, centerLng, zoom);
+  const halfWidth = base.width / 2;
+  const halfHeight = base.height / 2;
+  const northwest = {
+    x: center.x - halfWidth,
+    y: center.y - halfHeight
+  };
+  const southeast = {
+    x: center.x + halfWidth,
+    y: center.y + halfHeight
+  };
+  return {
+    height: base.height,
+    northwest,
+    southeast,
+    width: base.width,
+    zoom
+  };
+}
+
+function mapPosition(lat, lng, viewport = tripMapViewport(40.7128, -74.006, 0)) {
   const point = mapWorldPoint(lat, lng);
-  const x = ((point.x - northwest.x) / (southeast.x - northwest.x)) * 100;
-  const y = ((point.y - northwest.y) / (southeast.y - northwest.y)) * 100;
+  const scaledPoint =
+    viewport.zoom === tripMapBounds.zoom ? point : mapWorldPoint(lat, lng, viewport.zoom);
+  const x = ((scaledPoint.x - viewport.northwest.x) / viewport.width) * 100;
+  const y = ((scaledPoint.y - viewport.northwest.y) / viewport.height) * 100;
   return {
     x: Math.max(4, Math.min(96, x)),
     y: Math.max(4, Math.min(96, y))
   };
 }
 
-function tripMapTiles() {
-  const northwest = mapWorldPoint(tripMapBounds.north, tripMapBounds.west);
-  const southeast = mapWorldPoint(tripMapBounds.south, tripMapBounds.east);
-  const width = southeast.x - northwest.x;
-  const height = southeast.y - northwest.y;
-  const minTileX = Math.floor(northwest.x / 256);
-  const maxTileX = Math.floor(southeast.x / 256);
-  const minTileY = Math.floor(northwest.y / 256);
-  const maxTileY = Math.floor(southeast.y / 256);
+function tripMapTiles(viewport) {
+  const minTileX = Math.floor(viewport.northwest.x / 256);
+  const maxTileX = Math.floor(viewport.southeast.x / 256);
+  const minTileY = Math.floor(viewport.northwest.y / 256);
+  const maxTileY = Math.floor(viewport.southeast.y / 256);
   const tiles = [];
 
   for (let tileX = minTileX; tileX <= maxTileX; tileX += 1) {
@@ -2993,8 +3027,8 @@ function tripMapTiles() {
           alt=""
           class="trip-map-tile"
           loading="lazy"
-          src="https://tile.openstreetmap.org/${tripMapBounds.zoom}/${tileX}/${tileY}.png"
-          style="--tile-left: ${((tileX * 256 - northwest.x) / width) * 100}%; --tile-top: ${((tileY * 256 - northwest.y) / height) * 100}%; --tile-width: ${(256 / width) * 100}%; --tile-height: ${(256 / height) * 100}%;">
+          src="https://tile.openstreetmap.org/${viewport.zoom}/${tileX}/${tileY}.png"
+          style="--tile-left: ${((tileX * 256 - viewport.northwest.x) / viewport.width) * 100}%; --tile-top: ${((tileY * 256 - viewport.northwest.y) / viewport.height) * 100}%; --tile-width: ${(256 / viewport.width) * 100}%; --tile-height: ${(256 / viewport.height) * 100}%;">
       `);
     }
   }
@@ -3006,29 +3040,34 @@ function tripMapMarkup(item, boroughName, selected) {
   const coords = neighborhoodCoords[item.name];
   if (!coords) return "";
 
-  const neighborhood = mapPosition(coords[0], coords[1]);
+  const viewport = tripMapViewport(coords[0], coords[1], 0);
+  const neighborhood = mapPosition(coords[0], coords[1], viewport);
   const attractionMarkers = selected
     .map((key) => attractionMap[key])
     .filter((attraction) => attraction?.lat && attraction?.lng)
     .slice(0, 8)
     .map((attraction) => {
-      const position = mapPosition(attraction.lat, attraction.lng);
+      const position = mapPosition(attraction.lat, attraction.lng, viewport);
       return `
-        <span class="trip-map-marker attraction" style="--x: ${position.x}%; --y: ${position.y}%;">
-          <span>${attraction.label}</span>
+        <span class="trip-map-marker attraction" data-lat="${attraction.lat}" data-lng="${attraction.lng}" style="--x: ${position.x}%; --y: ${position.y}%;">
+          <span>${safeAttr(attraction.label)}</span>
         </span>
       `;
     })
     .join("");
 
   return `
-    <div class="trip-map" aria-label="Lagekarte für ${item.name}">
-      <div class="trip-map-tiles" aria-hidden="true">${tripMapTiles()}</div>
+    <div class="trip-map" data-map-level="0" data-center-lat="${coords[0]}" data-center-lng="${coords[1]}" aria-label="Lagekarte für ${item.name}">
+      <div class="trip-map-tiles" aria-hidden="true">${tripMapTiles(viewport)}</div>
       <div class="trip-map-overlay" aria-hidden="true"></div>
       ${attractionMarkers}
-      <span class="trip-map-marker neighborhood" style="--x: ${neighborhood.x}%; --y: ${neighborhood.y}%;">
+      <span class="trip-map-marker neighborhood" data-lat="${coords[0]}" data-lng="${coords[1]}" style="--x: ${neighborhood.x}%; --y: ${neighborhood.y}%;">
         <span>${item.name}</span>
       </span>
+      <div class="trip-map-controls" aria-label="Karte zoomen">
+        <button type="button" data-map-zoom="in" aria-label="Karte näher an das Viertel zoomen">+</button>
+        <button type="button" data-map-zoom="out" aria-label="Karte herauszoomen">-</button>
+      </div>
       <div class="trip-map-caption">
         <strong>${item.name}</strong>
         <span>${boroughName}</span>
@@ -3036,6 +3075,47 @@ function tripMapMarkup(item, boroughName, selected) {
       <a class="trip-map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
     </div>
   `;
+}
+
+function renderTripMapLevel(map, level) {
+  const centerLat = Number(map.dataset.centerLat);
+  const centerLng = Number(map.dataset.centerLng);
+  const zoomLevel = Math.max(0, Math.min(maxTripMapZoomLevel, level));
+  const viewport = tripMapViewport(centerLat, centerLng, zoomLevel);
+  const tiles = map.querySelector(".trip-map-tiles");
+  if (tiles) {
+    tiles.innerHTML = tripMapTiles(viewport);
+  }
+
+  map.dataset.mapLevel = String(zoomLevel);
+  map.querySelectorAll(".trip-map-marker").forEach((marker) => {
+    const lat = Number(marker.dataset.lat);
+    const lng = Number(marker.dataset.lng);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+    const position = mapPosition(lat, lng, viewport);
+    marker.style.setProperty("--x", `${position.x}%`);
+    marker.style.setProperty("--y", `${position.y}%`);
+    marker.classList.toggle(
+      "edge",
+      position.x <= 4 || position.x >= 96 || position.y <= 4 || position.y >= 96
+    );
+  });
+
+  map.querySelector('[data-map-zoom="out"]')?.toggleAttribute("disabled", zoomLevel === 0);
+  map.querySelector('[data-map-zoom="in"]')?.toggleAttribute("disabled", zoomLevel === maxTripMapZoomLevel);
+}
+
+function bindTripMaps() {
+  document.querySelectorAll(".trip-map").forEach((map) => {
+    renderTripMapLevel(map, Number(map.dataset.mapLevel) || 0);
+    map.querySelectorAll("[data-map-zoom]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const current = Number(map.dataset.mapLevel) || 0;
+        const direction = button.dataset.mapZoom === "in" ? 1 : -1;
+        renderTripMapLevel(map, current + direction);
+      });
+    });
+  });
 }
 
 function renderTripPlanner() {
@@ -3111,6 +3191,7 @@ function renderTripPlanner() {
       `;
     })
     .join("");
+  bindTripMaps();
 }
 
 const extendedProfiles = {

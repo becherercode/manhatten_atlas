@@ -2833,8 +2833,7 @@ function bookingUrl(query) {
     ss: query,
     group_adults: "2",
     no_rooms: "1",
-    group_children: "0",
-    review_score: "70"
+    group_children: "0"
   });
   return `https://www.booking.com/searchresults.html?${params.toString()}`;
 }
@@ -3162,6 +3161,7 @@ function hotelLinks(item, budget, boroughName = currentBorough().name, preferenc
     profile.type.query,
     profile.location?.query,
     profile.comfort?.query,
+    "rated 7+",
     budgetQuery,
     attractionQuery && `near ${attractionQuery}`,
     base
@@ -3176,12 +3176,12 @@ function hotelLinks(item, budget, boroughName = currentBorough().name, preferenc
     },
     {
       label: locationLabel,
-      query: `${profile.type.query} ${profile.location?.query || "central location"} ${base}`,
+      query: `${profile.type.query} rated 7+ ${profile.location?.query || "central location"} ${base}`,
       primary: false
     },
     {
       label: comfortLabel,
-      query: `${profile.type.query} ${profile.comfort?.query || "highly rated"} ${base}`,
+      query: `${profile.type.query} rated 7+ ${profile.comfort?.query || "highly rated"} ${base}`,
       primary: false
     }
   ];

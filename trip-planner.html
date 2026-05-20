@@ -15,20 +15,14 @@
         document.head.appendChild(adScript);
       }
     </script>
-    <link rel="stylesheet" href="./styles.css?v=38" />
+    <link rel="stylesheet" href="./styles.css?v=39" />
   </head>
   <body class="trip-page">
     <header class="hero">
       <nav class="topbar" aria-label="Hauptnavigation">
         <div class="brand-group">
           <a class="brand" href="./index.html#top" aria-label="New York Atlas Start">NYC Atlas</a>
-          <select id="boroughSelect" class="borough-select" aria-label="Bezirk auswählen">
-            <option value="manhattan">Manhattan</option>
-            <option value="brooklyn">Brooklyn</option>
-            <option value="queens">Queens</option>
-            <option value="bronx">Bronx</option>
-            <option value="staten-island">Staten Island</option>
-          </select>
+          <span class="nav-context">Trip Planner</span>
         </div>
         <div class="navlinks">
           <a href="./index.html#viertel" data-i18n="navNeighborhoods">Viertel</a>
@@ -50,7 +44,6 @@
       </nav>
 
       <div class="hero-inner" id="top">
-        <p class="eyebrow">Trip Planner</p>
         <h1>Finde dein passendes New-York-Viertel</h1>
         <p class="hero-copy">
           Plane deinen Aufenthalt nach Budget, Lage, Nachtleben, Sehenswürdigkeiten und Restaurants.
@@ -87,6 +80,17 @@
 
             <div class="trip-select-row">
               <label>
+                <span>Borough</span>
+                <select id="tripBorough">
+                  <option value="all">Alle Boroughs</option>
+                  <option value="manhattan">Manhattan</option>
+                  <option value="brooklyn">Brooklyn</option>
+                  <option value="queens">Queens</option>
+                  <option value="bronx">Bronx</option>
+                  <option value="staten-island">Staten Island</option>
+                </select>
+              </label>
+              <label>
                 <span>Budget</span>
                 <select id="tripBudget">
                   <option value="balanced">Ausgewogen</option>
@@ -111,6 +115,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=38"></script>
+    <script src="./app.js?v=39"></script>
   </body>
 </html>

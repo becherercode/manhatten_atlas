@@ -1372,6 +1372,7 @@ const cookieEssential = document.querySelector("#cookieEssential");
 const resetCookieChoice = document.querySelector("#resetCookieChoice");
 const legalToggles = document.querySelectorAll(".legal-toggle");
 const tripPreferenceButtons = document.querySelectorAll(".trip-chip");
+const tripBorough = document.querySelector("#tripBorough");
 const tripBudget = document.querySelector("#tripBudget");
 const tripStyle = document.querySelector("#tripStyle");
 const tripOutput = document.querySelector("#tripOutput");
@@ -2481,9 +2482,8 @@ function restaurantIdeas(item) {
   return ["Nachbarschaftscafés", "Casual Dinner in Laufnähe", "Bäckereien, Delis und einfache Lunch-Spots"];
 }
 
-function hotelLinks(item, budget) {
-  const borough = currentBorough().name;
-  const base = `${item.name}, ${borough}, New York`;
+function hotelLinks(item, budget, boroughName = currentBorough().name) {
+  const base = `${item.name}, ${boroughName}, New York`;
   const budgetLabel = budget === "premium" ? "Premiumhotels" : budget === "budget" ? "preisbewusste Hotels" : "gute Hotels";
   return [
     {
@@ -2504,14 +2504,26 @@ function hotelLinks(item, budget) {
   ];
 }
 
+function tripRecommendationItems() {
+  const selectedBorough = tripBorough?.value || activeBoroughKey;
+  if (selectedBorough === "all") {
+    return Object.values(boroughs).flatMap((borough) =>
+      borough.neighborhoods.map((item) => ({ item, boroughName: borough.name }))
+    );
+  }
+
+  const borough = boroughs[selectedBorough] || currentBorough();
+  return borough.neighborhoods.map((item) => ({ item, boroughName: borough.name }));
+}
+
 function renderTripPlanner() {
   if (!tripOutput) return;
 
   const preferences = selectedTripPreferences();
   const budget = tripBudget?.value || "balanced";
   const style = tripStyle?.value || "first-time";
-  const scored = activeNeighborhoods()
-    .map((item) => ({ item, score: tripScore(item, preferences, budget, style) }))
+  const scored = tripRecommendationItems()
+    .map(({ item, boroughName }) => ({ item, boroughName, score: tripScore(item, preferences, budget, style) }))
     .sort((a, b) => b.score - a.score)
     .slice(0, 3);
 
@@ -2525,21 +2537,20 @@ function renderTripPlanner() {
   };
 
   tripOutput.innerHTML = scored
-    .map(({ item, score }) => {
+    .map(({ item, boroughName }) => {
       const localized = localizedNeighborhood(item, extendedProfiles[item.name]);
-      const links = hotelLinks(item, budget);
+      const links = hotelLinks(item, budget, boroughName);
       return `
         <article class="trip-result-card">
           <div class="trip-result-hero">
             <div>
-              <p class="eyebrow">${item.area}</p>
+              <p class="eyebrow">${boroughName} · ${item.area}</p>
               <h3>${item.name}</h3>
               <p>${shortText(localized.description, 220)}</p>
               <div class="trip-pill-row">
                 ${preferences.map((preference) => `<span class="trip-pill">${preferenceLabels[preference]}</span>`).join("")}
               </div>
             </div>
-            <span class="trip-score">${score}% Fit</span>
           </div>
           <div class="trip-columns">
             <div class="trip-column">
@@ -2937,6 +2948,7 @@ tripPreferenceButtons.forEach((button) => {
 });
 tripBudget?.addEventListener("change", renderTripPlanner);
 tripStyle?.addEventListener("change", renderTripPlanner);
+tripBorough?.addEventListener("change", renderTripPlanner);
 legalToggles.forEach((toggle) => {
   toggle.addEventListener("click", () => {
     const allCards = document.querySelectorAll(".legal-card");

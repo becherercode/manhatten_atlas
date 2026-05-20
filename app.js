@@ -2833,7 +2833,8 @@ function bookingUrl(query) {
     ss: query,
     group_adults: "2",
     no_rooms: "1",
-    group_children: "0"
+    group_children: "0",
+    review_score: "70"
   });
   return `https://www.booking.com/searchresults.html?${params.toString()}`;
 }
@@ -3561,7 +3562,7 @@ function renderTripPlanner() {
               </div>
               ${hotelControlsMarkup()}
               <div class="hotel-links">${hotelLinksMarkup(links)}</div>
-              <div class="trip-note">Die Links führen zu passenden Booking.com-Suchen. Verfügbarkeit und Preise werden dort aktuell geprüft.</div>
+      <div class="trip-note">Die Links führen zu passenden Booking.com-Suchen mit mindestens 7/10 Bewertung. Verfügbarkeit und Preise werden dort aktuell geprüft.</div>
             </div>
             <div class="trip-column sights-column">
               <div class="sights-column-header">

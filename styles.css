@@ -918,8 +918,28 @@ a {
   padding: 20px 22px 22px;
 }
 
+.hotel-column {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(245, 248, 252, 0.92)),
+    radial-gradient(circle at 0% 0%, rgba(0, 113, 227, 0.12), transparent 35%);
+}
+
 .trip-column + .trip-column {
   border-left: 1px solid rgba(17, 17, 20, 0.08);
+}
+
+.hotel-column-header {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.hotel-column-header span {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .trip-column h4 {
@@ -927,6 +947,45 @@ a {
   letter-spacing: 0.12em;
   margin: 0 0 12px;
   text-transform: uppercase;
+}
+
+.hotel-column-header h4 {
+  font-size: 1.12rem;
+  letter-spacing: 0;
+  margin: 0;
+  text-transform: none;
+}
+
+.hotel-filter-grid {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.hotel-filter-grid label {
+  color: var(--muted);
+  display: grid;
+  font-size: 0.68rem;
+  font-weight: 850;
+  gap: 6px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hotel-filter-grid select {
+  appearance: none;
+  background:
+    rgba(255, 255, 255, 0.92)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Cpath fill='%23111114' fill-opacity='.78' d='M5.4 7.4 10 12l4.6-4.6 1.1 1.2-5.7 5.7-5.7-5.7z'/%3E%3C/svg%3E")
+      right 12px center / 16px no-repeat;
+  border: 1px solid rgba(17, 17, 20, 0.1);
+  border-radius: 8px;
+  color: var(--ink);
+  font: inherit;
+  min-height: 42px;
+  outline: none;
+  padding: 0 38px 0 12px;
+  text-transform: none;
 }
 
 .trip-column ul {

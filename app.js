@@ -2865,26 +2865,180 @@ function restaurantIdeas(item) {
   return ["Nachbarschaftscafés", "Casual Dinner in Laufnähe", "Bäckereien, Delis und einfache Lunch-Spots"];
 }
 
-function hotelLinks(item, budget, boroughName = currentBorough().name) {
+const hotelFilterOptions = {
+  type: {
+    "best-match": { label: "beste Hotels", query: "best hotels" },
+    budget: { label: "preiswerte Hotels", query: "budget hotels" },
+    boutique: { label: "Boutique-Hotels", query: "boutique hotels" },
+    luxury: { label: "Luxushotels", query: "luxury hotels" },
+    family: { label: "familienfreundliche Hotels", query: "family friendly hotels" },
+    apartment: { label: "Apartment-Hotels", query: "apartment suites" }
+  },
+  location: {
+    auto: null,
+    sights: { label: "nahe Sehenswürdigkeiten", query: "near attractions" },
+    subway: { label: "nahe U-Bahn", query: "near subway station" },
+    nightlife: { label: "nahe Nachtleben", query: "near nightlife" },
+    restaurants: { label: "nahe Restaurants", query: "near restaurants" },
+    quiet: { label: "in ruhiger Lage", query: "quiet area" }
+  },
+  comfort: {
+    flexible: null,
+    breakfast: { label: "mit Frühstück", query: "breakfast included" },
+    rating: { label: "sehr gut bewertet", query: "highly rated" },
+    view: { label: "mit schöner Aussicht", query: "city view" },
+    design: { label: "modernes Design", query: "modern design hotel" }
+  }
+};
+
+function hotelSearchProfile(preferences, attractions, options = {}) {
+  const hotelType = options.type || "best-match";
+  const hotelLocation = options.location || "auto";
+  const hotelComfort = options.comfort || "flexible";
+
+  const autoLocation =
+    preferences.includes("nightlife") ? hotelFilterOptions.location.nightlife :
+    preferences.includes("food") ? hotelFilterOptions.location.restaurants :
+    preferences.includes("quiet") ? hotelFilterOptions.location.quiet :
+    preferences.includes("sights") || attractions.length ? hotelFilterOptions.location.sights :
+    hotelFilterOptions.location.subway;
+
+  return {
+    comfort: hotelFilterOptions.comfort[hotelComfort],
+    location: hotelFilterOptions.location[hotelLocation] || autoLocation,
+    type: hotelFilterOptions.type[hotelType] || hotelFilterOptions.type["best-match"]
+  };
+}
+
+function attractionHotelQuery(attractions) {
+  return attractions
+    .map((key) => attractionMap[key]?.label)
+    .filter(Boolean)
+    .slice(0, 2)
+    .join(" ");
+}
+
+function hotelLinks(item, budget, boroughName = currentBorough().name, preferences = [], attractions = [], options = {}) {
   const base = `${item.name}, ${boroughName}, New York`;
-  const budgetLabel = budget === "premium" ? "Premiumhotels" : budget === "budget" ? "preisbewusste Hotels" : "gute Hotels";
+  const profile = hotelSearchProfile(preferences, attractions, options);
+  const attractionQuery = attractionHotelQuery(attractions);
+  const budgetQuery = budget === "premium" ? "4 star 5 star" : budget === "budget" ? "affordable budget" : "best value";
+  const mainParts = [
+    profile.type.query,
+    profile.location?.query,
+    profile.comfort?.query,
+    budgetQuery,
+    attractionQuery && `near ${attractionQuery}`,
+    base
+  ].filter(Boolean);
+  const locationLabel = profile.location?.label || "passender Lage";
+  const comfortLabel = profile.comfort?.label || "guter Ausstattung";
   return [
     {
-      label: `Hotels in ${item.name}`,
-      query: base,
+      label: `${profile.type.label} in ${item.name}`,
+      query: mainParts.join(" "),
       primary: true
     },
     {
-      label: budgetLabel,
-      query: `${budgetLabel} nahe ${base}`,
+      label: locationLabel,
+      query: `${profile.type.query} ${profile.location?.query || "central location"} ${base}`,
       primary: false
     },
     {
-      label: "Beste Lage",
-      query: `zentral gelegene Hotels nahe ${base}`,
+      label: comfortLabel,
+      query: `${profile.type.query} ${profile.comfort?.query || "highly rated"} ${base}`,
       primary: false
     }
   ];
+}
+
+function hotelLinksMarkup(links) {
+  return links
+    .map(
+      (link) =>
+        `<a class="${link.primary ? "primary" : ""}" href="${bookingUrl(link.query)}" target="_blank" rel="sponsored noopener noreferrer">${link.label}</a>`
+    )
+    .join("");
+}
+
+function hotelSelectMarkup(name, label, options) {
+  return `
+    <label>
+      <span>${label}</span>
+      <select data-hotel-control="${name}">
+        ${options
+          .map((option) => `<option value="${option.value}">${option.label}</option>`)
+          .join("")}
+      </select>
+    </label>
+  `;
+}
+
+function hotelControlsMarkup() {
+  return `
+    <div class="hotel-filter-grid" aria-label="Hotelpräferenzen">
+      ${hotelSelectMarkup("type", "Hoteltyp", [
+        { value: "best-match", label: "Beste Mischung" },
+        { value: "budget", label: "Preiswert" },
+        { value: "boutique", label: "Boutique" },
+        { value: "luxury", label: "Luxus" },
+        { value: "family", label: "Familienfreundlich" },
+        { value: "apartment", label: "Apartment / Suite" }
+      ])}
+      ${hotelSelectMarkup("location", "Lage", [
+        { value: "auto", label: "automatisch passend" },
+        { value: "sights", label: "nahe Sehenswürdigkeiten" },
+        { value: "subway", label: "nahe U-Bahn" },
+        { value: "nightlife", label: "nahe Nachtleben" },
+        { value: "restaurants", label: "nahe Restaurants" },
+        { value: "quiet", label: "ruhige Lage" }
+      ])}
+      ${hotelSelectMarkup("comfort", "Komfort", [
+        { value: "flexible", label: "Flexibel" },
+        { value: "breakfast", label: "Frühstück" },
+        { value: "rating", label: "sehr gut bewertet" },
+        { value: "view", label: "schöne Aussicht" },
+        { value: "design", label: "modernes Design" }
+      ])}
+    </div>
+  `;
+}
+
+function findTripHotelItem(name, boroughName) {
+  return Object.values(boroughs)
+    .flatMap((borough) => borough.neighborhoods.map((item) => ({ item, boroughName: borough.name })))
+    .find((entry) => entry.item.name === name && entry.boroughName === boroughName);
+}
+
+function updateHotelCardLinks(card) {
+  const match = findTripHotelItem(card.dataset.neighborhood, card.dataset.borough);
+  const linksContainer = card.querySelector(".hotel-links");
+  if (!match || !linksContainer) return;
+
+  const preferences = card.dataset.preferences ? card.dataset.preferences.split("|").filter(Boolean) : [];
+  const attractions = card.dataset.attractions ? card.dataset.attractions.split("|").filter(Boolean) : [];
+  const options = {
+    comfort: card.querySelector('[data-hotel-control="comfort"]')?.value || "flexible",
+    location: card.querySelector('[data-hotel-control="location"]')?.value || "auto",
+    type: card.querySelector('[data-hotel-control="type"]')?.value || "best-match"
+  };
+  const links = hotelLinks(
+    match.item,
+    card.dataset.budget || "balanced",
+    match.boroughName,
+    preferences,
+    attractions,
+    options
+  );
+  linksContainer.innerHTML = hotelLinksMarkup(links);
+}
+
+function bindHotelCards() {
+  document.querySelectorAll(".hotel-column").forEach((card) => {
+    card.querySelectorAll("[data-hotel-control]").forEach((select) => {
+      select.addEventListener("change", () => updateHotelCardLinks(card));
+    });
+  });
 }
 
 function tripRecommendationItems() {
@@ -3147,7 +3301,7 @@ function renderTripPlanner() {
   tripOutput.innerHTML = scored
     .map(({ item, boroughName }) => {
       const localized = localizedNeighborhood(item, extendedProfiles[item.name]);
-      const links = hotelLinks(item, budget, boroughName);
+      const links = hotelLinks(item, budget, boroughName, preferences, attractions);
       const selectedSights = matchedAttractionLabels(item, boroughName, attractions);
       const sights = [...selectedSights, ...travelSights(item)]
         .filter((sight, index, list) => list.indexOf(sight) === index)
@@ -3166,16 +3320,13 @@ function renderTripPlanner() {
           </div>
           ${tripMapMarkup(item, boroughName, attractions)}
           <div class="trip-columns">
-            <div class="trip-column">
-              <h4>Hotels über Booking.com</h4>
-              <div class="hotel-links">
-                ${links
-                  .map(
-                    (link) =>
-                      `<a class="${link.primary ? "primary" : ""}" href="${bookingUrl(link.query)}" target="_blank" rel="sponsored noopener noreferrer">${link.label}</a>`
-                  )
-                  .join("")}
+            <div class="trip-column hotel-column" data-neighborhood="${safeAttr(item.name)}" data-borough="${safeAttr(boroughName)}" data-budget="${safeAttr(budget)}" data-preferences="${safeAttr(preferences.join("|"))}" data-attractions="${safeAttr(attractions.join("|"))}">
+              <div class="hotel-column-header">
+                <span>Booking.com</span>
+                <h4>Passende Hotels suchen</h4>
               </div>
+              ${hotelControlsMarkup()}
+              <div class="hotel-links">${hotelLinksMarkup(links)}</div>
               <div class="trip-note">Die Links führen zu passenden Booking.com-Suchen. Verfügbarkeit und Preise werden dort aktuell geprüft.</div>
             </div>
             <div class="trip-column">
@@ -3192,6 +3343,7 @@ function renderTripPlanner() {
     })
     .join("");
   bindTripMaps();
+  bindHotelCards();
 }
 
 const extendedProfiles = {

@@ -2848,6 +2848,46 @@ function travelSights(item) {
   ].slice(0, 3);
 }
 
+function sightContext(sight, item) {
+  const lower = sight.toLowerCase();
+  if (/central park|prospect park|flushing meadows|park/.test(lower)) {
+    return "Ideal für Spaziergänge, Pausen und einen ruhigeren Moment zwischen den Stadtblöcken.";
+  }
+  if (/times square|broadway|yankee|coney/.test(lower)) {
+    return "Am besten mit etwas Zeit einplanen, weil hier besonders viel Atmosphäre und Bewegung entsteht.";
+  }
+  if (/museum|met|moma|gallery|galerie/.test(lower)) {
+    return "Gut für Kultur, Architektur und einen hochwertigen Programmpunkt abseits reiner Fotostopps.";
+  }
+  if (/bridge|brücke|dumbo|waterfront|ferry|statue|one world|skyline|seaport/.test(lower)) {
+    return "Stark für Ausblicke, Wasserlage und klassische New-York-Fotos.";
+  }
+  if (/restaurant|food|market|markt|café|cafe|bakery|bäckerei/.test(lower)) {
+    return "Passt gut zu einem langsamen Nachmittag mit Essen, Cafés und lokalen Straßen.";
+  }
+  return `Ein guter Einstieg, um ${item.name} nicht nur als Hotelstandort, sondern als Viertel zu erleben.`;
+}
+
+function sightsMarkup(sights, item) {
+  return `
+    <div class="sights-list">
+      ${sights
+        .map(
+          (sight, index) => `
+            <article class="sight-item">
+              <span>${String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <strong>${sight}</strong>
+                <p>${sightContext(sight, item)}</p>
+              </div>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
 function restaurantIdeas(item) {
   const tags = travelTags(item);
   if (item.name === "Chinatown" || item.name === "Flushing") {
@@ -3329,9 +3369,13 @@ function renderTripPlanner() {
               <div class="hotel-links">${hotelLinksMarkup(links)}</div>
               <div class="trip-note">Die Links führen zu passenden Booking.com-Suchen. Verfügbarkeit und Preise werden dort aktuell geprüft.</div>
             </div>
-            <div class="trip-column">
-              <h4>Unbedingt sehen</h4>
-              <ul>${sights.map((sight) => `<li>${sight}</li>`).join("")}</ul>
+            <div class="trip-column sights-column">
+              <div class="sights-column-header">
+                <span>Highlights</span>
+                <h4>Unbedingt sehen</h4>
+                <p>Kuratierte Stopps, die gut zu diesem Viertel und deinen ausgewählten Interessen passen.</p>
+              </div>
+              ${sightsMarkup(sights, item)}
             </div>
             <div class="trip-column">
               <h4>Restaurants</h4>

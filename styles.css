@@ -685,11 +685,7 @@ a {
 
 .trip-page .trip-results {
   gap: 20px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.trip-page .trip-result-card:first-child {
-  grid-column: 1 / -1;
+  grid-template-columns: 1fr;
 }
 
 .trip-result-card {
@@ -930,6 +926,12 @@ a {
     radial-gradient(circle at 100% 0%, rgba(213, 164, 74, 0.14), transparent 36%);
 }
 
+.food-column {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(245, 248, 244, 0.92)),
+    radial-gradient(circle at 100% 0%, rgba(28, 133, 91, 0.14), transparent 36%);
+}
+
 .trip-column + .trip-column {
   border-left: 1px solid rgba(17, 17, 20, 0.08);
 }
@@ -968,8 +970,22 @@ a {
   margin-bottom: 16px;
 }
 
+.food-column-header {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
 .sights-column-header span {
   color: #9a6a16;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.food-column-header span {
+  color: #247a55;
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.12em;
@@ -983,7 +999,21 @@ a {
   text-transform: none;
 }
 
+.food-column-header h4 {
+  font-size: 1.12rem;
+  letter-spacing: 0;
+  margin: 0;
+  text-transform: none;
+}
+
 .sights-column-header p {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.food-column-header p {
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.5;
@@ -1034,7 +1064,13 @@ a {
   gap: 10px;
 }
 
-.sight-item {
+.food-list {
+  display: grid;
+  gap: 10px;
+}
+
+.sight-item,
+.food-item {
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(17, 17, 20, 0.07);
   border-radius: 8px;
@@ -1044,7 +1080,8 @@ a {
   padding: 12px;
 }
 
-.sight-item > span {
+.sight-item > span,
+.food-item > span {
   align-items: center;
   background: rgba(154, 106, 22, 0.1);
   border-radius: 999px;
@@ -1057,13 +1094,20 @@ a {
   width: 30px;
 }
 
-.sight-item strong {
+.food-item > span {
+  background: rgba(36, 122, 85, 0.1);
+  color: #247a55;
+}
+
+.sight-item strong,
+.food-item strong {
   display: block;
   font-size: 0.92rem;
   margin-bottom: 4px;
 }
 
-.sight-item p {
+.sight-item p,
+.food-item p {
   color: var(--muted);
   font-size: 0.82rem;
   line-height: 1.45;
@@ -1889,7 +1933,6 @@ a {
   .comparison-grid,
   .trip-tool,
   .trip-page .trip-panel,
-  .trip-page .trip-results,
   .trip-preview-card,
   .neighborhood-grid,
   .detail {
@@ -1976,11 +2019,6 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
-  .trip-page .trip-result-card:first-child {
-    grid-column: auto;
-  }
-
   .cookie-banner {
     align-items: stretch;
     flex-direction: column;

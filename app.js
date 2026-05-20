@@ -2838,9 +2838,86 @@ function bookingUrl(query) {
   return `https://www.booking.com/searchresults.html?${params.toString()}`;
 }
 
+const localSightRecommendations = {
+  Inwood: ["Inwood Hill Park", "The Cloisters", "Dyckman Farmhouse Museum"],
+  "Washington Heights": ["Fort Tryon Park", "United Palace", "George Washington Bridge"],
+  "Hamilton Heights": ["Hamilton Grange National Memorial", "City College Campus", "Riverbank State Park"],
+  Harlem: ["Apollo Theater", "125th Street", "Strivers' Row"],
+  "East Harlem": ["El Museo del Barrio", "Museum of the City of New York", "La Marqueta"],
+  "Morningside Heights": ["Columbia University", "Cathedral of St. John the Divine", "Riverside Church"],
+  "Upper West Side": ["American Museum of Natural History", "Lincoln Center", "Riverside Park"],
+  "Upper East Side": ["The Met", "Guggenheim Museum", "Madison Avenue"],
+  "Hell's Kitchen": ["Restaurant Row", "Theater District", "Hudson River Park"],
+  Midtown: ["Grand Central Terminal", "Rockefeller Center", "Empire State Building"],
+  "Murray Hill": ["The Morgan Library & Museum", "United Nations Headquarters", "Park Avenue"],
+  "Kips Bay": ["East River Esplanade", "Bellevue Historic Campus", "NYU Langone Area"],
+  Chelsea: ["High Line", "Chelsea Market", "Chelsea Gallery District"],
+  "Hudson Yards": ["Edge Observation Deck", "The Shed", "Hudson Yards Public Square"],
+  Flatiron: ["Flatiron Building", "Madison Square Park", "Eataly NYC Flatiron"],
+  Gramercy: ["Gramercy Park", "The Players", "Irving Plaza"],
+  "Greenwich Village": ["Washington Square Park", "Stonewall Inn", "Village Vanguard"],
+  "West Village": ["Bleecker Street", "Hudson River Park", "West 4th Street"],
+  "East Village": ["St. Mark's Place", "Tompkins Square Park", "Cooper Union"],
+  "Lower East Side": ["Tenement Museum", "Essex Market", "Katz's Delicatessen"],
+  SoHo: ["Greene Street", "Cast-Iron Historic District", "Haughwout Building"],
+  TriBeCa: ["Hudson River Park", "Staple Street Skybridge", "Washington Market Park"],
+  Chinatown: ["Doyers Street", "Mott Street", "Columbus Park"],
+  NoHo: ["Astor Place", "The Public Theater", "Cooper Union"],
+  "Financial District": ["Wall Street", "New York Stock Exchange", "South Street Seaport"],
+  "Battery Park City": ["Battery Park", "Brookfield Place", "Wagner Park"],
+  Williamsburg: ["Domino Park", "Bedford Avenue", "Brooklyn Brewery"],
+  DUMBO: ["Brooklyn Bridge Park", "Washington Street Viewpoint", "Jane's Carousel"],
+  "Park Slope": ["Prospect Park", "Brooklyn Museum", "5th Avenue"],
+  "Bed-Stuy": ["Stuyvesant Heights Historic District", "Tompkins Avenue", "Herbert Von King Park"],
+  Bushwick: ["Bushwick Collective", "House of Yes", "Maria Hernandez Park"],
+  "Downtown Brooklyn": ["Brooklyn Borough Hall", "Brooklyn Academy of Music", "DeKalb Market Hall"],
+  Greenpoint: ["Transmitter Park", "Manhattan Avenue", "WNYC Transmitter Park Pier"],
+  "Coney Island": ["Coney Island Boardwalk", "Luna Park", "New York Aquarium"],
+  "Long Island City": ["Gantry Plaza State Park", "MoMA PS1", "Pepsi-Cola Sign"],
+  Astoria: ["Museum of the Moving Image", "Astoria Park", "Steinway Street"],
+  Flushing: ["Flushing Meadows Corona Park", "Queens Botanical Garden", "New World Mall Food Court"],
+  "Jackson Heights": ["Diversity Plaza", "Roosevelt Avenue Food Corridor", "Travers Park"],
+  "Forest Hills": ["Forest Hills Stadium", "Austin Street", "Forest Hills Gardens"],
+  Jamaica: ["King Manor Museum", "Rufus King Park", "Jamaica Center"],
+  "Rockaway Beach": ["Rockaway Beach Boardwalk", "Jacob Riis Park", "Beach 97th Street"],
+  Sunnyside: ["Sunnyside Gardens", "Skillman Avenue", "Lou Lodati Park"],
+  "Mott Haven": ["Bronx Documentary Center", "Piano District", "Port Morris Waterfront"],
+  Concourse: ["Bronx Museum of the Arts", "Grand Concourse", "Yankee Stadium"],
+  Fordham: ["Fordham University", "New York Botanical Garden", "Arthur Avenue"],
+  Belmont: ["Arthur Avenue Market", "Bronx Zoo", "Our Lady of Mount Carmel Church"],
+  Riverdale: ["Wave Hill", "Van Cortlandt Park", "Riverdale Park"],
+  Kingsbridge: ["Van Cortlandt Park", "Kingsbridge Armory", "Broadway Retail Corridor"],
+  "Throgs Neck": ["Throgs Neck Bridge View", "Ferry Point Park", "Maritime College Waterfront"],
+  "City Island": ["City Island Avenue", "Orchard Beach", "City Island Nautical Museum"],
+  "St. George": ["Staten Island Ferry", "Empire Outlets", "St. George Theatre"],
+  Tompkinsville: ["Sri Lankan Restaurant Row", "Tompkinsville Park", "Staten Island Ferry Terminal"],
+  Stapleton: ["Stapleton Waterfront", "Tappen Park", "MakerSpace NYC"],
+  "Snug Harbor": ["Snug Harbor Cultural Center", "Chinese Scholar's Garden", "Staten Island Museum"],
+  "New Dorp": ["New Dorp Lane", "Miller Field", "Gateway National Recreation Area"],
+  Tottenville: ["Conference House Park", "Tottenville Beach", "Historic Richmond Town"],
+  "Great Kills": ["Great Kills Park", "Great Kills Harbor", "Gateway National Recreation Area"],
+  "West Brighton": ["Staten Island Zoo", "Silver Lake Park", "Forest Avenue"]
+};
+
+function isGenericSightTitle(title, item) {
+  const cleanTitle = title.toLowerCase();
+  const cleanName = item.name.toLowerCase();
+  return (
+    cleanTitle === cleanName ||
+    cleanTitle === `${cleanName}, manhattan` ||
+    cleanTitle === `${cleanName}, brooklyn` ||
+    cleanTitle === `${cleanName}, queens` ||
+    cleanTitle === `${cleanName}, bronx` ||
+    cleanTitle === `${cleanName}, staten island` ||
+    cleanTitle.includes("district") && cleanTitle.includes(cleanName)
+  );
+}
+
 function travelSights(item) {
-  const gallery = galleryTitles(item).filter((title) => title !== item.name).slice(0, 3);
-  if (gallery.length >= 3) return gallery;
+  const named = localSightRecommendations[item.name] || [];
+  const gallery = galleryTitles(item).filter((title) => !isGenericSightTitle(title, item));
+  const combined = [...named, ...gallery].filter((sight, index, list) => list.indexOf(sight) === index);
+  if (combined.length >= 3) return combined.slice(0, 3);
   return [
     `${item.name} zu Fuß erkunden`,
     `Lokale Parks und Straßen rund um ${item.area}`,
@@ -2888,21 +2965,138 @@ function sightsMarkup(sights, item) {
   `;
 }
 
-function restaurantIdeas(item) {
+const restaurantRecommendations = {
+  Inwood: ["Indian Road Cafe", "Dyckman Street Restaurants", "Garden Cafe"],
+  "Washington Heights": ["Malecon", "Tung Thong Thai", "Fort Washington Avenue Cafes"],
+  "Hamilton Heights": ["The Grange", "Harlem Public", "Fumo Harlem"],
+  Harlem: ["Red Rooster Harlem", "Sylvia's", "Melba's"],
+  "East Harlem": ["Patsy's Pizzeria", "Cascalote Latin Bistro", "La Marqueta Food Stalls"],
+  "Morningside Heights": ["Community Food & Juice", "Hungarian Pastry Shop", "Pisticci"],
+  "Upper West Side": ["Zabar's", "Jacob's Pickles", "Cafe Luxembourg"],
+  "Upper East Side": ["Sant Ambroeus", "Lexington Candy Shop", "The Penrose"],
+  "Hell's Kitchen": ["Restaurant Row", "Pure Thai Cookhouse", "Empanada Mama", "Becco", "Gotham West Market"],
+  Midtown: ["Keens Steakhouse", "Bryant Park Grill", "Koreatown BBQ Spots"],
+  "Murray Hill": ["Curry Hill Restaurants", "Sarge's Deli", "The Morgan Cafe"],
+  "Kips Bay": ["Thai Villa Area", "Second Avenue Casual Dining", "East River Cafes"],
+  Chelsea: ["Chelsea Market", "Los Tacos No. 1", "Cookshop"],
+  "Hudson Yards": ["Mercado Little Spain", "Electric Lemon", "Hudson Yards Dining"],
+  Flatiron: ["Eataly NYC Flatiron", "Shake Shack Madison Square Park", "ABC Kitchen"],
+  Gramercy: ["Gramercy Tavern", "Union Square Cafe", "Daily Provisions"],
+  "Greenwich Village": ["Carbone", "Minetta Tavern", "Mamoun's Falafel"],
+  "West Village": ["Bleecker Street Pizza", "Via Carota", "Don Angie"],
+  "East Village": ["Veselka", "St. Mark's Place Ramen", "Superiority Burger"],
+  "Lower East Side": ["Katz's Delicatessen", "Russ & Daughters", "Essex Market"],
+  SoHo: ["Balthazar", "Dominique Ansel Bakery", "Fanelli Cafe"],
+  TriBeCa: ["Locanda Verde", "Bubby's", "Frenchette"],
+  Chinatown: ["Nom Wah Tea Parlor", "Doyers Street Dim Sum", "Mott Street Noodle Shops"],
+  NoHo: ["Lafayette", "Il Buco", "Atla"],
+  "Financial District": ["Stone Street", "Eataly Downtown", "Fraunces Tavern"],
+  "Battery Park City": ["Hudson Eats", "El Vez", "Brookfield Place Dining"],
+  Williamsburg: ["Lilia", "Sunday in Brooklyn", "Peter Luger"],
+  DUMBO: ["Time Out Market New York", "Juliana's Pizza", "Celestine"],
+  "Park Slope": ["Al Di La Trattoria", "5th Avenue Restaurants", "Pasta Louise"],
+  "Bed-Stuy": ["Saraghina", "Peaches", "Tompkins Avenue Cafes"],
+  Bushwick: ["Roberta's", "Bunna Cafe", "Tortilleria Mexicana Los Hermanos"],
+  "Downtown Brooklyn": ["DeKalb Market Hall", "Junior's", "BAM Area Restaurants"],
+  Greenpoint: ["Paulie Gee's", "Karczma", "Manhattan Avenue Bakeries"],
+  "Coney Island": ["Nathan's Famous", "Totonno's Pizzeria", "Boardwalk Seafood Spots"],
+  "Long Island City": ["Casa Enrique", "Gantry Plaza Cafes", "Jackson Avenue Dining"],
+  Astoria: ["Taverna Kyclades", "Steinway Street Eats", "Astoria Seafood"],
+  Flushing: ["New World Mall Food Court", "White Bear", "Nan Xiang Xiao Long Bao"],
+  "Jackson Heights": ["Jackson Diner", "Arepa Lady", "Roosevelt Avenue Momos"],
+  "Forest Hills": ["Nick's Bistro", "Austin Street Restaurants", "Forest Hills Bagels"],
+  Jamaica: ["Sybil's Bakery", "The Door", "Jamaica Avenue Caribbean Spots"],
+  "Rockaway Beach": ["Rippers", "Uma's", "Boardwalk Tacos"],
+  Sunnyside: ["Sotto Le Stelle", "Skillman Avenue Cafes", "Sunnyside Pizza Spots"],
+  "Mott Haven": ["Beatstro", "Mottley Kitchen", "Charlie's Bar & Kitchen"],
+  Concourse: ["Yankee Tavern", "Feeding Tree", "Grand Concourse Cafes"],
+  Fordham: ["Arthur Avenue Nearby", "Fordham Road Eats", "Bronx Little Italy Cafes"],
+  Belmont: ["Arthur Avenue Retail Market", "Zero Otto Nove", "Madonia Bakery"],
+  Riverdale: ["Jake's Steakhouse", "Liebman's Deli", "Riverdale Avenue Cafes"],
+  Kingsbridge: ["Broadway Diner Spots", "Kingsbridge Social Club", "Van Cortlandt Cafes"],
+  "Throgs Neck": ["Ice House Cafe", "Patricia's of Tremont", "Waterfront Seafood Spots"],
+  "City Island": ["Johnny's Reef", "Sammy's Fish Box", "City Island Lobster House"],
+  "St. George": ["Beso", "Enoteca Maria", "Empire Outlets Dining"],
+  Tompkinsville: ["Lakruwana", "Lanka Grocery", "Sri Lankan Restaurant Row"],
+  Stapleton: ["Seppe Pizza Bar", "Stapleton Waterfront Dining", "Tappen Park Cafes"],
+  "Snug Harbor": ["Snug Harbor Cafe", "Randall Manor Restaurants", "Forest Avenue Spots"],
+  "New Dorp": ["New Dorp Lane Restaurants", "Lee's Tavern", "Staten Island Mall Area Dining"],
+  Tottenville: ["Angelina's Ristorante", "Conference House Park Cafes", "Tottenville Main Street Eats"],
+  "Great Kills": ["Marina Cafe", "Great Kills Harbor Restaurants", "Hylan Boulevard Spots"],
+  "West Brighton": ["Denino's Pizzeria", "Forest Avenue Restaurants", "Staten Island Zoo Area Cafes"]
+};
+
+function restaurantContext(place, item) {
+  const lower = place.toLowerCase();
+  if (/market|food court|hall|eataly|hudson eats|dekalb/.test(lower)) {
+    return "Gut, wenn du mehrere Küchen an einem Ort vergleichen möchtest.";
+  }
+  if (/pizza|pizzeria|tacos|falafel|burger|deli|bakery|bagel|noodle|ramen|dim sum|momos/.test(lower)) {
+    return "Perfekt für einen unkomplizierten, typischen New-York-Stopp.";
+  }
+  if (/steak|tavern|trattoria|bistro|ristorante|cafe|café|kitchen/.test(lower)) {
+    return "Eher für ein geplantes Essen mit etwas mehr Zeit und Atmosphäre.";
+  }
+  if (/row|avenue|street|spots|restaurants|dining|cafes|eats/.test(lower)) {
+    return "Eine gute Gegend zum Schlendern und spontan Auswählen.";
+  }
+  return `Eine passende Food-Adresse, um den Charakter von ${item.name} auch kulinarisch zu erleben.`;
+}
+
+function restaurantsMarkup(restaurants, item) {
+  return `
+    <div class="food-list">
+      ${restaurants
+        .map(
+          (restaurant, index) => `
+            <article class="food-item">
+              <span>${String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <strong>${restaurant}</strong>
+                <p>${restaurantContext(restaurant, item)}</p>
+              </div>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function normalizeRecommendationName(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function restaurantIdeas(item, excluded = []) {
+  const blocked = new Set(excluded.map(normalizeRecommendationName));
+  if (restaurantRecommendations[item.name]) {
+    return restaurantRecommendations[item.name]
+      .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)))
+      .slice(0, 3);
+  }
   const tags = travelTags(item);
   if (item.name === "Chinatown" || item.name === "Flushing") {
-    return ["Dim Sum und Noodle-Spots", "Food-Courts und Bäckereien", "Abendessen entlang der Hauptstraßen"];
+    return ["Dim Sum und Noodle-Spots", "Food-Courts und Bäckereien", "Abendessen entlang der Hauptstraßen"]
+      .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
   }
   if (item.name === "Belmont") {
-    return ["Arthur-Avenue-Italiener", "Bäckereien und Feinkostläden", "Klassische Familienrestaurants"];
+    return ["Arthur-Avenue-Italiener", "Bäckereien und Feinkostläden", "Klassische Familienrestaurants"]
+      .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
   }
   if (tags.has("nightlife")) {
-    return ["Dinner vor dem Ausgehen", "Cocktailbars und späte Küche", "Brunch-Spots am nächsten Morgen"];
+    return ["Dinner vor dem Ausgehen", "Cocktailbars und späte Küche", "Brunch-Spots am nächsten Morgen"]
+      .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
   }
   if (tags.has("food")) {
-    return ["Lokale Restaurants statt Hotelrestaurant", "Cafés für Frühstück", "Food-Märkte und kleine Spezialitätenläden"];
+    return ["Lokale Restaurants statt Hotelrestaurant", "Cafés für Frühstück", "Food-Märkte und kleine Spezialitätenläden"]
+      .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
   }
-  return ["Nachbarschaftscafés", "Casual Dinner in Laufnähe", "Bäckereien, Delis und einfache Lunch-Spots"];
+  return ["Nachbarschaftscafés", "Casual Dinner in Laufnähe", "Bäckereien, Delis und einfache Lunch-Spots"]
+    .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
 }
 
 const hotelFilterOptions = {
@@ -3377,9 +3571,13 @@ function renderTripPlanner() {
               </div>
               ${sightsMarkup(sights, item)}
             </div>
-            <div class="trip-column">
-              <h4>Restaurants</h4>
-              <ul>${restaurantIdeas(item).map((idea) => `<li>${idea}</li>`).join("")}</ul>
+            <div class="trip-column food-column">
+              <div class="food-column-header">
+                <span>Food</span>
+                <h4>Restaurants</h4>
+                <p>Konkrete Adressen und Food-Zonen, die zum Viertel passen.</p>
+              </div>
+              ${restaurantsMarkup(restaurantIdeas(item, sights), item)}
             </div>
           </div>
         </article>

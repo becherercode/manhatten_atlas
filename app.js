@@ -2606,6 +2606,152 @@ const neighborhoodCoords = {
   "West Brighton": [40.6312, -74.1143]
 };
 
+const preferenceProfiles = {
+  centralLocation: {
+    strong: [
+      "Midtown",
+      "Flatiron",
+      "Chelsea",
+      "Greenwich Village",
+      "SoHo",
+      "TriBeCa",
+      "Financial District",
+      "Downtown Brooklyn",
+      "DUMBO",
+      "Williamsburg"
+    ],
+    good: [
+      "Hell's Kitchen",
+      "Hudson Yards",
+      "Murray Hill",
+      "Kips Bay",
+      "Gramercy",
+      "West Village",
+      "NoHo",
+      "Lower East Side",
+      "Long Island City",
+      "Park Slope"
+    ]
+  },
+  touristSights: {
+    strong: [
+      "Midtown",
+      "Hell's Kitchen",
+      "Upper West Side",
+      "Upper East Side",
+      "Chelsea",
+      "Flatiron",
+      "Financial District",
+      "Battery Park City",
+      "DUMBO"
+    ],
+    good: [
+      "Greenwich Village",
+      "West Village",
+      "SoHo",
+      "TriBeCa",
+      "Chinatown",
+      "Hudson Yards",
+      "Downtown Brooklyn",
+      "Coney Island",
+      "Flushing",
+      "Belmont",
+      "St. George"
+    ]
+  },
+  nightlife: {
+    strong: [
+      "East Village",
+      "Lower East Side",
+      "Hell's Kitchen",
+      "Williamsburg",
+      "Bushwick",
+      "Greenwich Village",
+      "West Village",
+      "Midtown"
+    ],
+    good: ["Chelsea", "SoHo", "Harlem", "DUMBO", "Downtown Brooklyn", "Astoria", "Long Island City"]
+  },
+  restaurants: {
+    strong: [
+      "Chinatown",
+      "Lower East Side",
+      "East Village",
+      "West Village",
+      "SoHo",
+      "Williamsburg",
+      "Astoria",
+      "Flushing",
+      "Jackson Heights",
+      "Belmont"
+    ],
+    good: [
+      "Greenwich Village",
+      "Chelsea",
+      "Flatiron",
+      "DUMBO",
+      "Park Slope",
+      "Greenpoint",
+      "Long Island City",
+      "Harlem"
+    ]
+  },
+  quietStay: {
+    strong: [
+      "Inwood",
+      "Hamilton Heights",
+      "Morningside Heights",
+      "Upper West Side",
+      "Upper East Side",
+      "Park Slope",
+      "Forest Hills",
+      "Riverdale",
+      "Snug Harbor",
+      "Great Kills"
+    ],
+    good: [
+      "Washington Heights",
+      "Battery Park City",
+      "Greenpoint",
+      "Sunnyside",
+      "City Island",
+      "Tottenville",
+      "West Brighton"
+    ]
+  }
+};
+
+const defaultTouristAttractions = [
+  "times-square",
+  "central-park",
+  "empire-state",
+  "statue-liberty",
+  "brooklyn-bridge",
+  "high-line",
+  "one-world",
+  "broadway",
+  "met-museum",
+  "moma"
+];
+
+function profileScore(item, profile, strongScore = 28, goodScore = 16) {
+  if (profile.strong.includes(item.name)) return strongScore;
+  if (profile.good.includes(item.name)) return goodScore;
+  return 0;
+}
+
+function pricePreferenceScore(item, boroughName) {
+  let score = item.price.length <= 2 ? 36 : item.price.length === 3 ? 18 : -18;
+  if (["Queens", "Bronx", "Staten Island"].includes(boroughName)) score += 10;
+  if (boroughName === "Brooklyn" && item.price.length <= 3) score += 4;
+  if (boroughName === "Manhattan" && item.price.length >= 4) score -= 10;
+  return score;
+}
+
+function defaultTouristScore(item, boroughName) {
+  return Math.min(34, attractionScore(item, boroughName, defaultTouristAttractions) * 0.55);
+}
+
 function travelTags(item) {
   const text = `${item.name} ${item.area} ${item.vibe} ${item.character} ${item.history} ${item.events || ""}`.toLowerCase();
   const tags = new Set(["location"]);
@@ -2649,9 +2795,23 @@ function tripScore(item, preferences, budget, style, boroughName = currentBoroug
   let score = 34;
 
   preferences.forEach((preference) => {
-    if (preference === "location") score += tags.has("transit") ? 22 : 9;
-    else if (tags.has(preference)) score += 20;
-    else score += 5;
+    if (preference === "price") {
+      score += pricePreferenceScore(item, boroughName);
+    } else if (preference === "location") {
+      score += profileScore(item, preferenceProfiles.centralLocation, 34, 18);
+      score += tags.has("transit") ? 8 : 0;
+    } else if (preference === "sights") {
+      score += profileScore(item, preferenceProfiles.touristSights, 30, 16);
+      score += defaultTouristScore(item, boroughName);
+    } else if (preference === "nightlife") {
+      score += profileScore(item, preferenceProfiles.nightlife, 34, 18);
+    } else if (preference === "food") {
+      score += profileScore(item, preferenceProfiles.restaurants, 34, 18);
+    } else if (preference === "quiet") {
+      score += profileScore(item, preferenceProfiles.quietStay, 34, 18);
+    } else if (tags.has(preference)) {
+      score += 14;
+    }
   });
 
   if (budget === "budget") score += item.price.length <= 2 ? 24 : item.price.length === 3 ? 10 : -12;
@@ -2745,12 +2905,17 @@ function variedTripResults(scored) {
     return scored.slice(0, 3);
   }
 
-  const chosen = [];
+  const chosen = scored.length ? [scored[0]] : [];
   const usedBoroughs = new Set();
+  if (chosen[0]) {
+    usedBoroughs.add(chosen[0].boroughName);
+  }
+  const topScore = chosen[0]?.score || 0;
+  const diversityTolerance = 10;
 
   scored.forEach((result) => {
     if (chosen.length >= 3) return;
-    if (!usedBoroughs.has(result.boroughName)) {
+    if (!usedBoroughs.has(result.boroughName) && result.score >= topScore - diversityTolerance) {
       chosen.push(result);
       usedBoroughs.add(result.boroughName);
     }

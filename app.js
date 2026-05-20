@@ -1859,7 +1859,9 @@ function updateBoroughInterface() {
     zh: `${borough.name} 的 ${borough.neighborhoods.length} 个精选街区档案：便于比较，也足够深入。`
   };
   document.documentElement.style.setProperty("--hero-image", `url("${borough.heroImage}")`);
-  document.title = boroughHeroTitle();
+  document.title = document.body.classList.contains("trip-page")
+    ? "New York Trip Planner"
+    : boroughHeroTitle();
   document.querySelectorAll("[data-i18n='heroTitle']").forEach((element) => {
     element.textContent = boroughHeroTitle();
   });
@@ -1983,6 +1985,8 @@ function stars(price) {
 }
 
 function renderCards() {
+  if (!grid || !searchInput) return;
+
   const query = searchInput.value.trim().toLowerCase();
   const currentItems = activeNeighborhoods();
   const filtered = currentItems.filter((item) => {
@@ -2829,6 +2833,8 @@ const extendedProfiles = {
 };
 
 function renderDetail(item) {
+  if (!detailPanel || !item) return;
+
   const index = activeNeighborhoods().indexOf(item);
   const extra = extendedProfiles[item.name] || {
     description: item.description || item.character,
@@ -2914,7 +2920,7 @@ function selectBorough(boroughKey) {
   renderDetail(selectedNeighborhood);
 }
 
-searchInput.addEventListener("input", renderCards);
+searchInput?.addEventListener("input", renderCards);
 languageSelect?.addEventListener("change", (event) => {
   applyLanguage(event.target.value);
 });

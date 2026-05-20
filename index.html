@@ -15,7 +15,7 @@
         document.head.appendChild(adScript);
       }
     </script>
-    <link rel="stylesheet" href="./styles.css?v=37" />
+    <link rel="stylesheet" href="./styles.css?v=38" />
   </head>
   <body>
     <header class="hero">
@@ -33,7 +33,7 @@
         <div class="navlinks">
           <a href="#viertel" data-i18n="navNeighborhoods">Viertel</a>
           <a href="#vergleich" data-i18n="navCompare">Vergleich</a>
-          <a href="#urlaub">Urlaub</a>
+          <a href="./trip-planner.html">Urlaub</a>
           <a href="#rechtliches">Rechtliches</a>
           <label class="language-menu">
             <span data-i18n="languageLabel">Sprache</span>
@@ -126,52 +126,23 @@
         </div>
       </section>
 
-      <section class="trip-section" id="urlaub" aria-label="New York Urlaub planen">
-        <div class="section-heading">
-          <p class="eyebrow">Trip Planner</p>
-          <h2>Finde dein passendes New-York-Viertel</h2>
-        </div>
-
-        <div class="trip-tool">
-          <div class="trip-panel">
-            <h3>Was ist dir wichtig?</h3>
-            <p>
-              Wähle deine Prioritäten. Der Atlas schlägt passende Viertel im ausgewählten Borough vor,
-              dazu Hotel-Suchen bei Booking.com, Sehenswürdigkeiten und Restaurantideen in der Umgebung.
-            </p>
-
-            <div class="trip-chips" aria-label="Reiseprioritäten">
-              <button class="trip-chip active" type="button" data-preference="price">Preis</button>
-              <button class="trip-chip active" type="button" data-preference="location">Lage</button>
-              <button class="trip-chip active" type="button" data-preference="sights">Sehenswürdigkeiten</button>
-              <button class="trip-chip" type="button" data-preference="nightlife">Nachtleben</button>
-              <button class="trip-chip" type="button" data-preference="food">Restaurants</button>
-              <button class="trip-chip" type="button" data-preference="quiet">Ruhiger Aufenthalt</button>
-            </div>
-
-            <div class="trip-select-row">
-              <label>
-                <span>Budget</span>
-                <select id="tripBudget">
-                  <option value="balanced">Ausgewogen</option>
-                  <option value="budget">Preisbewusst</option>
-                  <option value="premium">Premium</option>
-                </select>
-              </label>
-              <label>
-                <span>Reisestil</span>
-                <select id="tripStyle">
-                  <option value="first-time">Erster New-York-Trip</option>
-                  <option value="culture">Kultur & Architektur</option>
-                  <option value="local">Lokal & entspannt</option>
-                  <option value="food">Food-Fokus</option>
-                </select>
-              </label>
-            </div>
-          </div>
-
-          <div class="trip-results" id="tripOutput" aria-live="polite"></div>
-        </div>
+      <section class="trip-section trip-preview-section" id="urlaub" aria-label="New York Urlaub planen">
+        <a class="trip-preview-card" href="./trip-planner.html">
+          <span class="trip-preview-copy">
+            <span class="eyebrow">Trip Planner</span>
+            <strong>Finde dein passendes New-York-Viertel</strong>
+            <span>
+              Wähle Budget, Lage, Nachtleben, Sehenswürdigkeiten oder Food-Fokus und erhalte passende Viertel,
+              Hotels über Booking.com, Highlights und Restaurantideen.
+            </span>
+            <span class="trip-preview-action">Planner öffnen</span>
+          </span>
+          <span class="trip-preview-visual" aria-hidden="true">
+            <span class="trip-preview-stat"><b>5</b> Boroughs</span>
+            <span class="trip-preview-stat"><b>Hotels</b> passend zum Viertel</span>
+            <span class="trip-preview-stat"><b>Food</b> & Sehenswürdigkeiten</span>
+          </span>
+        </a>
       </section>
 
       <section class="detail-band" id="detailPanel" aria-live="polite">
@@ -319,6 +290,6 @@
       </div>
     </div>
 
-    <script src="./app.js?v=37"></script>
+    <script src="./app.js?v=38"></script>
   </body>
 </html>

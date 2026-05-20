@@ -420,10 +420,115 @@ a {
   padding: 12px 0 76px;
 }
 
+.trip-preview-section {
+  padding-top: 28px;
+}
+
+.trip-preview-card {
+  align-items: stretch;
+  background:
+    linear-gradient(105deg, rgba(10, 12, 16, 0.82), rgba(10, 12, 16, 0.42)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/New_York_City_at_night_HDR.jpg?width=2400")
+      center / cover;
+  border-radius: 8px;
+  box-shadow: var(--soft-shadow);
+  color: #fff;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.75fr);
+  min-height: 360px;
+  overflow: hidden;
+  padding: clamp(24px, 5vw, 52px);
+  position: relative;
+  text-decoration: none;
+}
+
+.trip-preview-card::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.trip-preview-copy {
+  align-self: end;
+  display: grid;
+  gap: 16px;
+  max-width: 680px;
+}
+
+.trip-preview-copy .eyebrow {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.trip-preview-copy strong {
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  font-weight: 780;
+  letter-spacing: 0;
+  line-height: 0.94;
+}
+
+.trip-preview-copy span:not(.eyebrow):not(.trip-preview-action) {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: 620px;
+}
+
+.trip-preview-action {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-flex;
+  font-weight: 800;
+  min-height: 46px;
+  padding: 0 18px;
+  width: max-content;
+}
+
+.trip-preview-visual {
+  align-self: end;
+  display: grid;
+  gap: 10px;
+}
+
+.trip-preview-stat {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(18px) saturate(160%);
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.35;
+  padding: 16px;
+}
+
+.trip-preview-stat b {
+  color: #fff;
+  display: block;
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.trip-page .hero {
+  min-height: 54vh;
+}
+
+.trip-page .trip-section {
+  padding-top: 44px;
+}
+
 .trip-tool {
   display: grid;
   gap: 22px;
   grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.5fr);
+}
+
+.trip-page .trip-tool {
+  grid-template-columns: 1fr;
 }
 
 .trip-panel,
@@ -437,6 +542,23 @@ a {
 .trip-panel {
   align-self: start;
   padding: 24px;
+}
+
+.trip-page .trip-panel {
+  align-items: end;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(246, 248, 252, 0.76)),
+    radial-gradient(circle at 18% 0%, rgba(0, 113, 227, 0.12), transparent 34%),
+    radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.11), transparent 34%);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(260px, 0.65fr) minmax(0, 1.35fr) minmax(220px, 0.52fr);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.trip-panel-intro {
+  display: grid;
+  gap: 10px;
 }
 
 .trip-panel h3,
@@ -456,6 +578,11 @@ a {
   flex-wrap: wrap;
   gap: 10px;
   margin: 22px 0;
+}
+
+.trip-page .trip-chips {
+  align-content: center;
+  margin: 0;
 }
 
 .trip-chip {
@@ -479,6 +606,10 @@ a {
 .trip-select-row {
   display: grid;
   gap: 14px;
+}
+
+.trip-page .trip-select-row {
+  grid-template-columns: 1fr;
 }
 
 .trip-select-row label {
@@ -510,6 +641,15 @@ a {
 .trip-results {
   display: grid;
   gap: 16px;
+}
+
+.trip-page .trip-results {
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.trip-page .trip-result-card:first-child {
+  grid-column: 1 / -1;
 }
 
 .trip-result-card {
@@ -1408,6 +1548,9 @@ a {
   .compare-selectors,
   .comparison-grid,
   .trip-tool,
+  .trip-page .trip-panel,
+  .trip-page .trip-results,
+  .trip-preview-card,
   .neighborhood-grid,
   .detail {
     grid-template-columns: repeat(2, 1fr);
@@ -1469,6 +1612,9 @@ a {
   .neighborhood-grid,
   .legal-grid,
   .trip-tool,
+  .trip-page .trip-panel,
+  .trip-page .trip-results,
+  .trip-preview-card,
   .trip-columns,
   .trip-result-hero,
   .detail,
@@ -1479,6 +1625,10 @@ a {
   .trip-column + .trip-column {
     border-left: 0;
     border-top: 1px solid rgba(17, 17, 20, 0.08);
+  }
+
+  .trip-page .trip-result-card:first-child {
+    grid-column: auto;
   }
 
   .cookie-banner {

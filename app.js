@@ -1372,6 +1372,7 @@ const cookieEssential = document.querySelector("#cookieEssential");
 const resetCookieChoice = document.querySelector("#resetCookieChoice");
 const legalToggles = document.querySelectorAll(".legal-toggle");
 const tripPreferenceButtons = document.querySelectorAll(".trip-chip");
+const attractionButtons = document.querySelectorAll(".attraction-chip");
 const tripBorough = document.querySelector("#tripBorough");
 const tripBudget = document.querySelector("#tripBudget");
 const tripStyle = document.querySelector("#tripStyle");
@@ -2407,6 +2408,204 @@ function selectedTripPreferences() {
   return preferences.length ? preferences : ["location", "sights"];
 }
 
+function selectedAttractions() {
+  return Array.from(attractionButtons)
+    .filter((button) => button.classList.contains("active"))
+    .map((button) => button.dataset.attraction);
+}
+
+const attractionMap = {
+  "times-square": {
+    label: "Times Square",
+    lat: 40.758,
+    lng: -73.9855,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Midtown", "Hell's Kitchen"],
+    tags: ["nightlife", "transit", "sights"]
+  },
+  "central-park": {
+    label: "Central Park",
+    lat: 40.7829,
+    lng: -73.9654,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Upper West Side", "Upper East Side", "Harlem"],
+    tags: ["quiet", "sights"]
+  },
+  "empire-state": {
+    label: "Empire State Building",
+    lat: 40.7484,
+    lng: -73.9857,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Midtown", "Flatiron"],
+    tags: ["sights", "transit"]
+  },
+  "statue-liberty": {
+    label: "Statue of Liberty",
+    lat: 40.6892,
+    lng: -74.0445,
+    boroughs: ["Manhattan", "Staten Island"],
+    neighborhoods: ["Financial District", "St. George"],
+    tags: ["waterfront", "sights", "ferry"]
+  },
+  "brooklyn-bridge": {
+    label: "Brooklyn Bridge",
+    lat: 40.7061,
+    lng: -73.9969,
+    boroughs: ["Manhattan", "Brooklyn"],
+    neighborhoods: ["Financial District", "DUMBO", "Brooklyn Heights"],
+    tags: ["waterfront", "sights"]
+  },
+  "high-line": {
+    label: "High Line",
+    lat: 40.748,
+    lng: -74.0048,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Chelsea", "Meatpacking District", "Hudson Yards"],
+    tags: ["sights", "food"]
+  },
+  "one-world": {
+    label: "One World Trade Center",
+    lat: 40.7127,
+    lng: -74.0134,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Financial District", "Tribeca"],
+    tags: ["sights", "transit"]
+  },
+  broadway: {
+    label: "Broadway",
+    lat: 40.759,
+    lng: -73.9845,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Midtown", "Hell's Kitchen", "Upper West Side"],
+    tags: ["nightlife", "sights"]
+  },
+  "met-museum": {
+    label: "The Met",
+    lat: 40.7794,
+    lng: -73.9632,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Upper East Side", "Upper West Side"],
+    tags: ["sights", "quiet"]
+  },
+  moma: {
+    label: "MoMA",
+    lat: 40.7614,
+    lng: -73.9776,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Midtown", "Upper East Side"],
+    tags: ["sights"]
+  },
+  dumbo: {
+    label: "DUMBO",
+    lat: 40.7033,
+    lng: -73.9881,
+    boroughs: ["Brooklyn"],
+    neighborhoods: ["DUMBO", "Brooklyn Heights", "Williamsburg"],
+    tags: ["waterfront", "sights", "food"]
+  },
+  "coney-island": {
+    label: "Coney Island",
+    lat: 40.5749,
+    lng: -73.985,
+    boroughs: ["Brooklyn"],
+    neighborhoods: ["Coney Island", "Brighton Beach"],
+    tags: ["sights", "food"]
+  },
+  "flushing-meadows": {
+    label: "Flushing Meadows Corona Park",
+    lat: 40.7401,
+    lng: -73.8408,
+    boroughs: ["Queens"],
+    neighborhoods: ["Flushing", "Jackson Heights", "Long Island City"],
+    tags: ["sights", "food", "quiet"]
+  },
+  "bronx-zoo": {
+    label: "Bronx Zoo",
+    lat: 40.8506,
+    lng: -73.8769,
+    boroughs: ["Bronx"],
+    neighborhoods: ["Belmont", "Riverdale", "South Bronx"],
+    tags: ["sights", "quiet"]
+  },
+  "yankee-stadium": {
+    label: "Yankee Stadium",
+    lat: 40.8296,
+    lng: -73.9262,
+    boroughs: ["Bronx"],
+    neighborhoods: ["South Bronx", "Harlem"],
+    tags: ["sights", "transit"]
+  },
+  "staten-island-ferry": {
+    label: "Staten Island Ferry",
+    lat: 40.6437,
+    lng: -74.0736,
+    boroughs: ["Staten Island", "Manhattan"],
+    neighborhoods: ["St. George", "Financial District"],
+    tags: ["ferry", "waterfront", "sights"]
+  }
+};
+
+const neighborhoodCoords = {
+  Inwood: [40.8677, -73.9212],
+  "Washington Heights": [40.8417, -73.9394],
+  "Hamilton Heights": [40.8249, -73.9497],
+  Harlem: [40.8116, -73.9465],
+  "East Harlem": [40.7957, -73.9389],
+  "Morningside Heights": [40.808, -73.9639],
+  "Upper West Side": [40.787, -73.9754],
+  "Upper East Side": [40.7736, -73.9566],
+  "Hell's Kitchen": [40.7638, -73.9918],
+  Midtown: [40.7549, -73.984],
+  "Murray Hill": [40.7479, -73.9781],
+  "Kips Bay": [40.7423, -73.9801],
+  Chelsea: [40.7465, -74.0014],
+  "Hudson Yards": [40.754, -74.0015],
+  Flatiron: [40.7411, -73.9897],
+  Gramercy: [40.7376, -73.9847],
+  "Greenwich Village": [40.7336, -74.0027],
+  "West Village": [40.7358, -74.006],
+  "East Village": [40.7265, -73.9815],
+  "Lower East Side": [40.715, -73.9843],
+  SoHo: [40.7233, -74.003],
+  TriBeCa: [40.7163, -74.0086],
+  Chinatown: [40.7158, -73.997],
+  NoHo: [40.7287, -73.9926],
+  "Financial District": [40.7075, -74.0113],
+  "Battery Park City": [40.7115, -74.0169],
+  Williamsburg: [40.7081, -73.9571],
+  DUMBO: [40.7033, -73.9881],
+  "Park Slope": [40.6721, -73.9778],
+  "Bed-Stuy": [40.6872, -73.9418],
+  Bushwick: [40.6958, -73.9171],
+  "Downtown Brooklyn": [40.6932, -73.985],
+  Greenpoint: [40.7305, -73.9515],
+  "Coney Island": [40.5749, -73.985],
+  "Long Island City": [40.7447, -73.9485],
+  Astoria: [40.7644, -73.9235],
+  Flushing: [40.759, -73.829],
+  "Jackson Heights": [40.7557, -73.8831],
+  "Forest Hills": [40.7181, -73.8448],
+  Jamaica: [40.7027, -73.789],
+  "Rockaway Beach": [40.5868, -73.8115],
+  Sunnyside: [40.7433, -73.9196],
+  "Mott Haven": [40.8091, -73.9229],
+  Concourse: [40.8315, -73.9226],
+  Fordham: [40.862, -73.891],
+  Belmont: [40.854, -73.887],
+  Riverdale: [40.8976, -73.9065],
+  Kingsbridge: [40.8798, -73.906],
+  "Throgs Neck": [40.8156, -73.8162],
+  "City Island": [40.8473, -73.7868],
+  "St. George": [40.6437, -74.0736],
+  Tompkinsville: [40.6365, -74.075],
+  Stapleton: [40.6265, -74.0776],
+  "Snug Harbor": [40.6423, -74.1018],
+  "New Dorp": [40.5738, -74.1168],
+  Tottenville: [40.5128, -74.2519],
+  "Great Kills": [40.5543, -74.1515],
+  "West Brighton": [40.6312, -74.1143]
+};
+
 function travelTags(item) {
   const text = `${item.name} ${item.area} ${item.vibe} ${item.character} ${item.history} ${item.events || ""}`.toLowerCase();
   const tags = new Set(["location"]);
@@ -2417,13 +2616,35 @@ function travelTags(item) {
   if (/restaurant|food|markt|market|chinatown|arthur|flushing|essen|bäckerei|café|gastronomie/.test(text)) tags.add("food");
   if (/nachtleben|bar|club|musik|theater|broadway|jazz|nightlife|festival|venue/.test(text)) tags.add("nightlife");
   if (/museum|park|bridge|brücke|skyline|waterfront|strand|beach|ferry|fähre|historic|history|gallery|galerie|botanical|zoo|seaport|central park|prospect park/.test(text)) tags.add("sights");
+  if (/waterfront|strand|beach|ferry|fähre|promenade|seaport|harbor|hafen|küste|coast/.test(text)) tags.add("waterfront");
+  if (/ferry|fähre|st. george|financial district|battery/.test(text)) tags.add("ferry");
   if (/ruhig|famil|grün|park|brownstone|garden|residential|wohn|schule|promenade/.test(text)) tags.add("quiet");
   if (/midtown|downtown|central|transit|subway|station|ferry|grand central|jamaica|long island city|downtown brooklyn|st. george/.test(text)) tags.add("transit");
 
   return tags;
 }
 
-function tripScore(item, preferences, budget, style) {
+function attractionScore(item, boroughName, attractions) {
+  if (!attractions.length) return 0;
+
+  const tags = travelTags(item);
+  return attractions.reduce((total, attractionKey) => {
+    const attraction = attractionMap[attractionKey];
+    if (!attraction) return total;
+
+    let score = 0;
+    if (attraction.neighborhoods.includes(item.name)) score += 30;
+    else if (attraction.boroughs.includes(boroughName)) score += 14;
+
+    attraction.tags.forEach((tag) => {
+      if (tags.has(tag)) score += 5;
+    });
+
+    return total + score;
+  }, 0);
+}
+
+function tripScore(item, preferences, budget, style, boroughName = currentBorough().name, attractions = []) {
   const tags = travelTags(item);
   let score = 34;
 
@@ -2442,7 +2663,9 @@ function tripScore(item, preferences, budget, style) {
   if (style === "local") score += tags.has("quiet") || tags.has("food") ? 18 : 4;
   if (style === "food") score += tags.has("food") ? 22 : 5;
 
-  return Math.max(0, Math.min(99, score));
+  score += attractionScore(item, boroughName, attractions);
+
+  return Math.max(0, score);
 }
 
 function bookingUrl(query) {
@@ -2516,16 +2739,156 @@ function tripRecommendationItems() {
   return borough.neighborhoods.map((item) => ({ item, boroughName: borough.name }));
 }
 
+function variedTripResults(scored) {
+  const selectedBorough = tripBorough?.value || activeBoroughKey;
+  if (selectedBorough !== "all") {
+    return scored.slice(0, 3);
+  }
+
+  const chosen = [];
+  const usedBoroughs = new Set();
+
+  scored.forEach((result) => {
+    if (chosen.length >= 3) return;
+    if (!usedBoroughs.has(result.boroughName)) {
+      chosen.push(result);
+      usedBoroughs.add(result.boroughName);
+    }
+  });
+
+  scored.forEach((result) => {
+    if (chosen.length >= 3) return;
+    if (!chosen.some((entry) => entry.item.name === result.item.name && entry.boroughName === result.boroughName)) {
+      chosen.push(result);
+    }
+  });
+
+  return chosen;
+}
+
+function matchedAttractionLabels(item, boroughName, selected) {
+  const tags = travelTags(item);
+  return selected
+    .map((key) => attractionMap[key])
+    .filter(Boolean)
+    .filter(
+      (attraction) =>
+        attraction.neighborhoods.includes(item.name) ||
+        attraction.boroughs.includes(boroughName) ||
+        attraction.tags.some((tag) => tags.has(tag))
+    )
+    .map((attraction) => attraction.label)
+    .slice(0, 3);
+}
+
+const tripMapBounds = {
+  north: 40.92,
+  south: 40.49,
+  west: -74.519,
+  east: -73.511,
+  zoom: 11
+};
+
+function mapWorldPoint(lat, lng, zoom = tripMapBounds.zoom) {
+  const scale = 256 * 2 ** zoom;
+  const sinLat = Math.sin((lat * Math.PI) / 180);
+  return {
+    x: ((lng + 180) / 360) * scale,
+    y: (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI)) * scale
+  };
+}
+
+function mapPosition(lat, lng) {
+  const northwest = mapWorldPoint(tripMapBounds.north, tripMapBounds.west);
+  const southeast = mapWorldPoint(tripMapBounds.south, tripMapBounds.east);
+  const point = mapWorldPoint(lat, lng);
+  const x = ((point.x - northwest.x) / (southeast.x - northwest.x)) * 100;
+  const y = ((point.y - northwest.y) / (southeast.y - northwest.y)) * 100;
+  return {
+    x: Math.max(4, Math.min(96, x)),
+    y: Math.max(4, Math.min(96, y))
+  };
+}
+
+function tripMapTiles() {
+  const northwest = mapWorldPoint(tripMapBounds.north, tripMapBounds.west);
+  const southeast = mapWorldPoint(tripMapBounds.south, tripMapBounds.east);
+  const width = southeast.x - northwest.x;
+  const height = southeast.y - northwest.y;
+  const minTileX = Math.floor(northwest.x / 256);
+  const maxTileX = Math.floor(southeast.x / 256);
+  const minTileY = Math.floor(northwest.y / 256);
+  const maxTileY = Math.floor(southeast.y / 256);
+  const tiles = [];
+
+  for (let tileX = minTileX; tileX <= maxTileX; tileX += 1) {
+    for (let tileY = minTileY; tileY <= maxTileY; tileY += 1) {
+      tiles.push(`
+        <img
+          alt=""
+          class="trip-map-tile"
+          loading="lazy"
+          src="https://tile.openstreetmap.org/${tripMapBounds.zoom}/${tileX}/${tileY}.png"
+          style="--tile-left: ${((tileX * 256 - northwest.x) / width) * 100}%; --tile-top: ${((tileY * 256 - northwest.y) / height) * 100}%; --tile-width: ${(256 / width) * 100}%; --tile-height: ${(256 / height) * 100}%;">
+      `);
+    }
+  }
+
+  return tiles.join("");
+}
+
+function tripMapMarkup(item, boroughName, selected) {
+  const coords = neighborhoodCoords[item.name];
+  if (!coords) return "";
+
+  const neighborhood = mapPosition(coords[0], coords[1]);
+  const attractionMarkers = selected
+    .map((key) => attractionMap[key])
+    .filter((attraction) => attraction?.lat && attraction?.lng)
+    .slice(0, 8)
+    .map((attraction) => {
+      const position = mapPosition(attraction.lat, attraction.lng);
+      return `
+        <span class="trip-map-marker attraction" style="--x: ${position.x}%; --y: ${position.y}%;">
+          <span>${attraction.label}</span>
+        </span>
+      `;
+    })
+    .join("");
+
+  return `
+    <div class="trip-map" aria-label="Lagekarte für ${item.name}">
+      <div class="trip-map-tiles" aria-hidden="true">${tripMapTiles()}</div>
+      <div class="trip-map-overlay" aria-hidden="true"></div>
+      ${attractionMarkers}
+      <span class="trip-map-marker neighborhood" style="--x: ${neighborhood.x}%; --y: ${neighborhood.y}%;">
+        <span>${item.name}</span>
+      </span>
+      <div class="trip-map-caption">
+        <strong>${item.name}</strong>
+        <span>${boroughName}</span>
+      </div>
+      <a class="trip-map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
+    </div>
+  `;
+}
+
 function renderTripPlanner() {
   if (!tripOutput) return;
 
   const preferences = selectedTripPreferences();
+  const attractions = selectedAttractions();
   const budget = tripBudget?.value || "balanced";
   const style = tripStyle?.value || "first-time";
-  const scored = tripRecommendationItems()
-    .map(({ item, boroughName }) => ({ item, boroughName, score: tripScore(item, preferences, budget, style) }))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+  const scored = variedTripResults(
+    tripRecommendationItems()
+      .map(({ item, boroughName }) => ({
+        item,
+        boroughName,
+        score: tripScore(item, preferences, budget, style, boroughName, attractions)
+      }))
+      .sort((a, b) => b.score - a.score)
+  );
 
   const preferenceLabels = {
     price: "Preis",
@@ -2540,6 +2903,10 @@ function renderTripPlanner() {
     .map(({ item, boroughName }) => {
       const localized = localizedNeighborhood(item, extendedProfiles[item.name]);
       const links = hotelLinks(item, budget, boroughName);
+      const selectedSights = matchedAttractionLabels(item, boroughName, attractions);
+      const sights = [...selectedSights, ...travelSights(item)]
+        .filter((sight, index, list) => list.indexOf(sight) === index)
+        .slice(0, 3);
       return `
         <article class="trip-result-card">
           <div class="trip-result-hero">
@@ -2552,6 +2919,7 @@ function renderTripPlanner() {
               </div>
             </div>
           </div>
+          ${tripMapMarkup(item, boroughName, attractions)}
           <div class="trip-columns">
             <div class="trip-column">
               <h4>Hotels über Booking.com</h4>
@@ -2567,7 +2935,7 @@ function renderTripPlanner() {
             </div>
             <div class="trip-column">
               <h4>Unbedingt sehen</h4>
-              <ul>${travelSights(item).map((sight) => `<li>${sight}</li>`).join("")}</ul>
+              <ul>${sights.map((sight) => `<li>${sight}</li>`).join("")}</ul>
             </div>
             <div class="trip-column">
               <h4>Restaurants</h4>
@@ -2941,6 +3309,12 @@ boroughSelect?.addEventListener("change", (event) => {
 compareA?.addEventListener("change", renderComparison);
 compareB?.addEventListener("change", renderComparison);
 tripPreferenceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    button.classList.toggle("active");
+    renderTripPlanner();
+  });
+});
+attractionButtons.forEach((button) => {
   button.addEventListener("click", () => {
     button.classList.toggle("active");
     renderTripPlanner();

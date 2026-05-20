@@ -599,7 +599,8 @@ a {
   margin: 0;
 }
 
-.trip-chip {
+.trip-chip,
+.attraction-chip {
   background: rgba(17, 17, 20, 0.06);
   border: 1px solid rgba(17, 17, 20, 0.08);
   border-radius: 999px;
@@ -612,9 +613,34 @@ a {
   padding: 0 14px;
 }
 
-.trip-chip.active {
+.trip-chip.active,
+.attraction-chip.active {
   background: var(--ink);
   color: #fff;
+}
+
+.trip-attraction-block {
+  display: grid;
+  gap: 12px;
+}
+
+.trip-attraction-block > span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.attraction-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.attraction-chip {
+  background: rgba(255, 255, 255, 0.72);
+  min-height: 36px;
 }
 
 .trip-select-row {
@@ -679,6 +705,131 @@ a {
 
 .trip-page .trip-result-hero {
   grid-template-columns: 1fr;
+}
+
+.trip-map {
+  aspect-ratio: 16 / 9;
+  background: #dfe8eb;
+  border-top: 1px solid rgba(17, 17, 20, 0.08);
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.trip-map-tiles {
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.trip-map-tile {
+  height: var(--tile-height);
+  left: var(--tile-left);
+  object-fit: cover;
+  position: absolute;
+  top: var(--tile-top);
+  width: var(--tile-width);
+}
+
+.trip-map-overlay {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(17, 17, 20, 0.08)),
+    radial-gradient(circle at 50% 50%, transparent 48%, rgba(255, 255, 255, 0.28));
+  inset: 0;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.trip-map-marker {
+  border-radius: 999px;
+  left: var(--x);
+  position: absolute;
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.trip-map-marker::before {
+  border-radius: 999px;
+  content: "";
+  display: block;
+}
+
+.trip-map-marker span {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(17, 17, 20, 0.08);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(17, 17, 20, 0.12);
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 800;
+  left: 50%;
+  max-width: 148px;
+  padding: 5px 8px;
+  position: absolute;
+  top: 16px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.trip-map-marker.neighborhood::before {
+  background: var(--accent);
+  box-shadow:
+    0 0 0 7px rgba(0, 113, 227, 0.18),
+    0 16px 34px rgba(0, 84, 180, 0.28);
+  height: 18px;
+  width: 18px;
+}
+
+.trip-map-marker.attraction::before {
+  background: #111114;
+  box-shadow: 0 0 0 5px rgba(17, 17, 20, 0.1);
+  height: 9px;
+  width: 9px;
+}
+
+.trip-map-marker.attraction span {
+  color: rgba(17, 17, 20, 0.72);
+  font-size: 0.62rem;
+  top: 10px;
+}
+
+.trip-map-caption {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 8px;
+  bottom: 14px;
+  box-shadow: var(--soft-shadow);
+  display: grid;
+  gap: 2px;
+  left: 14px;
+  padding: 10px 12px;
+  position: absolute;
+  z-index: 5;
+}
+
+.trip-map-caption strong {
+  font-size: 0.92rem;
+}
+
+.trip-map-caption span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.trip-map-attribution {
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 999px;
+  bottom: 10px;
+  color: rgba(17, 17, 20, 0.64);
+  font-size: 0.64rem;
+  font-weight: 750;
+  padding: 4px 7px;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+  z-index: 5;
 }
 
 .trip-score {
@@ -1647,6 +1798,12 @@ a {
   .trip-column + .trip-column {
     border-left: 0;
     border-top: 1px solid rgba(17, 17, 20, 0.08);
+  }
+
+  .trip-map-marker span {
+    max-width: 112px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .trip-page .trip-result-card:first-child {

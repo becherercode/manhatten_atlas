@@ -984,6 +984,41 @@ a {
   border-top: 1px solid var(--line);
 }
 
+.ad-section {
+  width: min(900px, calc(100% - 32px));
+  margin: 18px auto 54px;
+}
+
+.ad-section > span {
+  color: rgba(110, 110, 115, 0.74);
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin: 0 0 8px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ad-slot {
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.38));
+  border: 1px solid rgba(17, 17, 20, 0.08);
+  border-radius: 8px;
+  color: rgba(110, 110, 115, 0.86);
+  display: flex;
+  justify-content: center;
+  min-height: 96px;
+  padding: 18px;
+}
+
+.ad-slot p {
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: center;
+}
+
 .sources a,
 .legal-card a,
 .site-footer a {

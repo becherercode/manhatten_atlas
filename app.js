@@ -1371,6 +1371,10 @@ const cookieAccept = document.querySelector("#cookieAccept");
 const cookieEssential = document.querySelector("#cookieEssential");
 const resetCookieChoice = document.querySelector("#resetCookieChoice");
 const legalToggles = document.querySelectorAll(".legal-toggle");
+const tripPreferenceButtons = document.querySelectorAll(".trip-chip");
+const tripBudget = document.querySelector("#tripBudget");
+const tripStyle = document.querySelector("#tripStyle");
+const tripOutput = document.querySelector("#tripOutput");
 
 let selectedRegion = "all";
 let selectedNeighborhood = null;
@@ -2391,6 +2395,176 @@ function renderComparison() {
   `;
 }
 
+function selectedTripPreferences() {
+  const preferences = Array.from(tripPreferenceButtons)
+    .filter((button) => button.classList.contains("active"))
+    .map((button) => button.dataset.preference);
+  return preferences.length ? preferences : ["location", "sights"];
+}
+
+function travelTags(item) {
+  const text = `${item.name} ${item.area} ${item.vibe} ${item.character} ${item.history} ${item.events || ""}`.toLowerCase();
+  const tags = new Set(["location"]);
+  const priceLevel = item.price.length;
+
+  if (priceLevel <= 2) tags.add("price");
+  if (priceLevel >= 4) tags.add("premium");
+  if (/restaurant|food|markt|market|chinatown|arthur|flushing|essen|bäckerei|café|gastronomie/.test(text)) tags.add("food");
+  if (/nachtleben|bar|club|musik|theater|broadway|jazz|nightlife|festival|venue/.test(text)) tags.add("nightlife");
+  if (/museum|park|bridge|brücke|skyline|waterfront|strand|beach|ferry|fähre|historic|history|gallery|galerie|botanical|zoo|seaport|central park|prospect park/.test(text)) tags.add("sights");
+  if (/ruhig|famil|grün|park|brownstone|garden|residential|wohn|schule|promenade/.test(text)) tags.add("quiet");
+  if (/midtown|downtown|central|transit|subway|station|ferry|grand central|jamaica|long island city|downtown brooklyn|st. george/.test(text)) tags.add("transit");
+
+  return tags;
+}
+
+function tripScore(item, preferences, budget, style) {
+  const tags = travelTags(item);
+  let score = 34;
+
+  preferences.forEach((preference) => {
+    if (preference === "location") score += tags.has("transit") ? 22 : 9;
+    else if (tags.has(preference)) score += 20;
+    else score += 5;
+  });
+
+  if (budget === "budget") score += item.price.length <= 2 ? 24 : item.price.length === 3 ? 10 : -12;
+  if (budget === "premium") score += item.price.length >= 4 ? 22 : item.price.length === 3 ? 8 : -4;
+  if (budget === "balanced") score += item.price.length === 3 ? 16 : 7;
+
+  if (style === "first-time") score += tags.has("sights") || tags.has("transit") ? 18 : 4;
+  if (style === "culture") score += tags.has("sights") ? 20 : 6;
+  if (style === "local") score += tags.has("quiet") || tags.has("food") ? 18 : 4;
+  if (style === "food") score += tags.has("food") ? 22 : 5;
+
+  return Math.max(0, Math.min(99, score));
+}
+
+function bookingUrl(query) {
+  const params = new URLSearchParams({
+    ss: query,
+    group_adults: "2",
+    no_rooms: "1",
+    group_children: "0"
+  });
+  return `https://www.booking.com/searchresults.html?${params.toString()}`;
+}
+
+function travelSights(item) {
+  const gallery = galleryTitles(item).filter((title) => title !== item.name).slice(0, 3);
+  if (gallery.length >= 3) return gallery;
+  return [
+    `${item.name} zu Fuß erkunden`,
+    `Lokale Parks und Straßen rund um ${item.area}`,
+    `Architektur, Cafés und öffentliche Räume im Viertel`
+  ].slice(0, 3);
+}
+
+function restaurantIdeas(item) {
+  const tags = travelTags(item);
+  if (item.name === "Chinatown" || item.name === "Flushing") {
+    return ["Dim Sum und Noodle-Spots", "Food-Courts und Bäckereien", "Abendessen entlang der Hauptstraßen"];
+  }
+  if (item.name === "Belmont") {
+    return ["Arthur-Avenue-Italiener", "Bäckereien und Feinkostläden", "Klassische Familienrestaurants"];
+  }
+  if (tags.has("nightlife")) {
+    return ["Dinner vor dem Ausgehen", "Cocktailbars und späte Küche", "Brunch-Spots am nächsten Morgen"];
+  }
+  if (tags.has("food")) {
+    return ["Lokale Restaurants statt Hotelrestaurant", "Cafés für Frühstück", "Food-Märkte und kleine Spezialitätenläden"];
+  }
+  return ["Nachbarschaftscafés", "Casual Dinner in Laufnähe", "Bäckereien, Delis und einfache Lunch-Spots"];
+}
+
+function hotelLinks(item, budget) {
+  const borough = currentBorough().name;
+  const base = `${item.name}, ${borough}, New York`;
+  const budgetLabel = budget === "premium" ? "Premiumhotels" : budget === "budget" ? "preisbewusste Hotels" : "gute Hotels";
+  return [
+    {
+      label: `Hotels in ${item.name}`,
+      query: base,
+      primary: true
+    },
+    {
+      label: budgetLabel,
+      query: `${budgetLabel} nahe ${base}`,
+      primary: false
+    },
+    {
+      label: "Beste Lage",
+      query: `zentral gelegene Hotels nahe ${base}`,
+      primary: false
+    }
+  ];
+}
+
+function renderTripPlanner() {
+  if (!tripOutput) return;
+
+  const preferences = selectedTripPreferences();
+  const budget = tripBudget?.value || "balanced";
+  const style = tripStyle?.value || "first-time";
+  const scored = activeNeighborhoods()
+    .map((item) => ({ item, score: tripScore(item, preferences, budget, style) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
+
+  const preferenceLabels = {
+    price: "Preis",
+    location: "Lage",
+    sights: "Sehenswürdigkeiten",
+    nightlife: "Nachtleben",
+    food: "Restaurants",
+    quiet: "ruhiger Aufenthalt"
+  };
+
+  tripOutput.innerHTML = scored
+    .map(({ item, score }) => {
+      const localized = localizedNeighborhood(item, extendedProfiles[item.name]);
+      const links = hotelLinks(item, budget);
+      return `
+        <article class="trip-result-card">
+          <div class="trip-result-hero">
+            <div>
+              <p class="eyebrow">${item.area}</p>
+              <h3>${item.name}</h3>
+              <p>${shortText(localized.description, 220)}</p>
+              <div class="trip-pill-row">
+                ${preferences.map((preference) => `<span class="trip-pill">${preferenceLabels[preference]}</span>`).join("")}
+              </div>
+            </div>
+            <span class="trip-score">${score}% Fit</span>
+          </div>
+          <div class="trip-columns">
+            <div class="trip-column">
+              <h4>Hotels über Booking.com</h4>
+              <div class="hotel-links">
+                ${links
+                  .map(
+                    (link) =>
+                      `<a class="${link.primary ? "primary" : ""}" href="${bookingUrl(link.query)}" target="_blank" rel="sponsored noopener noreferrer">${link.label}</a>`
+                  )
+                  .join("")}
+              </div>
+              <div class="trip-note">Die Links führen zu passenden Booking.com-Suchen. Verfügbarkeit und Preise werden dort aktuell geprüft.</div>
+            </div>
+            <div class="trip-column">
+              <h4>Unbedingt sehen</h4>
+              <ul>${travelSights(item).map((sight) => `<li>${sight}</li>`).join("")}</ul>
+            </div>
+            <div class="trip-column">
+              <h4>Restaurants</h4>
+              <ul>${restaurantIdeas(item).map((idea) => `<li>${idea}</li>`).join("")}</ul>
+            </div>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
 const extendedProfiles = {
   "Inwood": {
     description:
@@ -2715,6 +2889,7 @@ function applyLanguage(language) {
   renderCards();
   renderCompareSelectors(true);
   renderComparison();
+  renderTripPlanner();
   if (selectedNeighborhood) {
     renderDetail(selectedNeighborhood);
   }
@@ -2735,6 +2910,7 @@ function selectBorough(boroughKey) {
   renderCards();
   renderCompareSelectors(true);
   renderComparison();
+  renderTripPlanner();
   renderDetail(selectedNeighborhood);
 }
 
@@ -2747,6 +2923,14 @@ boroughSelect?.addEventListener("change", (event) => {
 });
 compareA?.addEventListener("change", renderComparison);
 compareB?.addEventListener("change", renderComparison);
+tripPreferenceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    button.classList.toggle("active");
+    renderTripPlanner();
+  });
+});
+tripBudget?.addEventListener("change", renderTripPlanner);
+tripStyle?.addEventListener("change", renderTripPlanner);
 legalToggles.forEach((toggle) => {
   toggle.addEventListener("click", () => {
     const allCards = document.querySelectorAll(".legal-card");
@@ -2780,4 +2964,5 @@ selectedNeighborhood =
   activeNeighborhoods()[0];
 applyLanguage(currentLanguage);
 renderDetail(selectedNeighborhood);
+renderTripPlanner();
 showCookieBanner();

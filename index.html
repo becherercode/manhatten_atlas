@@ -15,14 +15,14 @@
         document.head.appendChild(adScript);
       }
     </script>
-    <link rel="stylesheet" href="./styles.css?v=60" />
+    <link rel="stylesheet" href="./styles.css?v=61" />
   </head>
   <body>
     <header class="hero">
-      <nav class="topbar" aria-label="Hauptnavigation">
+      <nav class="topbar" aria-label="Hauptnavigation" data-i18n-aria-label="navAria">
         <div class="brand-group">
           <a class="brand" href="#top" aria-label="New York Atlas Start">NYC Atlas</a>
-          <select id="boroughSelect" class="borough-select" aria-label="Bezirk auswählen">
+          <select id="boroughSelect" class="borough-select" aria-label="Bezirk auswählen" data-i18n-aria-label="boroughSelectAria">
             <option value="manhattan">Manhattan</option>
             <option value="brooklyn">Brooklyn</option>
             <option value="queens">Queens</option>
@@ -33,11 +33,11 @@
         <div class="navlinks">
           <a href="#viertel" data-i18n="navNeighborhoods">Viertel</a>
           <a href="#vergleich" data-i18n="navCompare">Vergleich</a>
-          <a href="./trip-planner.html">Urlaub</a>
-          <a href="#rechtliches">Rechtliches</a>
+          <a href="./trip-planner.html" data-i18n="navTrip">Urlaub</a>
+          <a href="#rechtliches" data-i18n="navLegal">Rechtliches</a>
           <label class="language-menu">
             <span data-i18n="languageLabel">Sprache</span>
-            <select id="languageSelect" aria-label="Sprache auswählen">
+            <select id="languageSelect" aria-label="Sprache auswählen" data-i18n-aria-label="languageSelectAria">
               <option value="de">Deutsch</option>
               <option value="en">English</option>
               <option value="es">Español</option>
@@ -66,7 +66,7 @@
             <span data-i18n="searchLabel">Suchen</span>
             <input id="searchInput" type="search" placeholder="z.B. Harlem, Williamsburg, Astoria" data-i18n-placeholder="searchPlaceholder" />
           </label>
-          <div class="segments" role="group" aria-label="Region filtern">
+          <div class="segments" role="group" aria-label="Region filtern" data-i18n-aria-label="regionFilterAria">
             <button class="segment active" type="button" data-region="all" data-i18n="regionAll">Alle</button>
           </div>
         </div>
@@ -126,21 +126,21 @@
         </div>
       </section>
 
-      <section class="trip-section trip-preview-section" id="urlaub" aria-label="New York Urlaub planen">
+      <section class="trip-section trip-preview-section" id="urlaub" aria-label="New York Urlaub planen" data-i18n-aria-label="tripSectionAria">
         <a class="trip-preview-card" href="./trip-planner.html">
           <span class="trip-preview-copy">
-            <span class="eyebrow">Trip Planner</span>
-            <strong>Finde dein passendes New-York-Viertel</strong>
-            <span>
+            <span class="eyebrow" data-i18n="tripPreviewEyebrow">Trip Planner</span>
+            <strong data-i18n="tripPreviewTitle">Finde dein passendes New-York-Viertel</strong>
+            <span data-i18n="tripPreviewCopy">
               Wähle Budget, Lage, Nachtleben, Sehenswürdigkeiten oder Food-Fokus und erhalte passende Viertel,
               Hotels über Booking.com, Highlights und Restaurantideen.
             </span>
-            <span class="trip-preview-action">Planner öffnen</span>
+            <span class="trip-preview-action" data-i18n="tripPreviewAction">Planner öffnen</span>
           </span>
           <span class="trip-preview-visual" aria-hidden="true">
-            <span class="trip-preview-stat"><b>5</b> Boroughs</span>
-            <span class="trip-preview-stat"><b>Hotels</b> passend zum Viertel</span>
-            <span class="trip-preview-stat"><b>Food</b> & Sehenswürdigkeiten</span>
+            <span class="trip-preview-stat"><b>5</b> <span data-i18n="boroughsLabel">Boroughs</span></span>
+            <span class="trip-preview-stat"><b>Hotels</b> <span data-i18n="tripPreviewHotels">passend zum Viertel</span></span>
+            <span class="trip-preview-stat"><b>Food</b> <span data-i18n="tripPreviewFood">& Sehenswürdigkeiten</span></span>
           </span>
         </a>
       </section>
@@ -153,10 +153,10 @@
         </div>
       </section>
 
-      <aside class="ad-section" aria-label="Anzeige">
-        <span>Anzeige</span>
+      <aside class="ad-section" aria-label="Anzeige" data-i18n-aria-label="adAria">
+        <span data-i18n="adLabel">Anzeige</span>
         <div class="ad-slot">
-          <p>Hier erscheint später eine dezente Google-Anzeige.</p>
+          <p data-i18n="adCopy">Hier erscheint später eine dezente Google-Anzeige.</p>
         </div>
       </aside>
 
@@ -179,20 +179,20 @@
         </p>
       </section>
 
-      <section class="legal-section" id="rechtliches" aria-label="Rechtliche Informationen">
+      <section class="legal-section" id="rechtliches" aria-label="Rechtliche Informationen" data-i18n-aria-label="legalAria">
         <div class="section-heading">
-          <p class="eyebrow">Rechtliches</p>
-          <h2>Impressum, Datenschutz & Cookies</h2>
+          <p class="eyebrow" data-i18n="legalEyebrow">Rechtliches</p>
+          <h2 data-i18n="legalTitle">Impressum, Datenschutz & Cookies</h2>
         </div>
 
         <div class="legal-grid">
           <article class="legal-card" id="impressum">
             <button class="legal-toggle" type="button" aria-expanded="false" aria-controls="impressumContent">
-              <span>Impressum</span>
+              <span data-i18n="imprintTitle">Impressum</span>
               <span class="legal-icon" aria-hidden="true"></span>
             </button>
             <div class="legal-content" id="impressumContent" hidden>
-              <p><strong>Anbieterkennzeichnung gemäß § 5 DDG</strong></p>
+              <p><strong data-i18n="imprintProvider">Anbieterkennzeichnung gemäß § 5 DDG</strong></p>
               <p>
                 Constantin Becherer<br />
                 Bühlengasse 11<br />
@@ -203,10 +203,10 @@
                 E-Mail: <a href="mailto:constantinbecherer727@gmail.com">constantinbecherer727@gmail.com</a>
               </p>
               <p>
-                Verantwortlich für journalistisch-redaktionelle Inhalte gemäß § 18 Abs. 2 MStV:<br />
-                Constantin Becherer, Bühlengasse 11, 77749 Hohberg, Deutschland
+                <span data-i18n="imprintResponsible">Verantwortlich für journalistisch-redaktionelle Inhalte gemäß § 18 Abs. 2 MStV:</span><br />
+                <span>Constantin Becherer, Bühlengasse 11, 77749 Hohberg, Deutschland</span>
               </p>
-              <p>
+              <p data-i18n="imprintDisclaimer">
                 Diese Website ist ein redaktionelles Informationsangebot über New Yorker Nachbarschaften.
                 Die Inhalte stellen keine Immobilien-, Rechts- oder Finanzberatung dar.
               </p>
@@ -215,22 +215,22 @@
 
           <article class="legal-card" id="datenschutz">
             <button class="legal-toggle" type="button" aria-expanded="false" aria-controls="privacyContent">
-              <span>Datenschutzerklärung</span>
+              <span data-i18n="privacyTitle">Datenschutzerklärung</span>
               <span class="legal-icon" aria-hidden="true"></span>
             </button>
             <div class="legal-content" id="privacyContent" hidden>
-              <p>
+              <p data-i18n="privacyCopyOne">
                 Verantwortlich für die Datenverarbeitung ist die im Impressum genannte Person oder Stelle.
                 Beim Besuch dieser Website können durch den Hostinganbieter technische Zugriffsdaten
                 verarbeitet werden, zum Beispiel IP-Adresse, Zeitpunkt des Abrufs, Browsertyp und
                 aufgerufene Datei. Diese Daten dienen der sicheren und stabilen Bereitstellung der Website.
               </p>
-              <p>
+              <p data-i18n="privacyCopyTwo">
                 Die Website verwendet derzeit keine Analyse-Tools, keine Newsletter-Anmeldung und keine
                 personalisierte Werbung. Es werden lediglich lokale Einstellungen im Browser gespeichert,
                 etwa die gewählte Sprache, der ausgewählte Borough und die Cookie-Auswahl.
               </p>
-              <p>
+              <p data-i18n="privacyCopyThree">
                 Auf der Website sind externe Links und Bilder aus öffentlichen Quellen eingebunden. Beim
                 Aufruf externer Inhalte können die jeweiligen Anbieter eigene Zugriffsdaten verarbeiten.
                 Für die Anzeigenprüfung ist Google AdSense eingebunden. Dabei können Google und
@@ -238,7 +238,7 @@
                 aufgerufen wird. Wenn später personalisierte Anzeigen oder Affiliate-Tracking genutzt
                 werden, muss diese Datenschutzerklärung entsprechend erweitert werden.
               </p>
-              <p>
+              <p data-i18n="privacyCopyFour">
                 Betroffene Personen haben im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft,
                 Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch und Datenübertragbarkeit.
               </p>
@@ -247,22 +247,22 @@
 
           <article class="legal-card" id="cookies">
             <button class="legal-toggle" type="button" aria-expanded="false" aria-controls="cookiesContent">
-              <span>Cookies</span>
+              <span data-i18n="cookiesTitle">Cookies</span>
               <span class="legal-icon" aria-hidden="true"></span>
             </button>
             <div class="legal-content" id="cookiesContent" hidden>
-              <p>
+              <p data-i18n="cookiesCopyOne">
                 Diese Website speichert für die Bedienung lokale Browser-Einstellungen, damit Sprache,
                 Borough-Auswahl und Cookie-Hinweis beim nächsten Besuch erhalten bleiben. Zusätzlich ist
                 Google AdSense für die Anzeigenprüfung eingebunden. Solange keine personalisierten Anzeigen
                 aktiviert sind, sollte die Werbeeinbindung bewusst zurückhaltend bleiben.
               </p>
-              <p>
+              <p data-i18n="cookiesCopyTwo">
                 Wenn künftig personalisierte Werbung, Analyse-Tools oder weitere Drittanbieter-Dienste
                 genutzt werden, sollte ein erweitertes Cookie-Banner mit echter Auswahlmöglichkeit ergänzt
                 werden.
               </p>
-              <button class="legal-button" id="resetCookieChoice" type="button">Cookie-Auswahl zurücksetzen</button>
+              <button class="legal-button" id="resetCookieChoice" type="button" data-i18n="cookiesReset">Cookie-Auswahl zurücksetzen</button>
             </div>
           </article>
         </div>
@@ -270,26 +270,26 @@
     </main>
 
     <footer class="site-footer">
-      <a href="#impressum">Impressum</a>
-      <a href="#datenschutz">Datenschutz</a>
-      <a href="#cookies">Cookies</a>
+      <a href="#impressum" data-i18n="imprintTitle">Impressum</a>
+      <a href="#datenschutz" data-i18n="privacyShort">Datenschutz</a>
+      <a href="#cookies" data-i18n="cookiesTitle">Cookies</a>
     </footer>
 
-    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie-Hinweis">
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie-Hinweis" data-i18n-aria-label="cookieAria">
       <div>
-        <strong>Cookie-Hinweis</strong>
-        <p>
+        <strong data-i18n="cookieTitle">Cookie-Hinweis</strong>
+        <p data-i18n="cookieCopy">
           Diese Website speichert nur notwendige lokale Einstellungen wie Sprache, Borough-Auswahl
           und diese Cookie-Entscheidung. Für Anzeigen ist Google AdSense eingebunden; personalisierte
           Werbung sollte erst nach passender Zustimmung aktiviert werden.
         </p>
       </div>
       <div class="cookie-actions">
-        <button type="button" id="cookieEssential">Nur notwendige</button>
-        <button type="button" id="cookieAccept">OK</button>
+        <button type="button" id="cookieEssential" data-i18n="cookieEssential">Nur notwendige</button>
+        <button type="button" id="cookieAccept" data-i18n="cookieAccept">OK</button>
       </div>
     </div>
 
-    <script src="./app.js?v=60"></script>
+    <script src="./app.js?v=61"></script>
   </body>
 </html>

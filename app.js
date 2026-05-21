@@ -1456,7 +1456,14 @@ const translations = {
     navNeighborhoods: "Viertel",
     navCompare: "Vergleich",
     navSources: "Quellen",
+    navTrip: "Urlaub",
+    navLegal: "Rechtliches",
     languageLabel: "Sprache",
+    navAria: "Hauptnavigation",
+    languageSelectAria: "Sprache auswählen",
+    boroughSelectAria: "Bezirk auswählen",
+    regionFilterAria: "Region filtern",
+    boroughsLabel: "Boroughs",
     heroEyebrow: "Geschichte, Preise, Zukunft",
     heroTitle: "Nachbarschaften von New York",
     heroCopy:
@@ -1508,13 +1515,116 @@ const translations = {
     analysisProjects: "Gebäude & Projekte",
     analysisEvents: "Events & Kultur",
     analysisExpectation: "Zukunftserwartung",
-    analysisCharacter: "Charakter"
+    analysisCharacter: "Charakter",
+    tripPageTitle: "New York Trip Planner",
+    tripNavContext: "Trip Planner",
+    tripHeroTitle: "Finde dein passendes New-York-Viertel",
+    tripHeroCopy: "Plane deinen Aufenthalt nach Budget, Lage, Nachtleben, Sehenswürdigkeiten und Restaurants. Der Atlas schlägt passende Viertel vor und verlinkt zu passenden Hotel-Suchen bei Booking.com.",
+    tripSectionAria: "New York Urlaub planen",
+    tripEyebrow: "Reiseprofil",
+    tripQuestion: "Was ist dir wichtig?",
+    tripPrioritiesTitle: "Deine Prioritäten",
+    tripPrioritiesCopy: "Wähle aus, worauf es bei deinem New-York-Urlaub ankommt. Die Empfehlungen passen sich automatisch an den gewählten Borough und deine Reiseart an.",
+    tripPrioritiesAria: "Reiseprioritäten",
+    tripAttractionsTitle: "Was möchtest du unbedingt sehen?",
+    tripAttractionsAria: "Gewünschte Sehenswürdigkeiten",
+    tripBoroughLabel: "Borough",
+    tripBoroughAll: "Alle Boroughs",
+    tripBudgetLabel: "Budget",
+    tripBudgetBalanced: "Ausgewogen",
+    tripBudgetBudget: "Preisbewusst",
+    tripBudgetPremium: "Premium",
+    tripStyleLabel: "Reisestil",
+    tripStyleFirst: "Erster New-York-Trip",
+    tripStyleCulture: "Kultur & Architektur",
+    tripStyleLocal: "Lokal & entspannt",
+    tripStyleFood: "Food-Fokus",
+    prefPrice: "Preis",
+    prefLocation: "Lage",
+    prefSights: "Sehenswürdigkeiten",
+    prefNightlife: "Nachtleben",
+    prefFood: "Restaurants",
+    prefQuiet: "Ruhiger Aufenthalt",
+    hotelBooking: "Booking.com",
+    hotelTitle: "Passende Hotels suchen",
+    hotelNote: "Die Links führen zu passenden Booking.com-Suchen mit mindestens 7/10 Bewertung. Verfügbarkeit und Preise werden dort aktuell geprüft.",
+    hotelTypeLabel: "Hoteltyp",
+    hotelLocationLabel: "Lage",
+    hotelComfortLabel: "Komfort",
+    hotelAuto: "automatisch passend",
+    hotelFlexible: "Flexibel",
+    hotelBestMatch: "Beste Mischung",
+    hotelBudget: "Preiswert",
+    hotelBoutique: "Boutique",
+    hotelLuxury: "Luxus",
+    hotelFamily: "Familienfreundlich",
+    hotelApartment: "Apartment / Suite",
+    hotelNearSights: "nahe Sehenswürdigkeiten",
+    hotelNearSubway: "nahe U-Bahn",
+    hotelNearNightlife: "nahe Nachtleben",
+    hotelNearRestaurants: "nahe Restaurants",
+    hotelQuiet: "ruhige Lage",
+    hotelBreakfast: "Frühstück",
+    hotelRating: "sehr gut bewertet",
+    hotelView: "schöne Aussicht",
+    hotelDesign: "modernes Design",
+    hotelBestIn: "beste Hotels in",
+    hotelGoodLocation: "passender Lage",
+    hotelGoodComfort: "guter Ausstattung",
+    sightsHeader: "Highlights",
+    sightsTitle: "Unbedingt sehen",
+    sightsCopy: "Kuratierte Stopps, die gut zu diesem Viertel und deinen ausgewählten Interessen passen.",
+    foodHeader: "Food",
+    foodTitle: "Restaurants",
+    foodCopy: "Konkrete Adressen und Food-Zonen, die zum Viertel passen.",
+    mapAria: "Lagekarte für",
+    mapControls: "Karte zoomen",
+    mapZoomIn: "Karte näher an das Viertel zoomen",
+    mapZoomOut: "Karte herauszoomen",
+    tripPreviewEyebrow: "Trip Planner",
+    tripPreviewTitle: "Finde dein passendes New-York-Viertel",
+    tripPreviewCopy: "Wähle Budget, Lage, Nachtleben, Sehenswürdigkeiten oder Food-Fokus und erhalte passende Viertel, Hotels über Booking.com, Highlights und Restaurantideen.",
+    tripPreviewAction: "Planner öffnen",
+    tripPreviewHotels: "passend zum Viertel",
+    tripPreviewFood: "& Sehenswürdigkeiten",
+    adAria: "Anzeige",
+    adLabel: "Anzeige",
+    adCopy: "Hier erscheint später eine dezente Google-Anzeige.",
+    legalAria: "Rechtliche Informationen",
+    legalEyebrow: "Rechtliches",
+    legalTitle: "Impressum, Datenschutz & Cookies",
+    imprintTitle: "Impressum",
+    imprintProvider: "Anbieterkennzeichnung gemäß § 5 DDG",
+    imprintResponsible: "Verantwortlich für journalistisch-redaktionelle Inhalte gemäß § 18 Abs. 2 MStV:",
+    imprintDisclaimer: "Diese Website ist ein redaktionelles Informationsangebot über New Yorker Nachbarschaften. Die Inhalte stellen keine Immobilien-, Rechts- oder Finanzberatung dar.",
+    privacyTitle: "Datenschutzerklärung",
+    privacyShort: "Datenschutz",
+    privacyCopyOne: "Verantwortlich für die Datenverarbeitung ist die im Impressum genannte Person oder Stelle. Beim Besuch dieser Website können durch den Hostinganbieter technische Zugriffsdaten verarbeitet werden, zum Beispiel IP-Adresse, Zeitpunkt des Abrufs, Browsertyp und aufgerufene Datei. Diese Daten dienen der sicheren und stabilen Bereitstellung der Website.",
+    privacyCopyTwo: "Die Website verwendet derzeit keine Analyse-Tools, keine Newsletter-Anmeldung und keine personalisierte Werbung. Es werden lediglich lokale Einstellungen im Browser gespeichert, etwa die gewählte Sprache, der ausgewählte Borough und die Cookie-Auswahl.",
+    privacyCopyThree: "Auf der Website sind externe Links und Bilder aus öffentlichen Quellen eingebunden. Beim Aufruf externer Inhalte können die jeweiligen Anbieter eigene Zugriffsdaten verarbeiten. Für die Anzeigenprüfung ist Google AdSense eingebunden. Dabei können Google und verbundene Anbieter technische Daten verarbeiten, sobald die veröffentlichte Website aufgerufen wird. Wenn später personalisierte Anzeigen oder Affiliate-Tracking genutzt werden, muss diese Datenschutzerklärung entsprechend erweitert werden.",
+    privacyCopyFour: "Betroffene Personen haben im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch und Datenübertragbarkeit.",
+    cookiesTitle: "Cookies",
+    cookiesCopyOne: "Diese Website speichert für die Bedienung lokale Browser-Einstellungen, damit Sprache, Borough-Auswahl und Cookie-Hinweis beim nächsten Besuch erhalten bleiben. Zusätzlich ist Google AdSense für die Anzeigenprüfung eingebunden. Solange keine personalisierten Anzeigen aktiviert sind, sollte die Werbeeinbindung bewusst zurückhaltend bleiben.",
+    cookiesCopyTwo: "Wenn künftig personalisierte Werbung, Analyse-Tools oder weitere Drittanbieter-Dienste genutzt werden, sollte ein erweitertes Cookie-Banner mit echter Auswahlmöglichkeit ergänzt werden.",
+    cookiesReset: "Cookie-Auswahl zurücksetzen",
+    cookieAria: "Cookie-Hinweis",
+    cookieTitle: "Cookie-Hinweis",
+    cookieCopy: "Diese Website speichert nur notwendige lokale Einstellungen wie Sprache, Borough-Auswahl und diese Cookie-Entscheidung. Für Anzeigen ist Google AdSense eingebunden; personalisierte Werbung sollte erst nach passender Zustimmung aktiviert werden.",
+    cookieEssential: "Nur notwendige",
+    cookieAccept: "OK"
   },
   en: {
     navNeighborhoods: "Neighborhoods",
     navCompare: "Compare",
     navSources: "Sources",
+    navTrip: "Trip planner",
+    navLegal: "Legal",
     languageLabel: "Language",
+    navAria: "Main navigation",
+    languageSelectAria: "Select language",
+    boroughSelectAria: "Select borough",
+    regionFilterAria: "Filter region",
+    boroughsLabel: "Boroughs",
     heroEyebrow: "History, prices, future",
     heroTitle: "Neighborhoods of New York",
     heroCopy:
@@ -1566,13 +1676,116 @@ const translations = {
     analysisProjects: "Buildings & projects",
     analysisEvents: "Events & culture",
     analysisExpectation: "Future outlook",
-    analysisCharacter: "Character"
+    analysisCharacter: "Character",
+    tripPageTitle: "New York Trip Planner",
+    tripNavContext: "Trip Planner",
+    tripHeroTitle: "Find your ideal New York neighborhood",
+    tripHeroCopy: "Plan your stay around budget, location, nightlife, sights and restaurants. The atlas suggests suitable neighborhoods and links to matching hotel searches on Booking.com.",
+    tripSectionAria: "Plan a New York trip",
+    tripEyebrow: "Travel profile",
+    tripQuestion: "What matters to you?",
+    tripPrioritiesTitle: "Your priorities",
+    tripPrioritiesCopy: "Choose what matters for your New York trip. Recommendations adapt automatically to the selected borough and travel style.",
+    tripPrioritiesAria: "Travel priorities",
+    tripAttractionsTitle: "What do you definitely want to see?",
+    tripAttractionsAria: "Selected sights",
+    tripBoroughLabel: "Borough",
+    tripBoroughAll: "All boroughs",
+    tripBudgetLabel: "Budget",
+    tripBudgetBalanced: "Balanced",
+    tripBudgetBudget: "Budget-conscious",
+    tripBudgetPremium: "Premium",
+    tripStyleLabel: "Travel style",
+    tripStyleFirst: "First New York trip",
+    tripStyleCulture: "Culture & architecture",
+    tripStyleLocal: "Local & relaxed",
+    tripStyleFood: "Food focus",
+    prefPrice: "Price",
+    prefLocation: "Location",
+    prefSights: "Sights",
+    prefNightlife: "Nightlife",
+    prefFood: "Restaurants",
+    prefQuiet: "Quiet stay",
+    hotelBooking: "Booking.com",
+    hotelTitle: "Search suitable hotels",
+    hotelNote: "Links open matching Booking.com searches with at least a 7/10 rating. Availability and prices are checked there in real time.",
+    hotelTypeLabel: "Hotel type",
+    hotelLocationLabel: "Location",
+    hotelComfortLabel: "Comfort",
+    hotelAuto: "automatic match",
+    hotelFlexible: "Flexible",
+    hotelBestMatch: "Best mix",
+    hotelBudget: "Affordable",
+    hotelBoutique: "Boutique",
+    hotelLuxury: "Luxury",
+    hotelFamily: "Family-friendly",
+    hotelApartment: "Apartment / suite",
+    hotelNearSights: "near sights",
+    hotelNearSubway: "near subway",
+    hotelNearNightlife: "near nightlife",
+    hotelNearRestaurants: "near restaurants",
+    hotelQuiet: "quiet location",
+    hotelBreakfast: "breakfast",
+    hotelRating: "highly rated",
+    hotelView: "great view",
+    hotelDesign: "modern design",
+    hotelBestIn: "best hotels in",
+    hotelGoodLocation: "suitable location",
+    hotelGoodComfort: "good comfort",
+    sightsHeader: "Highlights",
+    sightsTitle: "Must-see",
+    sightsCopy: "Curated stops that fit this neighborhood and your selected interests.",
+    foodHeader: "Food",
+    foodTitle: "Restaurants",
+    foodCopy: "Specific addresses and food zones that match the neighborhood.",
+    mapAria: "Location map for",
+    mapControls: "Map zoom",
+    mapZoomIn: "Zoom closer to the neighborhood",
+    mapZoomOut: "Zoom out",
+    tripPreviewEyebrow: "Trip Planner",
+    tripPreviewTitle: "Find your ideal New York neighborhood",
+    tripPreviewCopy: "Choose budget, location, nightlife, sights or food focus and get suitable neighborhoods, Booking.com hotel searches, highlights and restaurant ideas.",
+    tripPreviewAction: "Open planner",
+    tripPreviewHotels: "matched to the neighborhood",
+    tripPreviewFood: "& sights",
+    adAria: "Advertisement",
+    adLabel: "Advertisement",
+    adCopy: "A discreet Google ad will appear here later.",
+    legalAria: "Legal information",
+    legalEyebrow: "Legal",
+    legalTitle: "Imprint, privacy & cookies",
+    imprintTitle: "Imprint",
+    imprintProvider: "Provider identification according to § 5 DDG",
+    imprintResponsible: "Responsible for journalistic-editorial content according to § 18 para. 2 MStV:",
+    imprintDisclaimer: "This website is an editorial information service about New York neighborhoods. The content is not real-estate, legal or financial advice.",
+    privacyTitle: "Privacy policy",
+    privacyShort: "Privacy",
+    privacyCopyOne: "The person or entity named in the imprint is responsible for data processing. When visiting this website, the hosting provider may process technical access data, for example IP address, access time, browser type and requested file. This data is used to provide the website securely and reliably.",
+    privacyCopyTwo: "The website currently uses no analytics tools, no newsletter signup and no personalized advertising. Only local browser settings are stored, such as selected language, selected borough and cookie choice.",
+    privacyCopyThree: "External links and images from public sources are embedded on the website. When external content is opened, the respective providers may process their own access data. Google AdSense is included for ad review. Google and connected providers may process technical data once the published website is accessed. If personalized ads or affiliate tracking are used later, this privacy policy must be expanded accordingly.",
+    privacyCopyFour: "Data subjects have rights to access, correction, deletion, restriction of processing, objection and data portability within the legal requirements.",
+    cookiesTitle: "Cookies",
+    cookiesCopyOne: "This website stores local browser settings so language, borough selection and cookie notice remain available on the next visit. Google AdSense is also embedded for ad review. As long as personalized ads are not enabled, advertising should remain deliberately restrained.",
+    cookiesCopyTwo: "If personalized advertising, analytics tools or additional third-party services are used in the future, an expanded cookie banner with a real choice should be added.",
+    cookiesReset: "Reset cookie choice",
+    cookieAria: "Cookie notice",
+    cookieTitle: "Cookie notice",
+    cookieCopy: "This website stores only necessary local settings such as language, borough selection and this cookie decision. Google AdSense is embedded for ads; personalized advertising should only be enabled after appropriate consent.",
+    cookieEssential: "Necessary only",
+    cookieAccept: "OK"
   },
   es: {
     navNeighborhoods: "Barrios",
     navCompare: "Comparar",
     navSources: "Fuentes",
+    navTrip: "Planificador",
+    navLegal: "Legal",
     languageLabel: "Idioma",
+    navAria: "Navegación principal",
+    languageSelectAria: "Seleccionar idioma",
+    boroughSelectAria: "Seleccionar borough",
+    regionFilterAria: "Filtrar región",
+    boroughsLabel: "Boroughs",
     heroEyebrow: "Historia, precios, futuro",
     heroTitle: "Barrios de Nueva York",
     heroCopy:
@@ -1624,13 +1837,116 @@ const translations = {
     analysisProjects: "Edificios y proyectos",
     analysisEvents: "Eventos y cultura",
     analysisExpectation: "Expectativa futura",
-    analysisCharacter: "Caracter"
+    analysisCharacter: "Carácter",
+    tripPageTitle: "Planificador de viaje a Nueva York",
+    tripNavContext: "Planificador",
+    tripHeroTitle: "Encuentra tu barrio ideal en Nueva York",
+    tripHeroCopy: "Planifica tu estancia según presupuesto, ubicación, vida nocturna, lugares de interés y restaurantes. El atlas propone barrios adecuados y enlaza con búsquedas de hotel en Booking.com.",
+    tripSectionAria: "Planificar un viaje a Nueva York",
+    tripEyebrow: "Perfil de viaje",
+    tripQuestion: "¿Qué es importante para ti?",
+    tripPrioritiesTitle: "Tus prioridades",
+    tripPrioritiesCopy: "Elige lo que importa para tu viaje a Nueva York. Las recomendaciones se adaptan automáticamente al borough y al estilo de viaje elegidos.",
+    tripPrioritiesAria: "Prioridades de viaje",
+    tripAttractionsTitle: "¿Qué quieres ver sí o sí?",
+    tripAttractionsAria: "Lugares seleccionados",
+    tripBoroughLabel: "Borough",
+    tripBoroughAll: "Todos los boroughs",
+    tripBudgetLabel: "Presupuesto",
+    tripBudgetBalanced: "Equilibrado",
+    tripBudgetBudget: "Económico",
+    tripBudgetPremium: "Premium",
+    tripStyleLabel: "Estilo de viaje",
+    tripStyleFirst: "Primer viaje a Nueva York",
+    tripStyleCulture: "Cultura y arquitectura",
+    tripStyleLocal: "Local y relajado",
+    tripStyleFood: "Enfoque gastronómico",
+    prefPrice: "Precio",
+    prefLocation: "Ubicación",
+    prefSights: "Lugares de interés",
+    prefNightlife: "Vida nocturna",
+    prefFood: "Restaurantes",
+    prefQuiet: "Estancia tranquila",
+    hotelBooking: "Booking.com",
+    hotelTitle: "Buscar hoteles adecuados",
+    hotelNote: "Los enlaces abren búsquedas de Booking.com con al menos 7/10 de valoración. Disponibilidad y precios se comprueban allí en tiempo real.",
+    hotelTypeLabel: "Tipo de hotel",
+    hotelLocationLabel: "Ubicación",
+    hotelComfortLabel: "Comodidad",
+    hotelAuto: "automático",
+    hotelFlexible: "Flexible",
+    hotelBestMatch: "Mejor combinación",
+    hotelBudget: "Económico",
+    hotelBoutique: "Boutique",
+    hotelLuxury: "Lujo",
+    hotelFamily: "Familiar",
+    hotelApartment: "Apartamento / suite",
+    hotelNearSights: "cerca de lugares de interés",
+    hotelNearSubway: "cerca del metro",
+    hotelNearNightlife: "cerca de vida nocturna",
+    hotelNearRestaurants: "cerca de restaurantes",
+    hotelQuiet: "zona tranquila",
+    hotelBreakfast: "desayuno",
+    hotelRating: "muy bien valorado",
+    hotelView: "buena vista",
+    hotelDesign: "diseño moderno",
+    hotelBestIn: "mejores hoteles en",
+    hotelGoodLocation: "ubicación adecuada",
+    hotelGoodComfort: "buena comodidad",
+    sightsHeader: "Highlights",
+    sightsTitle: "Imprescindibles",
+    sightsCopy: "Paradas seleccionadas que encajan con este barrio y tus intereses.",
+    foodHeader: "Food",
+    foodTitle: "Restaurantes",
+    foodCopy: "Direcciones concretas y zonas gastronómicas que encajan con el barrio.",
+    mapAria: "Mapa de ubicación de",
+    mapControls: "Zoom del mapa",
+    mapZoomIn: "Acercar al barrio",
+    mapZoomOut: "Alejar",
+    tripPreviewEyebrow: "Planificador",
+    tripPreviewTitle: "Encuentra tu barrio ideal en Nueva York",
+    tripPreviewCopy: "Elige presupuesto, ubicación, vida nocturna, lugares de interés o gastronomía y recibe barrios adecuados, hoteles en Booking.com, highlights e ideas de restaurantes.",
+    tripPreviewAction: "Abrir planificador",
+    tripPreviewHotels: "adecuados al barrio",
+    tripPreviewFood: "y lugares de interés",
+    adAria: "Anuncio",
+    adLabel: "Anuncio",
+    adCopy: "Más adelante aparecerá aquí un anuncio discreto de Google.",
+    legalAria: "Información legal",
+    legalEyebrow: "Legal",
+    legalTitle: "Aviso legal, privacidad y cookies",
+    imprintTitle: "Aviso legal",
+    imprintProvider: "Identificación del proveedor según § 5 DDG",
+    imprintResponsible: "Responsable del contenido periodístico-editorial según § 18 párr. 2 MStV:",
+    imprintDisclaimer: "Esta web es una oferta editorial informativa sobre los barrios de Nueva York. El contenido no constituye asesoramiento inmobiliario, legal ni financiero.",
+    privacyTitle: "Política de privacidad",
+    privacyShort: "Privacidad",
+    privacyCopyOne: "La persona o entidad indicada en el aviso legal es responsable del tratamiento de datos. Al visitar esta web, el proveedor de alojamiento puede procesar datos técnicos de acceso, por ejemplo dirección IP, hora de acceso, tipo de navegador y archivo solicitado. Estos datos sirven para ofrecer la web de forma segura y estable.",
+    privacyCopyTwo: "La web no utiliza actualmente herramientas de análisis, registro a newsletter ni publicidad personalizada. Solo se guardan ajustes locales del navegador, como idioma elegido, borough seleccionado y elección de cookies.",
+    privacyCopyThree: "La web incluye enlaces externos e imágenes de fuentes públicas. Al abrir contenidos externos, los respectivos proveedores pueden procesar sus propios datos de acceso. Google AdSense está integrado para la revisión de anuncios. Google y proveedores relacionados pueden procesar datos técnicos cuando se accede a la web publicada. Si más adelante se utilizan anuncios personalizados o seguimiento de afiliados, esta política deberá ampliarse.",
+    privacyCopyFour: "Las personas afectadas tienen, dentro de los requisitos legales, derechos de acceso, rectificación, supresión, limitación del tratamiento, oposición y portabilidad.",
+    cookiesTitle: "Cookies",
+    cookiesCopyOne: "Esta web guarda ajustes locales del navegador para que idioma, borough y aviso de cookies se conserven en la próxima visita. Además, Google AdSense está integrado para la revisión de anuncios. Mientras no se activen anuncios personalizados, la publicidad debe seguir siendo discreta.",
+    cookiesCopyTwo: "Si en el futuro se usan publicidad personalizada, herramientas de análisis u otros servicios de terceros, debería añadirse un banner de cookies ampliado con opción real de elección.",
+    cookiesReset: "Restablecer elección de cookies",
+    cookieAria: "Aviso de cookies",
+    cookieTitle: "Aviso de cookies",
+    cookieCopy: "Esta web solo guarda ajustes locales necesarios como idioma, borough y esta decisión de cookies. Google AdSense está integrado para anuncios; la publicidad personalizada solo debería activarse con el consentimiento adecuado.",
+    cookieEssential: "Solo necesarias",
+    cookieAccept: "OK"
   },
   fr: {
     navNeighborhoods: "Quartiers",
     navCompare: "Comparer",
     navSources: "Sources",
+    navTrip: "Planificateur",
+    navLegal: "Mentions",
     languageLabel: "Langue",
+    navAria: "Navigation principale",
+    languageSelectAria: "Choisir la langue",
+    boroughSelectAria: "Choisir le borough",
+    regionFilterAria: "Filtrer la région",
+    boroughsLabel: "Boroughs",
     heroEyebrow: "Histoire, prix, avenir",
     heroTitle: "Quartiers de New York",
     heroCopy:
@@ -1682,13 +1998,116 @@ const translations = {
     analysisProjects: "Batiments et projets",
     analysisEvents: "Evenements et culture",
     analysisExpectation: "Perspectives",
-    analysisCharacter: "Caractere"
+    analysisCharacter: "Caractère",
+    tripPageTitle: "Planificateur de voyage à New York",
+    tripNavContext: "Planificateur",
+    tripHeroTitle: "Trouvez votre quartier idéal à New York",
+    tripHeroCopy: "Planifiez votre séjour selon le budget, l'emplacement, la vie nocturne, les sites à voir et les restaurants. L'atlas propose des quartiers adaptés et renvoie vers des recherches d'hôtels sur Booking.com.",
+    tripSectionAria: "Planifier un voyage à New York",
+    tripEyebrow: "Profil de voyage",
+    tripQuestion: "Qu'est-ce qui compte pour vous ?",
+    tripPrioritiesTitle: "Vos priorités",
+    tripPrioritiesCopy: "Choisissez ce qui compte pour votre voyage à New York. Les recommandations s'adaptent automatiquement au borough et au style de voyage sélectionnés.",
+    tripPrioritiesAria: "Priorités de voyage",
+    tripAttractionsTitle: "Que voulez-vous absolument voir ?",
+    tripAttractionsAria: "Sites sélectionnés",
+    tripBoroughLabel: "Borough",
+    tripBoroughAll: "Tous les boroughs",
+    tripBudgetLabel: "Budget",
+    tripBudgetBalanced: "Équilibré",
+    tripBudgetBudget: "Économique",
+    tripBudgetPremium: "Premium",
+    tripStyleLabel: "Style de voyage",
+    tripStyleFirst: "Premier voyage à New York",
+    tripStyleCulture: "Culture et architecture",
+    tripStyleLocal: "Local et détendu",
+    tripStyleFood: "Focus gastronomie",
+    prefPrice: "Prix",
+    prefLocation: "Emplacement",
+    prefSights: "Sites à voir",
+    prefNightlife: "Vie nocturne",
+    prefFood: "Restaurants",
+    prefQuiet: "Séjour calme",
+    hotelBooking: "Booking.com",
+    hotelTitle: "Chercher des hôtels adaptés",
+    hotelNote: "Les liens ouvrent des recherches Booking.com avec une note d'au moins 7/10. Les disponibilités et prix y sont vérifiés en direct.",
+    hotelTypeLabel: "Type d'hôtel",
+    hotelLocationLabel: "Emplacement",
+    hotelComfortLabel: "Confort",
+    hotelAuto: "automatique",
+    hotelFlexible: "Flexible",
+    hotelBestMatch: "Meilleur équilibre",
+    hotelBudget: "Abordable",
+    hotelBoutique: "Boutique",
+    hotelLuxury: "Luxe",
+    hotelFamily: "Familial",
+    hotelApartment: "Appartement / suite",
+    hotelNearSights: "près des sites",
+    hotelNearSubway: "près du métro",
+    hotelNearNightlife: "près de la vie nocturne",
+    hotelNearRestaurants: "près des restaurants",
+    hotelQuiet: "emplacement calme",
+    hotelBreakfast: "petit-déjeuner",
+    hotelRating: "très bien noté",
+    hotelView: "belle vue",
+    hotelDesign: "design moderne",
+    hotelBestIn: "meilleurs hôtels à",
+    hotelGoodLocation: "emplacement adapté",
+    hotelGoodComfort: "bon confort",
+    sightsHeader: "Highlights",
+    sightsTitle: "À voir absolument",
+    sightsCopy: "Des arrêts sélectionnés qui correspondent à ce quartier et à vos centres d'intérêt.",
+    foodHeader: "Food",
+    foodTitle: "Restaurants",
+    foodCopy: "Adresses concrètes et zones gastronomiques adaptées au quartier.",
+    mapAria: "Carte de localisation pour",
+    mapControls: "Zoom de la carte",
+    mapZoomIn: "Zoomer sur le quartier",
+    mapZoomOut: "Dézoomer",
+    tripPreviewEyebrow: "Planificateur",
+    tripPreviewTitle: "Trouvez votre quartier idéal à New York",
+    tripPreviewCopy: "Choisissez budget, emplacement, vie nocturne, sites à voir ou gastronomie et obtenez des quartiers adaptés, des recherches d'hôtels Booking.com, des highlights et des idées de restaurants.",
+    tripPreviewAction: "Ouvrir le planificateur",
+    tripPreviewHotels: "adaptés au quartier",
+    tripPreviewFood: "et sites à voir",
+    adAria: "Publicité",
+    adLabel: "Publicité",
+    adCopy: "Une publicité Google discrète apparaîtra ici plus tard.",
+    legalAria: "Informations légales",
+    legalEyebrow: "Mentions",
+    legalTitle: "Mentions légales, confidentialité et cookies",
+    imprintTitle: "Mentions légales",
+    imprintProvider: "Identification du fournisseur selon § 5 DDG",
+    imprintResponsible: "Responsable des contenus journalistiques et éditoriaux selon § 18 al. 2 MStV :",
+    imprintDisclaimer: "Ce site est une offre éditoriale d'information sur les quartiers de New York. Les contenus ne constituent pas un conseil immobilier, juridique ou financier.",
+    privacyTitle: "Politique de confidentialité",
+    privacyShort: "Confidentialité",
+    privacyCopyOne: "La personne ou entité indiquée dans les mentions légales est responsable du traitement des données. Lors de la visite du site, l'hébergeur peut traiter des données techniques d'accès, par exemple adresse IP, heure de consultation, type de navigateur et fichier demandé. Ces données servent à fournir le site de manière sûre et stable.",
+    privacyCopyTwo: "Le site n'utilise actuellement aucun outil d'analyse, aucune inscription à une newsletter et aucune publicité personnalisée. Seuls des réglages locaux du navigateur sont enregistrés, comme la langue choisie, le borough sélectionné et le choix de cookies.",
+    privacyCopyThree: "Le site intègre des liens externes et des images provenant de sources publiques. Lors de l'ouverture de contenus externes, les fournisseurs concernés peuvent traiter leurs propres données d'accès. Google AdSense est intégré pour la vérification publicitaire. Google et des fournisseurs associés peuvent traiter des données techniques lorsque le site publié est consulté. Si des publicités personnalisées ou un suivi d'affiliation sont utilisés plus tard, cette politique devra être complétée.",
+    privacyCopyFour: "Les personnes concernées disposent, dans le cadre légal, de droits d'accès, de rectification, d'effacement, de limitation du traitement, d'opposition et de portabilité.",
+    cookiesTitle: "Cookies",
+    cookiesCopyOne: "Ce site enregistre des réglages locaux du navigateur afin que la langue, le choix du borough et l'avis cookies soient conservés lors de la prochaine visite. Google AdSense est également intégré pour la vérification publicitaire. Tant que les annonces personnalisées ne sont pas activées, la publicité doit rester volontairement discrète.",
+    cookiesCopyTwo: "Si une publicité personnalisée, des outils d'analyse ou d'autres services tiers sont utilisés à l'avenir, une bannière cookies plus complète avec un vrai choix devra être ajoutée.",
+    cookiesReset: "Réinitialiser le choix des cookies",
+    cookieAria: "Avis cookies",
+    cookieTitle: "Avis cookies",
+    cookieCopy: "Ce site enregistre uniquement les réglages locaux nécessaires comme la langue, le borough et cette décision cookies. Google AdSense est intégré pour les annonces ; la publicité personnalisée ne devrait être activée qu'après consentement approprié.",
+    cookieEssential: "Nécessaires seulement",
+    cookieAccept: "OK"
   },
   pt: {
     navNeighborhoods: "Bairros",
     navCompare: "Comparar",
     navSources: "Fontes",
+    navTrip: "Planejador",
+    navLegal: "Legal",
     languageLabel: "Idioma",
+    navAria: "Navegação principal",
+    languageSelectAria: "Selecionar idioma",
+    boroughSelectAria: "Selecionar borough",
+    regionFilterAria: "Filtrar região",
+    boroughsLabel: "Boroughs",
     heroEyebrow: "Historia, precos, futuro",
     heroTitle: "Bairros de Nova York",
     heroCopy:
@@ -1740,13 +2159,116 @@ const translations = {
     analysisProjects: "Edificios e projetos",
     analysisEvents: "Eventos e cultura",
     analysisExpectation: "Perspectiva futura",
-    analysisCharacter: "Caracter"
+    analysisCharacter: "Caráter",
+    tripPageTitle: "Planejador de viagem para Nova York",
+    tripNavContext: "Planejador",
+    tripHeroTitle: "Encontre seu bairro ideal em Nova York",
+    tripHeroCopy: "Planeje a estadia por orçamento, localização, vida noturna, atrações e restaurantes. O atlas sugere bairros adequados e leva a buscas de hotéis no Booking.com.",
+    tripSectionAria: "Planejar uma viagem a Nova York",
+    tripEyebrow: "Perfil de viagem",
+    tripQuestion: "O que é importante para você?",
+    tripPrioritiesTitle: "Suas prioridades",
+    tripPrioritiesCopy: "Escolha o que importa na sua viagem a Nova York. As recomendações se ajustam automaticamente ao borough e ao estilo de viagem escolhidos.",
+    tripPrioritiesAria: "Prioridades de viagem",
+    tripAttractionsTitle: "O que você quer ver de qualquer jeito?",
+    tripAttractionsAria: "Atrações selecionadas",
+    tripBoroughLabel: "Borough",
+    tripBoroughAll: "Todos os boroughs",
+    tripBudgetLabel: "Orçamento",
+    tripBudgetBalanced: "Equilibrado",
+    tripBudgetBudget: "Econômico",
+    tripBudgetPremium: "Premium",
+    tripStyleLabel: "Estilo de viagem",
+    tripStyleFirst: "Primeira viagem a Nova York",
+    tripStyleCulture: "Cultura e arquitetura",
+    tripStyleLocal: "Local e tranquilo",
+    tripStyleFood: "Foco em gastronomia",
+    prefPrice: "Preço",
+    prefLocation: "Localização",
+    prefSights: "Atrações",
+    prefNightlife: "Vida noturna",
+    prefFood: "Restaurantes",
+    prefQuiet: "Estadia tranquila",
+    hotelBooking: "Booking.com",
+    hotelTitle: "Buscar hotéis adequados",
+    hotelNote: "Os links abrem buscas do Booking.com com avaliação mínima de 7/10. Disponibilidade e preços são verificados lá em tempo real.",
+    hotelTypeLabel: "Tipo de hotel",
+    hotelLocationLabel: "Localização",
+    hotelComfortLabel: "Conforto",
+    hotelAuto: "automático",
+    hotelFlexible: "Flexível",
+    hotelBestMatch: "Melhor combinação",
+    hotelBudget: "Econômico",
+    hotelBoutique: "Boutique",
+    hotelLuxury: "Luxo",
+    hotelFamily: "Familiar",
+    hotelApartment: "Apartamento / suíte",
+    hotelNearSights: "perto das atrações",
+    hotelNearSubway: "perto do metrô",
+    hotelNearNightlife: "perto da vida noturna",
+    hotelNearRestaurants: "perto de restaurantes",
+    hotelQuiet: "local tranquilo",
+    hotelBreakfast: "café da manhã",
+    hotelRating: "muito bem avaliado",
+    hotelView: "boa vista",
+    hotelDesign: "design moderno",
+    hotelBestIn: "melhores hotéis em",
+    hotelGoodLocation: "localização adequada",
+    hotelGoodComfort: "bom conforto",
+    sightsHeader: "Destaques",
+    sightsTitle: "Imperdível",
+    sightsCopy: "Paradas selecionadas que combinam com este bairro e seus interesses.",
+    foodHeader: "Food",
+    foodTitle: "Restaurantes",
+    foodCopy: "Endereços concretos e zonas gastronômicas que combinam com o bairro.",
+    mapAria: "Mapa de localização de",
+    mapControls: "Zoom do mapa",
+    mapZoomIn: "Aproximar do bairro",
+    mapZoomOut: "Afastar",
+    tripPreviewEyebrow: "Planejador",
+    tripPreviewTitle: "Encontre seu bairro ideal em Nova York",
+    tripPreviewCopy: "Escolha orçamento, localização, vida noturna, atrações ou gastronomia e receba bairros adequados, buscas de hotéis no Booking.com, destaques e ideias de restaurantes.",
+    tripPreviewAction: "Abrir planejador",
+    tripPreviewHotels: "adequados ao bairro",
+    tripPreviewFood: "e atrações",
+    adAria: "Anúncio",
+    adLabel: "Anúncio",
+    adCopy: "Um anúncio discreto do Google aparecerá aqui mais tarde.",
+    legalAria: "Informações legais",
+    legalEyebrow: "Legal",
+    legalTitle: "Impressum, privacidade e cookies",
+    imprintTitle: "Impressum",
+    imprintProvider: "Identificação do provedor conforme § 5 DDG",
+    imprintResponsible: "Responsável por conteúdo jornalístico-editorial conforme § 18, par. 2 MStV:",
+    imprintDisclaimer: "Este site é uma oferta editorial de informação sobre bairros de Nova York. O conteúdo não constitui consultoria imobiliária, jurídica ou financeira.",
+    privacyTitle: "Política de privacidade",
+    privacyShort: "Privacidade",
+    privacyCopyOne: "A pessoa ou entidade indicada no impressum é responsável pelo processamento de dados. Ao visitar este site, o provedor de hospedagem pode processar dados técnicos de acesso, como endereço IP, horário de acesso, tipo de navegador e arquivo solicitado. Esses dados servem para disponibilizar o site com segurança e estabilidade.",
+    privacyCopyTwo: "O site atualmente não usa ferramentas de análise, inscrição em newsletter nem publicidade personalizada. Apenas configurações locais do navegador são salvas, como idioma escolhido, borough selecionado e escolha de cookies.",
+    privacyCopyThree: "O site inclui links externos e imagens de fontes públicas. Ao abrir conteúdos externos, os respectivos provedores podem processar seus próprios dados de acesso. Google AdSense está integrado para revisão de anúncios. Google e provedores vinculados podem processar dados técnicos quando o site publicado é acessado. Se anúncios personalizados ou rastreamento de afiliados forem usados no futuro, esta política deverá ser ampliada.",
+    privacyCopyFour: "As pessoas afetadas têm, dentro dos requisitos legais, direitos de acesso, correção, exclusão, limitação do processamento, oposição e portabilidade.",
+    cookiesTitle: "Cookies",
+    cookiesCopyOne: "Este site salva configurações locais do navegador para que idioma, escolha de borough e aviso de cookies permaneçam no próximo acesso. Google AdSense também está integrado para revisão de anúncios. Enquanto anúncios personalizados não estiverem ativados, a publicidade deve permanecer discreta.",
+    cookiesCopyTwo: "Se publicidade personalizada, ferramentas de análise ou outros serviços de terceiros forem usados futuramente, deve ser adicionado um banner de cookies ampliado com escolha real.",
+    cookiesReset: "Redefinir escolha de cookies",
+    cookieAria: "Aviso de cookies",
+    cookieTitle: "Aviso de cookies",
+    cookieCopy: "Este site salva apenas configurações locais necessárias, como idioma, borough e esta decisão sobre cookies. Google AdSense está integrado para anúncios; publicidade personalizada só deve ser ativada após consentimento adequado.",
+    cookieEssential: "Apenas necessários",
+    cookieAccept: "OK"
   },
   zh: {
     navNeighborhoods: "街区",
     navCompare: "比较",
     navSources: "来源",
+    navTrip: "旅行规划",
+    navLegal: "法律信息",
     languageLabel: "语言",
+    navAria: "主导航",
+    languageSelectAria: "选择语言",
+    boroughSelectAria: "选择行政区",
+    regionFilterAria: "筛选区域",
+    boroughsLabel: "行政区",
     heroEyebrow: "历史、价格、未来",
     heroTitle: "纽约街区",
     heroCopy:
@@ -1798,7 +2320,103 @@ const translations = {
     analysisProjects: "建筑与项目",
     analysisEvents: "活动与文化",
     analysisExpectation: "未来展望",
-    analysisCharacter: "气质"
+    analysisCharacter: "气质",
+    tripPageTitle: "纽约旅行规划",
+    tripNavContext: "旅行规划",
+    tripHeroTitle: "找到适合你的纽约街区",
+    tripHeroCopy: "按照预算、位置、夜生活、景点和餐厅规划行程。图鉴会推荐合适的街区，并链接到 Booking.com 的酒店搜索。",
+    tripSectionAria: "规划纽约旅行",
+    tripEyebrow: "旅行画像",
+    tripQuestion: "你最看重什么？",
+    tripPrioritiesTitle: "你的优先项",
+    tripPrioritiesCopy: "选择纽约旅行中最重要的因素。推荐会根据所选行政区和旅行风格自动调整。",
+    tripPrioritiesAria: "旅行优先项",
+    tripAttractionsTitle: "你一定想看什么？",
+    tripAttractionsAria: "已选景点",
+    tripBoroughLabel: "行政区",
+    tripBoroughAll: "全部行政区",
+    tripBudgetLabel: "预算",
+    tripBudgetBalanced: "均衡",
+    tripBudgetBudget: "注重价格",
+    tripBudgetPremium: "高端",
+    tripStyleLabel: "旅行风格",
+    tripStyleFirst: "第一次纽约旅行",
+    tripStyleCulture: "文化与建筑",
+    tripStyleLocal: "本地且放松",
+    tripStyleFood: "美食重点",
+    prefPrice: "价格",
+    prefLocation: "位置",
+    prefSights: "景点",
+    prefNightlife: "夜生活",
+    prefFood: "餐厅",
+    prefQuiet: "安静住宿",
+    hotelBooking: "Booking.com",
+    hotelTitle: "搜索合适酒店",
+    hotelNote: "链接会打开 Booking.com 搜索，并筛选至少 7/10 评分。实时房态和价格在那里确认。",
+    hotelTypeLabel: "酒店类型",
+    hotelLocationLabel: "位置",
+    hotelComfortLabel: "舒适度",
+    hotelAuto: "自动匹配",
+    hotelFlexible: "灵活",
+    hotelBestMatch: "最佳组合",
+    hotelBudget: "经济型",
+    hotelBoutique: "精品酒店",
+    hotelLuxury: "豪华",
+    hotelFamily: "适合家庭",
+    hotelApartment: "公寓 / 套房",
+    hotelNearSights: "靠近景点",
+    hotelNearSubway: "靠近地铁",
+    hotelNearNightlife: "靠近夜生活",
+    hotelNearRestaurants: "靠近餐厅",
+    hotelQuiet: "安静位置",
+    hotelBreakfast: "含早餐",
+    hotelRating: "评分很高",
+    hotelView: "景观好",
+    hotelDesign: "现代设计",
+    hotelBestIn: "最佳酒店：",
+    hotelGoodLocation: "合适位置",
+    hotelGoodComfort: "舒适配置",
+    sightsHeader: "亮点",
+    sightsTitle: "必看",
+    sightsCopy: "根据这个街区和你选择的兴趣精选的停留点。",
+    foodHeader: "美食",
+    foodTitle: "餐厅",
+    foodCopy: "与街区匹配的具体餐厅和美食区域。",
+    mapAria: "位置地图：",
+    mapControls: "地图缩放",
+    mapZoomIn: "放大到街区",
+    mapZoomOut: "缩小",
+    tripPreviewEyebrow: "旅行规划",
+    tripPreviewTitle: "找到适合你的纽约街区",
+    tripPreviewCopy: "选择预算、位置、夜生活、景点或美食重点，获取合适街区、Booking.com 酒店搜索、亮点和餐厅建议。",
+    tripPreviewAction: "打开规划器",
+    tripPreviewHotels: "匹配街区",
+    tripPreviewFood: "与景点",
+    adAria: "广告",
+    adLabel: "广告",
+    adCopy: "这里之后会显示一条低调的 Google 广告。",
+    legalAria: "法律信息",
+    legalEyebrow: "法律信息",
+    legalTitle: "网站信息、隐私与 Cookies",
+    imprintTitle: "网站信息",
+    imprintProvider: "根据 § 5 DDG 的提供者信息",
+    imprintResponsible: "根据 § 18 第 2 款 MStV 对新闻编辑内容负责：",
+    imprintDisclaimer: "本网站是关于纽约街区的编辑类信息服务。内容不构成房地产、法律或金融建议。",
+    privacyTitle: "隐私政策",
+    privacyShort: "隐私",
+    privacyCopyOne: "网站信息中列明的个人或机构负责数据处理。访问本网站时，托管服务商可能处理技术访问数据，例如 IP 地址、访问时间、浏览器类型和请求文件。这些数据用于安全、稳定地提供网站。",
+    privacyCopyTwo: "本网站目前不使用分析工具、不提供新闻邮件注册，也不使用个性化广告。只会在浏览器本地保存设置，例如所选语言、行政区和 Cookie 选择。",
+    privacyCopyThree: "网站包含外部链接和来自公开来源的图片。打开外部内容时，相应提供者可能处理自己的访问数据。Google AdSense 已用于广告审核。发布后访问网站时，Google 及相关提供者可能处理技术数据。如果以后使用个性化广告或联盟跟踪，本隐私政策需要相应扩展。",
+    privacyCopyFour: "在法律规定范围内，相关人员拥有查询、更正、删除、限制处理、反对和数据可携带等权利。",
+    cookiesTitle: "Cookies",
+    cookiesCopyOne: "本网站会保存本地浏览器设置，以便下次访问时保留语言、行政区选择和 Cookie 提示。Google AdSense 也用于广告审核。在未启用个性化广告前，广告应保持克制。",
+    cookiesCopyTwo: "如果未来使用个性化广告、分析工具或其他第三方服务，应增加带有真实选择功能的扩展 Cookie 横幅。",
+    cookiesReset: "重置 Cookie 选择",
+    cookieAria: "Cookie 提示",
+    cookieTitle: "Cookie 提示",
+    cookieCopy: "本网站只保存必要的本地设置，例如语言、行政区和这次 Cookie 决定。Google AdSense 用于广告；个性化广告只应在适当同意后启用。",
+    cookieEssential: "仅必要项",
+    cookieAccept: "OK"
   }
 };
 
@@ -1842,8 +2460,179 @@ function boroughHeroCopy() {
   return copy[currentLanguage] || copy.de;
 }
 
+function boroughMarketText(borough) {
+  const market = {
+    Manhattan: {
+      de: {
+        rentTitle: "Median-Miete Manhattan",
+        rentCopy: "Realtor.com meldete für März 2026 eine mediane Angebotsmiete von etwa 5.100 Dollar pro Monat.",
+        indexCopy: "NYCEDC zeigte im April 2026 einen StreetEasy Rent Index deutlich über Vor-Covid-Niveau."
+      },
+      en: {
+        rentTitle: "Median rent Manhattan",
+        rentCopy: "Realtor.com reported a median asking rent of about $5,100 per month for March 2026.",
+        indexCopy: "In April 2026, NYCEDC showed a StreetEasy rent index clearly above its pre-Covid level."
+      },
+      es: {
+        rentTitle: "Renta mediana Manhattan",
+        rentCopy: "Realtor.com informó una renta mediana solicitada de unos 5.100 dólares al mes en marzo de 2026.",
+        indexCopy: "En abril de 2026, NYCEDC mostró un índice de renta de StreetEasy claramente por encima del nivel previo al Covid."
+      },
+      fr: {
+        rentTitle: "Loyer médian Manhattan",
+        rentCopy: "Realtor.com a signalé un loyer médian demandé d'environ 5 100 dollars par mois en mars 2026.",
+        indexCopy: "En avril 2026, NYCEDC montrait un indice de loyers StreetEasy nettement au-dessus du niveau pré-Covid."
+      },
+      pt: {
+        rentTitle: "Aluguel mediano Manhattan",
+        rentCopy: "A Realtor.com informou um aluguel mediano pedido de cerca de US$ 5.100 por mês em março de 2026.",
+        indexCopy: "Em abril de 2026, a NYCEDC mostrou um índice de aluguel StreetEasy claramente acima do nível pré-Covid."
+      },
+      zh: {
+        rentTitle: "曼哈顿租金中位数",
+        rentCopy: "Realtor.com 报告称，2026 年 3 月挂牌租金中位数约为每月 5,100 美元。",
+        indexCopy: "NYCEDC 在 2026 年 4 月显示，StreetEasy 租金指数明显高于疫情前水平。"
+      }
+    },
+    Brooklyn: {
+      de: {
+        rentTitle: "Median-Miete Brooklyn",
+        rentCopy: "Brooklyn zeigt große Spannen: Premiumlagen am Wasser liegen deutlich über vielen südlichen und östlichen Wohnlagen.",
+        indexCopy: "Der Mietdruck bleibt besonders in North Brooklyn, Brownstone Brooklyn und gut angebundenen Transitlagen hoch."
+      },
+      en: {
+        rentTitle: "Median rent Brooklyn",
+        rentCopy: "Brooklyn has wide ranges: premium waterfront areas sit far above many southern and eastern residential neighborhoods.",
+        indexCopy: "Rent pressure remains especially high in North Brooklyn, Brownstone Brooklyn and well-connected transit locations."
+      },
+      es: {
+        rentTitle: "Renta mediana Brooklyn",
+        rentCopy: "Brooklyn muestra grandes diferencias: las zonas premium junto al agua superan claramente a muchos barrios residenciales del sur y este.",
+        indexCopy: "La presión de renta sigue alta en North Brooklyn, Brownstone Brooklyn y zonas bien conectadas por transporte."
+      },
+      fr: {
+        rentTitle: "Loyer médian Brooklyn",
+        rentCopy: "Brooklyn présente de grands écarts : les secteurs premium au bord de l'eau dépassent largement de nombreux quartiers résidentiels du sud et de l'est.",
+        indexCopy: "La pression locative reste forte à North Brooklyn, Brownstone Brooklyn et dans les secteurs bien reliés aux transports."
+      },
+      pt: {
+        rentTitle: "Aluguel mediano Brooklyn",
+        rentCopy: "Brooklyn tem grandes diferenças: áreas premium à beira d'água ficam bem acima de muitos bairros residenciais ao sul e leste.",
+        indexCopy: "A pressão de aluguel segue alta em North Brooklyn, Brownstone Brooklyn e áreas bem conectadas por transporte."
+      },
+      zh: {
+        rentTitle: "布鲁克林租金中位数",
+        rentCopy: "布鲁克林差异很大：高端水岸区域明显高于南部和东部许多住宅街区。",
+        indexCopy: "北布鲁克林、Brownstone Brooklyn 以及交通便利区域的租金压力仍然很高。"
+      }
+    },
+    Queens: {
+      de: {
+        rentTitle: "Median-Miete Queens",
+        rentCopy: "Queens reicht von LIC-Premiumlagen bis zu deutlich ruhigeren, familienorientierten Märkten im Osten und Süden.",
+        indexCopy: "Transit, Flughafennähe, internationale Handelszentren und neue Waterfront-Projekte treiben die Entwicklung."
+      },
+      en: {
+        rentTitle: "Median rent Queens",
+        rentCopy: "Queens ranges from LIC premium locations to much quieter, family-oriented markets in the east and south.",
+        indexCopy: "Transit, airport proximity, international commercial centers and new waterfront projects drive development."
+      },
+      es: {
+        rentTitle: "Renta mediana Queens",
+        rentCopy: "Queens va desde zonas premium en LIC hasta mercados mucho más tranquilos y familiares en el este y sur.",
+        indexCopy: "El transporte, la cercanía a aeropuertos, centros comerciales internacionales y nuevos proyectos waterfront impulsan el desarrollo."
+      },
+      fr: {
+        rentTitle: "Loyer médian Queens",
+        rentCopy: "Queens va des emplacements premium de LIC à des marchés bien plus calmes et familiaux à l'est et au sud.",
+        indexCopy: "Les transports, la proximité des aéroports, les pôles commerciaux internationaux et les nouveaux projets au bord de l'eau stimulent l'évolution."
+      },
+      pt: {
+        rentTitle: "Aluguel mediano Queens",
+        rentCopy: "Queens vai das áreas premium de LIC a mercados muito mais tranquilos e familiares no leste e sul.",
+        indexCopy: "Transporte, proximidade dos aeroportos, centros comerciais internacionais e novos projetos à beira d'água impulsionam o desenvolvimento."
+      },
+      zh: {
+        rentTitle: "皇后区租金中位数",
+        rentCopy: "皇后区从 LIC 的高端地段到东部、南部更安静且适合家庭的市场都有。",
+        indexCopy: "交通、机场距离、国际商业中心和新的水岸项目推动发展。"
+      }
+    },
+    Bronx: {
+      de: {
+        rentTitle: "Median-Miete Bronx",
+        rentCopy: "Die Bronx bleibt im Vergleich erreichbar, zeigt aber starke Unterschiede zwischen Waterfront-Wachstum und ruhigen Wohnlagen.",
+        indexCopy: "Große Hebel sind Transit, bezahlbarer Wohnungsbau, Kulturinvestitionen und einzelne Schlüsselprojekte wie Kingsbridge Armory."
+      },
+      en: {
+        rentTitle: "Median rent Bronx",
+        rentCopy: "The Bronx remains comparatively accessible, but shows strong differences between waterfront growth and quieter residential areas.",
+        indexCopy: "Key levers are transit, affordable housing, cultural investment and individual anchor projects such as Kingsbridge Armory."
+      },
+      es: {
+        rentTitle: "Renta mediana Bronx",
+        rentCopy: "El Bronx sigue siendo relativamente accesible, pero muestra fuertes diferencias entre crecimiento waterfront y zonas residenciales tranquilas.",
+        indexCopy: "Los grandes motores son transporte, vivienda asequible, inversión cultural y proyectos clave como Kingsbridge Armory."
+      },
+      fr: {
+        rentTitle: "Loyer médian Bronx",
+        rentCopy: "Le Bronx reste relativement accessible, mais montre de forts écarts entre croissance au bord de l'eau et quartiers résidentiels plus calmes.",
+        indexCopy: "Les grands leviers sont les transports, le logement abordable, l'investissement culturel et des projets clés comme Kingsbridge Armory."
+      },
+      pt: {
+        rentTitle: "Aluguel mediano Bronx",
+        rentCopy: "O Bronx continua relativamente acessível, mas mostra fortes diferenças entre crescimento waterfront e áreas residenciais tranquilas.",
+        indexCopy: "Os grandes motores são transporte, moradia acessível, investimento cultural e projetos-chave como Kingsbridge Armory."
+      },
+      zh: {
+        rentTitle: "布朗克斯租金中位数",
+        rentCopy: "布朗克斯整体仍较易负担，但水岸增长区与安静住宅区之间差异明显。",
+        indexCopy: "主要驱动力包括交通、可负担住房、文化投资以及 Kingsbridge Armory 等关键项目。"
+      }
+    },
+    "Staten Island": {
+      de: {
+        rentTitle: "Median-Miete Staten Island",
+        rentCopy: "Staten Island ist stärker haus-, küsten- und fährorientiert und bleibt meist günstiger als die inneren Boroughs.",
+        indexCopy: "North-Shore-Entwicklung, Küstenresilienz und Fährnähe sind die wichtigsten Zukunftsfaktoren."
+      },
+      en: {
+        rentTitle: "Median rent Staten Island",
+        rentCopy: "Staten Island is more house-, coast- and ferry-oriented and usually remains cheaper than the inner boroughs.",
+        indexCopy: "North Shore development, coastal resilience and ferry access are the most important future factors."
+      },
+      es: {
+        rentTitle: "Renta mediana Staten Island",
+        rentCopy: "Staten Island se orienta más a casas, costa y ferry, y suele seguir siendo más barata que los boroughs interiores.",
+        indexCopy: "El desarrollo de North Shore, la resiliencia costera y la cercanía al ferry son los principales factores futuros."
+      },
+      fr: {
+        rentTitle: "Loyer médian Staten Island",
+        rentCopy: "Staten Island est davantage orienté maisons, côte et ferry, et reste généralement moins cher que les boroughs centraux.",
+        indexCopy: "Le développement de North Shore, la résilience côtière et l'accès au ferry sont les principaux facteurs d'avenir."
+      },
+      pt: {
+        rentTitle: "Aluguel mediano Staten Island",
+        rentCopy: "Staten Island é mais orientada a casas, costa e ferry, e geralmente fica mais barata que os boroughs internos.",
+        indexCopy: "Desenvolvimento da North Shore, resiliência costeira e acesso ao ferry são os principais fatores futuros."
+      },
+      zh: {
+        rentTitle: "史泰登岛租金中位数",
+        rentCopy: "史泰登岛更偏向独栋住宅、海岸和渡轮生活，通常比核心行政区更便宜。",
+        indexCopy: "North Shore 发展、海岸韧性和渡轮可达性是最重要的未来因素。"
+      }
+    }
+  };
+  return market[borough.name]?.[currentLanguage] || market[borough.name]?.de || {
+    rentTitle: borough.rentTitle,
+    rentCopy: borough.rentCopy,
+    indexCopy: borough.indexCopy
+  };
+}
+
 function updateBoroughInterface() {
   const borough = currentBorough();
+  const marketText = boroughMarketText(borough);
   const glance = {
     de: `${borough.name} auf einen Blick`,
     en: `${borough.name} at a glance`,
@@ -1862,8 +2651,11 @@ function updateBoroughInterface() {
   };
   document.documentElement.style.setProperty("--hero-image", `url("${borough.heroImage}")`);
   document.title = document.body.classList.contains("trip-page")
-    ? "New York Trip Planner"
+    ? t("tripPageTitle")
     : boroughHeroTitle();
+  document.querySelectorAll(".nav-context").forEach((element) => {
+    element.textContent = t("tripNavContext");
+  });
   document.querySelectorAll("[data-i18n='heroTitle']").forEach((element) => {
     element.textContent = boroughHeroTitle();
   });
@@ -1874,13 +2666,13 @@ function updateBoroughInterface() {
     element.textContent = glance[currentLanguage] || glance.de;
   });
   document.querySelectorAll("[data-i18n='statRentTitle']").forEach((element) => {
-    element.textContent = borough.rentTitle;
+    element.textContent = marketText.rentTitle;
   });
   document.querySelectorAll("[data-i18n='statRentCopy']").forEach((element) => {
-    element.textContent = borough.rentCopy;
+    element.textContent = marketText.rentCopy;
   });
   document.querySelectorAll("[data-i18n='statIndexCopy']").forEach((element) => {
-    element.textContent = borough.indexCopy;
+    element.textContent = marketText.indexCopy;
   });
   document.querySelectorAll("[data-i18n='statProfilesCopy']").forEach((element) => {
     element.textContent = profileCopy[currentLanguage] || profileCopy.de;
@@ -2918,31 +3710,89 @@ function travelSights(item) {
   const gallery = galleryTitles(item).filter((title) => !isGenericSightTitle(title, item));
   const combined = [...named, ...gallery].filter((sight, index, list) => list.indexOf(sight) === index);
   if (combined.length >= 3) return combined.slice(0, 3);
-  return [
-    `${item.name} zu Fuß erkunden`,
-    `Lokale Parks und Straßen rund um ${item.area}`,
-    `Architektur, Cafés und öffentliche Räume im Viertel`
-  ].slice(0, 3);
+  const fallback = {
+    de: [`${item.name} zu Fuß erkunden`, `Lokale Parks und Straßen rund um ${item.area}`, `Architektur, Cafés und öffentliche Räume im Viertel`],
+    en: [`Explore ${item.name} on foot`, `Local parks and streets around ${item.area}`, `Architecture, cafes and public spaces in the neighborhood`],
+    es: [`Explorar ${item.name} a pie`, `Parques y calles locales alrededor de ${item.area}`, `Arquitectura, cafés y espacios públicos del barrio`],
+    fr: [`Explorer ${item.name} à pied`, `Parcs et rues locales autour de ${item.area}`, `Architecture, cafés et espaces publics du quartier`],
+    pt: [`Explorar ${item.name} a pé`, `Parques e ruas locais em torno de ${item.area}`, `Arquitetura, cafés e espaços públicos do bairro`],
+    zh: [`步行探索 ${item.name}`, `${item.area} 周边的本地公园和街道`, `街区里的建筑、咖啡馆和公共空间`]
+  };
+  return (fallback[currentLanguage] || fallback.de).slice(0, 3);
+}
+
+function tripContextLine(key, item) {
+  const lines = {
+    park: {
+      de: "Ideal für Spaziergänge, Pausen und einen ruhigeren Moment zwischen den Stadtblöcken.",
+      en: "Ideal for walks, breaks and a calmer moment between city blocks.",
+      es: "Ideal para paseos, pausas y un momento más tranquilo entre bloques urbanos.",
+      fr: "Idéal pour marcher, faire une pause et trouver un moment plus calme entre les rues.",
+      pt: "Ideal para caminhadas, pausas e um momento mais tranquilo entre os quarteirões.",
+      zh: "适合散步、短暂停留，在城市街区之间找到更安静的时刻。"
+    },
+    atmosphere: {
+      de: "Am besten mit etwas Zeit einplanen, weil hier besonders viel Atmosphäre und Bewegung entsteht.",
+      en: "Best planned with a little time, because this is where atmosphere and movement build up.",
+      es: "Conviene planearlo con algo de tiempo, porque aquí se concentra mucha atmósfera y movimiento.",
+      fr: "À prévoir avec un peu de temps, car l'atmosphère et le mouvement y sont particulièrement présents.",
+      pt: "Vale planejar com um pouco de tempo, porque aqui há muita atmosfera e movimento.",
+      zh: "最好预留一些时间，因为这里的氛围和人流最能体现城市感。"
+    },
+    culture: {
+      de: "Gut für Kultur, Architektur und einen hochwertigen Programmpunkt abseits reiner Fotostopps.",
+      en: "Good for culture, architecture and a richer stop beyond quick photos.",
+      es: "Bueno para cultura, arquitectura y una parada de más calidad que una simple foto.",
+      fr: "Intéressant pour la culture, l'architecture et une visite plus riche qu'un simple arrêt photo.",
+      pt: "Bom para cultura, arquitetura e uma parada mais rica que apenas uma foto.",
+      zh: "适合文化、建筑和比简单拍照更深入的行程点。"
+    },
+    view: {
+      de: "Stark für Ausblicke, Wasserlage und klassische New-York-Fotos.",
+      en: "Strong for views, waterfront atmosphere and classic New York photos.",
+      es: "Muy bueno para vistas, ambiente junto al agua y fotos clásicas de Nueva York.",
+      fr: "Très fort pour les vues, l'ambiance au bord de l'eau et les photos new-yorkaises classiques.",
+      pt: "Ótimo para vistas, clima à beira d'água e fotos clássicas de Nova York.",
+      zh: "适合看景、水岸氛围和经典纽约照片。"
+    },
+    food: {
+      de: "Passt gut zu einem langsamen Nachmittag mit Essen, Cafés und lokalen Straßen.",
+      en: "Works well for a slower afternoon with food, cafes and local streets.",
+      es: "Encaja bien con una tarde tranquila de comida, cafés y calles locales.",
+      fr: "Convient bien à un après-midi plus lent entre restaurants, cafés et rues locales.",
+      pt: "Combina com uma tarde mais lenta com comida, cafés e ruas locais.",
+      zh: "适合用一个慢下午体验美食、咖啡馆和本地街道。"
+    },
+    intro: {
+      de: `Ein guter Einstieg, um ${item.name} nicht nur als Hotelstandort, sondern als Viertel zu erleben.`,
+      en: `A good entry point for experiencing ${item.name} as a neighborhood, not just a hotel base.`,
+      es: `Una buena entrada para vivir ${item.name} como barrio, no solo como base de hotel.`,
+      fr: `Une bonne entrée pour découvrir ${item.name} comme quartier, pas seulement comme lieu d'hôtel.`,
+      pt: `Uma boa porta de entrada para viver ${item.name} como bairro, não apenas como base de hotel.`,
+      zh: `这是把 ${item.name} 当作街区而不只是酒店位置来体验的好入口。`
+    }
+  };
+  return lines[key]?.[currentLanguage] || lines[key]?.de || "";
 }
 
 function sightContext(sight, item) {
   const lower = sight.toLowerCase();
   if (/central park|prospect park|flushing meadows|park/.test(lower)) {
-    return "Ideal für Spaziergänge, Pausen und einen ruhigeren Moment zwischen den Stadtblöcken.";
+    return tripContextLine("park", item);
   }
   if (/times square|broadway|yankee|coney/.test(lower)) {
-    return "Am besten mit etwas Zeit einplanen, weil hier besonders viel Atmosphäre und Bewegung entsteht.";
+    return tripContextLine("atmosphere", item);
   }
   if (/museum|met|moma|gallery|galerie/.test(lower)) {
-    return "Gut für Kultur, Architektur und einen hochwertigen Programmpunkt abseits reiner Fotostopps.";
+    return tripContextLine("culture", item);
   }
   if (/bridge|brücke|dumbo|waterfront|ferry|statue|one world|skyline|seaport/.test(lower)) {
-    return "Stark für Ausblicke, Wasserlage und klassische New-York-Fotos.";
+    return tripContextLine("view", item);
   }
   if (/restaurant|food|market|markt|café|cafe|bakery|bäckerei/.test(lower)) {
-    return "Passt gut zu einem langsamen Nachmittag mit Essen, Cafés und lokalen Straßen.";
+    return tripContextLine("food", item);
   }
-  return `Ein guter Einstieg, um ${item.name} nicht nur als Hotelstandort, sondern als Viertel zu erleben.`;
+  return tripContextLine("intro", item);
 }
 
 function sightsMarkup(sights, item) {
@@ -3027,20 +3877,63 @@ const restaurantRecommendations = {
 };
 
 function restaurantContext(place, item) {
+  const foodLines = {
+    market: {
+      de: "Gut, wenn du mehrere Küchen an einem Ort vergleichen möchtest.",
+      en: "Good when you want to compare several cuisines in one place.",
+      es: "Bueno si quieres comparar varias cocinas en un solo lugar.",
+      fr: "Bien si vous voulez comparer plusieurs cuisines au même endroit.",
+      pt: "Bom para comparar várias cozinhas em um só lugar.",
+      zh: "适合在一个地方比较多种菜系。"
+    },
+    casual: {
+      de: "Perfekt für einen unkomplizierten, typischen New-York-Stopp.",
+      en: "Perfect for an easy, classic New York stop.",
+      es: "Perfecto para una parada neoyorquina sencilla y típica.",
+      fr: "Parfait pour un arrêt new-yorkais simple et typique.",
+      pt: "Perfeito para uma parada simples e típica de Nova York.",
+      zh: "适合轻松、典型的纽约停留。"
+    },
+    planned: {
+      de: "Eher für ein geplantes Essen mit etwas mehr Zeit und Atmosphäre.",
+      en: "Better for a planned meal with a little more time and atmosphere.",
+      es: "Mejor para una comida planificada con algo más de tiempo y ambiente.",
+      fr: "Plutôt pour un repas prévu avec un peu plus de temps et d'atmosphère.",
+      pt: "Melhor para uma refeição planejada com mais tempo e atmosfera.",
+      zh: "更适合预留时间、带一点氛围感的用餐。"
+    },
+    wander: {
+      de: "Eine gute Gegend zum Schlendern und spontan Auswählen.",
+      en: "A good area for strolling and choosing spontaneously.",
+      es: "Una buena zona para pasear y elegir espontáneamente.",
+      fr: "Un bon secteur pour se promener et choisir spontanément.",
+      pt: "Uma boa área para passear e escolher espontaneamente.",
+      zh: "适合边逛边临时选择。"
+    },
+    default: {
+      de: `Eine passende Food-Adresse, um den Charakter von ${item.name} auch kulinarisch zu erleben.`,
+      en: `A fitting food address for experiencing the character of ${item.name} through dining.`,
+      es: `Una dirección gastronómica adecuada para vivir el carácter de ${item.name} también a través de la comida.`,
+      fr: `Une adresse gastronomique adaptée pour découvrir aussi le caractère de ${item.name} par la cuisine.`,
+      pt: `Um endereço gastronômico adequado para sentir o caráter de ${item.name} também pela comida.`,
+      zh: `一个适合通过美食感受 ${item.name} 气质的地点。`
+    }
+  };
+  const foodLine = (key) => foodLines[key]?.[currentLanguage] || foodLines[key]?.de;
   const lower = place.toLowerCase();
   if (/market|food court|hall|eataly|hudson eats|dekalb/.test(lower)) {
-    return "Gut, wenn du mehrere Küchen an einem Ort vergleichen möchtest.";
+    return foodLine("market");
   }
   if (/pizza|pizzeria|tacos|falafel|burger|deli|bakery|bagel|noodle|ramen|dim sum|momos/.test(lower)) {
-    return "Perfekt für einen unkomplizierten, typischen New-York-Stopp.";
+    return foodLine("casual");
   }
   if (/steak|tavern|trattoria|bistro|ristorante|cafe|café|kitchen/.test(lower)) {
-    return "Eher für ein geplantes Essen mit etwas mehr Zeit und Atmosphäre.";
+    return foodLine("planned");
   }
   if (/row|avenue|street|spots|restaurants|dining|cafes|eats/.test(lower)) {
-    return "Eine gute Gegend zum Schlendern und spontan Auswählen.";
+    return foodLine("wander");
   }
-  return `Eine passende Food-Adresse, um den Charakter von ${item.name} auch kulinarisch zu erleben.`;
+  return foodLine("default");
 }
 
 function restaurantsMarkup(restaurants, item) {
@@ -3080,48 +3973,88 @@ function restaurantIdeas(item, excluded = []) {
   }
   const tags = travelTags(item);
   if (item.name === "Chinatown" || item.name === "Flushing") {
-    return ["Dim Sum und Noodle-Spots", "Food-Courts und Bäckereien", "Abendessen entlang der Hauptstraßen"]
+    const ideas = {
+      de: ["Dim Sum und Noodle-Spots", "Food-Courts und Bäckereien", "Abendessen entlang der Hauptstraßen"],
+      en: ["Dim sum and noodle spots", "Food courts and bakeries", "Dinner along the main streets"],
+      es: ["Dim sum y locales de noodles", "Food courts y panaderías", "Cena en las calles principales"],
+      fr: ["Dim sum et adresses de nouilles", "Food courts et boulangeries", "Dîner le long des rues principales"],
+      pt: ["Dim sum e casas de noodles", "Food courts e padarias", "Jantar nas ruas principais"],
+      zh: ["点心和面馆", "美食广场和烘焙店", "主街沿线晚餐"]
+    };
+    return (ideas[currentLanguage] || ideas.de)
       .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
   }
   if (item.name === "Belmont") {
-    return ["Arthur-Avenue-Italiener", "Bäckereien und Feinkostläden", "Klassische Familienrestaurants"]
+    const ideas = {
+      de: ["Arthur-Avenue-Italiener", "Bäckereien und Feinkostläden", "Klassische Familienrestaurants"],
+      en: ["Arthur Avenue Italian restaurants", "Bakeries and specialty food shops", "Classic family restaurants"],
+      es: ["Italianos de Arthur Avenue", "Panaderías y tiendas gourmet", "Restaurantes familiares clásicos"],
+      fr: ["Restaurants italiens d'Arthur Avenue", "Boulangeries et épiceries fines", "Restaurants familiaux classiques"],
+      pt: ["Italianos da Arthur Avenue", "Padarias e delicatessens", "Restaurantes familiares clássicos"],
+      zh: ["Arthur Avenue 意大利餐厅", "烘焙店和熟食店", "经典家庭餐厅"]
+    };
+    return (ideas[currentLanguage] || ideas.de)
       .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
   }
   if (tags.has("nightlife")) {
-    return ["Dinner vor dem Ausgehen", "Cocktailbars und späte Küche", "Brunch-Spots am nächsten Morgen"]
+    const ideas = {
+      de: ["Dinner vor dem Ausgehen", "Cocktailbars und späte Küche", "Brunch-Spots am nächsten Morgen"],
+      en: ["Dinner before going out", "Cocktail bars and late-night food", "Brunch spots the next morning"],
+      es: ["Cena antes de salir", "Coctelerías y comida tarde", "Brunch al día siguiente"],
+      fr: ["Dîner avant de sortir", "Bars à cocktails et cuisine tardive", "Brunch le lendemain"],
+      pt: ["Jantar antes de sair", "Bares de coquetéis e comida tarde", "Brunch no dia seguinte"],
+      zh: ["出门前晚餐", "鸡尾酒吧和深夜餐食", "第二天早午餐"]
+    };
+    return (ideas[currentLanguage] || ideas.de)
       .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
   }
   if (tags.has("food")) {
-    return ["Lokale Restaurants statt Hotelrestaurant", "Cafés für Frühstück", "Food-Märkte und kleine Spezialitätenläden"]
+    const ideas = {
+      de: ["Lokale Restaurants statt Hotelrestaurant", "Cafés für Frühstück", "Food-Märkte und kleine Spezialitätenläden"],
+      en: ["Local restaurants instead of hotel dining", "Breakfast cafes", "Food markets and small specialty shops"],
+      es: ["Restaurantes locales en lugar del hotel", "Cafés para desayunar", "Mercados gastronómicos y tiendas pequeñas"],
+      fr: ["Restaurants locaux plutôt que l'hôtel", "Cafés pour le petit-déjeuner", "Marchés alimentaires et petites boutiques"],
+      pt: ["Restaurantes locais em vez do hotel", "Cafés para café da manhã", "Mercados de comida e pequenas lojas"],
+      zh: ["本地餐厅而不是酒店餐厅", "早餐咖啡馆", "美食市场和小型特色店"]
+    };
+    return (ideas[currentLanguage] || ideas.de)
       .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
   }
-  return ["Nachbarschaftscafés", "Casual Dinner in Laufnähe", "Bäckereien, Delis und einfache Lunch-Spots"]
+  const ideas = {
+    de: ["Nachbarschaftscafés", "Casual Dinner in Laufnähe", "Bäckereien, Delis und einfache Lunch-Spots"],
+    en: ["Neighborhood cafes", "Casual dinner within walking distance", "Bakeries, delis and easy lunch spots"],
+    es: ["Cafés de barrio", "Cena informal a pie", "Panaderías, delis y lugares sencillos para comer"],
+    fr: ["Cafés de quartier", "Dîner simple à distance de marche", "Boulangeries, delis et adresses faciles pour déjeuner"],
+    pt: ["Cafés de bairro", "Jantar casual a pé", "Padarias, delis e lugares simples para almoço"],
+    zh: ["街区咖啡馆", "步行可达的轻松晚餐", "烘焙店、熟食店和简餐地点"]
+  };
+  return (ideas[currentLanguage] || ideas.de)
     .filter((restaurant) => !blocked.has(normalizeRecommendationName(restaurant)));
 }
 
 const hotelFilterOptions = {
   type: {
-    "best-match": { label: "beste Hotels", query: "best hotels" },
-    budget: { label: "preiswerte Hotels", query: "budget hotels" },
-    boutique: { label: "Boutique-Hotels", query: "boutique hotels" },
-    luxury: { label: "Luxushotels", query: "luxury hotels" },
-    family: { label: "familienfreundliche Hotels", query: "family friendly hotels" },
-    apartment: { label: "Apartment-Hotels", query: "apartment suites" }
+    "best-match": { labelKey: "hotelBestMatch", query: "best hotels" },
+    budget: { labelKey: "hotelBudget", query: "budget hotels" },
+    boutique: { labelKey: "hotelBoutique", query: "boutique hotels" },
+    luxury: { labelKey: "hotelLuxury", query: "luxury hotels" },
+    family: { labelKey: "hotelFamily", query: "family friendly hotels" },
+    apartment: { labelKey: "hotelApartment", query: "apartment suites" }
   },
   location: {
     auto: null,
-    sights: { label: "nahe Sehenswürdigkeiten", query: "near attractions" },
-    subway: { label: "nahe U-Bahn", query: "near subway station" },
-    nightlife: { label: "nahe Nachtleben", query: "near nightlife" },
-    restaurants: { label: "nahe Restaurants", query: "near restaurants" },
-    quiet: { label: "in ruhiger Lage", query: "quiet area" }
+    sights: { labelKey: "hotelNearSights", query: "near attractions" },
+    subway: { labelKey: "hotelNearSubway", query: "near subway station" },
+    nightlife: { labelKey: "hotelNearNightlife", query: "near nightlife" },
+    restaurants: { labelKey: "hotelNearRestaurants", query: "near restaurants" },
+    quiet: { labelKey: "hotelQuiet", query: "quiet area" }
   },
   comfort: {
     flexible: null,
-    breakfast: { label: "mit Frühstück", query: "breakfast included" },
-    rating: { label: "sehr gut bewertet", query: "highly rated" },
-    view: { label: "mit schöner Aussicht", query: "city view" },
-    design: { label: "modernes Design", query: "modern design hotel" }
+    breakfast: { labelKey: "hotelBreakfast", query: "breakfast included" },
+    rating: { labelKey: "hotelRating", query: "highly rated" },
+    view: { labelKey: "hotelView", query: "city view" },
+    design: { labelKey: "hotelDesign", query: "modern design hotel" }
   }
 };
 
@@ -3155,11 +4088,12 @@ function attractionHotelQuery(attractions) {
 function hotelLinks(item, budget, boroughName = currentBorough().name, preferences = [], attractions = [], options = {}) {
   const base = `${item.name}, ${boroughName}, New York`;
   const profile = hotelSearchProfile(preferences, attractions, options);
-  const locationLabel = profile.location?.label || "passender Lage";
-  const comfortLabel = profile.comfort?.label || "guter Ausstattung";
+  const typeLabel = profile.type?.labelKey ? t(profile.type.labelKey) : t("hotelBestMatch");
+  const locationLabel = profile.location?.labelKey ? t(profile.location.labelKey) : t("hotelGoodLocation");
+  const comfortLabel = profile.comfort?.labelKey ? t(profile.comfort.labelKey) : t("hotelGoodComfort");
   return [
     {
-      label: `${profile.type.label} in ${item.name}`,
+      label: currentLanguage === "zh" ? `${t("hotelBestIn")}${item.name}` : `${typeLabel} ${t("hotelBestIn")} ${item.name}`,
       query: base,
       primary: true
     },
@@ -3200,29 +4134,29 @@ function hotelSelectMarkup(name, label, options) {
 
 function hotelControlsMarkup() {
   return `
-    <div class="hotel-filter-grid" aria-label="Hotelpräferenzen">
-      ${hotelSelectMarkup("type", "Hoteltyp", [
-        { value: "best-match", label: "Beste Mischung" },
-        { value: "budget", label: "Preiswert" },
-        { value: "boutique", label: "Boutique" },
-        { value: "luxury", label: "Luxus" },
-        { value: "family", label: "Familienfreundlich" },
-        { value: "apartment", label: "Apartment / Suite" }
+    <div class="hotel-filter-grid" aria-label="${t("hotelTitle")}">
+      ${hotelSelectMarkup("type", t("hotelTypeLabel"), [
+        { value: "best-match", label: t("hotelBestMatch") },
+        { value: "budget", label: t("hotelBudget") },
+        { value: "boutique", label: t("hotelBoutique") },
+        { value: "luxury", label: t("hotelLuxury") },
+        { value: "family", label: t("hotelFamily") },
+        { value: "apartment", label: t("hotelApartment") }
       ])}
-      ${hotelSelectMarkup("location", "Lage", [
-        { value: "auto", label: "automatisch passend" },
-        { value: "sights", label: "nahe Sehenswürdigkeiten" },
-        { value: "subway", label: "nahe U-Bahn" },
-        { value: "nightlife", label: "nahe Nachtleben" },
-        { value: "restaurants", label: "nahe Restaurants" },
-        { value: "quiet", label: "ruhige Lage" }
+      ${hotelSelectMarkup("location", t("hotelLocationLabel"), [
+        { value: "auto", label: t("hotelAuto") },
+        { value: "sights", label: t("hotelNearSights") },
+        { value: "subway", label: t("hotelNearSubway") },
+        { value: "nightlife", label: t("hotelNearNightlife") },
+        { value: "restaurants", label: t("hotelNearRestaurants") },
+        { value: "quiet", label: t("hotelQuiet") }
       ])}
-      ${hotelSelectMarkup("comfort", "Komfort", [
-        { value: "flexible", label: "Flexibel" },
-        { value: "breakfast", label: "Frühstück" },
-        { value: "rating", label: "sehr gut bewertet" },
-        { value: "view", label: "schöne Aussicht" },
-        { value: "design", label: "modernes Design" }
+      ${hotelSelectMarkup("comfort", t("hotelComfortLabel"), [
+        { value: "flexible", label: t("hotelFlexible") },
+        { value: "breakfast", label: t("hotelBreakfast") },
+        { value: "rating", label: t("hotelRating") },
+        { value: "view", label: t("hotelView") },
+        { value: "design", label: t("hotelDesign") }
       ])}
     </div>
   `;
@@ -3435,16 +4369,16 @@ function tripMapMarkup(item, boroughName, selected) {
     .join("");
 
   return `
-    <div class="trip-map" data-map-level="0" data-center-lat="${coords[0]}" data-center-lng="${coords[1]}" aria-label="Lagekarte für ${item.name}">
+    <div class="trip-map" data-map-level="0" data-center-lat="${coords[0]}" data-center-lng="${coords[1]}" aria-label="${t("mapAria")} ${item.name}">
       <div class="trip-map-tiles" aria-hidden="true">${tripMapTiles(viewport)}</div>
       <div class="trip-map-overlay" aria-hidden="true"></div>
       ${attractionMarkers}
       <span class="trip-map-marker neighborhood" data-lat="${coords[0]}" data-lng="${coords[1]}" style="--x: ${neighborhood.x}%; --y: ${neighborhood.y}%;">
         <span>${item.name}</span>
       </span>
-      <div class="trip-map-controls" aria-label="Karte zoomen">
-        <button type="button" data-map-zoom="in" aria-label="Karte näher an das Viertel zoomen">+</button>
-        <button type="button" data-map-zoom="out" aria-label="Karte herauszoomen">-</button>
+      <div class="trip-map-controls" aria-label="${t("mapControls")}">
+        <button type="button" data-map-zoom="in" aria-label="${t("mapZoomIn")}">+</button>
+        <button type="button" data-map-zoom="out" aria-label="${t("mapZoomOut")}">-</button>
       </div>
       <div class="trip-map-caption">
         <strong>${item.name}</strong>
@@ -3514,12 +4448,12 @@ function renderTripPlanner() {
   );
 
   const preferenceLabels = {
-    price: "Preis",
-    location: "Lage",
-    sights: "Sehenswürdigkeiten",
-    nightlife: "Nachtleben",
-    food: "Restaurants",
-    quiet: "ruhiger Aufenthalt"
+    price: t("prefPrice"),
+    location: t("prefLocation"),
+    sights: t("prefSights"),
+    nightlife: t("prefNightlife"),
+    food: t("prefFood"),
+    quiet: t("prefQuiet")
   };
 
   tripOutput.innerHTML = scored
@@ -3546,26 +4480,26 @@ function renderTripPlanner() {
           <div class="trip-columns">
             <div class="trip-column hotel-column" data-neighborhood="${safeAttr(item.name)}" data-borough="${safeAttr(boroughName)}" data-budget="${safeAttr(budget)}" data-preferences="${safeAttr(preferences.join("|"))}" data-attractions="${safeAttr(attractions.join("|"))}">
               <div class="hotel-column-header">
-                <span>Booking.com</span>
-                <h4>Passende Hotels suchen</h4>
+                <span>${t("hotelBooking")}</span>
+                <h4>${t("hotelTitle")}</h4>
               </div>
               ${hotelControlsMarkup()}
               <div class="hotel-links">${hotelLinksMarkup(links)}</div>
-      <div class="trip-note">Die Links führen zu passenden Booking.com-Suchen mit mindestens 7/10 Bewertung. Verfügbarkeit und Preise werden dort aktuell geprüft.</div>
+              <div class="trip-note">${t("hotelNote")}</div>
             </div>
             <div class="trip-column sights-column">
               <div class="sights-column-header">
-                <span>Highlights</span>
-                <h4>Unbedingt sehen</h4>
-                <p>Kuratierte Stopps, die gut zu diesem Viertel und deinen ausgewählten Interessen passen.</p>
+                <span>${t("sightsHeader")}</span>
+                <h4>${t("sightsTitle")}</h4>
+                <p>${t("sightsCopy")}</p>
               </div>
               ${sightsMarkup(sights, item)}
             </div>
             <div class="trip-column food-column">
               <div class="food-column-header">
-                <span>Food</span>
-                <h4>Restaurants</h4>
-                <p>Konkrete Adressen und Food-Zonen, die zum Viertel passen.</p>
+                <span>${t("foodHeader")}</span>
+                <h4>${t("foodTitle")}</h4>
+                <p>${t("foodCopy")}</p>
               </div>
               ${restaurantsMarkup(restaurantIdeas(item, sights), item)}
             </div>
@@ -3897,6 +4831,10 @@ function applyLanguage(language) {
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
     element.setAttribute("placeholder", t(element.dataset.i18nPlaceholder));
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
   });
 
   updateBoroughInterface();

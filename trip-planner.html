@@ -15,11 +15,11 @@
         document.head.appendChild(adScript);
       }
     </script>
-    <link rel="stylesheet" href="./styles.css?v=60" />
+    <link rel="stylesheet" href="./styles.css?v=61" />
   </head>
   <body class="trip-page">
     <header class="hero">
-      <nav class="topbar" aria-label="Hauptnavigation">
+      <nav class="topbar" aria-label="Hauptnavigation" data-i18n-aria-label="navAria">
         <div class="brand-group">
           <a class="brand" href="./index.html#top" aria-label="New York Atlas Start">NYC Atlas</a>
           <span class="nav-context">Trip Planner</span>
@@ -27,11 +27,11 @@
         <div class="navlinks">
           <a href="./index.html#viertel" data-i18n="navNeighborhoods">Viertel</a>
           <a href="./index.html#vergleich" data-i18n="navCompare">Vergleich</a>
-          <a href="./trip-planner.html">Urlaub</a>
-          <a href="./index.html#rechtliches">Rechtliches</a>
+          <a href="./trip-planner.html" data-i18n="navTrip">Urlaub</a>
+          <a href="./index.html#rechtliches" data-i18n="navLegal">Rechtliches</a>
           <label class="language-menu">
             <span data-i18n="languageLabel">Sprache</span>
-            <select id="languageSelect" aria-label="Sprache auswählen">
+            <select id="languageSelect" aria-label="Sprache auswählen" data-i18n-aria-label="languageSelectAria">
               <option value="de">Deutsch</option>
               <option value="en">English</option>
               <option value="es">Español</option>
@@ -44,8 +44,8 @@
       </nav>
 
       <div class="hero-inner" id="top">
-        <h1>Finde dein passendes New-York-Viertel</h1>
-        <p class="hero-copy">
+        <h1 data-i18n="tripHeroTitle">Finde dein passendes New-York-Viertel</h1>
+        <p class="hero-copy" data-i18n="tripHeroCopy">
           Plane deinen Aufenthalt nach Budget, Lage, Nachtleben, Sehenswürdigkeiten und Restaurants.
           Der Atlas schlägt passende Viertel vor und verlinkt zu passenden Hotel-Suchen bei Booking.com.
         </p>
@@ -53,34 +53,34 @@
     </header>
 
     <main>
-      <section class="trip-section" id="urlaub" aria-label="New York Urlaub planen">
+      <section class="trip-section" id="urlaub" aria-label="New York Urlaub planen" data-i18n-aria-label="tripSectionAria">
         <div class="section-heading">
-          <p class="eyebrow">Reiseprofil</p>
-          <h2>Was ist dir wichtig?</h2>
+          <p class="eyebrow" data-i18n="tripEyebrow">Reiseprofil</p>
+          <h2 data-i18n="tripQuestion">Was ist dir wichtig?</h2>
         </div>
 
         <div class="trip-tool">
           <div class="trip-panel">
             <div class="trip-panel-intro">
-              <h3>Deine Prioritäten</h3>
-              <p>
+              <h3 data-i18n="tripPrioritiesTitle">Deine Prioritäten</h3>
+              <p data-i18n="tripPrioritiesCopy">
                 Wähle aus, worauf es bei deinem New-York-Urlaub ankommt. Die Empfehlungen passen sich
                 automatisch an den oben gewählten Borough und deine Reiseart an.
               </p>
             </div>
 
-            <div class="trip-chips" aria-label="Reiseprioritäten">
-              <button class="trip-chip" type="button" data-preference="price">Preis</button>
-              <button class="trip-chip" type="button" data-preference="location">Lage</button>
-              <button class="trip-chip" type="button" data-preference="sights">Sehenswürdigkeiten</button>
-              <button class="trip-chip" type="button" data-preference="nightlife">Nachtleben</button>
-              <button class="trip-chip" type="button" data-preference="food">Restaurants</button>
-              <button class="trip-chip" type="button" data-preference="quiet">Ruhiger Aufenthalt</button>
+            <div class="trip-chips" aria-label="Reiseprioritäten" data-i18n-aria-label="tripPrioritiesAria">
+              <button class="trip-chip" type="button" data-preference="price" data-i18n="prefPrice">Preis</button>
+              <button class="trip-chip" type="button" data-preference="location" data-i18n="prefLocation">Lage</button>
+              <button class="trip-chip" type="button" data-preference="sights" data-i18n="prefSights">Sehenswürdigkeiten</button>
+              <button class="trip-chip" type="button" data-preference="nightlife" data-i18n="prefNightlife">Nachtleben</button>
+              <button class="trip-chip" type="button" data-preference="food" data-i18n="prefFood">Restaurants</button>
+              <button class="trip-chip" type="button" data-preference="quiet" data-i18n="prefQuiet">Ruhiger Aufenthalt</button>
             </div>
 
             <div class="trip-attraction-block">
-              <span>Was möchtest du unbedingt sehen?</span>
-              <div class="attraction-chips" aria-label="Gewünschte Sehenswürdigkeiten">
+              <span data-i18n="tripAttractionsTitle">Was möchtest du unbedingt sehen?</span>
+              <div class="attraction-chips" aria-label="Gewünschte Sehenswürdigkeiten" data-i18n-aria-label="tripAttractionsAria">
                 <button class="attraction-chip" type="button" data-attraction="times-square">Times Square</button>
                 <button class="attraction-chip" type="button" data-attraction="central-park">Central Park</button>
                 <button class="attraction-chip" type="button" data-attraction="empire-state">Empire State Building</button>
@@ -102,9 +102,9 @@
 
             <div class="trip-select-row">
               <label>
-                <span>Borough</span>
+                <span data-i18n="tripBoroughLabel">Borough</span>
                 <select id="tripBorough">
-                  <option value="all">Alle Boroughs</option>
+                  <option value="all" data-i18n="tripBoroughAll">Alle Boroughs</option>
                   <option value="manhattan">Manhattan</option>
                   <option value="brooklyn">Brooklyn</option>
                   <option value="queens">Queens</option>
@@ -113,20 +113,20 @@
                 </select>
               </label>
               <label>
-                <span>Budget</span>
+                <span data-i18n="tripBudgetLabel">Budget</span>
                 <select id="tripBudget">
-                  <option value="balanced">Ausgewogen</option>
-                  <option value="budget">Preisbewusst</option>
-                  <option value="premium">Premium</option>
+                  <option value="balanced" data-i18n="tripBudgetBalanced">Ausgewogen</option>
+                  <option value="budget" data-i18n="tripBudgetBudget">Preisbewusst</option>
+                  <option value="premium" data-i18n="tripBudgetPremium">Premium</option>
                 </select>
               </label>
               <label>
-                <span>Reisestil</span>
+                <span data-i18n="tripStyleLabel">Reisestil</span>
                 <select id="tripStyle">
-                  <option value="first-time">Erster New-York-Trip</option>
-                  <option value="culture">Kultur & Architektur</option>
-                  <option value="local">Lokal & entspannt</option>
-                  <option value="food">Food-Fokus</option>
+                  <option value="first-time" data-i18n="tripStyleFirst">Erster New-York-Trip</option>
+                  <option value="culture" data-i18n="tripStyleCulture">Kultur & Architektur</option>
+                  <option value="local" data-i18n="tripStyleLocal">Lokal & entspannt</option>
+                  <option value="food" data-i18n="tripStyleFood">Food-Fokus</option>
                 </select>
               </label>
             </div>
@@ -137,6 +137,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=60"></script>
+    <script src="./app.js?v=61"></script>
   </body>
 </html>

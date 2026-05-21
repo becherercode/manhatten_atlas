@@ -1377,9 +1377,12 @@ const tripBorough = document.querySelector("#tripBorough");
 const tripBudget = document.querySelector("#tripBudget");
 const tripStyle = document.querySelector("#tripStyle");
 const tripOutput = document.querySelector("#tripOutput");
+const tripUpdateButton = document.querySelector("#tripUpdateButton");
+const tripUpdateHint = document.querySelector("#tripUpdateHint");
 
 let selectedRegion = "all";
 let selectedNeighborhood = null;
+let tripHasPendingChanges = false;
 
 function getSavedBorough() {
   try {
@@ -1539,6 +1542,10 @@ const translations = {
     tripStyleCulture: "Kultur & Architektur",
     tripStyleLocal: "Lokal & entspannt",
     tripStyleFood: "Food-Fokus",
+    tripUpdateButton: "Empfehlungen aktualisieren",
+    tripUpdateHint: "Ändere deine Auswahl und aktualisiere danach die Ergebnisse.",
+    tripUpdatePending: "Auswahl geändert. Klicke auf „Empfehlungen aktualisieren“.",
+    tripUpdateFresh: "Empfehlungen sind aktuell.",
     prefPrice: "Preis",
     prefLocation: "Lage",
     prefSights: "Sehenswürdigkeiten",
@@ -1700,6 +1707,10 @@ const translations = {
     tripStyleCulture: "Culture & architecture",
     tripStyleLocal: "Local & relaxed",
     tripStyleFood: "Food focus",
+    tripUpdateButton: "Update recommendations",
+    tripUpdateHint: "Change your selection, then update the results.",
+    tripUpdatePending: "Selection changed. Click “Update recommendations”.",
+    tripUpdateFresh: "Recommendations are up to date.",
     prefPrice: "Price",
     prefLocation: "Location",
     prefSights: "Sights",
@@ -1861,6 +1872,10 @@ const translations = {
     tripStyleCulture: "Cultura y arquitectura",
     tripStyleLocal: "Local y relajado",
     tripStyleFood: "Enfoque gastronómico",
+    tripUpdateButton: "Actualizar recomendaciones",
+    tripUpdateHint: "Cambia tu selección y luego actualiza los resultados.",
+    tripUpdatePending: "Selección modificada. Haz clic en “Actualizar recomendaciones”.",
+    tripUpdateFresh: "Las recomendaciones están actualizadas.",
     prefPrice: "Precio",
     prefLocation: "Ubicación",
     prefSights: "Lugares de interés",
@@ -2022,6 +2037,10 @@ const translations = {
     tripStyleCulture: "Culture et architecture",
     tripStyleLocal: "Local et détendu",
     tripStyleFood: "Focus gastronomie",
+    tripUpdateButton: "Actualiser les recommandations",
+    tripUpdateHint: "Modifiez votre sélection, puis actualisez les résultats.",
+    tripUpdatePending: "Sélection modifiée. Cliquez sur « Actualiser les recommandations ».",
+    tripUpdateFresh: "Les recommandations sont à jour.",
     prefPrice: "Prix",
     prefLocation: "Emplacement",
     prefSights: "Sites à voir",
@@ -2183,6 +2202,10 @@ const translations = {
     tripStyleCulture: "Cultura e arquitetura",
     tripStyleLocal: "Local e tranquilo",
     tripStyleFood: "Foco em gastronomia",
+    tripUpdateButton: "Atualizar recomendações",
+    tripUpdateHint: "Altere sua seleção e depois atualize os resultados.",
+    tripUpdatePending: "Seleção alterada. Clique em “Atualizar recomendações”.",
+    tripUpdateFresh: "As recomendações estão atualizadas.",
     prefPrice: "Preço",
     prefLocation: "Localização",
     prefSights: "Atrações",
@@ -2344,6 +2367,10 @@ const translations = {
     tripStyleCulture: "文化与建筑",
     tripStyleLocal: "本地且放松",
     tripStyleFood: "美食重点",
+    tripUpdateButton: "更新推荐",
+    tripUpdateHint: "更改选择后再更新结果。",
+    tripUpdatePending: "选择已更改。点击“更新推荐”。",
+    tripUpdateFresh: "推荐已是最新。",
     prefPrice: "价格",
     prefLocation: "位置",
     prefSights: "景点",
@@ -3205,6 +3232,14 @@ function selectedAttractions() {
     .map((button) => button.dataset.attraction);
 }
 
+function setTripPending(isPending) {
+  tripHasPendingChanges = isPending;
+  tripUpdateButton?.classList.toggle("pending", isPending);
+  if (tripUpdateHint) {
+    tripUpdateHint.textContent = isPending ? t("tripUpdatePending") : t("tripUpdateFresh");
+  }
+}
+
 const attractionMap = {
   "times-square": {
     label: "Times Square",
@@ -3286,6 +3321,54 @@ const attractionMap = {
     neighborhoods: ["Midtown", "Upper East Side"],
     tags: ["sights"]
   },
+  "rockefeller-center": {
+    label: "Rockefeller Center",
+    lat: 40.7587,
+    lng: -73.9787,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Midtown"],
+    tags: ["sights", "transit"]
+  },
+  "grand-central": {
+    label: "Grand Central Terminal",
+    lat: 40.7527,
+    lng: -73.9772,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Midtown", "Murray Hill"],
+    tags: ["sights", "transit"]
+  },
+  "nine-eleven": {
+    label: "9/11 Memorial",
+    lat: 40.7115,
+    lng: -74.0134,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Financial District", "Battery Park City", "TriBeCa"],
+    tags: ["sights", "transit"]
+  },
+  "bryant-library": {
+    label: "Bryant Park & NY Public Library",
+    lat: 40.7532,
+    lng: -73.9822,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Midtown", "Murray Hill"],
+    tags: ["sights", "quiet", "transit"]
+  },
+  "summit-one": {
+    label: "SUMMIT One Vanderbilt",
+    lat: 40.753,
+    lng: -73.9787,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Midtown", "Murray Hill"],
+    tags: ["sights", "transit"]
+  },
+  "chelsea-market": {
+    label: "Chelsea Market",
+    lat: 40.7424,
+    lng: -74.0061,
+    boroughs: ["Manhattan"],
+    neighborhoods: ["Chelsea", "West Village"],
+    tags: ["food", "sights"]
+  },
   dumbo: {
     label: "DUMBO",
     lat: 40.7033,
@@ -3293,6 +3376,22 @@ const attractionMap = {
     boroughs: ["Brooklyn"],
     neighborhoods: ["DUMBO", "Brooklyn Heights", "Williamsburg"],
     tags: ["waterfront", "sights", "food"]
+  },
+  "brooklyn-bridge-park": {
+    label: "Brooklyn Bridge Park",
+    lat: 40.7003,
+    lng: -73.9967,
+    boroughs: ["Brooklyn"],
+    neighborhoods: ["DUMBO", "Downtown Brooklyn", "Brooklyn Heights"],
+    tags: ["waterfront", "sights", "quiet"]
+  },
+  "prospect-park": {
+    label: "Prospect Park",
+    lat: 40.6602,
+    lng: -73.969,
+    boroughs: ["Brooklyn"],
+    neighborhoods: ["Park Slope", "Prospect Heights", "Crown Heights"],
+    tags: ["quiet", "sights"]
   },
   "coney-island": {
     label: "Coney Island",
@@ -3310,6 +3409,22 @@ const attractionMap = {
     neighborhoods: ["Flushing", "Jackson Heights", "Long Island City"],
     tags: ["sights", "food", "quiet"]
   },
+  "moma-ps1": {
+    label: "MoMA PS1",
+    lat: 40.7455,
+    lng: -73.9472,
+    boroughs: ["Queens"],
+    neighborhoods: ["Long Island City", "Astoria"],
+    tags: ["sights", "food"]
+  },
+  "astoria-park": {
+    label: "Astoria Park",
+    lat: 40.7794,
+    lng: -73.9227,
+    boroughs: ["Queens"],
+    neighborhoods: ["Astoria", "Long Island City"],
+    tags: ["quiet", "waterfront", "sights"]
+  },
   "bronx-zoo": {
     label: "Bronx Zoo",
     lat: 40.8506,
@@ -3326,6 +3441,22 @@ const attractionMap = {
     neighborhoods: ["South Bronx", "Harlem"],
     tags: ["sights", "transit"]
   },
+  "botanical-garden": {
+    label: "New York Botanical Garden",
+    lat: 40.8624,
+    lng: -73.8772,
+    boroughs: ["Bronx"],
+    neighborhoods: ["Fordham", "Belmont", "Riverdale"],
+    tags: ["quiet", "sights"]
+  },
+  "arthur-avenue": {
+    label: "Arthur Avenue",
+    lat: 40.8544,
+    lng: -73.8885,
+    boroughs: ["Bronx"],
+    neighborhoods: ["Belmont", "Fordham"],
+    tags: ["food", "sights"]
+  },
   "staten-island-ferry": {
     label: "Staten Island Ferry",
     lat: 40.6437,
@@ -3333,6 +3464,22 @@ const attractionMap = {
     boroughs: ["Staten Island", "Manhattan"],
     neighborhoods: ["St. George", "Financial District"],
     tags: ["ferry", "waterfront", "sights"]
+  },
+  "snug-harbor": {
+    label: "Snug Harbor",
+    lat: 40.6426,
+    lng: -74.1027,
+    boroughs: ["Staten Island"],
+    neighborhoods: ["Snug Harbor", "St. George", "West Brighton"],
+    tags: ["quiet", "sights"]
+  },
+  "historic-richmond-town": {
+    label: "Historic Richmond Town",
+    lat: 40.5701,
+    lng: -74.1451,
+    boroughs: ["Staten Island"],
+    neighborhoods: ["New Dorp", "Tottenville", "Great Kills"],
+    tags: ["quiet", "sights"]
   }
 };
 
@@ -4837,6 +4984,10 @@ function applyLanguage(language) {
     element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
   });
 
+  if (tripUpdateHint) {
+    tripUpdateHint.textContent = tripHasPendingChanges ? t("tripUpdatePending") : t("tripUpdateFresh");
+  }
+
   updateBoroughInterface();
   renderRegionSegments();
   renderCards();
@@ -4879,18 +5030,22 @@ compareB?.addEventListener("change", renderComparison);
 tripPreferenceButtons.forEach((button) => {
   button.addEventListener("click", () => {
     button.classList.toggle("active");
-    renderTripPlanner();
+    setTripPending(true);
   });
 });
 attractionButtons.forEach((button) => {
   button.addEventListener("click", () => {
     button.classList.toggle("active");
-    renderTripPlanner();
+    setTripPending(true);
   });
 });
-tripBudget?.addEventListener("change", renderTripPlanner);
-tripStyle?.addEventListener("change", renderTripPlanner);
-tripBorough?.addEventListener("change", renderTripPlanner);
+tripBudget?.addEventListener("change", () => setTripPending(true));
+tripStyle?.addEventListener("change", () => setTripPending(true));
+tripBorough?.addEventListener("change", () => setTripPending(true));
+tripUpdateButton?.addEventListener("click", () => {
+  renderTripPlanner();
+  setTripPending(false);
+});
 legalToggles.forEach((toggle) => {
   toggle.addEventListener("click", () => {
     const allCards = document.querySelectorAll(".legal-card");

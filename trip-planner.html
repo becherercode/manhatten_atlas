@@ -15,7 +15,7 @@
         document.head.appendChild(adScript);
       }
     </script>
-    <link rel="stylesheet" href="./styles.css?v=62" />
+    <link rel="stylesheet" href="./styles.css?v=65" />
   </head>
   <body class="trip-page">
     <header class="hero">
@@ -78,28 +78,6 @@
               <button class="trip-chip" type="button" data-preference="quiet" data-i18n="prefQuiet">Ruhiger Aufenthalt</button>
             </div>
 
-            <div class="trip-attraction-block">
-              <span data-i18n="tripAttractionsTitle">Was möchtest du unbedingt sehen?</span>
-              <div class="attraction-chips" aria-label="Gewünschte Sehenswürdigkeiten" data-i18n-aria-label="tripAttractionsAria">
-                <button class="attraction-chip" type="button" data-attraction="times-square">Times Square</button>
-                <button class="attraction-chip" type="button" data-attraction="central-park">Central Park</button>
-                <button class="attraction-chip" type="button" data-attraction="empire-state">Empire State Building</button>
-                <button class="attraction-chip" type="button" data-attraction="statue-liberty">Statue of Liberty</button>
-                <button class="attraction-chip" type="button" data-attraction="brooklyn-bridge">Brooklyn Bridge</button>
-                <button class="attraction-chip" type="button" data-attraction="high-line">High Line</button>
-                <button class="attraction-chip" type="button" data-attraction="one-world">One World Trade Center</button>
-                <button class="attraction-chip" type="button" data-attraction="broadway">Broadway</button>
-                <button class="attraction-chip" type="button" data-attraction="met-museum">The Met</button>
-                <button class="attraction-chip" type="button" data-attraction="moma">MoMA</button>
-                <button class="attraction-chip" type="button" data-attraction="dumbo">DUMBO</button>
-                <button class="attraction-chip" type="button" data-attraction="coney-island">Coney Island</button>
-                <button class="attraction-chip" type="button" data-attraction="flushing-meadows">Flushing Meadows</button>
-                <button class="attraction-chip" type="button" data-attraction="bronx-zoo">Bronx Zoo</button>
-                <button class="attraction-chip" type="button" data-attraction="yankee-stadium">Yankee Stadium</button>
-                <button class="attraction-chip" type="button" data-attraction="staten-island-ferry">Staten Island Ferry</button>
-              </div>
-            </div>
-
             <div class="trip-select-row">
               <label>
                 <span data-i18n="tripBoroughLabel">Bezirk</span>
@@ -130,6 +108,51 @@
                 </select>
               </label>
             </div>
+
+            <div class="trip-attraction-block">
+              <span data-i18n="tripAttractionsTitle">Was möchtest du unbedingt sehen?</span>
+              <div class="attraction-chips" aria-label="Gewünschte Sehenswürdigkeiten" data-i18n-aria-label="tripAttractionsAria">
+                <button class="attraction-chip" type="button" data-attraction="times-square">Times Square</button>
+                <button class="attraction-chip" type="button" data-attraction="central-park">Central Park</button>
+                <button class="attraction-chip" type="button" data-attraction="empire-state">Empire State Building</button>
+                <button class="attraction-chip" type="button" data-attraction="statue-liberty">Statue of Liberty</button>
+                <button class="attraction-chip" type="button" data-attraction="brooklyn-bridge">Brooklyn Bridge</button>
+                <button class="attraction-chip" type="button" data-attraction="high-line">High Line</button>
+                <button class="attraction-chip" type="button" data-attraction="one-world">One World Trade Center</button>
+                <button class="attraction-chip" type="button" data-attraction="broadway">Broadway</button>
+                <button class="attraction-chip" type="button" data-attraction="met-museum">The Met</button>
+                <button class="attraction-chip" type="button" data-attraction="moma">MoMA</button>
+                <button class="attraction-chip" type="button" data-attraction="rockefeller-center">Rockefeller Center</button>
+                <button class="attraction-chip" type="button" data-attraction="grand-central">Grand Central Terminal</button>
+                <button class="attraction-chip" type="button" data-attraction="nine-eleven">9/11 Memorial</button>
+                <button class="attraction-chip" type="button" data-attraction="bryant-library">Bryant Park & NY Public Library</button>
+                <button class="attraction-chip" type="button" data-attraction="summit-one">SUMMIT One Vanderbilt</button>
+                <button class="attraction-chip" type="button" data-attraction="chelsea-market">Chelsea Market</button>
+                <button class="attraction-chip" type="button" data-attraction="dumbo">DUMBO</button>
+                <button class="attraction-chip" type="button" data-attraction="brooklyn-bridge-park">Brooklyn Bridge Park</button>
+                <button class="attraction-chip" type="button" data-attraction="prospect-park">Prospect Park</button>
+                <button class="attraction-chip" type="button" data-attraction="coney-island">Coney Island</button>
+                <button class="attraction-chip" type="button" data-attraction="flushing-meadows">Flushing Meadows</button>
+                <button class="attraction-chip" type="button" data-attraction="moma-ps1">MoMA PS1</button>
+                <button class="attraction-chip" type="button" data-attraction="astoria-park">Astoria Park</button>
+                <button class="attraction-chip" type="button" data-attraction="bronx-zoo">Bronx Zoo</button>
+                <button class="attraction-chip" type="button" data-attraction="yankee-stadium">Yankee Stadium</button>
+                <button class="attraction-chip" type="button" data-attraction="botanical-garden">New York Botanical Garden</button>
+                <button class="attraction-chip" type="button" data-attraction="arthur-avenue">Arthur Avenue</button>
+                <button class="attraction-chip" type="button" data-attraction="staten-island-ferry">Staten Island Ferry</button>
+                <button class="attraction-chip" type="button" data-attraction="snug-harbor">Snug Harbor</button>
+                <button class="attraction-chip" type="button" data-attraction="historic-richmond-town">Historic Richmond Town</button>
+              </div>
+            </div>
+
+            <div class="trip-action-row">
+              <button class="trip-update-button" id="tripUpdateButton" type="button" data-i18n="tripUpdateButton">
+                Empfehlungen aktualisieren
+              </button>
+              <span class="trip-update-hint" id="tripUpdateHint" data-i18n="tripUpdateHint">
+                Ändere deine Auswahl und aktualisiere danach die Ergebnisse.
+              </span>
+            </div>
           </div>
 
           <div class="trip-results" id="tripOutput" aria-live="polite"></div>
@@ -137,6 +160,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=62"></script>
+    <script src="./app.js?v=65"></script>
   </body>
 </html>

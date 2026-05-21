@@ -3156,13 +3156,12 @@ function attractionHotelQuery(attractions) {
 function hotelLinks(item, budget, boroughName = currentBorough().name, preferences = [], attractions = [], options = {}) {
   const base = `${item.name}, ${boroughName}, New York`;
   const profile = hotelSearchProfile(preferences, attractions, options);
-  const budgetQuery = budget === "premium" ? "4 star 5 star" : budget === "budget" ? "affordable budget" : "best value";
   const locationLabel = profile.location?.label || "passender Lage";
   const comfortLabel = profile.comfort?.label || "guter Ausstattung";
   return [
     {
       label: `${profile.type.label} in ${item.name}`,
-      query: `${base} ${profile.type.query} ${budgetQuery}`,
+      query: base,
       primary: true
     },
     {

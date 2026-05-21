@@ -601,11 +601,13 @@ a {
 
 .trip-chip,
 .attraction-chip {
+  align-items: center;
   background: rgba(17, 17, 20, 0.06);
   border: 1px solid rgba(17, 17, 20, 0.08);
   border-radius: 999px;
   color: var(--ink);
   cursor: pointer;
+  display: inline-flex;
   font: inherit;
   font-size: 0.92rem;
   font-weight: 750;
@@ -620,27 +622,71 @@ a {
 }
 
 .trip-attraction-block {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(248, 249, 252, 0.64)),
+    linear-gradient(90deg, rgba(0, 113, 227, 0.11), rgba(16, 185, 129, 0.08));
+  border: 1px solid rgba(17, 17, 20, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 18px 42px rgba(17, 17, 20, 0.07);
   display: grid;
-  gap: 12px;
+  gap: 16px;
+  overflow: hidden;
+  padding: 18px;
+  position: relative;
+}
+
+.trip-attraction-block::before {
+  background: linear-gradient(180deg, var(--accent), rgba(16, 185, 129, 0.8));
+  border-radius: 999px;
+  content: "";
+  height: calc(100% - 36px);
+  left: 0;
+  position: absolute;
+  top: 18px;
+  width: 3px;
 }
 
 .trip-attraction-block > span {
-  color: var(--muted);
+  color: rgba(17, 17, 20, 0.74);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.11em;
+  padding-left: 4px;
   text-transform: uppercase;
 }
 
 .attraction-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .attraction-chip {
-  background: rgba(255, 255, 255, 0.72);
-  min-height: 36px;
+  background: rgba(255, 255, 255, 0.76);
+  border-color: rgba(17, 17, 20, 0.07);
+  border-radius: 8px;
+  justify-content: flex-start;
+  min-height: 42px;
+  padding: 0 12px;
+  text-align: left;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.attraction-chip:hover {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 113, 227, 0.22);
+  box-shadow: 0 12px 26px rgba(17, 17, 20, 0.08);
+  transform: translateY(-1px);
+}
+
+.attraction-chip.active {
+  background: linear-gradient(135deg, #111114, #2b2f36);
+  border-color: rgba(17, 17, 20, 0.18);
+  box-shadow: 0 14px 30px rgba(17, 17, 20, 0.16);
 }
 
 .trip-select-row {

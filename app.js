@@ -586,7 +586,7 @@ const brooklynNeighborhoods = [
       "Mehr Wohnen, Campusflächen, Einzelhandel und öffentliche Räume werden Downtown Brooklyn weiter urbanisieren.",
     character: "Dicht, praktisch, vertikal und weniger romantisch als Brownstone Brooklyn.",
     description:
-      "Downtown Brooklyn ist der funktionale Kern des Boroughs: Gerichte, Hochschulen, Subway-Knoten, Bürotürme, Apartmenthochhäuser und schnelle Wege in alle Richtungen.",
+      "Downtown Brooklyn ist der funktionale Kern des Bezirks: Gerichte, Hochschulen, Subway-Knoten, Bürotürme, Apartmenthochhäuser und schnelle Wege in alle Richtungen.",
     developments:
       "Relevant sind neue Wohnhochhäuser, Campusentwicklung, der Brooklyn-Borough-Based-Jail-Bau und Verbesserungen rund um Fulton Mall und öffentliche Räume.",
     events:
@@ -1220,7 +1220,7 @@ const statenIslandNeighborhoods = [
       "Küstenschutz, Parkpflege und Verkehrsverbindungen bestimmen die Zukunft.",
     character: "Ruhig, grün, familiennah und maritim.",
     description:
-      "Great Kills steht für Staten-Island-Wohnqualität am Wasser: Marina, Parks, Häuser, Schulen und ein Alltag, der deutlich langsamer wirkt als in den inneren Boroughs.",
+      "Great Kills steht für Staten-Island-Wohnqualität am Wasser: Marina, Parks, Häuser, Schulen und ein Alltag, der deutlich langsamer wirkt als in den inneren Bezirken.",
     developments:
       "Resilienz, Great Kills Park, Straßeninfrastruktur und lokale Geschäftsachsen bleiben die wichtigsten Zukunftsfelder.",
     events:
@@ -1350,7 +1350,7 @@ const boroughs = {
     defaultSelected: "St. George",
     rentStat: "$2.4k",
     rentTitle: "Median-Miete Staten Island",
-    rentCopy: "Staten Island ist stärker haus-, küsten- und fährorientiert und bleibt meist günstiger als die inneren Boroughs.",
+    rentCopy: "Staten Island ist stärker haus-, küsten- und fährorientiert und bleibt meist günstiger als die inneren Bezirke.",
     indexStat: "+2.4",
     indexCopy: "North-Shore-Entwicklung, Küstenresilienz und Fährnähe sind die wichtigsten Zukunftsfaktoren."
   }
@@ -1463,7 +1463,7 @@ const translations = {
     languageSelectAria: "Sprache auswählen",
     boroughSelectAria: "Bezirk auswählen",
     regionFilterAria: "Region filtern",
-    boroughsLabel: "Boroughs",
+    boroughsLabel: "Bezirke",
     heroEyebrow: "Geschichte, Preise, Zukunft",
     heroTitle: "Nachbarschaften von New York",
     heroCopy:
@@ -1524,12 +1524,12 @@ const translations = {
     tripEyebrow: "Reiseprofil",
     tripQuestion: "Was ist dir wichtig?",
     tripPrioritiesTitle: "Deine Prioritäten",
-    tripPrioritiesCopy: "Wähle aus, worauf es bei deinem New-York-Urlaub ankommt. Die Empfehlungen passen sich automatisch an den gewählten Borough und deine Reiseart an.",
+    tripPrioritiesCopy: "Wähle aus, worauf es bei deinem New-York-Urlaub ankommt. Die Empfehlungen passen sich automatisch an den gewählten Bezirk und deine Reiseart an.",
     tripPrioritiesAria: "Reiseprioritäten",
     tripAttractionsTitle: "Was möchtest du unbedingt sehen?",
     tripAttractionsAria: "Gewünschte Sehenswürdigkeiten",
-    tripBoroughLabel: "Borough",
-    tripBoroughAll: "Alle Boroughs",
+    tripBoroughLabel: "Bezirk",
+    tripBoroughAll: "Alle Bezirke",
     tripBudgetLabel: "Budget",
     tripBudgetBalanced: "Ausgewogen",
     tripBudgetBudget: "Preisbewusst",
@@ -1600,16 +1600,16 @@ const translations = {
     privacyTitle: "Datenschutzerklärung",
     privacyShort: "Datenschutz",
     privacyCopyOne: "Verantwortlich für die Datenverarbeitung ist die im Impressum genannte Person oder Stelle. Beim Besuch dieser Website können durch den Hostinganbieter technische Zugriffsdaten verarbeitet werden, zum Beispiel IP-Adresse, Zeitpunkt des Abrufs, Browsertyp und aufgerufene Datei. Diese Daten dienen der sicheren und stabilen Bereitstellung der Website.",
-    privacyCopyTwo: "Die Website verwendet derzeit keine Analyse-Tools, keine Newsletter-Anmeldung und keine personalisierte Werbung. Es werden lediglich lokale Einstellungen im Browser gespeichert, etwa die gewählte Sprache, der ausgewählte Borough und die Cookie-Auswahl.",
+    privacyCopyTwo: "Die Website verwendet derzeit keine Analyse-Tools, keine Newsletter-Anmeldung und keine personalisierte Werbung. Es werden lediglich lokale Einstellungen im Browser gespeichert, etwa die gewählte Sprache, der ausgewählte Bezirk und die Cookie-Auswahl.",
     privacyCopyThree: "Auf der Website sind externe Links und Bilder aus öffentlichen Quellen eingebunden. Beim Aufruf externer Inhalte können die jeweiligen Anbieter eigene Zugriffsdaten verarbeiten. Für die Anzeigenprüfung ist Google AdSense eingebunden. Dabei können Google und verbundene Anbieter technische Daten verarbeiten, sobald die veröffentlichte Website aufgerufen wird. Wenn später personalisierte Anzeigen oder Affiliate-Tracking genutzt werden, muss diese Datenschutzerklärung entsprechend erweitert werden.",
     privacyCopyFour: "Betroffene Personen haben im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch und Datenübertragbarkeit.",
     cookiesTitle: "Cookies",
-    cookiesCopyOne: "Diese Website speichert für die Bedienung lokale Browser-Einstellungen, damit Sprache, Borough-Auswahl und Cookie-Hinweis beim nächsten Besuch erhalten bleiben. Zusätzlich ist Google AdSense für die Anzeigenprüfung eingebunden. Solange keine personalisierten Anzeigen aktiviert sind, sollte die Werbeeinbindung bewusst zurückhaltend bleiben.",
+    cookiesCopyOne: "Diese Website speichert für die Bedienung lokale Browser-Einstellungen, damit Sprache, Bezirksauswahl und Cookie-Hinweis beim nächsten Besuch erhalten bleiben. Zusätzlich ist Google AdSense für die Anzeigenprüfung eingebunden. Solange keine personalisierten Anzeigen aktiviert sind, sollte die Werbeeinbindung bewusst zurückhaltend bleiben.",
     cookiesCopyTwo: "Wenn künftig personalisierte Werbung, Analyse-Tools oder weitere Drittanbieter-Dienste genutzt werden, sollte ein erweitertes Cookie-Banner mit echter Auswahlmöglichkeit ergänzt werden.",
     cookiesReset: "Cookie-Auswahl zurücksetzen",
     cookieAria: "Cookie-Hinweis",
     cookieTitle: "Cookie-Hinweis",
-    cookieCopy: "Diese Website speichert nur notwendige lokale Einstellungen wie Sprache, Borough-Auswahl und diese Cookie-Entscheidung. Für Anzeigen ist Google AdSense eingebunden; personalisierte Werbung sollte erst nach passender Zustimmung aktiviert werden.",
+    cookieCopy: "Diese Website speichert nur notwendige lokale Einstellungen wie Sprache, Bezirksauswahl und diese Cookie-Entscheidung. Für Anzeigen ist Google AdSense eingebunden; personalisierte Werbung sollte erst nach passender Zustimmung aktiviert werden.",
     cookieEssential: "Nur notwendige",
     cookieAccept: "OK"
   },
@@ -2593,7 +2593,7 @@ function boroughMarketText(borough) {
     "Staten Island": {
       de: {
         rentTitle: "Median-Miete Staten Island",
-        rentCopy: "Staten Island ist stärker haus-, küsten- und fährorientiert und bleibt meist günstiger als die inneren Boroughs.",
+        rentCopy: "Staten Island ist stärker haus-, küsten- und fährorientiert und bleibt meist günstiger als die inneren Bezirke.",
         indexCopy: "North-Shore-Entwicklung, Küstenresilienz und Fährnähe sind die wichtigsten Zukunftsfaktoren."
       },
       en: {
@@ -2962,7 +2962,7 @@ function expandedText(item, extra, type) {
     ],
     prices: [
       item.prices,
-      `Die angegebene Mietspanne von etwa $${item.rent} pro Monat ist als Orientierung zu lesen. In New York unterscheiden sich Preise stark nach Gebäudealter, Etage, Licht, Aufzug, Grundriss, U-Bahn-Nähe, Park- oder Wasserblick und Borough-Lage. Zwei Wohnungen im selben Viertel können deshalb völlig verschiedene Märkte bedienen.`,
+      `Die angegebene Mietspanne von etwa $${item.rent} pro Monat ist als Orientierung zu lesen. In New York unterscheiden sich Preise stark nach Gebäudealter, Etage, Licht, Aufzug, Grundriss, U-Bahn-Nähe, Park- oder Wasserblick und Bezirkslage. Zwei Wohnungen im selben Viertel können deshalb völlig verschiedene Märkte bedienen.`,
       `Bei ${item.name} ist das Preisniveau ${item.price}. Besonders wichtig ist, ob neue Nachfrage durch Jobs, Kultur, Schulen, Tourismus oder bessere Verkehrsanbindung entsteht. Solche Faktoren wirken oft zuerst auf Mieten und später auf Kaufpreise.`
     ],
     outlook: [

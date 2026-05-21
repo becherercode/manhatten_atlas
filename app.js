@@ -2402,10 +2402,9 @@ function renderComparison() {
 }
 
 function selectedTripPreferences() {
-  const preferences = Array.from(tripPreferenceButtons)
+  return Array.from(tripPreferenceButtons)
     .filter((button) => button.classList.contains("active"))
     .map((button) => button.dataset.preference);
-  return preferences.length ? preferences : ["location", "sights"];
 }
 
 function selectedAttractions() {

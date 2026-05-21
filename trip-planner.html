@@ -15,7 +15,7 @@
         document.head.appendChild(adScript);
       }
     </script>
-    <link rel="stylesheet" href="./styles.css?v=65" />
+    <link rel="stylesheet" href="./styles.css?v=71" />
   </head>
   <body class="trip-page">
     <header class="hero">
@@ -109,6 +109,18 @@
               </label>
             </div>
 
+            <div class="custom-neighborhood-block">
+              <label>
+                <span data-i18n="customNeighborhoodLabel">Eigenes Viertel prüfen</span>
+                <select id="customNeighborhoodSelect">
+                  <option value="" data-i18n="customNeighborhoodNone">Kein eigenes Viertel ausgewählt</option>
+                </select>
+              </label>
+              <p data-i18n="customNeighborhoodCopy">
+                Du hast bereits ein Viertel im Blick? Prüfe, wie gut es zu deinem Budget, deinem Reisestil und deinen wichtigsten New-York-Zielen passt.
+              </p>
+            </div>
+
             <div class="trip-attraction-block">
               <span data-i18n="tripAttractionsTitle">Was möchtest du unbedingt sehen?</span>
               <div class="attraction-chips" aria-label="Gewünschte Sehenswürdigkeiten" data-i18n-aria-label="tripAttractionsAria">
@@ -160,6 +172,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=65"></script>
+    <script src="./app.js?v=71"></script>
   </body>
 </html>

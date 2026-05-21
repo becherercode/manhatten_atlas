@@ -1379,6 +1379,7 @@ const tripStyle = document.querySelector("#tripStyle");
 const tripOutput = document.querySelector("#tripOutput");
 const tripUpdateButton = document.querySelector("#tripUpdateButton");
 const tripUpdateHint = document.querySelector("#tripUpdateHint");
+const customNeighborhoodSelect = document.querySelector("#customNeighborhoodSelect");
 
 let selectedRegion = "all";
 let selectedNeighborhood = null;
@@ -1546,6 +1547,30 @@ const translations = {
     tripUpdateHint: "Ändere deine Auswahl und aktualisiere danach die Ergebnisse.",
     tripUpdatePending: "Auswahl geändert. Klicke auf „Empfehlungen aktualisieren“.",
     tripUpdateFresh: "Empfehlungen sind aktuell.",
+    customNeighborhoodLabel: "Eigenes Viertel prüfen",
+    customNeighborhoodNone: "Kein eigenes Viertel ausgewählt",
+    customNeighborhoodCopy: "Du hast bereits ein Viertel im Blick? Prüfe, wie gut es zu deinem Budget, deinem Reisestil und deinen wichtigsten New-York-Zielen passt.",
+    customResultEyebrow: "Dein Viertel-Check",
+    customResultTitle: "So passt dieses Viertel zu dir",
+    customDistanceTitle: "Entfernung zu deinen Zielen",
+    customDistanceEmpty: "Wähle Sehenswürdigkeiten aus, um die Entfernung vom Viertel zu sehen.",
+    customBudgetTitle: "Budget-Fit",
+    customStyleTitle: "Reisestil-Fit",
+    customPriorityTitle: "Prioritäten-Fit",
+    hotelNightlyLabel: "Hotel/Nacht ca.",
+    recommendationSectionEyebrow: "Auch interessant",
+    recommendationSectionTitle: "Weitere Viertel, die zu dir passen",
+    recommendationSectionCopy: "Diese Empfehlungen ergänzen deinen persönlichen Viertel-Check und zeigen dir stilvolle Alternativen mit ähnlichem Reiseprofil.",
+    customApproxDistance: "ca.",
+    customStrongFit: "Stark passend",
+    customGoodFit: "Gut passend",
+    customLimitedFit: "Eingeschränkt passend",
+    customBudgetGood: "Das Preisniveau passt gut zu deinem Budget.",
+    customBudgetMedium: "Das Preisniveau ist möglich, aber nicht ideal.",
+    customBudgetWeak: "Das Preisniveau passt eher schwach zu deinem Budget.",
+    customStyleGood: "Der Reisestil passt gut zum Charakter des Viertels.",
+    customStyleMedium: "Der Reisestil passt teilweise zum Viertel.",
+    customStyleWeak: "Der Reisestil passt nur eingeschränkt zum Viertel.",
     prefPrice: "Preis",
     prefLocation: "Lage",
     prefSights: "Sehenswürdigkeiten",
@@ -1711,6 +1736,30 @@ const translations = {
     tripUpdateHint: "Change your selection, then update the results.",
     tripUpdatePending: "Selection changed. Click “Update recommendations”.",
     tripUpdateFresh: "Recommendations are up to date.",
+    customNeighborhoodLabel: "Check your own neighborhood",
+    customNeighborhoodNone: "No custom neighborhood selected",
+    customNeighborhoodCopy: "Already have a neighborhood in mind? Check how well it fits your budget, travel style and must-see New York plans.",
+    customResultEyebrow: "Your neighborhood check",
+    customResultTitle: "How this neighborhood fits you",
+    customDistanceTitle: "Distance to your targets",
+    customDistanceEmpty: "Select sights to see their distance from the neighborhood.",
+    customBudgetTitle: "Budget fit",
+    customStyleTitle: "Travel style fit",
+    customPriorityTitle: "Priority fit",
+    hotelNightlyLabel: "Hotel/night approx.",
+    recommendationSectionEyebrow: "Also worth exploring",
+    recommendationSectionTitle: "More neighborhoods that fit your trip",
+    recommendationSectionCopy: "These recommendations complement your personal neighborhood check and show polished alternatives with a similar travel profile.",
+    customApproxDistance: "approx.",
+    customStrongFit: "Strong fit",
+    customGoodFit: "Good fit",
+    customLimitedFit: "Limited fit",
+    customBudgetGood: "The price level fits your budget well.",
+    customBudgetMedium: "The price level is possible, but not ideal.",
+    customBudgetWeak: "The price level is a weak fit for your budget.",
+    customStyleGood: "The travel style fits the neighborhood's character well.",
+    customStyleMedium: "The travel style partly fits the neighborhood.",
+    customStyleWeak: "The travel style only fits the neighborhood to a limited degree.",
     prefPrice: "Price",
     prefLocation: "Location",
     prefSights: "Sights",
@@ -1876,6 +1925,30 @@ const translations = {
     tripUpdateHint: "Cambia tu selección y luego actualiza los resultados.",
     tripUpdatePending: "Selección modificada. Haz clic en “Actualizar recomendaciones”.",
     tripUpdateFresh: "Las recomendaciones están actualizadas.",
+    customNeighborhoodLabel: "Comprobar un barrio propio",
+    customNeighborhoodNone: "Ningún barrio propio seleccionado",
+    customNeighborhoodCopy: "¿Ya tienes un barrio en mente? Comprueba qué tan bien encaja con tu presupuesto, tu estilo de viaje y tus planes imprescindibles en Nueva York.",
+    customResultEyebrow: "Tu análisis de barrio",
+    customResultTitle: "Cómo encaja este barrio contigo",
+    customDistanceTitle: "Distancia a tus objetivos",
+    customDistanceEmpty: "Selecciona lugares de interés para ver la distancia desde el barrio.",
+    customBudgetTitle: "Ajuste de presupuesto",
+    customStyleTitle: "Ajuste de estilo",
+    customPriorityTitle: "Ajuste de prioridades",
+    hotelNightlyLabel: "Hotel/noche aprox.",
+    recommendationSectionEyebrow: "También interesante",
+    recommendationSectionTitle: "Más barrios que encajan con tu viaje",
+    recommendationSectionCopy: "Estas recomendaciones complementan tu análisis personal y muestran alternativas elegantes con un perfil de viaje similar.",
+    customApproxDistance: "aprox.",
+    customStrongFit: "Muy adecuado",
+    customGoodFit: "Adecuado",
+    customLimitedFit: "Ajuste limitado",
+    customBudgetGood: "El nivel de precios encaja bien con tu presupuesto.",
+    customBudgetMedium: "El nivel de precios es posible, pero no ideal.",
+    customBudgetWeak: "El nivel de precios encaja poco con tu presupuesto.",
+    customStyleGood: "El estilo de viaje encaja bien con el carácter del barrio.",
+    customStyleMedium: "El estilo de viaje encaja parcialmente con el barrio.",
+    customStyleWeak: "El estilo de viaje solo encaja de forma limitada.",
     prefPrice: "Precio",
     prefLocation: "Ubicación",
     prefSights: "Lugares de interés",
@@ -2041,6 +2114,30 @@ const translations = {
     tripUpdateHint: "Modifiez votre sélection, puis actualisez les résultats.",
     tripUpdatePending: "Sélection modifiée. Cliquez sur « Actualiser les recommandations ».",
     tripUpdateFresh: "Les recommandations sont à jour.",
+    customNeighborhoodLabel: "Vérifier un quartier choisi",
+    customNeighborhoodNone: "Aucun quartier choisi",
+    customNeighborhoodCopy: "Vous avez déjà un quartier en tête ? Vérifiez s’il correspond à votre budget, à votre style de voyage et à vos incontournables à New York.",
+    customResultEyebrow: "Votre analyse de quartier",
+    customResultTitle: "Comment ce quartier vous correspond",
+    customDistanceTitle: "Distance vers vos objectifs",
+    customDistanceEmpty: "Sélectionnez des sites pour voir leur distance depuis le quartier.",
+    customBudgetTitle: "Adéquation budget",
+    customStyleTitle: "Adéquation style",
+    customPriorityTitle: "Adéquation priorités",
+    hotelNightlyLabel: "Hôtel/nuit env.",
+    recommendationSectionEyebrow: "À explorer aussi",
+    recommendationSectionTitle: "D’autres quartiers adaptés à votre voyage",
+    recommendationSectionCopy: "Ces recommandations complètent votre analyse personnelle et proposent des alternatives soignées au profil de voyage similaire.",
+    customApproxDistance: "env.",
+    customStrongFit: "Très adapté",
+    customGoodFit: "Adapté",
+    customLimitedFit: "Adéquation limitée",
+    customBudgetGood: "Le niveau de prix correspond bien à votre budget.",
+    customBudgetMedium: "Le niveau de prix est possible, mais pas idéal.",
+    customBudgetWeak: "Le niveau de prix correspond plutôt peu à votre budget.",
+    customStyleGood: "Le style de voyage correspond bien au caractère du quartier.",
+    customStyleMedium: "Le style de voyage correspond partiellement au quartier.",
+    customStyleWeak: "Le style de voyage ne correspond que de façon limitée.",
     prefPrice: "Prix",
     prefLocation: "Emplacement",
     prefSights: "Sites à voir",
@@ -2206,6 +2303,30 @@ const translations = {
     tripUpdateHint: "Altere sua seleção e depois atualize os resultados.",
     tripUpdatePending: "Seleção alterada. Clique em “Atualizar recomendações”.",
     tripUpdateFresh: "As recomendações estão atualizadas.",
+    customNeighborhoodLabel: "Verificar um bairro próprio",
+    customNeighborhoodNone: "Nenhum bairro próprio selecionado",
+    customNeighborhoodCopy: "Já tem um bairro em mente? Veja se ele combina com seu orçamento, seu estilo de viagem e seus planos essenciais em Nova York.",
+    customResultEyebrow: "Seu check de bairro",
+    customResultTitle: "Como este bairro combina com você",
+    customDistanceTitle: "Distância até seus pontos",
+    customDistanceEmpty: "Selecione atrações para ver a distância a partir do bairro.",
+    customBudgetTitle: "Ajuste ao orçamento",
+    customStyleTitle: "Ajuste ao estilo",
+    customPriorityTitle: "Ajuste às prioridades",
+    hotelNightlyLabel: "Hotel/noite aprox.",
+    recommendationSectionEyebrow: "Também vale explorar",
+    recommendationSectionTitle: "Outros bairros que combinam com sua viagem",
+    recommendationSectionCopy: "Estas recomendações complementam sua análise pessoal e mostram alternativas elegantes com um perfil de viagem semelhante.",
+    customApproxDistance: "aprox.",
+    customStrongFit: "Combina muito",
+    customGoodFit: "Combina bem",
+    customLimitedFit: "Combina pouco",
+    customBudgetGood: "O nível de preço combina bem com seu orçamento.",
+    customBudgetMedium: "O nível de preço é possível, mas não ideal.",
+    customBudgetWeak: "O nível de preço combina pouco com seu orçamento.",
+    customStyleGood: "O estilo de viagem combina bem com o caráter do bairro.",
+    customStyleMedium: "O estilo de viagem combina parcialmente com o bairro.",
+    customStyleWeak: "O estilo de viagem combina apenas de forma limitada.",
     prefPrice: "Preço",
     prefLocation: "Localização",
     prefSights: "Atrações",
@@ -2371,6 +2492,30 @@ const translations = {
     tripUpdateHint: "更改选择后再更新结果。",
     tripUpdatePending: "选择已更改。点击“更新推荐”。",
     tripUpdateFresh: "推荐已是最新。",
+    customNeighborhoodLabel: "检查自选街区",
+    customNeighborhoodNone: "未选择自选街区",
+    customNeighborhoodCopy: "已经有心仪的街区了吗？看看它与你的预算、旅行风格和纽约必看计划是否匹配。",
+    customResultEyebrow: "你的街区检查",
+    customResultTitle: "这个街区与你的匹配度",
+    customDistanceTitle: "到目标景点的距离",
+    customDistanceEmpty: "选择景点后即可查看它们与街区的距离。",
+    customBudgetTitle: "预算匹配",
+    customStyleTitle: "旅行风格匹配",
+    customPriorityTitle: "优先项匹配",
+    hotelNightlyLabel: "酒店/晚约",
+    recommendationSectionEyebrow: "也值得看看",
+    recommendationSectionTitle: "更多适合你行程的街区",
+    recommendationSectionCopy: "这些推荐补充你的个人街区检查，并展示旅行风格相近的优雅替代选择。",
+    customApproxDistance: "约",
+    customStrongFit: "非常匹配",
+    customGoodFit: "比较匹配",
+    customLimitedFit: "匹配有限",
+    customBudgetGood: "价格水平与你的预算很匹配。",
+    customBudgetMedium: "价格水平可以接受，但不是最理想。",
+    customBudgetWeak: "价格水平与你的预算匹配较弱。",
+    customStyleGood: "旅行风格与街区气质很匹配。",
+    customStyleMedium: "旅行风格与街区部分匹配。",
+    customStyleWeak: "旅行风格与街区匹配有限。",
     prefPrice: "价格",
     prefLocation: "位置",
     prefSights: "景点",
@@ -3238,6 +3383,44 @@ function setTripPending(isPending) {
   if (tripUpdateHint) {
     tripUpdateHint.textContent = isPending ? t("tripUpdatePending") : t("tripUpdateFresh");
   }
+}
+
+function allTripNeighborhoodEntries() {
+  return Object.entries(boroughs).flatMap(([boroughKey, borough]) =>
+    borough.neighborhoods.map((item) => ({ boroughKey, boroughName: borough.name, item }))
+  );
+}
+
+function renderCustomNeighborhoodOptions() {
+  if (!customNeighborhoodSelect) return;
+  const currentValue = customNeighborhoodSelect.value;
+  customNeighborhoodSelect.innerHTML = `
+    <option value="">${t("customNeighborhoodNone")}</option>
+    ${Object.entries(boroughs)
+      .map(
+        ([boroughKey, borough]) => `
+          <optgroup label="${borough.name}">
+            ${borough.neighborhoods
+              .map((item) => `<option value="${boroughKey}|${safeAttr(item.name)}">${item.name}</option>`)
+              .join("")}
+          </optgroup>
+        `
+      )
+      .join("")}
+  `;
+  if ([...customNeighborhoodSelect.options].some((option) => option.value === currentValue)) {
+    customNeighborhoodSelect.value = currentValue;
+  }
+}
+
+function selectedCustomNeighborhood() {
+  const value = customNeighborhoodSelect?.value || "";
+  if (!value) return null;
+  const [boroughKey, ...nameParts] = value.split("|");
+  const name = nameParts.join("|");
+  const borough = boroughs[boroughKey];
+  const item = borough?.neighborhoods.find((neighborhood) => neighborhood.name === name);
+  return item && borough ? { item, boroughName: borough.name } : null;
 }
 
 const attractionMap = {
@@ -4577,6 +4760,176 @@ function bindTripMaps() {
   });
 }
 
+function distanceKm(from, to) {
+  const radius = 6371;
+  const toRad = (value) => (value * Math.PI) / 180;
+  const dLat = toRad(to[0] - from[0]);
+  const dLng = toRad(to[1] - from[1]);
+  const lat1 = toRad(from[0]);
+  const lat2 = toRad(to[0]);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+  return radius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function fitLabel(score) {
+  if (score >= 105) return t("customStrongFit");
+  if (score >= 74) return t("customGoodFit");
+  return t("customLimitedFit");
+}
+
+function budgetFitText(item, budget) {
+  const level = item.price.length;
+  const strong =
+    budget === "budget" ? level <= 2 :
+    budget === "premium" ? level >= 4 :
+    level === 3;
+  const medium =
+    budget === "budget" ? level === 3 :
+    budget === "premium" ? level === 3 :
+    level === 2 || level === 4;
+  return strong ? t("customBudgetGood") : medium ? t("customBudgetMedium") : t("customBudgetWeak");
+}
+
+function styleFitText(item, style) {
+  const tags = travelTags(item);
+  const strong =
+    style === "first-time" ? tags.has("sights") || tags.has("transit") :
+    style === "culture" ? tags.has("sights") :
+    style === "local" ? tags.has("quiet") || tags.has("food") :
+    style === "food" ? tags.has("food") :
+    false;
+  const medium = tags.has("sights") || tags.has("transit") || tags.has("food") || tags.has("quiet");
+  return strong ? t("customStyleGood") : medium ? t("customStyleMedium") : t("customStyleWeak");
+}
+
+function priorityFitMarkup(item, boroughName, preferences) {
+  const labels = {
+    price: t("prefPrice"),
+    location: t("prefLocation"),
+    sights: t("prefSights"),
+    nightlife: t("prefNightlife"),
+    food: t("prefFood"),
+    quiet: t("prefQuiet")
+  };
+  const checks = preferences.length ? preferences : ["location", "sights"];
+  return checks
+    .map((preference) => {
+      const score = tripScore(item, [preference], "balanced", "first-time", boroughName, []);
+      const good = score >= 72;
+      return `<span class="custom-fit-pill${good ? " good" : ""}">${labels[preference] || preference}: ${good ? t("customGoodFit") : t("customLimitedFit")}</span>`;
+    })
+    .join("");
+}
+
+function attractionDistanceMarkup(item, attractions) {
+  const coords = neighborhoodCoords[item.name];
+  const selected = attractions
+    .map((key) => attractionMap[key])
+    .filter((attraction) => attraction?.lat && attraction?.lng);
+  if (!coords || !selected.length) {
+    return `<p class="custom-empty">${t("customDistanceEmpty")}</p>`;
+  }
+  return `
+    <div class="custom-distance-list">
+      ${selected
+        .map((attraction) => ({
+          attraction,
+          distance: distanceKm(coords, [attraction.lat, attraction.lng])
+        }))
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, 8)
+        .map(
+          ({ attraction, distance }) => `
+            <div>
+              <span>${attraction.label}</span>
+              <strong>${t("customApproxDistance")} ${distance.toFixed(distance < 10 ? 1 : 0)} km</strong>
+            </div>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function estimatedHotelNightlyPrice(item, boroughName) {
+  const priceByLevel = {
+    1: 150,
+    2: 210,
+    3: 285,
+    4: 390,
+    5: 560
+  };
+  const boroughFactor = {
+    Manhattan: 1.24,
+    Brooklyn: 1,
+    Queens: 0.86,
+    Bronx: 0.76,
+    "Staten Island": 0.72
+  };
+  const base = priceByLevel[item.price.length] || 285;
+  const adjusted = base * (boroughFactor[boroughName] || 1);
+  return Math.round(adjusted / 10) * 10;
+}
+
+function customNeighborhoodMarkup(selection, preferences, attractions, budget, style) {
+  if (!selection) return "";
+  const { item, boroughName } = selection;
+  const localized = localizedNeighborhood(item, extendedProfiles[item.name]);
+  const score = tripScore(item, preferences, budget, style, boroughName, attractions);
+  const hotelPrice = estimatedHotelNightlyPrice(item, boroughName);
+  const mapAttractions = attractions.length ? attractions : [];
+  return `
+    <article class="trip-result-card custom-neighborhood-card">
+      <div class="trip-result-hero">
+        <div>
+          <p class="eyebrow">${t("customResultEyebrow")} · ${boroughName}</p>
+          <h3>${item.name}</h3>
+          <p>${shortText(localized.description, 230)}</p>
+          <div class="trip-pill-row">
+            <span class="trip-pill">${fitLabel(score)}</span>
+            <span class="trip-pill">${t("customBudgetTitle")}: ${item.price}</span>
+            <span class="trip-pill">${t("hotelNightlyLabel")} $${hotelPrice}</span>
+          </div>
+        </div>
+      </div>
+      ${tripMapMarkup(item, boroughName, mapAttractions)}
+      <div class="custom-check-grid">
+        <section>
+          <span>${t("customBudgetTitle")}</span>
+          <p>${budgetFitText(item, budget)}</p>
+        </section>
+        <section>
+          <span>${t("customStyleTitle")}</span>
+          <p>${styleFitText(item, style)}</p>
+        </section>
+        <section>
+          <span>${t("customPriorityTitle")}</span>
+          <div class="custom-fit-row">${priorityFitMarkup(item, boroughName, preferences)}</div>
+        </section>
+        <section class="custom-distance-section">
+          <span>${t("customDistanceTitle")}</span>
+          ${attractionDistanceMarkup(item, attractions)}
+        </section>
+      </div>
+    </article>
+  `;
+}
+
+function recommendationSectionIntroMarkup(hasCustomSelection) {
+  if (!hasCustomSelection) return "";
+  return `
+    <div class="recommendation-section-intro">
+      <span>${t("recommendationSectionEyebrow")}</span>
+      <div>
+        <h3>${t("recommendationSectionTitle")}</h3>
+        <p>${t("recommendationSectionCopy")}</p>
+      </div>
+    </div>
+  `;
+}
+
 function renderTripPlanner() {
   if (!tripOutput) return;
 
@@ -4584,8 +4937,15 @@ function renderTripPlanner() {
   const attractions = selectedAttractions();
   const budget = tripBudget?.value || "balanced";
   const style = tripStyle?.value || "first-time";
+  const customSelection = selectedCustomNeighborhood();
   const scored = variedTripResults(
     tripRecommendationItems()
+      .filter(
+        ({ item, boroughName }) =>
+          !customSelection ||
+          item.name !== customSelection.item.name ||
+          boroughName !== customSelection.boroughName
+      )
       .map(({ item, boroughName }) => ({
         item,
         boroughName,
@@ -4603,7 +4963,7 @@ function renderTripPlanner() {
     quiet: t("prefQuiet")
   };
 
-  tripOutput.innerHTML = scored
+  const recommendationMarkup = scored
     .map(({ item, boroughName }) => {
       const localized = localizedNeighborhood(item, extendedProfiles[item.name]);
       const links = hotelLinks(item, budget, boroughName, preferences, attractions);
@@ -4655,6 +5015,9 @@ function renderTripPlanner() {
       `;
     })
     .join("");
+  const customMarkup = customNeighborhoodMarkup(customSelection, preferences, attractions, budget, style);
+  const sectionIntroMarkup = recommendationSectionIntroMarkup(Boolean(customSelection));
+  tripOutput.innerHTML = `${customMarkup}${sectionIntroMarkup}${recommendationMarkup}`;
   bindTripMaps();
   bindHotelCards();
 }
@@ -4993,6 +5356,7 @@ function applyLanguage(language) {
   renderCards();
   renderCompareSelectors(true);
   renderComparison();
+  renderCustomNeighborhoodOptions();
   renderTripPlanner();
   if (selectedNeighborhood) {
     renderDetail(selectedNeighborhood);
@@ -5042,6 +5406,7 @@ attractionButtons.forEach((button) => {
 tripBudget?.addEventListener("change", () => setTripPending(true));
 tripStyle?.addEventListener("change", () => setTripPending(true));
 tripBorough?.addEventListener("change", () => setTripPending(true));
+customNeighborhoodSelect?.addEventListener("change", () => setTripPending(true));
 tripUpdateButton?.addEventListener("click", () => {
   renderTripPlanner();
   setTripPending(false);

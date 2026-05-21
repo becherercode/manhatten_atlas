@@ -2833,7 +2833,8 @@ function bookingUrl(query) {
     ss: query,
     group_adults: "2",
     no_rooms: "1",
-    group_children: "0"
+    group_children: "0",
+    nflt: "review_score=70"
   });
   return `https://www.booking.com/searchresults.html?${params.toString()}`;
 }
@@ -3155,33 +3156,23 @@ function attractionHotelQuery(attractions) {
 function hotelLinks(item, budget, boroughName = currentBorough().name, preferences = [], attractions = [], options = {}) {
   const base = `${item.name}, ${boroughName}, New York`;
   const profile = hotelSearchProfile(preferences, attractions, options);
-  const attractionQuery = attractionHotelQuery(attractions);
   const budgetQuery = budget === "premium" ? "4 star 5 star" : budget === "budget" ? "affordable budget" : "best value";
-  const mainParts = [
-    profile.type.query,
-    profile.location?.query,
-    profile.comfort?.query,
-    "rated 7+",
-    budgetQuery,
-    attractionQuery && `near ${attractionQuery}`,
-    base
-  ].filter(Boolean);
   const locationLabel = profile.location?.label || "passender Lage";
   const comfortLabel = profile.comfort?.label || "guter Ausstattung";
   return [
     {
       label: `${profile.type.label} in ${item.name}`,
-      query: mainParts.join(" "),
+      query: `${base} ${profile.type.query} ${budgetQuery}`,
       primary: true
     },
     {
       label: locationLabel,
-      query: `${profile.type.query} rated 7+ ${profile.location?.query || "central location"} ${base}`,
+      query: `${base} ${profile.location?.query || "central location"}`,
       primary: false
     },
     {
       label: comfortLabel,
-      query: `${profile.type.query} rated 7+ ${profile.comfort?.query || "highly rated"} ${base}`,
+      query: `${base} ${profile.comfort?.query || "highly rated hotel"}`,
       primary: false
     }
   ];

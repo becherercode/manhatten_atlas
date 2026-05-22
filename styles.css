@@ -1514,12 +1514,83 @@ a {
   align-items: flex-end;
   padding: 20px;
   text-align: left;
+  text-decoration: none;
   font: inherit;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.1);
   transition:
     transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
     box-shadow 220ms ease,
     border-color 220ms ease;
+}
+
+.neighborhood-page .hero {
+  min-height: 72vh;
+}
+
+.neighborhood-hero {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.54)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.12)),
+    var(
+        --hero-image,
+        url("https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=2200&q=80")
+      )
+      center / cover;
+}
+
+.neighborhood-hero-inner {
+  margin-bottom: 10vh;
+}
+
+.hero-link {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-flex;
+  font-weight: 820;
+  margin-top: 28px;
+  min-height: 46px;
+  padding: 0 18px;
+  text-decoration: none;
+}
+
+.neighborhood-detail-band {
+  padding-top: 72px;
+}
+
+.neighborhood-page .detail {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(246, 248, 252, 0.58)),
+    radial-gradient(circle at 12% 2%, rgba(0, 113, 227, 0.1), transparent 34%);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 8px;
+  box-shadow: var(--soft-shadow);
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.neighborhood-page .gallery-track,
+.neighborhood-page .detail-image {
+  height: 560px;
+  min-height: 560px;
+}
+
+.neighborhood-related {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 10px 0 82px;
+}
+
+.neighborhood-related .section-heading > p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 420px;
+}
+
+.related-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .card::before,

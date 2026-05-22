@@ -2994,6 +2994,85 @@ translations.ja = {
   cookieAccept: "OK"
 };
 
+const neighborhoodPageCopy = {
+  de: {
+    neighborhoodBack: "Zurück zum Atlas",
+    neighborhoodPageEyebrow: "Viertelprofil",
+    neighborhoodRelatedEyebrow: "Weiter entdecken",
+    neighborhoodRelatedTitle: "Ähnliche Viertel im Bezirk",
+    neighborhoodRelatedCopy: "Weitere Orte mit vergleichbarer Lage, Atmosphäre oder Marktdynamik.",
+    neighborhoodNotFoundTitle: "Dieses Viertel wurde nicht gefunden.",
+    neighborhoodNotFoundCopy: "Öffne den Atlas und wähle eine vorhandene Viertel-Kachel aus."
+  },
+  en: {
+    neighborhoodBack: "Back to atlas",
+    neighborhoodPageEyebrow: "Neighborhood profile",
+    neighborhoodRelatedEyebrow: "Keep exploring",
+    neighborhoodRelatedTitle: "Similar neighborhoods in the borough",
+    neighborhoodRelatedCopy: "More places with a comparable location, atmosphere or market dynamic.",
+    neighborhoodNotFoundTitle: "This neighborhood was not found.",
+    neighborhoodNotFoundCopy: "Open the atlas and choose an available neighborhood card."
+  },
+  es: {
+    neighborhoodBack: "Volver al atlas",
+    neighborhoodPageEyebrow: "Perfil de barrio",
+    neighborhoodRelatedEyebrow: "Seguir explorando",
+    neighborhoodRelatedTitle: "Barrios similares en el distrito",
+    neighborhoodRelatedCopy: "Más lugares con ubicación, atmósfera o dinámica de mercado comparable.",
+    neighborhoodNotFoundTitle: "No se encontró este barrio.",
+    neighborhoodNotFoundCopy: "Abre el atlas y elige una tarjeta de barrio disponible."
+  },
+  fr: {
+    neighborhoodBack: "Retour à l'atlas",
+    neighborhoodPageEyebrow: "Profil de quartier",
+    neighborhoodRelatedEyebrow: "Continuer l'exploration",
+    neighborhoodRelatedTitle: "Quartiers similaires dans le borough",
+    neighborhoodRelatedCopy: "D'autres lieux avec une position, une atmosphère ou une dynamique de marché comparable.",
+    neighborhoodNotFoundTitle: "Ce quartier est introuvable.",
+    neighborhoodNotFoundCopy: "Ouvrez l'atlas et choisissez une carte de quartier disponible."
+  },
+  pt: {
+    neighborhoodBack: "Voltar ao atlas",
+    neighborhoodPageEyebrow: "Perfil do bairro",
+    neighborhoodRelatedEyebrow: "Continuar explorando",
+    neighborhoodRelatedTitle: "Bairros semelhantes no distrito",
+    neighborhoodRelatedCopy: "Outros lugares com localização, atmosfera ou dinâmica de mercado comparável.",
+    neighborhoodNotFoundTitle: "Este bairro não foi encontrado.",
+    neighborhoodNotFoundCopy: "Abra o atlas e escolha um cartão de bairro disponível."
+  },
+  it: {
+    neighborhoodBack: "Torna all'atlante",
+    neighborhoodPageEyebrow: "Profilo del quartiere",
+    neighborhoodRelatedEyebrow: "Continua a esplorare",
+    neighborhoodRelatedTitle: "Quartieri simili nel distretto",
+    neighborhoodRelatedCopy: "Altri luoghi con posizione, atmosfera o dinamica di mercato comparabile.",
+    neighborhoodNotFoundTitle: "Questo quartiere non è stato trovato.",
+    neighborhoodNotFoundCopy: "Apri l'atlante e scegli una scheda quartiere disponibile."
+  },
+  ja: {
+    neighborhoodBack: "アトラスに戻る",
+    neighborhoodPageEyebrow: "地区プロフィール",
+    neighborhoodRelatedEyebrow: "さらに探索",
+    neighborhoodRelatedTitle: "同じ行政区の似た地区",
+    neighborhoodRelatedCopy: "立地、雰囲気、市場動向が近い他のエリア。",
+    neighborhoodNotFoundTitle: "この地区は見つかりませんでした。",
+    neighborhoodNotFoundCopy: "アトラスを開き、表示されている地区カードを選んでください。"
+  },
+  zh: {
+    neighborhoodBack: "返回图鉴",
+    neighborhoodPageEyebrow: "街区档案",
+    neighborhoodRelatedEyebrow: "继续探索",
+    neighborhoodRelatedTitle: "同一行政区的相似街区",
+    neighborhoodRelatedCopy: "更多位置、氛围或市场动态相近的地点。",
+    neighborhoodNotFoundTitle: "未找到这个街区。",
+    neighborhoodNotFoundCopy: "请打开图鉴并选择一个可用的街区卡片。"
+  }
+};
+
+Object.entries(neighborhoodPageCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
+
 function t(key) {
   return translations[currentLanguage]?.[key] || translations.de[key] || key;
 }
@@ -3286,7 +3365,7 @@ function updateBoroughInterface() {
     ? t("tripPageTitle")
     : boroughHeroTitle();
   document.querySelectorAll(".nav-context").forEach((element) => {
-    element.textContent = t("tripNavContext");
+    element.textContent = isNeighborhoodPage() ? t("neighborhoodPageEyebrow") : t("tripNavContext");
   });
   document.querySelectorAll("[data-i18n='heroTitle']").forEach((element) => {
     element.textContent = boroughHeroTitle();
@@ -3375,11 +3454,52 @@ function safeAttr(value) {
   return String(value).replaceAll("&", "&amp;").replaceAll('"', "&quot;");
 }
 
+function slugify(value) {
+  return String(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function neighborhoodUrl(item, boroughKey = activeBoroughKey) {
+  return `./neighborhood.html?borough=${encodeURIComponent(boroughKey)}&neighborhood=${encodeURIComponent(slugify(item.name))}`;
+}
+
+function allNeighborhoodEntries() {
+  return Object.entries(boroughs).flatMap(([boroughKey, borough]) =>
+    borough.neighborhoods.map((item) => ({ boroughKey, borough, item }))
+  );
+}
+
+function neighborhoodPageMatch() {
+  const params = new URLSearchParams(window.location.search);
+  const requestedBorough = params.get("borough");
+  const requestedNeighborhood = params.get("neighborhood") || params.get("name");
+  const requestedSlug = slugify(requestedNeighborhood || "");
+  const entries = requestedBorough && boroughs[requestedBorough]
+    ? boroughs[requestedBorough].neighborhoods.map((item) => ({
+        boroughKey: requestedBorough,
+        borough: boroughs[requestedBorough],
+        item
+      }))
+    : allNeighborhoodEntries();
+
+  return entries.find(({ item }) => slugify(item.name) === requestedSlug) || null;
+}
+
+function isNeighborhoodPage() {
+  return document.body.classList.contains("neighborhood-page");
+}
+
 function setElementImage(element, source) {
   const cleanSource = source.replace(/"/g, "%22");
   element.style.setProperty("--image", `url("${cleanSource}")`);
   element.style.setProperty("--detail-image", `url("${cleanSource}")`);
   element.style.setProperty("--gallery-image", `url("${cleanSource}")`);
+  element.style.setProperty("--hero-image", `url("${cleanSource}")`);
 }
 
 async function hydrateImages() {
@@ -3427,29 +3547,18 @@ function renderCards() {
           const originalIndex = currentItems.indexOf(item);
           const localized = localizedNeighborhood(item);
           return `
-            <button class="card" type="button" data-name="${item.name}" data-image-title="${item.imageTitle}" style="--image: ${fallbackGradient(originalIndex)}">
+            <a class="card" href="${neighborhoodUrl(item)}" data-name="${safeAttr(item.name)}" data-image-title="${safeAttr(item.imageTitle)}" style="--image: ${fallbackGradient(originalIndex)}">
               <span class="card-content">
                 <span class="card-kicker"><span>${item.area}</span><span>${stars(item.price)}</span></span>
                 <h3>${item.name}</h3>
                 <p>${localized.vibe}</p>
                 <span class="price-row"><span>${t("rentLabel")}</span><strong>$${item.rent}/${t("monthLabel")}</strong></span>
               </span>
-            </button>
+            </a>
           `;
         })
         .join("")
     : `<div class="no-results">${t("noResults")}</div>`;
-
-  document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("click", () => {
-      const match = activeNeighborhoods().find((item) => item.name === card.dataset.name);
-      if (match) {
-        selectedNeighborhood = match;
-        renderDetail(match);
-        detailPanel.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  });
 
   hydrateImages();
 }
@@ -5845,6 +5954,88 @@ function renderDetail(item) {
   bindGalleries();
 }
 
+function relatedNeighborhoods(item, boroughKey) {
+  const borough = boroughs[boroughKey] || currentBorough();
+  return borough.neighborhoods
+    .filter((candidate) => candidate.name !== item.name)
+    .sort((a, b) => {
+      const regionScore = Number(b.region === item.region) - Number(a.region === item.region);
+      if (regionScore) return regionScore;
+      return Math.abs(a.price.length - item.price.length) - Math.abs(b.price.length - item.price.length);
+    })
+    .slice(0, 3);
+}
+
+function renderRelatedNeighborhoods(item, boroughKey) {
+  const relatedGrid = document.querySelector("#relatedNeighborhoodGrid");
+  if (!relatedGrid) return;
+  relatedGrid.innerHTML = relatedNeighborhoods(item, boroughKey)
+    .map((candidate, index) => {
+      const localized = localizedNeighborhood(candidate);
+      return `
+        <a class="card" href="${neighborhoodUrl(candidate, boroughKey)}" data-image-title="${safeAttr(candidate.imageTitle)}" style="--image: ${fallbackGradient(index + 2)}">
+          <span class="card-content">
+            <span class="card-kicker"><span>${candidate.area}</span><span>${stars(candidate.price)}</span></span>
+            <h3>${candidate.name}</h3>
+            <p>${localized.vibe}</p>
+            <span class="price-row"><span>${t("rentLabel")}</span><strong>$${candidate.rent}/${t("monthLabel")}</strong></span>
+          </span>
+        </a>
+      `;
+    })
+    .join("");
+  hydrateImages();
+}
+
+function renderNeighborhoodPage() {
+  if (!isNeighborhoodPage()) return;
+
+  const match = neighborhoodPageMatch();
+  const hero = document.querySelector("#neighborhoodHero");
+  const heroEyebrow = document.querySelector("#neighborhoodHeroEyebrow");
+  const heroTitle = document.querySelector("#neighborhoodHeroTitle");
+  const heroCopy = document.querySelector("#neighborhoodHeroCopy");
+  const relatedSection = document.querySelector("#relatedNeighborhoods");
+
+  if (!match) {
+    if (heroTitle) heroTitle.textContent = t("neighborhoodNotFoundTitle");
+    if (heroCopy) heroCopy.textContent = t("neighborhoodNotFoundCopy");
+    if (detailPanel) {
+      detailPanel.innerHTML = `
+        <div class="empty-state">
+          <p class="eyebrow">${t("analysisEyebrow")}</p>
+          <h2>${t("neighborhoodNotFoundTitle")}</h2>
+          <p>${t("neighborhoodNotFoundCopy")}</p>
+        </div>
+      `;
+    }
+    relatedSection?.setAttribute("hidden", "");
+    return;
+  }
+
+  const { boroughKey, borough, item } = match;
+  activeBoroughKey = boroughKey;
+  selectedNeighborhood = item;
+  const localized = localizedNeighborhood(item, extendedProfiles[item.name]);
+  const index = borough.neighborhoods.indexOf(item);
+
+  if (hero) {
+    hero.dataset.imageTitle = item.imageTitle;
+    hero.style.setProperty("--hero-image", fallbackGradient(index));
+  }
+  if (heroEyebrow) {
+    heroEyebrow.textContent = `${t("neighborhoodPageEyebrow")} · ${borough.name} · ${item.area}`;
+  }
+  if (heroTitle) heroTitle.textContent = item.name;
+  if (heroCopy) heroCopy.textContent = localized.description;
+  document.title = `${item.name} | NYC Atlas`;
+
+  renderDetail(item);
+  renderRelatedNeighborhoods(item, boroughKey);
+  relatedSection?.removeAttribute("hidden");
+  hydrateImages();
+}
+
 function applyLanguage(language, options = {}) {
   currentLanguage = translations[language] ? language : "en";
   if (options.persist) {
@@ -5878,7 +6069,9 @@ function applyLanguage(language, options = {}) {
   renderComparison();
   renderCustomNeighborhoodOptions();
   renderTripPlanner();
-  if (selectedNeighborhood) {
+  if (isNeighborhoodPage()) {
+    renderNeighborhoodPage();
+  } else if (selectedNeighborhood) {
     renderDetail(selectedNeighborhood);
   }
 }
@@ -5963,6 +6156,10 @@ selectedNeighborhood =
   activeNeighborhoods().find((item) => item.name === currentBorough().defaultSelected) ||
   activeNeighborhoods()[0];
 applyLanguage(currentLanguage);
-renderDetail(selectedNeighborhood);
+if (isNeighborhoodPage()) {
+  renderNeighborhoodPage();
+} else {
+  renderDetail(selectedNeighborhood);
+}
 renderTripPlanner();
 showCookieBanner();

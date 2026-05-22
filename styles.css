@@ -218,9 +218,6 @@ a {
 }
 
 .control-band {
-  position: sticky;
-  top: 0;
-  z-index: 10;
   background: rgba(245, 245, 247, 0.76);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(24px) saturate(180%);

@@ -1437,17 +1437,47 @@ function activeNeighborhoods() {
   return currentBorough().neighborhoods;
 }
 
-function getSavedLanguage() {
-  try {
-    return localStorage.getItem("manhattanAtlasLanguage") || "de";
-  } catch {
-    return "de";
-  }
+const supportedLanguages = ["de", "en", "es", "fr", "pt", "it", "ja", "zh"];
+const languageStorageKey = "manhattanAtlasLanguage";
+const manualLanguageStorageKey = "manhattanAtlasLanguageManual";
+
+function normalizeLanguage(language) {
+  const normalized = String(language || "")
+    .toLowerCase()
+    .replace("_", "-");
+  const base = normalized.split("-")[0];
+  if (supportedLanguages.includes(base)) return base;
+  if (normalized.startsWith("zh")) return "zh";
+  return "";
 }
 
-function saveLanguage(language) {
+function detectedBrowserLanguage() {
+  const candidates = [
+    ...(Array.isArray(navigator.languages) ? navigator.languages : []),
+    navigator.language,
+    navigator.userLanguage
+  ];
+  return candidates.map(normalizeLanguage).find(Boolean) || "en";
+}
+
+function getSavedLanguage() {
   try {
-    localStorage.setItem("manhattanAtlasLanguage", language);
+    const savedLanguage = normalizeLanguage(localStorage.getItem(languageStorageKey));
+    const wasManualChoice = localStorage.getItem(manualLanguageStorageKey) === "true";
+    if (wasManualChoice && savedLanguage) return savedLanguage;
+    if (savedLanguage && savedLanguage !== "de") return savedLanguage;
+  } catch {
+    return detectedBrowserLanguage();
+  }
+  return detectedBrowserLanguage();
+}
+
+function saveLanguage(language, manual = false) {
+  try {
+    localStorage.setItem(languageStorageKey, language);
+    if (manual) {
+      localStorage.setItem(manualLanguageStorageKey, "true");
+    }
   } catch {
     // Direct file previews may block storage; the page should still work.
   }
@@ -2592,6 +2622,378 @@ const translations = {
   }
 };
 
+translations.it = {
+  ...translations.en,
+  navNeighborhoods: "Quartieri",
+  navCompare: "Confronto",
+  navSources: "Fonti",
+  navTrip: "Viaggio",
+  navLegal: "Informazioni legali",
+  languageLabel: "Lingua",
+  navAria: "Navigazione principale",
+  languageSelectAria: "Seleziona lingua",
+  boroughSelectAria: "Seleziona distretto",
+  regionFilterAria: "Filtra regione",
+  boroughsLabel: "Distretti",
+  heroEyebrow: "Storia, prezzi, futuro",
+  heroTitle: "Quartieri di New York",
+  heroCopy: "Un atlante curato dei quartieri più importanti di New York, con analisi sintetiche su mercato, storia e futuro e immagini di alta qualità che rendono visibile il carattere di ogni luogo.",
+  searchLabel: "Cerca",
+  searchPlaceholder: "es. Harlem, Williamsburg, Astoria",
+  regionAll: "Tutti",
+  statRentTitle: "Affitto mediano",
+  statRentCopy: "Realtor.com ha indicato per marzo 2026 un affitto mediano richiesto di circa 5.100 dollari al mese.",
+  statIndexCopy: "Ad aprile 2026 NYCEDC mostrava un indice degli affitti StreetEasy nettamente sopra il livello pre-Covid.",
+  statProfilesCopy: "Profili compatti per confronti rapidi all'interno del distretto selezionato.",
+  marketEyebrow: "Quadro di mercato",
+  marketTitle: "Distretto in sintesi",
+  marketCopy: "Un breve impulso di mercato prima di confrontare direttamente due quartieri.",
+  statIndexTitle: "Indice affitti",
+  statProfilesTitle: "Profili",
+  sourcesPrefix: "Le note su prezzi e mercato si basano su indicatori pubblici di",
+  sourcesSuffix: "e su dati di quartiere da Wikipedia. Il sito non sostituisce una consulenza immobiliare.",
+  compareEyebrow: "Due quartieri",
+  compareTitle: "Confronta quartieri",
+  compareFirst: "Primo quartiere",
+  compareSecond: "Secondo quartiere",
+  comparePrice: "Livello prezzi",
+  compareRent: "Fascia affitti",
+  compareFuture: "Futuro",
+  compareCharacter: "Carattere",
+  compareProjects: "Progetti",
+  compareEvents: "Eventi",
+  chooseEyebrow: "Scegli un quartiere",
+  neighborhoodsTitle: "Quartieri",
+  analysisEyebrow: "Analisi",
+  emptyTitle: "Seleziona una scheda.",
+  emptyCopy: "Qui appariranno storia, livello dei prezzi, dinamiche future e un breve controllo del carattere.",
+  sourcesTitle: "Fonti e contesto",
+  rentLabel: "Affitto ca.",
+  monthLabel: "mese",
+  priceLevel: "Livello prezzi",
+  rentFact: "Affitto",
+  futureFact: "Futuro",
+  noResults: "Nessun quartiere corrispondente trovato.",
+  analysisOverview: "Contesto dettagliato",
+  analysisHistory: "Storia",
+  analysisPrices: "Prezzi",
+  analysisFuture: "Futuro",
+  analysisProjects: "Edifici e progetti",
+  analysisEvents: "Eventi e cultura",
+  analysisExpectation: "Prospettiva futura",
+  analysisCharacter: "Carattere",
+  tripPageTitle: "Trip Planner New York",
+  tripNavContext: "Trip Planner",
+  tripHeroTitle: "Trova il quartiere di New York più adatto a te",
+  tripHeroCopy: "Pianifica il soggiorno in base a budget, posizione, vita notturna, attrazioni e ristoranti. L'atlante suggerisce quartieri adatti e collega a ricerche hotel pertinenti su Booking.com.",
+  tripSectionAria: "Pianificare un viaggio a New York",
+  tripEyebrow: "Profilo di viaggio",
+  tripQuestion: "Cosa è importante per te?",
+  tripPrioritiesTitle: "Le tue priorità",
+  tripPrioritiesCopy: "Scegli cosa conta per il tuo viaggio a New York. Le raccomandazioni si adattano al distretto selezionato e al tuo stile di viaggio.",
+  tripPrioritiesAria: "Priorità di viaggio",
+  tripAttractionsTitle: "Cosa vuoi assolutamente vedere?",
+  tripAttractionsAria: "Attrazioni desiderate",
+  tripBoroughLabel: "Distretto",
+  tripBoroughAll: "Tutti i distretti",
+  tripBudgetLabel: "Budget",
+  tripBudgetBalanced: "Equilibrato",
+  tripBudgetBudget: "Attento al prezzo",
+  tripBudgetPremium: "Premium",
+  tripStyleLabel: "Stile di viaggio",
+  tripStyleFirst: "Primo viaggio a New York",
+  tripStyleCulture: "Cultura e architettura",
+  tripStyleLocal: "Locale e rilassato",
+  tripStyleFood: "Focus gastronomia",
+  tripUpdateButton: "Aggiorna raccomandazioni",
+  tripUpdateHint: "Modifica la selezione e poi aggiorna i risultati.",
+  tripUpdatePending: "Selezione modificata. Clicca su “Aggiorna raccomandazioni”.",
+  tripUpdateFresh: "Le raccomandazioni sono aggiornate.",
+  customNeighborhoodLabel: "Verifica un quartiere specifico",
+  customNeighborhoodNone: "Nessun quartiere selezionato",
+  customNeighborhoodCopy: "Hai già un quartiere in mente? Verifica quanto si adatta al tuo budget, al tuo stile di viaggio e ai tuoi obiettivi principali a New York.",
+  customResultEyebrow: "Controllo del quartiere",
+  customResultTitle: "Quanto questo quartiere fa per te",
+  customDistanceTitle: "Distanza dai tuoi obiettivi",
+  customDistanceEmpty: "Seleziona attrazioni per vedere la distanza dal quartiere.",
+  customBudgetTitle: "Compatibilità budget",
+  customStyleTitle: "Compatibilità stile",
+  customPriorityTitle: "Compatibilità priorità",
+  hotelNightlyLabel: "Hotel/notte ca.",
+  recommendationSectionEyebrow: "Da esplorare",
+  recommendationSectionTitle: "Altri quartieri adatti al tuo viaggio",
+  recommendationSectionCopy: "Queste raccomandazioni completano il tuo controllo personale e mostrano alternative curate con un profilo di viaggio simile.",
+  customApproxDistance: "ca.",
+  customStrongFit: "Molto adatto",
+  customGoodFit: "Adatto",
+  customLimitedFit: "Compatibilità limitata",
+  customBudgetGood: "Il livello dei prezzi si adatta bene al tuo budget.",
+  customBudgetMedium: "Il livello dei prezzi è possibile, ma non ideale.",
+  customBudgetWeak: "Il livello dei prezzi si adatta poco al tuo budget.",
+  customStyleGood: "Lo stile di viaggio si adatta bene al carattere del quartiere.",
+  customStyleMedium: "Lo stile di viaggio si adatta in parte al quartiere.",
+  customStyleWeak: "Lo stile di viaggio si adatta solo in modo limitato.",
+  prefPrice: "Prezzo",
+  prefLocation: "Posizione",
+  prefSights: "Attrazioni",
+  prefNightlife: "Vita notturna",
+  prefFood: "Ristoranti",
+  prefQuiet: "Soggiorno tranquillo",
+  hotelBooking: "Booking.com",
+  hotelTitle: "Cerca hotel adatti",
+  hotelNote: "I link aprono ricerche Booking.com con valutazione minima di 7/10. Disponibilità e prezzi vengono verificati lì in tempo reale.",
+  hotelTypeLabel: "Tipo di hotel",
+  hotelLocationLabel: "Posizione",
+  hotelComfortLabel: "Comfort",
+  hotelAuto: "automatico",
+  hotelFlexible: "Flessibile",
+  hotelBestMatch: "Miglior equilibrio",
+  hotelBudget: "Conveniente",
+  hotelBoutique: "Boutique",
+  hotelLuxury: "Lusso",
+  hotelFamily: "Per famiglie",
+  hotelApartment: "Appartamento / suite",
+  hotelNearSights: "vicino alle attrazioni",
+  hotelNearSubway: "vicino alla metro",
+  hotelNearNightlife: "vicino alla vita notturna",
+  hotelNearRestaurants: "vicino ai ristoranti",
+  hotelQuiet: "posizione tranquilla",
+  hotelBreakfast: "colazione",
+  hotelRating: "molto ben valutato",
+  hotelView: "bella vista",
+  hotelDesign: "design moderno",
+  hotelBestIn: "migliori hotel a",
+  hotelGoodLocation: "posizione adatta",
+  hotelGoodComfort: "buon comfort",
+  sightsHeader: "Highlight",
+  sightsTitle: "Da non perdere",
+  sightsCopy: "Tappe curate che si adattano a questo quartiere e ai tuoi interessi selezionati.",
+  foodHeader: "Food",
+  foodTitle: "Ristoranti",
+  foodCopy: "Indirizzi concreti e zone gastronomiche adatte al quartiere.",
+  mapAria: "Mappa della posizione per",
+  mapControls: "Zoom mappa",
+  mapZoomIn: "Avvicina la mappa al quartiere",
+  mapZoomOut: "Allontana la mappa",
+  tripPreviewEyebrow: "Trip Planner",
+  tripPreviewTitle: "Trova il quartiere di New York più adatto a te",
+  tripPreviewCopy: "Scegli budget, posizione, vita notturna, attrazioni o focus gastronomico e ricevi quartieri adatti, ricerche hotel su Booking.com, highlight e idee ristorante.",
+  tripPreviewAction: "Apri planner",
+  tripPreviewHotels: "adatti al quartiere",
+  tripPreviewFood: "e attrazioni",
+  adAria: "Annuncio",
+  adLabel: "Annuncio",
+  adCopy: "Qui apparirà più avanti un annuncio Google discreto.",
+  legalAria: "Informazioni legali",
+  legalEyebrow: "Legale",
+  legalTitle: "Impressum, privacy e cookie",
+  imprintTitle: "Impressum",
+  imprintProvider: "Identificazione del fornitore ai sensi del § 5 DDG",
+  imprintResponsible: "Responsabile dei contenuti giornalistico-editoriali ai sensi del § 18 comma 2 MStV:",
+  imprintDisclaimer: "Questo sito è un'offerta editoriale informativa sui quartieri di New York. I contenuti non costituiscono consulenza immobiliare, legale o finanziaria.",
+  privacyTitle: "Informativa privacy",
+  privacyShort: "Privacy",
+  privacyCopyOne: "La persona o l'ente indicato nell'impressum è responsabile del trattamento dei dati. Durante la visita del sito, il provider di hosting può trattare dati tecnici di accesso, ad esempio indirizzo IP, ora di accesso, tipo di browser e file richiesto.",
+  privacyCopyTwo: "Il sito attualmente non usa strumenti di analisi, iscrizioni newsletter o pubblicità personalizzata. Vengono salvate solo impostazioni locali del browser, come lingua, distretto selezionato e scelta cookie.",
+  privacyCopyThree: "Il sito include link esterni e immagini da fonti pubbliche. Aprendo contenuti esterni, i rispettivi fornitori possono trattare propri dati di accesso. Google AdSense è integrato per la verifica degli annunci. Se in futuro saranno usati annunci personalizzati o tracking affiliato, questa informativa dovrà essere aggiornata.",
+  privacyCopyFour: "Le persone interessate hanno, nei limiti di legge, diritti di accesso, rettifica, cancellazione, limitazione del trattamento, opposizione e portabilità.",
+  cookiesTitle: "Cookie",
+  cookiesCopyOne: "Questo sito salva impostazioni locali del browser affinché lingua, scelta del distretto e avviso cookie rimangano disponibili alla visita successiva. Google AdSense è integrato per la verifica degli annunci.",
+  cookiesCopyTwo: "Se in futuro verranno usati pubblicità personalizzata, strumenti di analisi o altri servizi di terzi, dovrà essere aggiunto un banner cookie ampliato con una vera possibilità di scelta.",
+  cookiesReset: "Reimposta scelta cookie",
+  cookieAria: "Avviso cookie",
+  cookieTitle: "Avviso cookie",
+  cookieCopy: "Questo sito salva solo impostazioni locali necessarie come lingua, distretto e questa decisione sui cookie. Google AdSense è integrato per gli annunci; la pubblicità personalizzata dovrebbe essere attivata solo dopo consenso adeguato.",
+  cookieEssential: "Solo necessari",
+  cookieAccept: "OK"
+};
+
+translations.ja = {
+  ...translations.en,
+  navNeighborhoods: "地区",
+  navCompare: "比較",
+  navSources: "出典",
+  navTrip: "旅行",
+  navLegal: "法的情報",
+  languageLabel: "言語",
+  navAria: "メインナビゲーション",
+  languageSelectAria: "言語を選択",
+  boroughSelectAria: "行政区を選択",
+  regionFilterAria: "地域を絞り込む",
+  boroughsLabel: "行政区",
+  heroEyebrow: "歴史、価格、未来",
+  heroTitle: "ニューヨークの地区",
+  heroCopy: "ニューヨークの主要地区を厳選したアトラス。市場、歴史、将来性を簡潔に分析し、高品質な写真で各エリアの個性を伝えます。",
+  searchLabel: "検索",
+  searchPlaceholder: "例: Harlem, Williamsburg, Astoria",
+  regionAll: "すべて",
+  statRentTitle: "家賃中央値",
+  statRentCopy: "Realtor.com は、2026年3月の募集家賃中央値を月約5,100ドルと報告しました。",
+  statIndexCopy: "NYCEDC は2026年4月、StreetEasy の家賃指数がコロナ前水準を明確に上回っていることを示しました。",
+  statProfilesCopy: "選択した行政区内で素早く比較できるコンパクトなプロフィール。",
+  marketEyebrow: "市場スナップショット",
+  marketTitle: "行政区の概要",
+  marketCopy: "2つの地区を直接比較する前に、短く市場感をつかめます。",
+  statIndexTitle: "家賃指数",
+  statProfilesTitle: "プロフィール",
+  sourcesPrefix: "価格と市場に関する注記は、以下の公開指標に基づいています:",
+  sourcesSuffix: "および Wikipedia の地区データ。本サイトは不動産助言の代替ではありません。",
+  compareEyebrow: "2つの地区",
+  compareTitle: "地区を比較",
+  compareFirst: "1つ目の地区",
+  compareSecond: "2つ目の地区",
+  comparePrice: "価格水準",
+  compareRent: "家賃帯",
+  compareFuture: "将来性",
+  compareCharacter: "雰囲気",
+  compareProjects: "プロジェクト",
+  compareEvents: "イベント",
+  chooseEyebrow: "地区を選ぶ",
+  neighborhoodsTitle: "地区",
+  analysisEyebrow: "分析",
+  emptyTitle: "カードを選択してください。",
+  emptyCopy: "ここに歴史、価格水準、将来動向、短い雰囲気チェックが表示されます。",
+  sourcesTitle: "出典と背景",
+  rentLabel: "家賃目安",
+  monthLabel: "月",
+  priceLevel: "価格水準",
+  rentFact: "家賃",
+  futureFact: "将来性",
+  noResults: "一致する地区が見つかりません。",
+  analysisOverview: "詳細な背景",
+  analysisHistory: "歴史",
+  analysisPrices: "価格",
+  analysisFuture: "未来",
+  analysisProjects: "建物とプロジェクト",
+  analysisEvents: "イベントと文化",
+  analysisExpectation: "将来見通し",
+  analysisCharacter: "雰囲気",
+  tripPageTitle: "ニューヨーク Trip Planner",
+  tripNavContext: "Trip Planner",
+  tripHeroTitle: "あなたに合うニューヨークの地区を見つける",
+  tripHeroCopy: "予算、立地、ナイトライフ、観光名所、レストランに合わせて滞在を計画。アトラスが適した地区を提案し、Booking.com のホテル検索へ案内します。",
+  tripSectionAria: "ニューヨーク旅行を計画",
+  tripEyebrow: "旅行プロフィール",
+  tripQuestion: "何を重視しますか？",
+  tripPrioritiesTitle: "あなたの優先条件",
+  tripPrioritiesCopy: "ニューヨーク旅行で重視することを選んでください。おすすめは選択した行政区と旅行スタイルに合わせて調整されます。",
+  tripPrioritiesAria: "旅行の優先条件",
+  tripAttractionsTitle: "必ず見たいものは？",
+  tripAttractionsAria: "選択した観光名所",
+  tripBoroughLabel: "行政区",
+  tripBoroughAll: "すべての行政区",
+  tripBudgetLabel: "予算",
+  tripBudgetBalanced: "バランス重視",
+  tripBudgetBudget: "価格重視",
+  tripBudgetPremium: "プレミアム",
+  tripStyleLabel: "旅行スタイル",
+  tripStyleFirst: "初めてのニューヨーク",
+  tripStyleCulture: "文化と建築",
+  tripStyleLocal: "ローカルで落ち着いた旅",
+  tripStyleFood: "グルメ重視",
+  tripUpdateButton: "おすすめを更新",
+  tripUpdateHint: "選択を変更したら、結果を更新してください。",
+  tripUpdatePending: "選択が変更されました。「おすすめを更新」をクリックしてください。",
+  tripUpdateFresh: "おすすめは最新です。",
+  customNeighborhoodLabel: "気になる地区を確認",
+  customNeighborhoodNone: "地区が選択されていません",
+  customNeighborhoodCopy: "すでに気になる地区がありますか？予算、旅行スタイル、ニューヨークで必ず行きたい場所に合うか確認できます。",
+  customResultEyebrow: "地区チェック",
+  customResultTitle: "この地区があなたに合うか",
+  customDistanceTitle: "目的地までの距離",
+  customDistanceEmpty: "観光名所を選ぶと、地区からの距離が表示されます。",
+  customBudgetTitle: "予算との相性",
+  customStyleTitle: "旅行スタイルとの相性",
+  customPriorityTitle: "優先条件との相性",
+  hotelNightlyLabel: "ホテル/泊 約",
+  recommendationSectionEyebrow: "こちらもおすすめ",
+  recommendationSectionTitle: "あなたの旅に合う他の地区",
+  recommendationSectionCopy: "これらのおすすめは、あなたの地区チェックを補完し、似た旅行プロフィールに合う洗練された選択肢を示します。",
+  customApproxDistance: "約",
+  customStrongFit: "とても合う",
+  customGoodFit: "合う",
+  customLimitedFit: "やや限定的",
+  customBudgetGood: "価格水準はあなたの予算に合っています。",
+  customBudgetMedium: "価格水準は許容範囲ですが、理想的ではありません。",
+  customBudgetWeak: "価格水準は予算との相性が弱めです。",
+  customStyleGood: "旅行スタイルは地区の雰囲気に合っています。",
+  customStyleMedium: "旅行スタイルは地区に部分的に合っています。",
+  customStyleWeak: "旅行スタイルとの相性は限定的です。",
+  prefPrice: "価格",
+  prefLocation: "立地",
+  prefSights: "観光名所",
+  prefNightlife: "ナイトライフ",
+  prefFood: "レストラン",
+  prefQuiet: "静かな滞在",
+  hotelBooking: "Booking.com",
+  hotelTitle: "合うホテルを検索",
+  hotelNote: "リンクは Booking.com の検索を開き、7/10以上の評価を目安にします。空室と価格はそこで最新情報を確認できます。",
+  hotelTypeLabel: "ホテルタイプ",
+  hotelLocationLabel: "立地",
+  hotelComfortLabel: "快適さ",
+  hotelAuto: "自動で調整",
+  hotelFlexible: "柔軟",
+  hotelBestMatch: "最適なバランス",
+  hotelBudget: "手頃",
+  hotelBoutique: "ブティック",
+  hotelLuxury: "ラグジュアリー",
+  hotelFamily: "家族向け",
+  hotelApartment: "アパート / スイート",
+  hotelNearSights: "観光名所に近い",
+  hotelNearSubway: "地下鉄に近い",
+  hotelNearNightlife: "ナイトライフに近い",
+  hotelNearRestaurants: "レストランに近い",
+  hotelQuiet: "静かな立地",
+  hotelBreakfast: "朝食",
+  hotelRating: "高評価",
+  hotelView: "眺めがよい",
+  hotelDesign: "モダンなデザイン",
+  hotelBestIn: "おすすめホテル",
+  hotelGoodLocation: "適した立地",
+  hotelGoodComfort: "快適な設備",
+  sightsHeader: "ハイライト",
+  sightsTitle: "必見",
+  sightsCopy: "この地区と選択した興味に合う、厳選された立ち寄り先。",
+  foodHeader: "グルメ",
+  foodTitle: "レストラン",
+  foodCopy: "地区に合う具体的な店名やグルメエリア。",
+  mapAria: "位置マップ:",
+  mapControls: "地図ズーム",
+  mapZoomIn: "地区に近づける",
+  mapZoomOut: "ズームアウト",
+  tripPreviewEyebrow: "Trip Planner",
+  tripPreviewTitle: "あなたに合うニューヨークの地区を見つける",
+  tripPreviewCopy: "予算、立地、ナイトライフ、観光名所、グルメ重視を選び、合う地区、Booking.com ホテル検索、ハイライト、レストラン案を受け取れます。",
+  tripPreviewAction: "Plannerを開く",
+  tripPreviewHotels: "地区に合うホテル",
+  tripPreviewFood: "と観光名所",
+  adAria: "広告",
+  adLabel: "広告",
+  adCopy: "ここに後で控えめな Google 広告が表示されます。",
+  legalAria: "法的情報",
+  legalEyebrow: "法的情報",
+  legalTitle: "インプリント、プライバシー、Cookie",
+  imprintTitle: "インプリント",
+  imprintProvider: "§ 5 DDG に基づく提供者情報",
+  imprintResponsible: "§ 18 第2項 MStV に基づく編集責任者:",
+  imprintDisclaimer: "本サイトはニューヨークの地区に関する編集型情報サービスです。内容は不動産、法律、金融の助言ではありません。",
+  privacyTitle: "プライバシーポリシー",
+  privacyShort: "プライバシー",
+  privacyCopyOne: "インプリントに記載された個人または団体がデータ処理の責任者です。サイト訪問時、ホスティング事業者はIPアドレス、アクセス時刻、ブラウザ種別、要求ファイルなどの技術的アクセスデータを処理する場合があります。",
+  privacyCopyTwo: "本サイトは現在、分析ツール、ニュースレター登録、パーソナライズ広告を使用していません。選択言語、行政区、Cookie選択などのローカル設定のみをブラウザに保存します。",
+  privacyCopyThree: "本サイトには外部リンクと公開ソースの画像が含まれます。外部コンテンツを開くと、各提供者が独自のアクセスデータを処理する場合があります。広告審査のため Google AdSense を組み込んでいます。将来パーソナライズ広告やアフィリエイト追跡を使用する場合、このポリシーを更新する必要があります。",
+  privacyCopyFour: "対象者は法令の範囲内で、アクセス、訂正、削除、処理制限、異議申し立て、データポータビリティの権利を有します。",
+  cookiesTitle: "Cookie",
+  cookiesCopyOne: "本サイトは、次回訪問時にも言語、行政区選択、Cookie通知を保持するため、ブラウザのローカル設定を保存します。広告審査のため Google AdSense も組み込まれています。",
+  cookiesCopyTwo: "将来、パーソナライズ広告、分析ツール、その他の第三者サービスを使用する場合は、実際に選択できる拡張Cookieバナーを追加する必要があります。",
+  cookiesReset: "Cookie選択をリセット",
+  cookieAria: "Cookie通知",
+  cookieTitle: "Cookie通知",
+  cookieCopy: "本サイトは、言語、行政区、このCookie決定など必要なローカル設定のみを保存します。Google AdSense は広告用に組み込まれており、パーソナライズ広告は適切な同意後にのみ有効化すべきです。",
+  cookieEssential: "必要なもののみ",
+  cookieAccept: "OK"
+};
+
 function t(key) {
   return translations[currentLanguage]?.[key] || translations.de[key] || key;
 }
@@ -2614,6 +3016,8 @@ function boroughHeroTitle() {
     es: `Barrios de ${currentBorough().name}`,
     fr: `Quartiers de ${currentBorough().name}`,
     pt: `Bairros de ${currentBorough().name}`,
+    it: `Quartieri di ${currentBorough().name}`,
+    ja: `${currentBorough().name}の地区`,
     zh: `${currentBorough().name} 街区`
   };
   return names[currentLanguage] || names.de;
@@ -2627,6 +3031,8 @@ function boroughHeroCopy() {
     es: `Un atlas curado de los barrios clave de ${name}, con análisis de mercado, historia y futuro, además de imágenes de alta calidad que revelan el carácter de cada lugar.`,
     fr: `Un atlas éditorial des quartiers clés de ${name}, avec des analyses de marché, d'histoire et d'avenir, ainsi que des images de haute qualité révélant le caractère de chaque lieu.`,
     pt: `Um atlas curado dos principais bairros de ${name}, com análises de mercado, história e futuro, além de imagens de alta qualidade que revelam o caráter de cada lugar.`,
+    it: `Un atlante curato dei quartieri principali di ${name}, con analisi sintetiche su mercato, storia e futuro e immagini di alta qualità che rivelano il carattere di ogni luogo.`,
+    ja: `${name}の主要地区を厳選したアトラス。市場、歴史、将来性を簡潔に分析し、高品質な写真で各エリアの個性を伝えます。`,
     zh: `一份精心策划的 ${name} 重点街区图鉴，结合市场、历史与未来分析，并通过高质量图片呈现每个地方的独特气质。`
   };
   return copy[currentLanguage] || copy.de;
@@ -2660,6 +3066,16 @@ function boroughMarketText(borough) {
         rentCopy: "A Realtor.com informou um aluguel mediano pedido de cerca de US$ 5.100 por mês em março de 2026.",
         indexCopy: "Em abril de 2026, a NYCEDC mostrou um índice de aluguel StreetEasy claramente acima do nível pré-Covid."
       },
+      it: {
+        rentTitle: "Affitto mediano Manhattan",
+        rentCopy: "Realtor.com ha indicato per marzo 2026 un affitto mediano richiesto di circa 5.100 dollari al mese.",
+        indexCopy: "Ad aprile 2026 NYCEDC mostrava un indice degli affitti StreetEasy nettamente sopra il livello pre-Covid."
+      },
+      ja: {
+        rentTitle: "マンハッタンの家賃中央値",
+        rentCopy: "Realtor.com は、2026年3月の募集家賃中央値を月約5,100ドルと報告しました。",
+        indexCopy: "NYCEDC は2026年4月、StreetEasy の家賃指数がコロナ前水準を明確に上回っていることを示しました。"
+      },
       zh: {
         rentTitle: "曼哈顿租金中位数",
         rentCopy: "Realtor.com 报告称，2026 年 3 月挂牌租金中位数约为每月 5,100 美元。",
@@ -2691,6 +3107,16 @@ function boroughMarketText(borough) {
         rentTitle: "Aluguel mediano Brooklyn",
         rentCopy: "Brooklyn tem grandes diferenças: áreas premium à beira d'água ficam bem acima de muitos bairros residenciais ao sul e leste.",
         indexCopy: "A pressão de aluguel segue alta em North Brooklyn, Brownstone Brooklyn e áreas bem conectadas por transporte."
+      },
+      it: {
+        rentTitle: "Affitto mediano Brooklyn",
+        rentCopy: "Brooklyn mostra ampie differenze: le aree premium sul waterfront superano molti quartieri residenziali a sud e a est.",
+        indexCopy: "La pressione sugli affitti resta alta soprattutto a North Brooklyn, Brownstone Brooklyn e nelle zone ben collegate."
+      },
+      ja: {
+        rentTitle: "ブルックリンの家賃中央値",
+        rentCopy: "ブルックリンは幅が大きく、ウォーターフロントの高級エリアは南部・東部の住宅地区を大きく上回ります。",
+        indexCopy: "北ブルックリン、Brownstone Brooklyn、交通アクセスの良い場所では家賃圧力が特に高い状態です。"
       },
       zh: {
         rentTitle: "布鲁克林租金中位数",
@@ -2724,6 +3150,16 @@ function boroughMarketText(borough) {
         rentCopy: "Queens vai das áreas premium de LIC a mercados muito mais tranquilos e familiares no leste e sul.",
         indexCopy: "Transporte, proximidade dos aeroportos, centros comerciais internacionais e novos projetos à beira d'água impulsionam o desenvolvimento."
       },
+      it: {
+        rentTitle: "Affitto mediano Queens",
+        rentCopy: "Queens va dalle aree premium di LIC a mercati molto più tranquilli e familiari a est e a sud.",
+        indexCopy: "Trasporti, vicinanza agli aeroporti, centri commerciali internazionali e nuovi progetti sul waterfront guidano lo sviluppo."
+      },
+      ja: {
+        rentTitle: "クイーンズの家賃中央値",
+        rentCopy: "クイーンズはLICの高級立地から、東部・南部のより静かで家族向けの市場まで幅があります。",
+        indexCopy: "交通、空港への近さ、国際的な商業拠点、新しいウォーターフロント開発が成長を支えています。"
+      },
       zh: {
         rentTitle: "皇后区租金中位数",
         rentCopy: "皇后区从 LIC 的高端地段到东部、南部更安静且适合家庭的市场都有。",
@@ -2755,6 +3191,16 @@ function boroughMarketText(borough) {
         rentTitle: "Aluguel mediano Bronx",
         rentCopy: "O Bronx continua relativamente acessível, mas mostra fortes diferenças entre crescimento waterfront e áreas residenciais tranquilas.",
         indexCopy: "Os grandes motores são transporte, moradia acessível, investimento cultural e projetos-chave como Kingsbridge Armory."
+      },
+      it: {
+        rentTitle: "Affitto mediano Bronx",
+        rentCopy: "Il Bronx resta relativamente accessibile, ma mostra forti differenze tra crescita del waterfront e zone residenziali tranquille.",
+        indexCopy: "Le leve principali sono trasporti, edilizia accessibile, investimenti culturali e progetti chiave come Kingsbridge Armory."
+      },
+      ja: {
+        rentTitle: "ブロンクスの家賃中央値",
+        rentCopy: "ブロンクスは比較的手が届きやすい一方、ウォーターフロントの成長地域と静かな住宅地で差があります。",
+        indexCopy: "交通、手頃な住宅、文化投資、Kingsbridge Armory のような重要プロジェクトが主な要因です。"
       },
       zh: {
         rentTitle: "布朗克斯租金中位数",
@@ -2788,6 +3234,16 @@ function boroughMarketText(borough) {
         rentCopy: "Staten Island é mais orientada a casas, costa e ferry, e geralmente fica mais barata que os boroughs internos.",
         indexCopy: "Desenvolvimento da North Shore, resiliência costeira e acesso ao ferry são os principais fatores futuros."
       },
+      it: {
+        rentTitle: "Affitto mediano Staten Island",
+        rentCopy: "Staten Island è più orientata a case, costa e traghetti e di solito rimane più economica dei distretti centrali.",
+        indexCopy: "Sviluppo della North Shore, resilienza costiera e accesso ai traghetti sono i fattori futuri più importanti."
+      },
+      ja: {
+        rentTitle: "スタテンアイランドの家賃中央値",
+        rentCopy: "スタテンアイランドは戸建て、海岸、フェリー志向が強く、中心部の行政区より比較的安い傾向があります。",
+        indexCopy: "North Shore 開発、沿岸レジリエンス、フェリーアクセスが今後の重要要素です。"
+      },
       zh: {
         rentTitle: "史泰登岛租金中位数",
         rentCopy: "史泰登岛更偏向独栋住宅、海岸和渡轮生活，通常比核心行政区更便宜。",
@@ -2811,6 +3267,8 @@ function updateBoroughInterface() {
     es: `${borough.name} de un vistazo`,
     fr: `${borough.name} en un coup d'oeil`,
     pt: `${borough.name} em um olhar`,
+    it: `${borough.name} in sintesi`,
+    ja: `${borough.name}の概要`,
     zh: `${borough.name} 概览`
   };
   const profileCopy = {
@@ -2819,6 +3277,8 @@ function updateBoroughInterface() {
     es: `${borough.neighborhoods.length} perfiles seleccionados en ${borough.name}: compactos para comparar y lo bastante detallados para una primera lectura real.`,
     fr: `${borough.neighborhoods.length} profils sélectionnés dans ${borough.name} : assez compacts pour comparer, assez détaillés pour une vraie première lecture.`,
     pt: `${borough.neighborhoods.length} perfis selecionados em ${borough.name}: compactos para comparar e detalhados o bastante para uma primeira leitura real.`,
+    it: `${borough.neighborhoods.length} profili selezionati in ${borough.name}: abbastanza compatti per confrontare, abbastanza dettagliati per una prima valutazione reale.`,
+    ja: `${borough.name}の厳選プロフィール${borough.neighborhoods.length}件。比較しやすく、最初の判断に十分な詳しさです。`,
     zh: `${borough.name} 的 ${borough.neighborhoods.length} 个精选街区档案：便于比较，也足够深入。`
   };
   document.documentElement.style.setProperty("--hero-image", `url("${borough.heroImage}")`);
@@ -3072,6 +3532,30 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
       events: `A vida cultural de ${item.name} vem de parques, restaurantes, galerias, espacos de apresentacao, escolas, mercados e eventos recorrentes. Esses momentos mostram o bairro como palco publico.`,
       expectation: `A tendencia e demanda continua, com mudancas diferentes de rua para rua. ${item.name} ganha valor quando combina mobilidade, identidade, espaco publico e servicos locais estaveis.`,
       character: `${item.name} se define por ${item.vibe.toLowerCase()}. O apelo esta no encontro entre rotina diaria, arquitetura e vida nas ruas.`
+    },
+    it: {
+      vibe: `${item.name} combina architettura, vita di strada e identità locale in ${item.area}.`,
+      future: "trasformazione attiva di lungo periodo",
+      description: `${item.name} si comprende meglio attraverso posizione, architettura e ritmo quotidiano. Il quartiere unisce residenza, vita pubblica, riferimenti culturali e domanda immobiliare in un profilo newyorkese distinto.`,
+      history: `${item.name} si è sviluppato attraverso diversi strati della storia di New York: assi di trasporto, crescita residenziale, immigrazione, commercio, istituzioni culturali e successive ondate di reinvestimento. Questi strati restano visibili nella griglia stradale, nei tipi edilizi e nelle attività locali.`,
+      prices: `La fascia di affitto di circa $${item.rent} al mese è un punto di orientamento pratico. I prezzi reali variano molto in base a edificio, luce, ascensore, servizi, accesso alla metro e vicinanza a parchi o waterfront. Il livello relativo dei prezzi qui è ${item.price}.`,
+      outlook: `${item.name} probabilmente continuerà a evolversi grazie a domanda abitativa, miglioramenti dello spazio pubblico, resilienza climatica, accesso ai trasporti e cambiamento commerciale. Il futuro dipende da investimenti che sostengano anche la vita quotidiana del quartiere.`,
+      developments: `La pressione di sviluppo intorno a ${item.name} è determinata da ristrutturazioni selettive, nuove abitazioni dove la zonizzazione lo permette, spazi pubblici migliorati e progetti istituzionali o infrastrutturali vicini. Il cambiamento sarà più visibile lungo i corridoi principali.`,
+      events: `La vita culturale di ${item.name} vive di parchi, ristoranti, gallerie, spazi performativi, scuole, mercati ed eventi ricorrenti. Sono questi momenti a trasformare il quartiere in una scena pubblica.`,
+      expectation: `La prospettiva più probabile è una domanda continua con cambiamenti disomogenei da isolato a isolato. ${item.name} diventa più forte quando combina mobilità, identità, spazio pubblico e servizi locali stabili.`,
+      character: `${item.name} è definito da ${item.vibe.toLowerCase()}. Il suo fascino nasce dall'incontro tra routine quotidiane, architettura e vita a livello strada.`
+    },
+    ja: {
+      vibe: `${item.name}は、${item.area}における建築、通りの活気、地域の個性が重なる地区です。`,
+      future: "長期的に変化が続くエリア",
+      description: `${item.name}は、立地、建築、日常のリズムを通して理解すると分かりやすい地区です。住宅、公共生活、文化的な拠点、変化する不動産需要が混ざり、ニューヨークらしい独自のプロフィールをつくっています。`,
+      history: `${item.name}は、交通軸、住宅の成長、移民、商業、文化施設、その後の再投資という複数の歴史層を通じて発展しました。その層は今も街路、建物のタイプ、地元の店に表れています。`,
+      prices: `月約$${item.rent}の家賃帯は実用的な目安です。実際の価格は、建物の築年数、採光、エレベーター、設備、地下鉄へのアクセス、公園や水辺への近さによって大きく変わります。この地区の相対的な価格水準は ${item.price} です。`,
+      outlook: `${item.name}は、住宅需要、公共空間の改善、気候レジリエンス、交通アクセス、商業の変化によって今後も進化していく可能性があります。新しい投資が日常の地域生活を支えられるかが重要です。`,
+      developments: `${item.name}周辺の開発圧力は、選択的な改修、ゾーニングが許す新住宅、公共空間の改善、近隣のインフラや機関プロジェクトによって形づくられます。変化はすべてのブロックではなく、主要な通り沿いに現れやすいでしょう。`,
+      events: `${item.name}の文化的な生活は、公園、レストラン、ギャラリー、パフォーマンススペース、学校、市場、定期的な地域イベントによって支えられています。こうした瞬間に、地区は単なる住宅市場を超えて公共の舞台になります。`,
+      expectation: `見通しとしては、需要が続く一方でブロックごとに変化の差が出るでしょう。${item.name}は、移動しやすさ、個性、公共空間、安定した地域サービスを組み合わせるほど価値を高めます。`,
+      character: `${item.name}は、${item.vibe.toLowerCase()}という印象で特徴づけられます。日常の動き、建築、通りの生活が交わるところに魅力があります。`
     },
     zh: {
       vibe: `${item.name} 将建筑、街道生活和本地身份结合在 ${item.area}。`,
@@ -4046,6 +4530,8 @@ function travelSights(item) {
     es: [`Explorar ${item.name} a pie`, `Parques y calles locales alrededor de ${item.area}`, `Arquitectura, cafés y espacios públicos del barrio`],
     fr: [`Explorer ${item.name} à pied`, `Parcs et rues locales autour de ${item.area}`, `Architecture, cafés et espaces publics du quartier`],
     pt: [`Explorar ${item.name} a pé`, `Parques e ruas locais em torno de ${item.area}`, `Arquitetura, cafés e espaços públicos do bairro`],
+    it: [`Esplorare ${item.name} a piedi`, `Parchi e strade locali intorno a ${item.area}`, `Architettura, caffè e spazi pubblici del quartiere`],
+    ja: [`${item.name}を徒歩で散策`, `${item.area}周辺の公園と通り`, `地区内の建築、カフェ、公共空間`],
     zh: [`步行探索 ${item.name}`, `${item.area} 周边的本地公园和街道`, `街区里的建筑、咖啡馆和公共空间`]
   };
   return (fallback[currentLanguage] || fallback.de).slice(0, 3);
@@ -4059,6 +4545,8 @@ function tripContextLine(key, item) {
       es: "Ideal para paseos, pausas y un momento más tranquilo entre bloques urbanos.",
       fr: "Idéal pour marcher, faire une pause et trouver un moment plus calme entre les rues.",
       pt: "Ideal para caminhadas, pausas e um momento mais tranquilo entre os quarteirões.",
+      it: "Ideale per passeggiate, pause e un momento più tranquillo tra gli isolati.",
+      ja: "散歩や休憩、街区の間で少し落ち着いた時間を取るのに向いています。",
       zh: "适合散步、短暂停留，在城市街区之间找到更安静的时刻。"
     },
     atmosphere: {
@@ -4067,6 +4555,8 @@ function tripContextLine(key, item) {
       es: "Conviene planearlo con algo de tiempo, porque aquí se concentra mucha atmósfera y movimiento.",
       fr: "À prévoir avec un peu de temps, car l'atmosphère et le mouvement y sont particulièrement présents.",
       pt: "Vale planejar com um pouco de tempo, porque aqui há muita atmosfera e movimento.",
+      it: "Meglio prevedere un po' di tempo, perché qui si concentrano atmosfera e movimento.",
+      ja: "雰囲気と人の動きが強く出る場所なので、少し時間を取って訪れるのがおすすめです。",
       zh: "最好预留一些时间，因为这里的氛围和人流最能体现城市感。"
     },
     culture: {
@@ -4075,6 +4565,8 @@ function tripContextLine(key, item) {
       es: "Bueno para cultura, arquitectura y una parada de más calidad que una simple foto.",
       fr: "Intéressant pour la culture, l'architecture et une visite plus riche qu'un simple arrêt photo.",
       pt: "Bom para cultura, arquitetura e uma parada mais rica que apenas uma foto.",
+      it: "Adatto a cultura, architettura e a una tappa più ricca di un semplice scatto.",
+      ja: "文化や建築を楽しみ、写真だけで終わらない充実した立ち寄り先になります。",
       zh: "适合文化、建筑和比简单拍照更深入的行程点。"
     },
     view: {
@@ -4083,6 +4575,8 @@ function tripContextLine(key, item) {
       es: "Muy bueno para vistas, ambiente junto al agua y fotos clásicas de Nueva York.",
       fr: "Très fort pour les vues, l'ambiance au bord de l'eau et les photos new-yorkaises classiques.",
       pt: "Ótimo para vistas, clima à beira d'água e fotos clássicas de Nova York.",
+      it: "Ottimo per viste, atmosfera sul waterfront e foto classiche di New York.",
+      ja: "眺望、水辺の雰囲気、ニューヨークらしい写真に強い場所です。",
       zh: "适合看景、水岸氛围和经典纽约照片。"
     },
     food: {
@@ -4091,6 +4585,8 @@ function tripContextLine(key, item) {
       es: "Encaja bien con una tarde tranquila de comida, cafés y calles locales.",
       fr: "Convient bien à un après-midi plus lent entre restaurants, cafés et rues locales.",
       pt: "Combina com uma tarde mais lenta com comida, cafés e ruas locais.",
+      it: "Si adatta bene a un pomeriggio lento tra cibo, caffè e strade locali.",
+      ja: "食事、カフェ、ローカルな通りをゆっくり楽しむ午後に合います。",
       zh: "适合用一个慢下午体验美食、咖啡馆和本地街道。"
     },
     intro: {
@@ -4099,6 +4595,8 @@ function tripContextLine(key, item) {
       es: `Una buena entrada para vivir ${item.name} como barrio, no solo como base de hotel.`,
       fr: `Une bonne entrée pour découvrir ${item.name} comme quartier, pas seulement comme lieu d'hôtel.`,
       pt: `Uma boa porta de entrada para viver ${item.name} como bairro, não apenas como base de hotel.`,
+      it: `Un buon punto di partenza per vivere ${item.name} come quartiere, non solo come base per l'hotel.`,
+      ja: `${item.name}をホテルの拠点としてだけでなく、地区として体験するための良い入口です。`,
       zh: `这是把 ${item.name} 当作街区而不只是酒店位置来体验的好入口。`
     }
   };
@@ -4214,6 +4712,8 @@ function restaurantContext(place, item) {
       es: "Bueno si quieres comparar varias cocinas en un solo lugar.",
       fr: "Bien si vous voulez comparer plusieurs cuisines au même endroit.",
       pt: "Bom para comparar várias cozinhas em um só lugar.",
+      it: "Utile se vuoi confrontare più cucine in un unico posto.",
+      ja: "一か所で複数の料理を比べたいときに向いています。",
       zh: "适合在一个地方比较多种菜系。"
     },
     casual: {
@@ -4222,6 +4722,8 @@ function restaurantContext(place, item) {
       es: "Perfecto para una parada neoyorquina sencilla y típica.",
       fr: "Parfait pour un arrêt new-yorkais simple et typique.",
       pt: "Perfeito para uma parada simples e típica de Nova York.",
+      it: "Perfetto per una tappa newyorkese semplice e classica.",
+      ja: "気軽でニューヨークらしい定番の立ち寄りにぴったりです。",
       zh: "适合轻松、典型的纽约停留。"
     },
     planned: {
@@ -4230,6 +4732,8 @@ function restaurantContext(place, item) {
       es: "Mejor para una comida planificada con algo más de tiempo y ambiente.",
       fr: "Plutôt pour un repas prévu avec un peu plus de temps et d'atmosphère.",
       pt: "Melhor para uma refeição planejada com mais tempo e atmosfera.",
+      it: "Meglio per un pasto programmato con un po' più di tempo e atmosfera.",
+      ja: "少し時間を取り、雰囲気も楽しむ食事に向いています。",
       zh: "更适合预留时间、带一点氛围感的用餐。"
     },
     wander: {
@@ -4238,6 +4742,8 @@ function restaurantContext(place, item) {
       es: "Una buena zona para pasear y elegir espontáneamente.",
       fr: "Un bon secteur pour se promener et choisir spontanément.",
       pt: "Uma boa área para passear e escolher espontaneamente.",
+      it: "Una buona zona per passeggiare e scegliere spontaneamente.",
+      ja: "歩きながらその場で選ぶのに良いエリアです。",
       zh: "适合边逛边临时选择。"
     },
     default: {
@@ -4246,6 +4752,8 @@ function restaurantContext(place, item) {
       es: `Una dirección gastronómica adecuada para vivir el carácter de ${item.name} también a través de la comida.`,
       fr: `Une adresse gastronomique adaptée pour découvrir aussi le caractère de ${item.name} par la cuisine.`,
       pt: `Um endereço gastronômico adequado para sentir o caráter de ${item.name} também pela comida.`,
+      it: `Un indirizzo gastronomico adatto per vivere il carattere di ${item.name} anche attraverso il cibo.`,
+      ja: `食を通して${item.name}の個性を感じるのに合うグルメスポットです。`,
       zh: `一个适合通过美食感受 ${item.name} 气质的地点。`
     }
   };
@@ -4309,6 +4817,8 @@ function restaurantIdeas(item, excluded = []) {
       es: ["Dim sum y locales de noodles", "Food courts y panaderías", "Cena en las calles principales"],
       fr: ["Dim sum et adresses de nouilles", "Food courts et boulangeries", "Dîner le long des rues principales"],
       pt: ["Dim sum e casas de noodles", "Food courts e padarias", "Jantar nas ruas principais"],
+      it: ["Dim sum e noodle bar", "Food court e panetterie", "Cena lungo le strade principali"],
+      ja: ["点心と麺料理の店", "フードコートとベーカリー", "メイン通り沿いのディナー"],
       zh: ["点心和面馆", "美食广场和烘焙店", "主街沿线晚餐"]
     };
     return (ideas[currentLanguage] || ideas.de)
@@ -4321,6 +4831,8 @@ function restaurantIdeas(item, excluded = []) {
       es: ["Italianos de Arthur Avenue", "Panaderías y tiendas gourmet", "Restaurantes familiares clásicos"],
       fr: ["Restaurants italiens d'Arthur Avenue", "Boulangeries et épiceries fines", "Restaurants familiaux classiques"],
       pt: ["Italianos da Arthur Avenue", "Padarias e delicatessens", "Restaurantes familiares clássicos"],
+      it: ["Ristoranti italiani di Arthur Avenue", "Panetterie e gastronomie", "Classici ristoranti familiari"],
+      ja: ["Arthur Avenueのイタリアン", "ベーカリーとデリ", "昔ながらの家族経営レストラン"],
       zh: ["Arthur Avenue 意大利餐厅", "烘焙店和熟食店", "经典家庭餐厅"]
     };
     return (ideas[currentLanguage] || ideas.de)
@@ -4333,6 +4845,8 @@ function restaurantIdeas(item, excluded = []) {
       es: ["Cena antes de salir", "Coctelerías y comida tarde", "Brunch al día siguiente"],
       fr: ["Dîner avant de sortir", "Bars à cocktails et cuisine tardive", "Brunch le lendemain"],
       pt: ["Jantar antes de sair", "Bares de coquetéis e comida tarde", "Brunch no dia seguinte"],
+      it: ["Cena prima di uscire", "Cocktail bar e cucina fino a tardi", "Brunch la mattina dopo"],
+      ja: ["出かける前のディナー", "カクテルバーと深夜の食事", "翌朝のブランチ"],
       zh: ["出门前晚餐", "鸡尾酒吧和深夜餐食", "第二天早午餐"]
     };
     return (ideas[currentLanguage] || ideas.de)
@@ -4345,6 +4859,8 @@ function restaurantIdeas(item, excluded = []) {
       es: ["Restaurantes locales en lugar del hotel", "Cafés para desayunar", "Mercados gastronómicos y tiendas pequeñas"],
       fr: ["Restaurants locaux plutôt que l'hôtel", "Cafés pour le petit-déjeuner", "Marchés alimentaires et petites boutiques"],
       pt: ["Restaurantes locais em vez do hotel", "Cafés para café da manhã", "Mercados de comida e pequenas lojas"],
+      it: ["Ristoranti locali invece dell'hotel", "Caffè per la colazione", "Mercati gastronomici e piccole specialità"],
+      ja: ["ホテルではなく地元のレストラン", "朝食向けカフェ", "フードマーケットと小さな専門店"],
       zh: ["本地餐厅而不是酒店餐厅", "早餐咖啡馆", "美食市场和小型特色店"]
     };
     return (ideas[currentLanguage] || ideas.de)
@@ -4356,6 +4872,8 @@ function restaurantIdeas(item, excluded = []) {
     es: ["Cafés de barrio", "Cena informal a pie", "Panaderías, delis y lugares sencillos para comer"],
     fr: ["Cafés de quartier", "Dîner simple à distance de marche", "Boulangeries, delis et adresses faciles pour déjeuner"],
     pt: ["Cafés de bairro", "Jantar casual a pé", "Padarias, delis e lugares simples para almoço"],
+    it: ["Caffè di quartiere", "Cena casual raggiungibile a piedi", "Panetterie, deli e pranzi semplici"],
+    ja: ["地区のカフェ", "徒歩圏内のカジュアルディナー", "ベーカリー、デリ、気軽なランチスポット"],
     zh: ["街区咖啡馆", "步行可达的轻松晚餐", "烘焙店、熟食店和简餐地点"]
   };
   return (ideas[currentLanguage] || ideas.de)
@@ -4423,7 +4941,7 @@ function hotelLinks(item, budget, boroughName = currentBorough().name, preferenc
   const comfortLabel = profile.comfort?.labelKey ? t(profile.comfort.labelKey) : t("hotelGoodComfort");
   return [
     {
-      label: currentLanguage === "zh" ? `${t("hotelBestIn")}${item.name}` : `${typeLabel} ${t("hotelBestIn")} ${item.name}`,
+      label: ["zh", "ja"].includes(currentLanguage) ? `${t("hotelBestIn")} ${item.name}` : `${typeLabel} ${t("hotelBestIn")} ${item.name}`,
       query: base,
       primary: true
     },
@@ -5327,9 +5845,11 @@ function renderDetail(item) {
   bindGalleries();
 }
 
-function applyLanguage(language) {
-  currentLanguage = translations[language] ? language : "de";
-  saveLanguage(currentLanguage);
+function applyLanguage(language, options = {}) {
+  currentLanguage = translations[language] ? language : "en";
+  if (options.persist) {
+    saveLanguage(currentLanguage, Boolean(options.manual));
+  }
   document.documentElement.lang = currentLanguage;
   if (languageSelect) {
     languageSelect.value = currentLanguage;
@@ -5384,7 +5904,7 @@ function selectBorough(boroughKey) {
 
 searchInput?.addEventListener("input", renderCards);
 languageSelect?.addEventListener("change", (event) => {
-  applyLanguage(event.target.value);
+  applyLanguage(event.target.value, { persist: true, manual: true });
 });
 boroughSelect?.addEventListener("change", (event) => {
   selectBorough(event.target.value);

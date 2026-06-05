@@ -1066,7 +1066,7 @@ a {
 }
 
 .trip-pill,
-.hotel-links a {
+.hotel-links span {
   border-radius: 999px;
   font-size: 0.82rem;
   font-weight: 750;
@@ -1362,13 +1362,12 @@ a {
   margin: 0;
 }
 
-.hotel-links a {
+.hotel-links span {
   background: rgba(17, 17, 20, 0.08);
   color: var(--ink);
-  text-decoration: none;
 }
 
-.hotel-links a.primary {
+.hotel-links span.primary {
   background: var(--accent);
   color: #fff;
 }

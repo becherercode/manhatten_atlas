@@ -2735,3 +2735,408 @@ a {
   }
 
 }
+
+@media (max-width: 760px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 10% 0%, rgba(0, 113, 227, 0.1), transparent 22rem),
+      var(--paper);
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .topbar {
+    align-items: stretch;
+    border-radius: 8px;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .brand-group {
+    align-items: stretch;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr;
+  }
+
+  .brand {
+    align-items: center;
+    display: inline-flex;
+    min-height: 42px;
+    padding: 0 12px;
+  }
+
+  .borough-select,
+  .nav-context {
+    width: 100%;
+  }
+
+  .navlinks {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .navlinks a {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .language-menu {
+    border-left: 0;
+    grid-column: 1 / -1;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .language-menu select {
+    width: 100%;
+  }
+
+  .hero-inner {
+    justify-content: flex-end;
+    min-height: 58vh;
+    padding: 68px 0 42px;
+    width: calc(100% - 28px);
+  }
+
+  .hero h1,
+  .snapshot-copy h3,
+  .section-heading h2,
+  .comparison-card h3,
+  .detail-copy h2,
+  .empty-state h2 {
+    font-size: 2.35rem;
+    line-height: 1;
+  }
+
+  .hero-copy,
+  .summary {
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  .controls,
+  .market-snapshot,
+  .compare-section,
+  .atlas-section,
+  .detail-band,
+  .sources,
+  .borough-overview-section,
+  .borough-neighborhoods-section,
+  .neighborhood-related,
+  .static-neighborhood-content,
+  .trip-section,
+  .legal-section {
+    width: calc(100% - 20px);
+  }
+
+  .controls {
+    align-items: stretch;
+    gap: 12px;
+    grid-template-columns: 1fr;
+    padding: 18px 0;
+  }
+
+  .search input,
+  .compare-selectors select,
+  .trip-select,
+  .budget-select,
+  .style-select,
+  .custom-neighborhood-select {
+    border-radius: 8px;
+    min-height: 48px;
+  }
+
+  .segments {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .segment {
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .market-snapshot,
+  .borough-overview-section {
+    margin-top: 18px;
+    padding: 22px;
+  }
+
+  .snapshot-copy {
+    margin-bottom: 18px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section-heading > p,
+  .neighborhood-related .section-heading > p,
+  .borough-overview-section .section-heading > p {
+    max-width: none;
+  }
+
+  .intro-grid,
+  .market-snapshot .intro-grid,
+  .borough-stat-grid,
+  .compare-selectors,
+  .comparison-grid,
+  .neighborhood-grid,
+  .borough-grid,
+  .legal-grid,
+  .trip-tool,
+  .trip-page .trip-panel,
+  .trip-page .trip-results,
+  .trip-columns,
+  .trip-result-hero,
+  .trip-card-grid,
+  .trip-preferences-row,
+  .custom-check-grid,
+  .facts,
+  .detail,
+  .analysis-grid,
+  .related-grid,
+  .footer-links,
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-grid article {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .stat {
+    font-size: 2.45rem;
+  }
+
+  .atlas-section {
+    padding-top: 42px;
+  }
+
+  .card,
+  .borough-neighborhood-card {
+    min-height: 255px;
+  }
+
+  .card-content {
+    padding: 18px;
+  }
+
+  .comparison-row {
+    gap: 8px;
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .trip-page .hero {
+    min-height: auto;
+  }
+
+  .trip-page .hero-inner {
+    min-height: 48vh;
+    padding-top: 84px;
+  }
+
+  .trip-panel,
+  .trip-result-card {
+    border-radius: 8px;
+  }
+
+  .trip-page .trip-panel {
+    padding: 18px;
+  }
+
+  .trip-chips,
+  .attraction-chips,
+  .hotel-preference-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .trip-chip,
+  .attraction-chip {
+    justify-content: flex-start;
+    min-height: 44px;
+    width: 100%;
+  }
+
+  .recommendation-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 6px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .recommendation-tabs button {
+    flex: 0 0 76%;
+    min-height: 64px;
+    scroll-snap-align: start;
+  }
+
+  .trip-map {
+    aspect-ratio: 1 / 1;
+  }
+
+  .map-zoom-controls {
+    right: 10px;
+    top: 10px;
+  }
+
+  .trip-map-marker span {
+    font-size: 0.62rem;
+    max-width: 92px;
+    top: 14px;
+  }
+
+  .hotel-suggestion-list,
+  .poi-list,
+  .restaurant-list {
+    gap: 10px;
+  }
+
+  .neighborhood-page .hero {
+    min-height: auto;
+  }
+
+  .neighborhood-hero-inner {
+    margin-bottom: 0;
+    min-height: 60vh;
+  }
+
+  .neighborhood-detail-band {
+    padding-top: 34px;
+  }
+
+  .neighborhood-page .detail {
+    padding: 16px;
+  }
+
+  .detail-image,
+  .neighborhood-page .detail-image {
+    min-height: 310px;
+  }
+
+  .gallery-track,
+  .neighborhood-page .gallery-track {
+    height: 310px;
+    min-height: 310px;
+  }
+
+  .analysis-block,
+  .analysis-block.featured {
+    grid-column: 1 / -1;
+  }
+
+  .static-neighborhood-content .static-detail,
+  .static-analysis {
+    padding: 18px;
+  }
+
+  .borough-overview-section {
+    margin-top: 28px;
+  }
+
+  .site-footer {
+    margin-top: 42px;
+    padding: 36px 0 24px;
+  }
+
+  .footer-inner {
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cookie-banner {
+    border-radius: 8px 8px 0 0;
+    left: 10px;
+    right: 10px;
+    width: auto;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero h1,
+  .snapshot-copy h3,
+  .section-heading h2,
+  .comparison-card h3,
+  .detail-copy h2,
+  .empty-state h2 {
+    font-size: 2.05rem;
+  }
+
+  .navlinks,
+  .segments {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-inner {
+    min-height: 54vh;
+    padding-bottom: 34px;
+  }
+
+  .market-snapshot,
+  .borough-overview-section,
+  .trip-page .trip-panel,
+  .comparison-card,
+  .comparison-row,
+  .legal-card,
+  .sources,
+  .detail,
+  .static-neighborhood-content .static-detail,
+  .static-analysis {
+    padding: 16px;
+  }
+
+  .card,
+  .borough-neighborhood-card {
+    min-height: 230px;
+  }
+
+  .recommendation-tabs button {
+    flex-basis: 88%;
+  }
+
+  .detail-image,
+  .neighborhood-page .detail-image,
+  .gallery-track,
+  .neighborhood-page .gallery-track {
+    min-height: 270px;
+  }
+
+  .gallery-track,
+  .neighborhood-page .gallery-track {
+    height: 270px;
+  }
+}

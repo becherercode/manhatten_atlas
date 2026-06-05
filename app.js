@@ -1591,6 +1591,7 @@ const translations = {
     recommendationSectionEyebrow: "Auch interessant",
     recommendationSectionTitle: "Weitere Viertel, die zu dir passen",
     recommendationSectionCopy: "Diese Empfehlungen ergänzen deinen persönlichen Viertel-Check und zeigen dir stilvolle Alternativen mit ähnlichem Reiseprofil.",
+    recommendationTab: "Empfehlung",
     customApproxDistance: "ca.",
     customStrongFit: "Stark passend",
     customGoodFit: "Gut passend",
@@ -1609,7 +1610,7 @@ const translations = {
     prefQuiet: "Ruhiger Aufenthalt",
     hotelBooking: "Hotelprofil",
     hotelTitle: "Passende Unterkunft wählen",
-    hotelNote: "Diese Kriterien helfen bei der Hotelsuche. Externe Partnerlinks werden erst ergänzt, wenn die Website freigegeben und die Partnerkennzeichnung sauber eingerichtet ist.",
+    hotelNote: "Redaktionelle Orientierung auf Basis der NYC-Atlas-Viertellogik, ergänzt durch bekannte Hotelguides wie den MICHELIN Guide.",
     hotelTypeLabel: "Hoteltyp",
     hotelLocationLabel: "Lage",
     hotelComfortLabel: "Komfort",
@@ -1780,6 +1781,7 @@ const translations = {
     recommendationSectionEyebrow: "Also worth exploring",
     recommendationSectionTitle: "More neighborhoods that fit your trip",
     recommendationSectionCopy: "These recommendations complement your personal neighborhood check and show polished alternatives with a similar travel profile.",
+    recommendationTab: "Recommendation",
     customApproxDistance: "approx.",
     customStrongFit: "Strong fit",
     customGoodFit: "Good fit",
@@ -1798,7 +1800,7 @@ const translations = {
     prefQuiet: "Quiet stay",
     hotelBooking: "Hotel profile",
     hotelTitle: "Choose suitable lodging",
-    hotelNote: "These criteria help with hotel research. External partner links will only be added after the site is approved and partner labeling is set up properly.",
+    hotelNote: "Editorial guidance based on the NYC Atlas neighborhood logic, complemented by established hotel guides such as the MICHELIN Guide.",
     hotelTypeLabel: "Hotel type",
     hotelLocationLabel: "Location",
     hotelComfortLabel: "Comfort",
@@ -1969,6 +1971,7 @@ const translations = {
     recommendationSectionEyebrow: "También interesante",
     recommendationSectionTitle: "Más barrios que encajan con tu viaje",
     recommendationSectionCopy: "Estas recomendaciones complementan tu análisis personal y muestran alternativas elegantes con un perfil de viaje similar.",
+    recommendationTab: "Recomendación",
     customApproxDistance: "aprox.",
     customStrongFit: "Muy adecuado",
     customGoodFit: "Adecuado",
@@ -1987,7 +1990,7 @@ const translations = {
     prefQuiet: "Estancia tranquila",
     hotelBooking: "Perfil de hotel",
     hotelTitle: "Elegir alojamiento adecuado",
-    hotelNote: "Estos criterios ayudan en la búsqueda de hotel. Los enlaces externos de socios solo se añadirán cuando el sitio esté aprobado y la identificación publicitaria esté configurada correctamente.",
+    hotelNote: "Orientación editorial basada en la lógica de barrios de NYC Atlas, complementada por guías hoteleras reconocidas como la Guía MICHELIN.",
     hotelTypeLabel: "Tipo de hotel",
     hotelLocationLabel: "Ubicación",
     hotelComfortLabel: "Comodidad",
@@ -2158,6 +2161,7 @@ const translations = {
     recommendationSectionEyebrow: "À explorer aussi",
     recommendationSectionTitle: "D’autres quartiers adaptés à votre voyage",
     recommendationSectionCopy: "Ces recommandations complètent votre analyse personnelle et proposent des alternatives soignées au profil de voyage similaire.",
+    recommendationTab: "Recommandation",
     customApproxDistance: "env.",
     customStrongFit: "Très adapté",
     customGoodFit: "Adapté",
@@ -2176,7 +2180,7 @@ const translations = {
     prefQuiet: "Séjour calme",
     hotelBooking: "Profil hôtel",
     hotelTitle: "Choisir un hébergement adapté",
-    hotelNote: "Ces critères aident à rechercher un hôtel. Les liens partenaires externes ne seront ajoutés qu'après l'approbation du site et une identification correcte.",
+    hotelNote: "Orientation éditoriale basée sur la logique des quartiers de NYC Atlas, complétée par des guides hôteliers reconnus comme le Guide MICHELIN.",
     hotelTypeLabel: "Type d'hôtel",
     hotelLocationLabel: "Emplacement",
     hotelComfortLabel: "Confort",
@@ -2347,6 +2351,7 @@ const translations = {
     recommendationSectionEyebrow: "Também vale explorar",
     recommendationSectionTitle: "Outros bairros que combinam com sua viagem",
     recommendationSectionCopy: "Estas recomendações complementam sua análise pessoal e mostram alternativas elegantes com um perfil de viagem semelhante.",
+    recommendationTab: "Recomendação",
     customApproxDistance: "aprox.",
     customStrongFit: "Combina muito",
     customGoodFit: "Combina bem",
@@ -2365,7 +2370,7 @@ const translations = {
     prefQuiet: "Estadia tranquila",
     hotelBooking: "Perfil de hotel",
     hotelTitle: "Escolher hospedagem adequada",
-    hotelNote: "Estes critérios ajudam na pesquisa de hotéis. Links externos de parceiros só serão adicionados após a aprovação do site e a identificação correta.",
+    hotelNote: "Orientação editorial baseada na lógica de bairros do NYC Atlas, complementada por guias de hotéis reconhecidos como o Guia MICHELIN.",
     hotelTypeLabel: "Tipo de hotel",
     hotelLocationLabel: "Localização",
     hotelComfortLabel: "Conforto",
@@ -2536,6 +2541,7 @@ const translations = {
     recommendationSectionEyebrow: "也值得看看",
     recommendationSectionTitle: "更多适合你行程的街区",
     recommendationSectionCopy: "这些推荐补充你的个人街区检查，并展示旅行风格相近的优雅替代选择。",
+    recommendationTab: "推荐",
     customApproxDistance: "约",
     customStrongFit: "非常匹配",
     customGoodFit: "比较匹配",
@@ -2554,7 +2560,7 @@ const translations = {
     prefQuiet: "安静住宿",
     hotelBooking: "酒店档案",
     hotelTitle: "选择合适住宿",
-    hotelNote: "这些条件可帮助筛选酒店。外部合作链接只会在网站获批并完成清晰标识后添加。",
+    hotelNote: "基于 NYC Atlas 街区逻辑的编辑性建议，并参考 MICHELIN Guide 等知名酒店指南。",
     hotelTypeLabel: "酒店类型",
     hotelLocationLabel: "位置",
     hotelComfortLabel: "舒适度",
@@ -2723,6 +2729,7 @@ translations.it = {
   recommendationSectionEyebrow: "Da esplorare",
   recommendationSectionTitle: "Altri quartieri adatti al tuo viaggio",
   recommendationSectionCopy: "Queste raccomandazioni completano il tuo controllo personale e mostrano alternative curate con un profilo di viaggio simile.",
+  recommendationTab: "Consiglio",
   customApproxDistance: "ca.",
   customStrongFit: "Molto adatto",
   customGoodFit: "Adatto",
@@ -2741,7 +2748,7 @@ translations.it = {
   prefQuiet: "Soggiorno tranquillo",
   hotelBooking: "Profilo hotel",
   hotelTitle: "Scegliere un alloggio adatto",
-  hotelNote: "Questi criteri aiutano nella ricerca hotel. I link partner esterni saranno aggiunti solo dopo l'approvazione del sito e una corretta identificazione.",
+  hotelNote: "Orientamento editoriale basato sulla logica dei quartieri di NYC Atlas, integrato da guide alberghiere riconosciute come la Guida MICHELIN.",
   hotelTypeLabel: "Tipo di hotel",
   hotelLocationLabel: "Posizione",
   hotelComfortLabel: "Comfort",
@@ -2909,6 +2916,7 @@ translations.ja = {
   recommendationSectionEyebrow: "こちらもおすすめ",
   recommendationSectionTitle: "あなたの旅に合う他の地区",
   recommendationSectionCopy: "これらのおすすめは、あなたの地区チェックを補完し、似た旅行プロフィールに合う洗練された選択肢を示します。",
+  recommendationTab: "おすすめ",
   customApproxDistance: "約",
   customStrongFit: "とても合う",
   customGoodFit: "合う",
@@ -2927,7 +2935,7 @@ translations.ja = {
   prefQuiet: "静かな滞在",
   hotelBooking: "ホテルプロフィール",
   hotelTitle: "合う宿泊先を選ぶ",
-  hotelNote: "これらの条件はホテル選びの参考になります。外部パートナーリンクは、サイト承認後に適切な表示を整えてから追加します。",
+  hotelNote: "NYC Atlas の地区ロジックに基づく編集上の目安で、MICHELIN Guide などの著名なホテルガイドも参考にしています。",
   hotelTypeLabel: "ホテルタイプ",
   hotelLocationLabel: "立地",
   hotelComfortLabel: "快適さ",
@@ -5012,6 +5020,121 @@ const hotelFilterOptions = {
   }
 };
 
+const curatedHotelOptions = [
+  { name: "The Jane Hotel", area: "West Village", borough: "Manhattan", tier: "budget", types: ["boutique", "budget"], strengths: ["nightlife", "restaurants", "sights"], note: "charaktervoll, kompakt und gut für Village-Atmosphäre" },
+  { name: "Arlo SoHo", area: "SoHo", borough: "Manhattan", tier: "balanced", types: ["boutique", "best-match"], strengths: ["restaurants", "sights", "subway"], note: "modern, zentral und gut für Downtown-Erkundungen" },
+  { name: "11 Howard", area: "SoHo", borough: "Manhattan", tier: "premium", types: ["boutique", "luxury"], strengths: ["restaurants", "design", "sights"], note: "designorientiert und nah an SoHo, Nolita und Chinatown" },
+  { name: "The Dominick", area: "SoHo", borough: "Manhattan", tier: "premium", types: ["luxury"], strengths: ["view", "restaurants", "sights"], note: "große Zimmer, Skyline-Blick und starke Downtown-Lage" },
+  { name: "Hotel 50 Bowery", area: "Chinatown", borough: "Manhattan", tier: "balanced", types: ["boutique", "best-match"], strengths: ["restaurants", "sights", "view"], note: "stark für Chinatown, Lower East Side und Rooftop-Ausblick" },
+  { name: "citizenM New York Bowery", area: "Lower East Side", borough: "Manhattan", tier: "balanced", types: ["best-match", "design"], strengths: ["nightlife", "restaurants", "design"], note: "kompakt, modern und gut für nightlife-nahe Downtown-Tage" },
+  { name: "PUBLIC Hotel", area: "Lower East Side", borough: "Manhattan", tier: "balanced", types: ["design", "boutique"], strengths: ["nightlife", "restaurants", "view"], note: "lebendig, designstark und gut für Abendprogramm" },
+  { name: "The Ludlow Hotel", area: "Lower East Side", borough: "Manhattan", tier: "premium", types: ["boutique"], strengths: ["nightlife", "restaurants", "design"], note: "hochwertiger Boutique-Stil in einer der lebendigsten Lagen" },
+  { name: "Moxy NYC East Village", area: "East Village", borough: "Manhattan", tier: "balanced", types: ["design", "best-match"], strengths: ["nightlife", "restaurants", "subway"], note: "jung, urban und passend für East-Village-Abende" },
+  { name: "The Marlton Hotel", area: "Greenwich Village", borough: "Manhattan", tier: "balanced", types: ["boutique"], strengths: ["restaurants", "quiet", "sights"], note: "klassischer Village-Charakter in ruhigerer Lage" },
+  { name: "Walker Hotel Greenwich Village", area: "Greenwich Village", borough: "Manhattan", tier: "premium", types: ["boutique"], strengths: ["quiet", "restaurants", "design"], note: "elegant, wohnlich und gut für Village-Spaziergänge" },
+  { name: "The High Line Hotel", area: "Chelsea", borough: "Manhattan", tier: "premium", types: ["boutique"], strengths: ["sights", "quiet", "design"], note: "historischer Charakter nahe High Line und Galerien" },
+  { name: "Chelsea Pines Inn", area: "Chelsea", borough: "Manhattan", tier: "budget", types: ["budget", "boutique"], strengths: ["sights", "restaurants", "subway"], note: "kleiner, persönlicher und gut für Chelsea/Meatpacking" },
+  { name: "Pendry Manhattan West", area: "Hudson Yards", borough: "Manhattan", tier: "premium", types: ["luxury", "design"], strengths: ["sights", "view", "restaurants"], note: "luxuriös, modern und direkt im neuen Westside-Korridor" },
+  { name: "Equinox Hotel New York", area: "Hudson Yards", borough: "Manhattan", tier: "premium", types: ["luxury", "design"], strengths: ["view", "sights", "quiet"], note: "hochwertig, wellnessorientiert und sehr modern" },
+  { name: "The Knickerbocker", area: "Midtown", borough: "Manhattan", tier: "premium", types: ["luxury", "best-match"], strengths: ["sights", "subway", "view"], note: "klassische zentrale Lage direkt bei Times Square und Bryant Park" },
+  { name: "The Bryant Park Hotel", area: "Midtown", borough: "Manhattan", tier: "premium", types: ["boutique", "luxury"], strengths: ["sights", "subway", "restaurants"], note: "zentral, aber eleganter als viele Times-Square-Alternativen" },
+  { name: "Library Hotel", area: "Midtown", borough: "Manhattan", tier: "balanced", types: ["boutique"], strengths: ["quiet", "sights", "subway"], note: "ruhigere Midtown-Wahl nahe Grand Central und Bryant Park" },
+  { name: "Arthouse Hotel", area: "Upper West Side", borough: "Manhattan", tier: "balanced", types: ["boutique"], strengths: ["quiet", "sights", "restaurants"], note: "gut für Central Park, Riverside Park und Kultur" },
+  { name: "Hotel Beacon", area: "Upper West Side", borough: "Manhattan", tier: "balanced", types: ["family", "apartment"], strengths: ["quiet", "sights", "subway"], note: "praktisch, geräumiger und stark für längere Aufenthalte" },
+  { name: "The Mark", area: "Upper East Side", borough: "Manhattan", tier: "premium", types: ["luxury"], strengths: ["sights", "quiet", "design"], note: "ikonisch, sehr hochwertig und nah an Museum Mile" },
+  { name: "The Lowell", area: "Upper East Side", borough: "Manhattan", tier: "premium", types: ["luxury", "boutique"], strengths: ["quiet", "sights", "restaurants"], note: "diskret, elegant und besonders ruhig für Manhattan" },
+  { name: "Renaissance New York Harlem Hotel", area: "Harlem", borough: "Manhattan", tier: "balanced", types: ["best-match"], strengths: ["sights", "restaurants", "subway"], note: "gute Wahl für Harlem-Kultur und Upper-Manhattan-Erkundung" },
+  { name: "Aloft Harlem", area: "Harlem", borough: "Manhattan", tier: "balanced", types: ["budget", "best-match"], strengths: ["sights", "restaurants", "subway"], note: "praktisch, zentral in Harlem und gut angebunden" },
+  { name: "Radio Hotel", area: "Washington Heights", borough: "Manhattan", tier: "balanced", types: ["design", "budget"], strengths: ["subway", "restaurants"], note: "farbenfroh, modern und passend für Upper Manhattan" },
+  { name: "Edge Hotel", area: "Washington Heights", borough: "Manhattan", tier: "budget", types: ["budget", "best-match"], strengths: ["subway", "quiet"], note: "funktional und gut für Columbia Medical Center und Uptown" },
+  { name: "1 Hotel Brooklyn Bridge", area: "DUMBO", borough: "Brooklyn", tier: "premium", types: ["luxury", "design"], strengths: ["view", "sights", "quiet"], note: "Premiumlage am Wasser mit Skyline-Blick" },
+  { name: "The Tillary Hotel", area: "Downtown Brooklyn", borough: "Brooklyn", tier: "balanced", types: ["best-match"], strengths: ["subway", "sights", "restaurants"], note: "praktisch für DUMBO, Brooklyn Heights und Manhattan-Anbindung" },
+  { name: "Ace Hotel Brooklyn", area: "Downtown Brooklyn", borough: "Brooklyn", tier: "balanced", types: ["design", "boutique"], strengths: ["restaurants", "subway", "design"], note: "modern, kulturell und gut für Brownstone-Brooklyn" },
+  { name: "EVEN Hotel Brooklyn", area: "Downtown Brooklyn", borough: "Brooklyn", tier: "budget", types: ["budget", "best-match"], strengths: ["subway", "quiet"], note: "solide Lage mit guter U-Bahn-Anbindung" },
+  { name: "Wythe Hotel", area: "Williamsburg", borough: "Brooklyn", tier: "premium", types: ["boutique", "design"], strengths: ["nightlife", "restaurants", "view"], note: "klassischer Williamsburg-Favorit mit starkem Designprofil" },
+  { name: "The William Vale", area: "Williamsburg", borough: "Brooklyn", tier: "premium", types: ["luxury", "design"], strengths: ["view", "nightlife", "restaurants"], note: "gut für Skyline-Blick, Rooftop und North Brooklyn" },
+  { name: "Penny Williamsburg", area: "Williamsburg", borough: "Brooklyn", tier: "balanced", types: ["boutique", "design"], strengths: ["restaurants", "nightlife", "view"], note: "kreativ, kompakt und nahe Williamsburg-Ausgehleben" },
+  { name: "Henry Norman Hotel", area: "Greenpoint", borough: "Brooklyn", tier: "balanced", types: ["boutique", "apartment"], strengths: ["quiet", "restaurants"], note: "loftartig und ruhiger als Williamsburg" },
+  { name: "The Box House Hotel", area: "Greenpoint", borough: "Brooklyn", tier: "balanced", types: ["apartment", "family"], strengths: ["quiet", "view"], note: "größere Zimmer und gut für längere Aufenthalte" },
+  { name: "Liberty View Brooklyn Hotel", area: "Sunset Park", borough: "Brooklyn", tier: "budget", types: ["budget"], strengths: ["subway", "quiet"], note: "preisbewusste Brooklyn-Alternative mit Manhattan-Anbindung" },
+  { name: "Boro Hotel", area: "Long Island City", borough: "Queens", tier: "balanced", types: ["boutique", "design"], strengths: ["view", "subway", "restaurants"], note: "gute LIC-Basis mit schneller Verbindung nach Manhattan" },
+  { name: "The Local NY", area: "Long Island City", borough: "Queens", tier: "budget", types: ["budget"], strengths: ["subway", "restaurants"], note: "sehr preisbewusst und urban für Queens/Manhattan-Anbindung" },
+  { name: "Ravel Hotel", area: "Long Island City", borough: "Queens", tier: "balanced", types: ["boutique"], strengths: ["view", "nightlife"], note: "gut für Skyline-Blick und Queens-Waterfront" },
+  { name: "The Collective Paper Factory", area: "Long Island City", borough: "Queens", tier: "balanced", types: ["design", "boutique"], strengths: ["subway", "restaurants"], note: "loftiger Queens-Stil mit guter U-Bahn-Lage" },
+  { name: "Renaissance New York Flushing Hotel", area: "Flushing", borough: "Queens", tier: "balanced", types: ["best-match"], strengths: ["restaurants", "subway"], note: "stark für Flushing, Food-Szene und ÖPNV" },
+  { name: "TWA Hotel", area: "JFK Airport", borough: "Queens", tier: "balanced", types: ["design", "family"], strengths: ["quiet", "design"], note: "ikonisch für Airport-Nähe und Designinteresse" },
+  { name: "The Rockaway Hotel", area: "Rockaway Beach", borough: "Queens", tier: "premium", types: ["boutique", "design"], strengths: ["quiet", "view", "restaurants"], note: "Beach-orientiert und deutlich entspannter als Midtown" },
+  { name: "Opera House Hotel", area: "Mott Haven", borough: "Bronx", tier: "budget", types: ["budget", "boutique"], strengths: ["subway", "sights"], note: "historisches Haus und gute South-Bronx-Anbindung" },
+  { name: "Wingate by Wyndham Bronx/Haven Park", area: "Mott Haven", borough: "Bronx", tier: "budget", types: ["budget"], strengths: ["subway", "restaurants"], note: "praktisch für South Bronx und schnelle Manhattan-Wege" },
+  { name: "Residence Inn by Marriott The Bronx", area: "East Bronx", borough: "Bronx", tier: "balanced", types: ["family", "apartment"], strengths: ["quiet", "sights"], note: "gut für längere Aufenthalte und Bronx-Ziele" },
+  { name: "Ramada by Wyndham Bronx", area: "East Bronx", borough: "Bronx", tier: "budget", types: ["budget"], strengths: ["quiet"], note: "preisorientierte Option für östliche Bronx-Lagen" },
+  { name: "Hampton Inn & Suites Staten Island", area: "Staten Island", borough: "Staten Island", tier: "budget", types: ["budget", "family"], strengths: ["quiet"], note: "praktisch, ruhig und gut für Autofahrten" },
+  { name: "Hilton Garden Inn New York/Staten Island", area: "Staten Island", borough: "Staten Island", tier: "balanced", types: ["family", "best-match"], strengths: ["quiet"], note: "solide Wahl für Staten Island und längere Aufenthalte" },
+  { name: "Fairfield Inn & Suites New York Staten Island", area: "Staten Island", borough: "Staten Island", tier: "budget", types: ["budget"], strengths: ["quiet"], note: "funktional und preisbewusst für South-/West-Shore-Tage" }
+];
+
+function hotelPreferenceValues(preferences, profile) {
+  return new Set([
+    ...(preferences || []),
+    profile.location?.labelKey === "hotelNearNightlife" ? "nightlife" : "",
+    profile.location?.labelKey === "hotelNearRestaurants" ? "restaurants" : "",
+    profile.location?.labelKey === "hotelNearSights" ? "sights" : "",
+    profile.location?.labelKey === "hotelQuiet" ? "quiet" : "",
+    profile.location?.labelKey === "hotelNearSubway" ? "subway" : "",
+    profile.comfort?.labelKey === "hotelView" ? "view" : "",
+    profile.comfort?.labelKey === "hotelDesign" ? "design" : "",
+    profile.comfort?.labelKey === "hotelBreakfast" ? "breakfast" : "",
+    profile.type?.query?.includes("boutique") ? "boutique" : "",
+    profile.type?.query?.includes("luxury") ? "luxury" : "",
+    profile.type?.query?.includes("budget") ? "budget" : "",
+    profile.type?.query?.includes("family") ? "family" : "",
+    profile.type?.query?.includes("apartment") ? "apartment" : ""
+  ].filter(Boolean));
+}
+
+function hotelTierFit(candidate, budget) {
+  if (budget === "value") return candidate.tier === "budget" ? 18 : candidate.tier === "balanced" ? 8 : -10;
+  if (budget === "premium") return candidate.tier === "premium" ? 18 : candidate.tier === "balanced" ? 7 : -6;
+  return candidate.tier === "balanced" ? 14 : 5;
+}
+
+function hotelAreaScore(candidate, item, boroughName) {
+  if (candidate.area === item.name) return 35;
+  if (candidate.borough === boroughName) {
+    const sameDowntownCluster = ["SoHo", "NoHo", "Chinatown", "Lower East Side", "East Village", "Greenwich Village", "West Village", "TriBeCa", "Financial District", "Battery Park City"].includes(candidate.area)
+      && ["SoHo", "NoHo", "Chinatown", "Lower East Side", "East Village", "Greenwich Village", "West Village", "TriBeCa", "Financial District", "Battery Park City"].includes(item.name);
+    const sameBrooklynCluster = ["Williamsburg", "Greenpoint", "DUMBO", "Downtown Brooklyn", "Park Slope"].includes(candidate.area)
+      && ["Williamsburg", "Greenpoint", "DUMBO", "Downtown Brooklyn", "Park Slope", "Bed-Stuy", "Bushwick"].includes(item.name);
+    const sameQueensCluster = ["Long Island City", "Astoria", "Flushing", "Rockaway Beach"].includes(candidate.area)
+      && ["Long Island City", "Astoria", "Flushing", "Jackson Heights", "Sunnyside", "Forest Hills", "Jamaica", "Rockaway Beach"].includes(item.name);
+    if (sameDowntownCluster || sameBrooklynCluster || sameQueensCluster) return 22;
+    return 10;
+  }
+  return -20;
+}
+
+function hotelRecommendations(item, budget, boroughName, preferences = [], attractions = [], options = {}) {
+  const profile = hotelSearchProfile(preferences, attractions, options);
+  const values = hotelPreferenceValues(preferences, profile);
+  return curatedHotelOptions
+    .map((candidate) => {
+      let score = hotelAreaScore(candidate, item, boroughName) + hotelTierFit(candidate, budget);
+      candidate.types.forEach((type) => {
+        if (values.has(type)) score += 10;
+      });
+      candidate.strengths.forEach((strength) => {
+        if (values.has(strength)) score += 8;
+      });
+      if (profile.comfort?.labelKey === "hotelView" && candidate.strengths.includes("view")) score += 8;
+      if (profile.comfort?.labelKey === "hotelDesign" && candidate.types.includes("design")) score += 8;
+      if (profile.type?.labelKey === "hotelFamily" && candidate.types.includes("family")) score += 10;
+      if (profile.type?.labelKey === "hotelApartment" && candidate.types.includes("apartment")) score += 10;
+      return { ...candidate, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
+}
+
 function hotelSearchProfile(preferences, attractions, options = {}) {
   const hotelType = options.type || "best-match";
   const hotelLocation = options.location || "auto";
@@ -5040,35 +5163,22 @@ function attractionHotelQuery(attractions) {
 }
 
 function hotelLinks(item, budget, boroughName = currentBorough().name, preferences = [], attractions = [], options = {}) {
-  const base = `${item.name}, ${boroughName}, New York`;
-  const profile = hotelSearchProfile(preferences, attractions, options);
-  const typeLabel = profile.type?.labelKey ? t(profile.type.labelKey) : t("hotelBestMatch");
-  const locationLabel = profile.location?.labelKey ? t(profile.location.labelKey) : t("hotelGoodLocation");
-  const comfortLabel = profile.comfort?.labelKey ? t(profile.comfort.labelKey) : t("hotelGoodComfort");
-  return [
-    {
-      label: ["zh", "ja"].includes(currentLanguage) ? `${t("hotelBestIn")} ${item.name}` : `${typeLabel} ${t("hotelBestIn")} ${item.name}`,
-      query: base,
-      primary: true
-    },
-    {
-      label: locationLabel,
-      query: `${base} ${profile.location?.query || "central location"}`,
-      primary: false
-    },
-    {
-      label: comfortLabel,
-      query: `${base} ${profile.comfort?.query || "highly rated hotel"}`,
-      primary: false
-    }
-  ];
+  return hotelRecommendations(item, budget, boroughName, preferences, attractions, options);
 }
 
 function hotelLinksMarkup(links) {
   return links
     .map(
-      (link) =>
-        `<span class="${link.primary ? "primary" : ""}">${link.label}</span>`
+      (hotel, index) => `
+        <article class="hotel-suggestion${index === 0 ? " primary" : ""}">
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <strong>${hotel.name}</strong>
+            <p>${hotel.note}</p>
+            <small>${hotel.area} · ${hotel.tier === "premium" ? t("hotelLuxury") : hotel.tier === "budget" ? t("hotelBudget") : t("hotelBestMatch")}</small>
+          </div>
+        </article>
+      `
     )
     .join("");
 }
@@ -5148,6 +5258,8 @@ function updateHotelCardLinks(card) {
 function bindHotelCards() {
   document.querySelectorAll(".hotel-column").forEach((card) => {
     card.querySelectorAll("[data-hotel-control]").forEach((select) => {
+      if (select.dataset.hotelBound === "true") return;
+      select.dataset.hotelBound = "true";
       select.addEventListener("change", () => updateHotelCardLinks(card));
     });
   });
@@ -5375,6 +5487,8 @@ function bindTripMaps() {
   document.querySelectorAll(".trip-map").forEach((map) => {
     renderTripMapLevel(map, Number(map.dataset.mapLevel) || 0);
     map.querySelectorAll("[data-map-zoom]").forEach((button) => {
+      if (button.dataset.mapBound === "true") return;
+      button.dataset.mapBound = "true";
       button.addEventListener("click", () => {
         const current = Number(map.dataset.mapLevel) || 0;
         const direction = button.dataset.mapZoom === "in" ? 1 : -1;
@@ -5554,6 +5668,34 @@ function recommendationSectionIntroMarkup(hasCustomSelection) {
   `;
 }
 
+function bindRecommendationSwitcher() {
+  document.querySelectorAll("[data-recommendation-switcher]").forEach((switcher) => {
+    const tabs = switcher.querySelectorAll("[data-recommendation-tab]");
+    const panels = switcher.querySelectorAll("[data-recommendation-panel]");
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.recommendationTab;
+        tabs.forEach((candidate) => {
+          const active = candidate.dataset.recommendationTab === target;
+          candidate.classList.toggle("active", active);
+          candidate.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        panels.forEach((panel) => {
+          const active = panel.dataset.recommendationPanel === target;
+          panel.classList.toggle("active", active);
+          if (active) {
+            panel.removeAttribute("hidden");
+          } else {
+            panel.setAttribute("hidden", "");
+          }
+        });
+        bindTripMaps();
+        bindHotelCards();
+      });
+    });
+  });
+}
+
 function renderTripPlanner() {
   if (!tripOutput) return;
 
@@ -5587,7 +5729,7 @@ function renderTripPlanner() {
     quiet: t("prefQuiet")
   };
 
-  const recommendationMarkup = scored
+  const recommendationCards = scored
     .map(({ item, boroughName }) => {
       const localized = localizedNeighborhood(item, extendedProfiles[item.name]);
       const links = hotelLinks(item, budget, boroughName, preferences, attractions);
@@ -5596,7 +5738,7 @@ function renderTripPlanner() {
         .filter((sight, index, list) => list.indexOf(sight) === index)
         .slice(0, 3);
       return `
-        <article class="trip-result-card">
+        <article class="trip-result-card recommendation-panel">
           <div class="trip-result-hero">
             <div>
               <p class="eyebrow">${boroughName} · ${item.area}</p>
@@ -5637,11 +5779,38 @@ function renderTripPlanner() {
           </div>
         </article>
       `;
-    })
-    .join("");
+    });
+  const recommendationMarkup = `
+    <section class="recommendation-switcher" data-recommendation-switcher>
+      <div class="recommendation-tabs" role="tablist" aria-label="${t("recommendationSectionTitle")}">
+        ${scored
+          .map(
+            ({ item }, index) => `
+              <button class="${index === 0 ? "active" : ""}" type="button" role="tab" aria-selected="${index === 0 ? "true" : "false"}" data-recommendation-tab="${index}">
+                <span>${t("recommendationTab")} ${index + 1}</span>
+                <strong>${item.name}</strong>
+              </button>
+            `
+          )
+          .join("")}
+      </div>
+      <div class="recommendation-panels">
+        ${recommendationCards
+          .map(
+            (card, index) => `
+              <div class="recommendation-panel-shell${index === 0 ? " active" : ""}" data-recommendation-panel="${index}" ${index === 0 ? "" : "hidden"}>
+                ${card}
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
   const customMarkup = customNeighborhoodMarkup(customSelection, preferences, attractions, budget, style);
   const sectionIntroMarkup = recommendationSectionIntroMarkup(Boolean(customSelection));
   tripOutput.innerHTML = `${customMarkup}${sectionIntroMarkup}${recommendationMarkup}`;
+  bindRecommendationSwitcher();
   bindTripMaps();
   bindHotelCards();
 }

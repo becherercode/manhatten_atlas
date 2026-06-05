@@ -867,6 +867,97 @@ a {
   max-width: 760px;
 }
 
+.recommendation-switcher {
+  display: grid;
+  gap: 16px;
+}
+
+.recommendation-tabs {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(246, 248, 252, 0.72));
+  border: 1px solid rgba(17, 17, 20, 0.08);
+  border-radius: 8px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 18px 44px rgba(17, 17, 20, 0.07);
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 6px;
+}
+
+.recommendation-tabs button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  color: rgba(17, 17, 20, 0.62);
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  gap: 3px;
+  min-height: 58px;
+  padding: 10px 12px;
+  text-align: left;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+.recommendation-tabs button span {
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.recommendation-tabs button strong {
+  color: inherit;
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.15;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recommendation-tabs button.active {
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 12px 28px rgba(17, 17, 20, 0.1);
+  color: var(--ink);
+}
+
+.recommendation-tabs button:focus-visible {
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.18);
+  outline: none;
+}
+
+.recommendation-panels {
+  display: grid;
+}
+
+.recommendation-panel-shell[hidden] {
+  display: none;
+}
+
+.recommendation-panel-shell.active {
+  animation: panelFade 220ms ease;
+}
+
+@keyframes panelFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .trip-result-hero {
   display: grid;
   gap: 16px;
@@ -1054,19 +1145,22 @@ a {
   padding: 0 14px;
 }
 
-.trip-pill-row,
-.hotel-links {
+.trip-pill-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.hotel-links {
+  display: grid;
+  gap: 10px;
 }
 
 .trip-pill-row {
   margin-top: 14px;
 }
 
-.trip-pill,
-.hotel-links span {
+.trip-pill {
   border-radius: 999px;
   font-size: 0.82rem;
   font-weight: 750;
@@ -1362,21 +1456,62 @@ a {
   margin: 0;
 }
 
-.hotel-links span {
-  background: rgba(17, 17, 20, 0.08);
-  color: var(--ink);
-}
-
-.hotel-links span.primary {
-  background: var(--accent);
-  color: #fff;
-}
-
 .trip-note {
   color: var(--muted);
   font-size: 0.84rem;
   line-height: 1.45;
   margin-top: 12px;
+}
+
+.hotel-suggestion {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(17, 17, 20, 0.07);
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto 1fr;
+  padding: 12px;
+}
+
+.hotel-suggestion.primary {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(239, 246, 255, 0.9));
+  border-color: rgba(0, 113, 227, 0.18);
+}
+
+.hotel-suggestion > span {
+  align-items: center;
+  background: rgba(0, 113, 227, 0.1);
+  border-radius: 999px;
+  color: #165ca8;
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 900;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.hotel-suggestion strong {
+  display: block;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+
+.hotel-suggestion p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 0 0 7px;
+}
+
+.hotel-suggestion small {
+  color: rgba(17, 17, 20, 0.58);
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .compare-selectors {

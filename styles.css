@@ -2258,6 +2258,7 @@ a {
   box-shadow: var(--soft-shadow);
   overflow: hidden;
   padding: 0;
+  scroll-margin-top: 96px;
 }
 
 .legal-toggle {

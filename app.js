@@ -6426,6 +6426,25 @@ legalToggles.forEach((toggle) => {
     });
   });
 });
+
+function openLegalHashTarget() {
+  const targetId = window.location.hash.replace("#", "");
+  if (!["impressum", "datenschutz", "cookies"].includes(targetId)) return;
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  document.querySelectorAll(".legal-card").forEach((card) => {
+    card.classList.add("open");
+    card.querySelector(".legal-toggle")?.setAttribute("aria-expanded", "true");
+    card.querySelector(".legal-content")?.removeAttribute("hidden");
+  });
+
+  setTimeout(() => {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 80);
+}
+
+window.addEventListener("hashchange", openLegalHashTarget);
 cookieAccept?.addEventListener("click", () => hideCookieBanner("accepted"));
 cookieEssential?.addEventListener("click", () => hideCookieBanner("essential"));
 resetCookieChoice?.addEventListener("click", () => {
@@ -6441,6 +6460,7 @@ selectedNeighborhood =
   activeNeighborhoods().find((item) => item.name === currentBorough().defaultSelected) ||
   activeNeighborhoods()[0];
 applyLanguage(currentLanguage);
+openLegalHashTarget();
 if (isNeighborhoodPage()) {
   renderNeighborhoodPage();
 } else {

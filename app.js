@@ -3464,8 +3464,12 @@ function slugify(value) {
     .replace(/^-+|-+$/g, "");
 }
 
+function siteRootPrefix() {
+  return window.location.pathname.includes("/viertel/") ? "../../../" : "./";
+}
+
 function neighborhoodUrl(item, boroughKey = activeBoroughKey) {
-  return `./neighborhood.html?borough=${encodeURIComponent(boroughKey)}&neighborhood=${encodeURIComponent(slugify(item.name))}`;
+  return `${siteRootPrefix()}viertel/${encodeURIComponent(boroughKey)}/${encodeURIComponent(slugify(item.name))}/`;
 }
 
 function allNeighborhoodEntries() {
@@ -3476,8 +3480,12 @@ function allNeighborhoodEntries() {
 
 function neighborhoodPageMatch() {
   const params = new URLSearchParams(window.location.search);
-  const requestedBorough = params.get("borough");
-  const requestedNeighborhood = params.get("neighborhood") || params.get("name");
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const viertelIndex = pathParts.indexOf("viertel");
+  const pathBorough = viertelIndex >= 0 ? pathParts[viertelIndex + 1] : "";
+  const pathNeighborhood = viertelIndex >= 0 ? pathParts[viertelIndex + 2] : "";
+  const requestedBorough = params.get("borough") || pathBorough;
+  const requestedNeighborhood = params.get("neighborhood") || params.get("name") || pathNeighborhood;
   const requestedSlug = slugify(requestedNeighborhood || "");
   const entries = requestedBorough && boroughs[requestedBorough]
     ? boroughs[requestedBorough].neighborhoods.map((item) => ({

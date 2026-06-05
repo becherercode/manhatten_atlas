@@ -1996,6 +1996,35 @@ a {
   display: block;
 }
 
+.static-neighborhood-content .static-detail {
+  grid-template-columns: 1fr;
+}
+
+.static-detail-copy {
+  grid-column: 1 / -1;
+  max-width: 920px;
+}
+
+.static-analysis {
+  cursor: default;
+}
+
+.static-analysis .analysis-head {
+  margin-bottom: 12px;
+}
+
+.static-analysis .analysis-title {
+  max-width: none;
+}
+
+.static-analysis .analysis-summary {
+  margin-bottom: 0;
+}
+
+.static-analysis .analysis-full {
+  display: block;
+}
+
 .analysis-paragraph {
   display: block;
   margin: 0 0 16px;

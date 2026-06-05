@@ -1743,12 +1743,59 @@ a {
   width: min(1180px, calc(100% - 32px));
 }
 
+.borough-overview-section {
+  background:
+    linear-gradient(120deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.26)),
+    var(--borough-image, var(--hero-image)) center / cover;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 8px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.18);
+  color: #fff;
+  margin-top: 64px;
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 40px);
+  position: relative;
+}
+
+.borough-overview-section::after {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 38%),
+    radial-gradient(circle at 18% 16%, rgba(162, 210, 255, 0.24), transparent 22rem);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.borough-overview-section .section-heading,
+.borough-overview-section .intro-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.borough-overview-section .section-heading > p {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.62;
+  margin: 0;
+  max-width: 520px;
+}
+
 .borough-neighborhoods-section {
   padding-top: 34px;
 }
 
 .borough-stat-grid {
   margin-top: 24px;
+  width: 100%;
+}
+
+.borough-stat-grid article {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.borough-stat-grid p {
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .borough-grid {

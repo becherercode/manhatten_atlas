@@ -1736,6 +1736,29 @@ a {
   max-width: 420px;
 }
 
+.borough-overview-section,
+.borough-neighborhoods-section {
+  margin: 0 auto;
+  padding: 72px 0 18px;
+  width: min(1180px, calc(100% - 32px));
+}
+
+.borough-neighborhoods-section {
+  padding-top: 34px;
+}
+
+.borough-stat-grid {
+  margin-top: 24px;
+}
+
+.borough-grid {
+  margin-top: 26px;
+}
+
+.borough-neighborhood-card {
+  min-height: 330px;
+}
+
 .related-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }

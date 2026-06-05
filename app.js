@@ -6466,5 +6466,8 @@ if (isNeighborhoodPage()) {
 } else {
   renderDetail(selectedNeighborhood);
 }
+if (document.body.classList.contains("borough-page")) {
+  hydrateImages();
+}
 renderTripPlanner();
 showCookieBanner();

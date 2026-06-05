@@ -17,7 +17,7 @@
         document.head.appendChild(adScript);
       }
     </script>
-    <link rel="stylesheet" href="../../../styles.css?v=84" />
+    <link rel="stylesheet" href="../../../styles.css?v=88" />
   </head>
   <body class="neighborhood-page">
     <header class="hero neighborhood-hero" id="neighborhoodHero">
@@ -195,11 +195,40 @@
       </aside>
     </main>
 
-    <footer>
-      <span>NYC Atlas</span>
-      <a href="../../../index.html#impressum" data-i18n="imprintTitle">Impressum</a>
-      <a href="../../../index.html#datenschutz" data-i18n="privacyShort">Datenschutz</a>
-      <a href="../../../index.html#cookies" data-i18n="cookiesTitle">Cookies</a>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="footer-logo" href="../../../index.html#top">NYC Atlas</a>
+          <p data-i18n="footerText">NYC Atlas verbindet Viertelprofile, Reiseplanung, Karten, Hotelorientierung, Sehenswürdigkeiten und Restaurants zu einem kompakten New-York-Guide.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer Navigation">
+          <div class="footer-column">
+            <h2 data-i18n="footerExplore">Entdecken</h2>
+            <a href="../../../index.html#top" data-i18n="footerHome">Startseite</a>
+            <a href="../../../index.html#viertel" data-i18n="footerNeighborhoodProfiles">Viertelprofile</a>
+            <a href="../../../index.html#vergleich" data-i18n="navCompare">Vergleich</a>
+            <a href="../../../trip-planner.html" data-i18n="navTrip">Urlaub</a>
+          </div>
+          <div class="footer-column">
+            <h2 data-i18n="footerBoroughs">Bezirke</h2>
+            <a href="../../../viertel/manhattan/soho/" data-i18n="footerManhattan">Manhattan</a>
+            <a href="../../../viertel/brooklyn/williamsburg/" data-i18n="footerBrooklyn">Brooklyn</a>
+            <a href="../../../viertel/queens/astoria/" data-i18n="footerQueens">Queens</a>
+            <a href="../../../viertel/bronx/mott-haven/" data-i18n="footerBronx">Bronx</a>
+            <a href="../../../viertel/staten-island/st-george/" data-i18n="footerStatenIsland">Staten Island</a>
+          </div>
+          <div class="footer-column">
+            <h2 data-i18n="footerLegal">Rechtliches</h2>
+            <a href="../../../index.html#impressum" data-i18n="imprintTitle">Impressum</a>
+            <a href="../../../index.html#datenschutz" data-i18n="privacyShort">Datenschutz</a>
+            <a href="../../../index.html#cookies" data-i18n="cookiesTitle">Cookies</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NYC Atlas</span>
+        <span data-i18n="footerRights">Eigene redaktionelle Inhalte, kuratierte Stadtprofile und Reiseorientierung.</span>
+      </div>
     </footer>
 
     <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie-Hinweis" data-i18n-aria-label="cookieAria">
@@ -216,6 +245,6 @@
       </div>
     </div>
 
-    <script src="../../../app.js?v=84"></script>
+    <script src="../../../app.js?v=88"></script>
   </body>
 </html>

@@ -4975,8 +4975,8 @@ const getYourGuideAffiliateSuffix = `partner_id=${getYourGuidePartnerId}`;
 
 const activityCatalog = {
   centralPark: {
-    title: "Central Park Highlights Walking Tour",
-    url: "https://www.getyourguide.com/new-york-city-l59/new-york-city-25-hour-central-park-highlights-walking-tour-t358270/",
+    title: "Central Park Private Walking Tour mit Transfers",
+    url: "https://www.getyourguide.de/new-york-city-l59/central-park-private-walking-tour-mit-transfers-t525416/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "walking"
   },
   edge: {
@@ -4990,8 +4990,8 @@ const activityCatalog = {
     kind: "walking"
   },
   empireState: {
-    title: "Empire State Building Observatory & Museum",
-    url: "https://www.getyourguide.com/new-york-city-l59/nyc-empire-state-building-observation-deck-tickets-t1029649/",
+    title: "NYC: Empire State Building - Legendäres Aussichtsdeck & Museum",
+    url: "https://www.getyourguide.de/new-york-city-l59/nyc-empire-state-building-tickets-aussichtsplattform-museum-t1029649/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "ticket"
   },
   statueLiberty: {
@@ -5005,13 +5005,18 @@ const activityCatalog = {
     kind: "culture"
   },
   broadway: {
-    title: "Broadway Story & Secrets Experience",
-    url: "https://www.getyourguide.com/new-york-city-l59/nyc-story-and-secrets-of-broadway-small-group-experience-t1140796/",
+    title: "NYC: Stranger Things: The First Shadow am Broadway",
+    url: "https://www.getyourguide.de?partner_id=DBBA4V9&cmp=share_to_earn",
+    kind: "culture"
+  },
+  hamilton: {
+    title: "NYC: Hamilton - Das Musical am Broadway",
+    url: "https://www.getyourguide.de/new-york-city-l59/nyc-hamilton-das-musical-am-broadway-t663461/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "culture"
   },
   lowerEastFood: {
-    title: "Lower East Side Food Tour",
-    url: "https://www.getyourguide.com/new-york-city-l59/new-york-lower-east-side-food-tour-t192588/",
+    title: "New York City: Lower East Side Foodtour",
+    url: "https://www.getyourguide.de/new-york-city-l59/new-york-lower-east-side-foodtour-t192588/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "food"
   },
   greenwichFood: {
@@ -5020,9 +5025,9 @@ const activityCatalog = {
     kind: "food"
   },
   chinatownFood: {
-    title: "Chinatown & Little Italy Food Tour",
-    url: "https://www.getyourguide.com/new-york-l59/nyc-chinatown-et-little-italy-lunchtime-food-tour-t418173/",
-    kind: "food"
+    title: "NYC: SoHo, Little Italy und Chinatown Guided Tour",
+    url: "https://www.getyourguide.de/new-york-city-l59/soho-little-italy-und-chinatown-guided-tour-t514924/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
+    kind: "walking"
   },
   astoriaFood: {
     title: "Astoria Queens Food Tour",
@@ -5038,6 +5043,11 @@ const activityCatalog = {
     title: "Bronx Zoo Entry Ticket",
     url: "https://www.getyourguide.com/en-gb/new-york-city-l59/nyc-bronx-zoo-entry-ticket-t1065671/",
     kind: "ticket"
+  },
+  contrastsTour: {
+    title: "New Yorks Kontraste: Brooklyn, Bronx, Harlem, Queens & Coney Island",
+    url: "https://www.getyourguide.de/new-york-city-l59/new-yorks-kontraste-brooklyn-bronx-harlem-queens-coney-island-t140589/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
+    kind: "culture"
   }
 };
 
@@ -5045,10 +5055,10 @@ const neighborhoodActivityMap = {
   "Upper West Side": ["centralPark", "moma", "broadway"],
   "Upper East Side": ["centralPark", "moma", "empireState"],
   "Morningside Heights": ["centralPark", "moma", "broadway"],
-  Harlem: ["centralPark", "broadway", "moma"],
+  Harlem: ["contrastsTour", "centralPark", "hamilton"],
   "East Harlem": ["centralPark", "moma", "bronxZoo"],
-  Midtown: ["empireState", "broadway", "moma"],
-  "Hell's Kitchen": ["broadway", "empireState", "centralPark"],
+  Midtown: ["empireState", "hamilton", "broadway"],
+  "Hell's Kitchen": ["hamilton", "broadway", "empireState"],
   "Murray Hill": ["empireState", "moma", "broadway"],
   "Kips Bay": ["empireState", "moma", "statueLiberty"],
   Chelsea: ["greenwichFood", "moma", "empireState"],
@@ -5069,22 +5079,22 @@ const neighborhoodActivityMap = {
   DUMBO: ["brooklynBridge", "statueLiberty", "empireState"],
   "Downtown Brooklyn": ["brooklynBridge", "statueLiberty", "broadway"],
   "Park Slope": ["brooklynBridge", "greenwichFood", "moma"],
-  "Bed-Stuy": ["brooklynBridge", "queensCulture", "greenwichFood"],
-  Bushwick: ["brooklynBridge", "queensCulture", "lowerEastFood"],
+  "Bed-Stuy": ["contrastsTour", "brooklynBridge", "queensCulture"],
+  Bushwick: ["contrastsTour", "brooklynBridge", "queensCulture"],
   Greenpoint: ["brooklynBridge", "queensCulture", "astoriaFood"],
-  "Coney Island": ["brooklynBridge", "statueLiberty", "empireState"],
+  "Coney Island": ["contrastsTour", "brooklynBridge", "statueLiberty"],
   "Long Island City": ["moma", "queensCulture", "astoriaFood"],
   Astoria: ["astoriaFood", "queensCulture", "moma"],
-  Flushing: ["queensCulture", "astoriaFood", "moma"],
-  "Jackson Heights": ["queensCulture", "astoriaFood", "moma"],
+  Flushing: ["contrastsTour", "queensCulture", "astoriaFood"],
+  "Jackson Heights": ["contrastsTour", "queensCulture", "astoriaFood"],
   "Forest Hills": ["queensCulture", "moma", "centralPark"],
   Jamaica: ["queensCulture", "statueLiberty", "moma"],
   "Rockaway Beach": ["statueLiberty", "brooklynBridge", "queensCulture"],
   Sunnyside: ["queensCulture", "astoriaFood", "moma"],
-  "Mott Haven": ["bronxZoo", "centralPark", "moma"],
-  Concourse: ["bronxZoo", "empireState", "centralPark"],
-  Fordham: ["bronxZoo", "centralPark", "moma"],
-  Belmont: ["bronxZoo", "queensCulture", "centralPark"],
+  "Mott Haven": ["contrastsTour", "bronxZoo", "centralPark"],
+  Concourse: ["contrastsTour", "bronxZoo", "empireState"],
+  Fordham: ["contrastsTour", "bronxZoo", "centralPark"],
+  Belmont: ["contrastsTour", "bronxZoo", "queensCulture"],
   Riverdale: ["bronxZoo", "centralPark", "moma"],
   Kingsbridge: ["bronxZoo", "centralPark", "moma"],
   "Throgs Neck": ["bronxZoo", "statueLiberty", "queensCulture"],
@@ -5158,6 +5168,7 @@ function tripActivities(item, sights = []) {
   const boosted = [];
   if (/central park|park/.test(sightText)) boosted.push("centralPark");
   if (/edge|hudson yards/.test(sightText)) boosted.push("edge");
+  if (/bronx|harlem|queens|coney|brooklyn/.test(sightText)) boosted.push("contrastsTour");
   if (/bridge|dumbo|brooklyn/.test(sightText)) boosted.push("brooklynBridge");
   if (/empire|rockefeller|midtown/.test(sightText)) boosted.push("empireState");
   if (/statue|liberty|ellis|battery/.test(sightText)) boosted.push("statueLiberty");

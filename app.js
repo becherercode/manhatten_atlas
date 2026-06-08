@@ -1369,6 +1369,7 @@ const profileCount = document.querySelector("#profileCount");
 const cookieBanner = document.querySelector("#cookieBanner");
 const cookieAccept = document.querySelector("#cookieAccept");
 const cookieEssential = document.querySelector("#cookieEssential");
+const cookieMarketing = document.querySelector("#cookieMarketing");
 const resetCookieChoice = document.querySelector("#resetCookieChoice");
 const legalToggles = document.querySelectorAll(".legal-toggle");
 const tripPreferenceButtons = document.querySelectorAll(".trip-chip");
@@ -1422,11 +1423,49 @@ function saveCookieChoice(choice) {
 function showCookieBanner() {
   if (!cookieBanner) return;
   cookieBanner.classList.toggle("visible", !getCookieChoice());
+  if (hasMarketingConsent()) {
+    loadMarketingScripts();
+  }
 }
 
 function hideCookieBanner(choice) {
   saveCookieChoice(choice);
   cookieBanner?.classList.remove("visible");
+  if (hasMarketingConsent()) {
+    loadMarketingScripts();
+  }
+}
+
+function hasMarketingConsent() {
+  return ["accepted", "marketing", "all"].includes(getCookieChoice());
+}
+
+function canLoadMarketingScripts() {
+  return location.protocol === "https:" || location.hostname === "localhost";
+}
+
+function loadMarketingScripts() {
+  if (!canLoadMarketingScripts()) return;
+
+  if (!document.querySelector("#nycAtlasAdsenseScript")) {
+    const adScript = document.createElement("script");
+    adScript.id = "nycAtlasAdsenseScript";
+    adScript.async = true;
+    adScript.src =
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9625920200565722";
+    adScript.crossOrigin = "anonymous";
+    document.head.appendChild(adScript);
+  }
+
+  if (!document.querySelector("#nycAtlasGetYourGuideScript")) {
+    const getYourGuideScript = document.createElement("script");
+    getYourGuideScript.id = "nycAtlasGetYourGuideScript";
+    getYourGuideScript.async = true;
+    getYourGuideScript.defer = true;
+    getYourGuideScript.src = "https://widget.getyourguide.com/dist/pa.umd.production.min.js";
+    getYourGuideScript.dataset.gygPartnerId = "DBBA4V9";
+    document.head.appendChild(getYourGuideScript);
+  }
 }
 
 function currentBorough() {
@@ -3202,43 +3241,51 @@ Object.entries(footerCopy).forEach(([language, copy]) => {
 
 const activityCopy = {
   de: {
-    activityHeader: "Buchbare Aktivitäten",
-    activityCopy: "Passende GetYourGuide-Erlebnisse für dieses Viertel und deine Auswahl.",
-    activityDisclosure: "Externe GetYourGuide-Links; bei Affiliate-Freigabe können sie als Partnerlinks genutzt werden."
+    activityHeader: "Aktivitäten, die für dich interessant sein könnten",
+    activityEyebrow: "Buchbare Erlebnisse",
+    activityCopy: "Diese Auswahl ist bewusst vom Viertelprofil getrennt: Sie zeigt passende GetYourGuide-Erlebnisse, die zu deinem empfohlenen Viertel, deinen Sehenswürdigkeiten und deinem Reisestil passen.",
+    activityDisclosure: "Einige Aktivitätslinks sind Partnerlinks von GetYourGuide. Wenn du darüber buchst, kann NYC Atlas eine Provision erhalten; für dich entstehen keine Mehrkosten."
   },
   en: {
-    activityHeader: "Bookable activities",
-    activityCopy: "Relevant GetYourGuide experiences for this neighborhood and your selection.",
-    activityDisclosure: "External GetYourGuide links; once approved, they can be used as affiliate links."
+    activityHeader: "Activities you may find interesting",
+    activityEyebrow: "Bookable experiences",
+    activityCopy: "This selection is intentionally separated from the neighborhood profile: it shows relevant GetYourGuide experiences matching your recommended neighborhood, sights and travel style.",
+    activityDisclosure: "Some activity links are GetYourGuide affiliate links. If you book through them, NYC Atlas may receive a commission at no extra cost to you."
   },
   es: {
-    activityHeader: "Actividades reservables",
-    activityCopy: "Experiencias de GetYourGuide adecuadas para este barrio y tu selección.",
+    activityHeader: "Actividades que pueden interesarte",
+    activityEyebrow: "Experiencias reservables",
+    activityCopy: "Esta selección está separada del perfil del barrio: muestra experiencias de GetYourGuide que encajan con el barrio recomendado, tus lugares elegidos y tu estilo de viaje.",
     activityDisclosure: "Enlaces externos de GetYourGuide; tras la aprobación pueden usarse como enlaces de afiliado."
   },
   fr: {
-    activityHeader: "Activités réservables",
-    activityCopy: "Expériences GetYourGuide adaptées à ce quartier et à votre sélection.",
+    activityHeader: "Activités qui pourraient vous intéresser",
+    activityEyebrow: "Expériences réservables",
+    activityCopy: "Cette sélection est volontairement séparée du profil du quartier : elle propose des expériences GetYourGuide adaptées au quartier recommandé, à vos sites choisis et à votre style de voyage.",
     activityDisclosure: "Liens externes GetYourGuide ; après validation, ils peuvent être utilisés comme liens affiliés."
   },
   pt: {
-    activityHeader: "Atividades reserváveis",
-    activityCopy: "Experiências GetYourGuide adequadas para este bairro e sua seleção.",
+    activityHeader: "Atividades que podem interessar a você",
+    activityEyebrow: "Experiências reserváveis",
+    activityCopy: "Esta seleção fica separada do perfil do bairro: ela mostra experiências GetYourGuide adequadas ao bairro recomendado, às atrações escolhidas e ao seu estilo de viagem.",
     activityDisclosure: "Links externos da GetYourGuide; após aprovação, podem ser usados como links afiliados."
   },
   it: {
-    activityHeader: "Attività prenotabili",
-    activityCopy: "Esperienze GetYourGuide adatte a questo quartiere e alla tua selezione.",
+    activityHeader: "Attività che potrebbero interessarti",
+    activityEyebrow: "Esperienze prenotabili",
+    activityCopy: "Questa selezione è separata dal profilo del quartiere: mostra esperienze GetYourGuide adatte al quartiere consigliato, alle attrazioni scelte e al tuo stile di viaggio.",
     activityDisclosure: "Link esterni GetYourGuide; dopo l'approvazione possono essere usati come link affiliati."
   },
   ja: {
-    activityHeader: "予約できるアクティビティ",
-    activityCopy: "この地区と選択内容に合う GetYourGuide 体験。",
+    activityHeader: "興味に合いそうなアクティビティ",
+    activityEyebrow: "予約できる体験",
+    activityCopy: "この選択は地区プロフィールとは分けて表示しています。おすすめ地区、選択した名所、旅行スタイルに合う GetYourGuide 体験です。",
     activityDisclosure: "外部の GetYourGuide リンクです。承認後はアフィリエイトリンクとして利用できます。"
   },
   zh: {
-    activityHeader: "可预订活动",
-    activityCopy: "适合该街区和你所选条件的 GetYourGuide 体验。",
+    activityHeader: "你可能感兴趣的活动",
+    activityEyebrow: "可预订体验",
+    activityCopy: "此选择与街区资料分开显示：它展示适合推荐街区、所选景点和旅行风格的 GetYourGuide 体验。",
     activityDisclosure: "外部 GetYourGuide 链接；获批后可作为联盟链接使用。"
   }
 };
@@ -3291,6 +3338,141 @@ const getYourGuideLegalCopy = {
 };
 
 Object.entries(getYourGuideLegalCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
+
+const consentAndPartnerCopy = {
+  de: {
+    privacyCopyTwo:
+      "Die Website speichert lokale Einstellungen im Browser, zum Beispiel Sprache, ausgewählten Bezirk, Reisepräferenzen und Cookie-Auswahl. Diese Einstellungen helfen, die Seite komfortabel zu bedienen.",
+    privacyCopyThree:
+      "Marketing- und Partnerdienste wie Google AdSense und GetYourGuide Partner Analytics werden erst geladen, wenn du im Cookie-Hinweis Marketing/Partner erlaubst oder alle akzeptierst. Bei Zustimmung können Google und GetYourGuide technische Daten verarbeiten und Cookies setzen, etwa zur Anzeigenbereitstellung oder zur Zuordnung externer Aktivitätslinks.",
+    cookiesCopyOne:
+      "Diese Website speichert notwendige lokale Einstellungen, damit Sprache, Bezirksauswahl und Cookie-Entscheidung erhalten bleiben. Optional können Marketing- und Partnerdienste wie Google AdSense und GetYourGuide Partner Analytics aktiviert werden.",
+    cookiesCopyTwo:
+      "Du kannst nur notwendige Dienste nutzen, Marketing/Partner erlauben oder alle akzeptieren. Deine Auswahl kannst du über den Button in diesem Bereich zurücksetzen.",
+    cookieCopy:
+      "Wir speichern notwendige lokale Einstellungen. Marketing-/Partnerdienste wie Google AdSense und GetYourGuide Partner Analytics laden wir nur nach deiner Zustimmung.",
+    cookieMarketing: "Marketing erlauben",
+    cookieAccept: "Alle akzeptieren",
+    activityDisclosure:
+      "Einige Aktivitätslinks sind Partnerlinks von GetYourGuide. Wenn du darüber buchst, kann NYC Atlas eine Provision erhalten; für dich entstehen keine Mehrkosten."
+  },
+  en: {
+    privacyCopyTwo:
+      "The website stores local browser settings, such as language, selected borough, travel preferences and cookie choice. These settings make the site easier to use.",
+    privacyCopyThree:
+      "Marketing and partner services such as Google AdSense and GetYourGuide Partner Analytics are loaded only if you allow marketing/partners or accept all in the cookie notice. With consent, Google and GetYourGuide may process technical data and set cookies, for example for ad delivery or attribution of external activity links.",
+    cookiesCopyOne:
+      "This website stores necessary local settings so language, borough selection and cookie choice remain available. Optional marketing and partner services such as Google AdSense and GetYourGuide Partner Analytics can be activated.",
+    cookiesCopyTwo:
+      "You can use necessary services only, allow marketing/partners, or accept all. You can reset your choice with the button in this section.",
+    cookieCopy:
+      "We store necessary local settings. Marketing/partner services such as Google AdSense and GetYourGuide Partner Analytics load only after your consent.",
+    cookieMarketing: "Allow marketing",
+    cookieAccept: "Accept all",
+    activityDisclosure:
+      "Some activity links are GetYourGuide affiliate links. If you book through them, NYC Atlas may receive a commission at no extra cost to you."
+  },
+  es: {
+    privacyCopyTwo:
+      "La web guarda ajustes locales del navegador, como idioma, distrito seleccionado, preferencias de viaje y elección de cookies.",
+    privacyCopyThree:
+      "Los servicios de marketing y socios como Google AdSense y GetYourGuide Partner Analytics solo se cargan si permites marketing/socios o aceptas todo en el aviso de cookies. Con consentimiento, Google y GetYourGuide pueden procesar datos técnicos y usar cookies.",
+    cookiesCopyOne:
+      "Esta web guarda ajustes locales necesarios para conservar idioma, distrito y elección de cookies. Opcionalmente pueden activarse Google AdSense y GetYourGuide Partner Analytics.",
+    cookiesCopyTwo:
+      "Puedes usar solo lo necesario, permitir marketing/socios o aceptar todo. Puedes restablecer tu elección con el botón de esta sección.",
+    cookieCopy:
+      "Guardamos ajustes locales necesarios. Google AdSense y GetYourGuide Partner Analytics solo se cargan con tu consentimiento.",
+    cookieMarketing: "Permitir marketing",
+    cookieAccept: "Aceptar todo",
+    activityDisclosure:
+      "Algunos enlaces de actividades son enlaces afiliados de GetYourGuide. Si reservas a través de ellos, NYC Atlas puede recibir una comisión sin coste adicional para ti."
+  },
+  fr: {
+    privacyCopyTwo:
+      "Le site enregistre des réglages locaux du navigateur, comme la langue, le borough choisi, les préférences de voyage et le choix cookies.",
+    privacyCopyThree:
+      "Les services marketing et partenaires comme Google AdSense et GetYourGuide Partner Analytics ne sont chargés que si vous autorisez le marketing/les partenaires ou acceptez tout dans l'avis cookies. Avec consentement, Google et GetYourGuide peuvent traiter des données techniques et utiliser des cookies.",
+    cookiesCopyOne:
+      "Ce site enregistre les réglages locaux nécessaires pour conserver la langue, le choix du borough et la décision cookies. Google AdSense et GetYourGuide Partner Analytics peuvent être activés en option.",
+    cookiesCopyTwo:
+      "Vous pouvez utiliser seulement le nécessaire, autoriser marketing/partenaires ou tout accepter. Le bouton de cette section permet de réinitialiser votre choix.",
+    cookieCopy:
+      "Nous enregistrons les réglages locaux nécessaires. Google AdSense et GetYourGuide Partner Analytics ne se chargent qu'après votre consentement.",
+    cookieMarketing: "Autoriser marketing",
+    cookieAccept: "Tout accepter",
+    activityDisclosure:
+      "Certains liens d'activités sont des liens affiliés GetYourGuide. Si vous réservez via ces liens, NYC Atlas peut recevoir une commission sans frais supplémentaires pour vous."
+  },
+  pt: {
+    privacyCopyTwo:
+      "O site salva configurações locais do navegador, como idioma, distrito escolhido, preferências de viagem e escolha de cookies.",
+    privacyCopyThree:
+      "Serviços de marketing e parceiros como Google AdSense e GetYourGuide Partner Analytics só são carregados se você permitir marketing/parceiros ou aceitar tudo no aviso de cookies. Com consentimento, Google e GetYourGuide podem processar dados técnicos e usar cookies.",
+    cookiesCopyOne:
+      "Este site salva configurações locais necessárias para manter idioma, distrito e escolha de cookies. Google AdSense e GetYourGuide Partner Analytics podem ser ativados opcionalmente.",
+    cookiesCopyTwo:
+      "Você pode usar apenas o necessário, permitir marketing/parceiros ou aceitar tudo. A escolha pode ser redefinida pelo botão nesta seção.",
+    cookieCopy:
+      "Salvamos configurações locais necessárias. Google AdSense e GetYourGuide Partner Analytics só carregam após seu consentimento.",
+    cookieMarketing: "Permitir marketing",
+    cookieAccept: "Aceitar tudo",
+    activityDisclosure:
+      "Alguns links de atividades são links afiliados da GetYourGuide. Se você reservar por eles, NYC Atlas pode receber uma comissão sem custo extra para você."
+  },
+  it: {
+    privacyCopyTwo:
+      "Il sito salva impostazioni locali del browser, come lingua, distretto selezionato, preferenze di viaggio e scelta cookie.",
+    privacyCopyThree:
+      "I servizi marketing e partner come Google AdSense e GetYourGuide Partner Analytics vengono caricati solo se consenti marketing/partner o accetti tutto nell'avviso cookie. Con il consenso, Google e GetYourGuide possono trattare dati tecnici e usare cookie.",
+    cookiesCopyOne:
+      "Questo sito salva impostazioni locali necessarie per mantenere lingua, distretto e scelta cookie. Google AdSense e GetYourGuide Partner Analytics possono essere attivati opzionalmente.",
+    cookiesCopyTwo:
+      "Puoi usare solo i servizi necessari, consentire marketing/partner o accettare tutto. Puoi reimpostare la scelta con il pulsante in questa sezione.",
+    cookieCopy:
+      "Salviamo impostazioni locali necessarie. Google AdSense e GetYourGuide Partner Analytics si caricano solo dopo il tuo consenso.",
+    cookieMarketing: "Consenti marketing",
+    cookieAccept: "Accetta tutto",
+    activityDisclosure:
+      "Alcuni link attività sono link affiliati GetYourGuide. Se prenoti tramite questi link, NYC Atlas può ricevere una commissione senza costi aggiuntivi per te."
+  },
+  ja: {
+    privacyCopyTwo:
+      "本サイトは、言語、選択した行政区、旅行の好み、Cookie選択などのローカル設定をブラウザに保存します。",
+    privacyCopyThree:
+      "Google AdSense や GetYourGuide Partner Analytics などのマーケティング/パートナーサービスは、Cookie通知で許可またはすべて承認した場合のみ読み込まれます。同意後、Google と GetYourGuide は広告配信や外部アクティビティリンクの帰属のため、技術データを処理しCookieを使用する場合があります。",
+    cookiesCopyOne:
+      "本サイトは、言語、行政区、Cookie選択を保持するために必要なローカル設定を保存します。Google AdSense と GetYourGuide Partner Analytics は任意で有効化できます。",
+    cookiesCopyTwo:
+      "必要なもののみ、マーケティング/パートナー許可、またはすべて承認を選べます。このセクションのボタンで選択をリセットできます。",
+    cookieCopy:
+      "必要なローカル設定を保存します。Google AdSense と GetYourGuide Partner Analytics は同意後のみ読み込まれます。",
+    cookieMarketing: "マーケティングを許可",
+    cookieAccept: "すべて承認",
+    activityDisclosure:
+      "一部のアクティビティリンクは GetYourGuide のアフィリエイトリンクです。予約した場合、追加費用なしで NYC Atlas が手数料を受け取ることがあります。"
+  },
+  zh: {
+    privacyCopyTwo:
+      "本网站会在浏览器中保存本地设置，例如语言、所选行政区、旅行偏好和 Cookie 选择。",
+    privacyCopyThree:
+      "Google AdSense 和 GetYourGuide Partner Analytics 等营销/合作伙伴服务仅在你允许营销/合作伙伴或接受全部 Cookie 后加载。经同意后，Google 和 GetYourGuide 可能处理技术数据并使用 Cookie。",
+    cookiesCopyOne:
+      "本网站保存必要的本地设置，以保留语言、行政区和 Cookie 选择。Google AdSense 与 GetYourGuide Partner Analytics 可作为可选服务启用。",
+    cookiesCopyTwo:
+      "你可以选择仅必要项、允许营销/合作伙伴或接受全部。可通过本区域按钮重置选择。",
+    cookieCopy:
+      "我们保存必要的本地设置。Google AdSense 和 GetYourGuide Partner Analytics 仅在你同意后加载。",
+    cookieMarketing: "允许营销",
+    cookieAccept: "全部接受",
+    activityDisclosure:
+      "部分活动链接是 GetYourGuide 联盟链接。如果你通过这些链接预订，NYC Atlas 可能获得佣金，且不会增加你的费用。"
+  }
+};
+
+Object.entries(consentAndPartnerCopy).forEach(([language, copy]) => {
   Object.assign(translations[language], copy);
 });
 
@@ -4994,6 +5176,11 @@ const activityCatalog = {
     url: "https://www.getyourguide.de/new-york-city-l59/nyc-empire-state-building-tickets-aussichtsplattform-museum-t1029649/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "ticket"
   },
+  summitVanderbilt: {
+    title: "NYC: Tickets für SUMMIT One Vanderbilt",
+    url: "https://www.getyourguide.de/new-york-city-l59/nyc-tickets-fur-summit-one-vanderbilt-t404501/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
+    kind: "ticket"
+  },
   statueLiberty: {
     title: "Freiheitsstatue & Ellis Island - Ticketoptionen mit Fähre",
     url: "https://www.getyourguide.de/new-york-city-l59/freiheitsstatue-ellis-island-ticket-optionen-mit-fahre-t393246/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
@@ -5048,6 +5235,11 @@ const activityCatalog = {
     title: "New Yorks Kontraste: Brooklyn, Bronx, Harlem, Queens & Coney Island",
     url: "https://www.getyourguide.de/new-york-city-l59/new-yorks-kontraste-brooklyn-bronx-harlem-queens-coney-island-t140589/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "culture"
+  },
+  contrastsHarlemBronxQueensBrooklyn: {
+    title: "NYC: Contrasts Tour durch Harlem, die Bronx, Queens und Brooklyn",
+    url: "https://www.getyourguide.de/new-york-city-l59/nyc-contrasts-tour-durch-harlem-die-bronx-queens-und-brooklyn-t281607/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
+    kind: "culture"
   }
 };
 
@@ -5055,11 +5247,11 @@ const neighborhoodActivityMap = {
   "Upper West Side": ["centralPark", "moma", "broadway"],
   "Upper East Side": ["centralPark", "moma", "empireState"],
   "Morningside Heights": ["centralPark", "moma", "broadway"],
-  Harlem: ["contrastsTour", "centralPark", "hamilton"],
+  Harlem: ["contrastsHarlemBronxQueensBrooklyn", "contrastsTour", "centralPark"],
   "East Harlem": ["centralPark", "moma", "bronxZoo"],
-  Midtown: ["empireState", "hamilton", "broadway"],
+  Midtown: ["summitVanderbilt", "empireState", "hamilton"],
   "Hell's Kitchen": ["hamilton", "broadway", "empireState"],
-  "Murray Hill": ["empireState", "moma", "broadway"],
+  "Murray Hill": ["summitVanderbilt", "empireState", "moma"],
   "Kips Bay": ["empireState", "moma", "statueLiberty"],
   Chelsea: ["greenwichFood", "moma", "empireState"],
   "Hudson Yards": ["edge", "empireState", "broadway"],
@@ -5079,22 +5271,22 @@ const neighborhoodActivityMap = {
   DUMBO: ["brooklynBridge", "statueLiberty", "empireState"],
   "Downtown Brooklyn": ["brooklynBridge", "statueLiberty", "broadway"],
   "Park Slope": ["brooklynBridge", "greenwichFood", "moma"],
-  "Bed-Stuy": ["contrastsTour", "brooklynBridge", "queensCulture"],
-  Bushwick: ["contrastsTour", "brooklynBridge", "queensCulture"],
+  "Bed-Stuy": ["contrastsHarlemBronxQueensBrooklyn", "contrastsTour", "brooklynBridge"],
+  Bushwick: ["contrastsHarlemBronxQueensBrooklyn", "contrastsTour", "brooklynBridge"],
   Greenpoint: ["brooklynBridge", "queensCulture", "astoriaFood"],
   "Coney Island": ["contrastsTour", "brooklynBridge", "statueLiberty"],
   "Long Island City": ["moma", "queensCulture", "astoriaFood"],
   Astoria: ["astoriaFood", "queensCulture", "moma"],
-  Flushing: ["contrastsTour", "queensCulture", "astoriaFood"],
-  "Jackson Heights": ["contrastsTour", "queensCulture", "astoriaFood"],
+  Flushing: ["contrastsHarlemBronxQueensBrooklyn", "contrastsTour", "queensCulture"],
+  "Jackson Heights": ["contrastsHarlemBronxQueensBrooklyn", "contrastsTour", "queensCulture"],
   "Forest Hills": ["queensCulture", "moma", "centralPark"],
   Jamaica: ["queensCulture", "statueLiberty", "moma"],
   "Rockaway Beach": ["statueLiberty", "brooklynBridge", "queensCulture"],
   Sunnyside: ["queensCulture", "astoriaFood", "moma"],
-  "Mott Haven": ["contrastsTour", "bronxZoo", "centralPark"],
-  Concourse: ["contrastsTour", "bronxZoo", "empireState"],
-  Fordham: ["contrastsTour", "bronxZoo", "centralPark"],
-  Belmont: ["contrastsTour", "bronxZoo", "queensCulture"],
+  "Mott Haven": ["contrastsHarlemBronxQueensBrooklyn", "contrastsTour", "bronxZoo"],
+  Concourse: ["contrastsHarlemBronxQueensBrooklyn", "contrastsTour", "bronxZoo"],
+  Fordham: ["contrastsHarlemBronxQueensBrooklyn", "contrastsTour", "bronxZoo"],
+  Belmont: ["contrastsHarlemBronxQueensBrooklyn", "contrastsTour", "bronxZoo"],
   Riverdale: ["bronxZoo", "centralPark", "moma"],
   Kingsbridge: ["bronxZoo", "centralPark", "moma"],
   "Throgs Neck": ["bronxZoo", "statueLiberty", "queensCulture"],
@@ -5168,6 +5360,8 @@ function tripActivities(item, sights = []) {
   const boosted = [];
   if (/central park|park/.test(sightText)) boosted.push("centralPark");
   if (/edge|hudson yards/.test(sightText)) boosted.push("edge");
+  if (/summit|vanderbilt|grand central/.test(sightText)) boosted.push("summitVanderbilt");
+  if (/bronx|harlem|queens|brooklyn/.test(sightText)) boosted.push("contrastsHarlemBronxQueensBrooklyn");
   if (/bronx|harlem|queens|coney|brooklyn/.test(sightText)) boosted.push("contrastsTour");
   if (/bridge|dumbo|brooklyn/.test(sightText)) boosted.push("brooklynBridge");
   if (/empire|rockefeller|midtown/.test(sightText)) boosted.push("empireState");
@@ -5185,7 +5379,10 @@ function activitiesMarkup(item, sights) {
   return `
     <div class="activity-block">
       <div class="activity-block-header">
-        <span>${t("activityHeader")}</span>
+        <div>
+          <span>${t("activityEyebrow")}</span>
+          <h4>${t("activityHeader")}</h4>
+        </div>
         <p>${t("activityCopy")}</p>
       </div>
       <div class="activity-list">
@@ -6780,6 +6977,7 @@ function openLegalHashTarget() {
 window.addEventListener("hashchange", openLegalHashTarget);
 cookieAccept?.addEventListener("click", () => hideCookieBanner("accepted"));
 cookieEssential?.addEventListener("click", () => hideCookieBanner("essential"));
+cookieMarketing?.addEventListener("click", () => hideCookieBanner("marketing"));
 resetCookieChoice?.addEventListener("click", () => {
   try {
     localStorage.removeItem("nycAtlasCookieChoice");

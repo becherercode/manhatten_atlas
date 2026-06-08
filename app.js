@@ -4995,13 +4995,13 @@ const activityCatalog = {
     kind: "ticket"
   },
   statueLiberty: {
-    title: "Statue of Liberty & Ellis Island Ferry",
-    url: "https://www.getyourguide.com/en-gb/new-york-city-l59/statue-of-liberty-ellis-island-ticket-options-with-ferry-t393246/",
+    title: "Freiheitsstatue & Ellis Island - Ticketoptionen mit Fähre",
+    url: "https://www.getyourguide.de/new-york-city-l59/freiheitsstatue-ellis-island-ticket-optionen-mit-fahre-t393246/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "ticket"
   },
   moma: {
     title: "Museum of Modern Art (MoMA) Entry Ticket",
-    url: "https://www.getyourguide.com/new-york-city-l59/skip-the-line-tickets-museum-of-modern-art-t14885/",
+    url: "https://www.getyourguide.de/new-york-city-l59/tickets-ohne-anstehen-museum-of-modern-art-t14885/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "culture"
   },
   broadway: {
@@ -5020,8 +5020,8 @@ const activityCatalog = {
     kind: "food"
   },
   greenwichFood: {
-    title: "Greenwich Village Food & Culture Tour",
-    url: "https://www.getyourguide.com/new-york-city-l59/heart-soul-of-greenwich-village-food-and-culture-tour-t519122/",
+    title: "NYC: Greenwich Village Foodtour mit 6 authentischen Verkostungen",
+    url: "https://www.getyourguide.de/new-york-city-l59/nyc-trendige-greenwich-village-foodtour-mit-6-verkostungen-t105856/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "food"
   },
   chinatownFood: {
@@ -5041,7 +5041,7 @@ const activityCatalog = {
   },
   bronxZoo: {
     title: "Bronx Zoo Entry Ticket",
-    url: "https://www.getyourguide.com/en-gb/new-york-city-l59/nyc-bronx-zoo-entry-ticket-t1065671/",
+    url: "https://www.getyourguide.de/new-york-city-l59/nyc-ticket-fur-den-bronx-zoo-t1065671/?partner_id=DBBA4V9&currency=EUR&travel_agent=1&cmp=share_to_earn",
     kind: "ticket"
   },
   contrastsTour: {

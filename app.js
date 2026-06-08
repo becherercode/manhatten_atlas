@@ -3476,6 +3476,117 @@ Object.entries(consentAndPartnerCopy).forEach(([language, copy]) => {
   Object.assign(translations[language], copy);
 });
 
+const homepagePassCopy = {
+  de: {
+    passFeatureAria: "Empfohlener New York Pass",
+    passFeatureEyebrow: "Touristenpass",
+    passFeatureTitle: "New York Explorer Pass: Top-Sehenswürdigkeiten inklusive Edge",
+    passFeatureCopy:
+      "Besonders sinnvoll, wenn du mehrere Klassiker in einem Aufenthalt erleben möchtest: flexible Attraktionen, klare Kostenplanung und weniger Einzelbuchungen.",
+    passFeatureAction: "Pass bei GetYourGuide ansehen",
+    passFeatureDisclosure: "Partnerlink von GetYourGuide; für dich entstehen keine Mehrkosten.",
+    passFeatureVisualOne: "Ein Pass",
+    passFeatureVisualOneSub: "mehrere Attraktionen",
+    passFeatureVisualTwo: "Gut für Erstbesucher",
+    passFeatureVisualThree: "Flexibel planen"
+  },
+  en: {
+    passFeatureAria: "Recommended New York pass",
+    passFeatureEyebrow: "Sightseeing pass",
+    passFeatureTitle: "New York Explorer Pass: top attractions including Edge",
+    passFeatureCopy:
+      "Especially useful if you want to see several classics in one trip: flexible attractions, clearer cost planning and fewer separate bookings.",
+    passFeatureAction: "View pass on GetYourGuide",
+    passFeatureDisclosure: "GetYourGuide affiliate link; there is no extra cost for you.",
+    passFeatureVisualOne: "One pass",
+    passFeatureVisualOneSub: "multiple attractions",
+    passFeatureVisualTwo: "Good for first visits",
+    passFeatureVisualThree: "Plan flexibly"
+  },
+  es: {
+    passFeatureAria: "Pase recomendado para Nueva York",
+    passFeatureEyebrow: "Pase turístico",
+    passFeatureTitle: "New York Explorer Pass: atracciones principales incluido Edge",
+    passFeatureCopy:
+      "Especialmente útil si quieres ver varios clásicos en un viaje: atracciones flexibles, costes más claros y menos reservas separadas.",
+    passFeatureAction: "Ver pase en GetYourGuide",
+    passFeatureDisclosure: "Enlace afiliado de GetYourGuide; no tiene coste adicional para ti.",
+    passFeatureVisualOne: "Un pase",
+    passFeatureVisualOneSub: "varias atracciones",
+    passFeatureVisualTwo: "Ideal para primera visita",
+    passFeatureVisualThree: "Plan flexible"
+  },
+  fr: {
+    passFeatureAria: "Pass New York recommandé",
+    passFeatureEyebrow: "Pass touristique",
+    passFeatureTitle: "New York Explorer Pass : sites majeurs avec Edge inclus",
+    passFeatureCopy:
+      "Très utile si vous voulez découvrir plusieurs classiques pendant un même séjour : attractions flexibles, budget plus lisible et moins de réservations séparées.",
+    passFeatureAction: "Voir le pass sur GetYourGuide",
+    passFeatureDisclosure: "Lien affilié GetYourGuide ; aucun coût supplémentaire pour vous.",
+    passFeatureVisualOne: "Un pass",
+    passFeatureVisualOneSub: "plusieurs attractions",
+    passFeatureVisualTwo: "Idéal pour une première visite",
+    passFeatureVisualThree: "Planifier librement"
+  },
+  pt: {
+    passFeatureAria: "Passe recomendado para Nova York",
+    passFeatureEyebrow: "Passe turístico",
+    passFeatureTitle: "New York Explorer Pass: principais atrações incluindo Edge",
+    passFeatureCopy:
+      "Especialmente útil para ver vários clássicos em uma viagem: atrações flexíveis, custos mais claros e menos reservas separadas.",
+    passFeatureAction: "Ver passe na GetYourGuide",
+    passFeatureDisclosure: "Link afiliado da GetYourGuide; sem custo extra para você.",
+    passFeatureVisualOne: "Um passe",
+    passFeatureVisualOneSub: "várias atrações",
+    passFeatureVisualTwo: "Bom para primeira visita",
+    passFeatureVisualThree: "Planeje com flexibilidade"
+  },
+  it: {
+    passFeatureAria: "Pass New York consigliato",
+    passFeatureEyebrow: "Pass turistico",
+    passFeatureTitle: "New York Explorer Pass: attrazioni top incluso Edge",
+    passFeatureCopy:
+      "Particolarmente utile se vuoi vedere più classici nello stesso viaggio: attrazioni flessibili, costi più chiari e meno prenotazioni separate.",
+    passFeatureAction: "Vedi pass su GetYourGuide",
+    passFeatureDisclosure: "Link affiliato GetYourGuide; nessun costo aggiuntivo per te.",
+    passFeatureVisualOne: "Un pass",
+    passFeatureVisualOneSub: "più attrazioni",
+    passFeatureVisualTwo: "Ideale per la prima visita",
+    passFeatureVisualThree: "Pianifica con flessibilità"
+  },
+  ja: {
+    passFeatureAria: "おすすめのニューヨークパス",
+    passFeatureEyebrow: "観光パス",
+    passFeatureTitle: "New York Explorer Pass: Edgeを含む人気観光スポット",
+    passFeatureCopy:
+      "一度の滞在で複数の定番スポットを巡りたい場合に便利です。柔軟に選べて、費用を把握しやすく、個別予約も減らせます。",
+    passFeatureAction: "GetYourGuideでパスを見る",
+    passFeatureDisclosure: "GetYourGuide のアフィリエイトリンクです。追加費用はかかりません。",
+    passFeatureVisualOne: "1つのパス",
+    passFeatureVisualOneSub: "複数のスポット",
+    passFeatureVisualTwo: "初めての滞在に便利",
+    passFeatureVisualThree: "柔軟に計画"
+  },
+  zh: {
+    passFeatureAria: "推荐纽约通票",
+    passFeatureEyebrow: "旅游通票",
+    passFeatureTitle: "New York Explorer Pass：含 Edge 在内的热门景点",
+    passFeatureCopy:
+      "如果你想在一次行程中游览多个经典景点，这个选择很实用：景点灵活、预算更清晰，也减少单独预订。",
+    passFeatureAction: "在 GetYourGuide 查看通票",
+    passFeatureDisclosure: "GetYourGuide 联盟链接；不会增加你的费用。",
+    passFeatureVisualOne: "一张通票",
+    passFeatureVisualOneSub: "多个景点",
+    passFeatureVisualTwo: "适合首次到访",
+    passFeatureVisualThree: "灵活规划"
+  }
+};
+
+Object.entries(homepagePassCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
+
 function t(key) {
   return translations[currentLanguage]?.[key] || translations.de[key] || key;
 }

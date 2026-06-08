@@ -3200,6 +3200,100 @@ Object.entries(footerCopy).forEach(([language, copy]) => {
   Object.assign(translations[language], copy);
 });
 
+const activityCopy = {
+  de: {
+    activityHeader: "Buchbare Aktivitäten",
+    activityCopy: "Passende GetYourGuide-Erlebnisse für dieses Viertel und deine Auswahl.",
+    activityDisclosure: "Externe GetYourGuide-Links; bei Affiliate-Freigabe können sie als Partnerlinks genutzt werden."
+  },
+  en: {
+    activityHeader: "Bookable activities",
+    activityCopy: "Relevant GetYourGuide experiences for this neighborhood and your selection.",
+    activityDisclosure: "External GetYourGuide links; once approved, they can be used as affiliate links."
+  },
+  es: {
+    activityHeader: "Actividades reservables",
+    activityCopy: "Experiencias de GetYourGuide adecuadas para este barrio y tu selección.",
+    activityDisclosure: "Enlaces externos de GetYourGuide; tras la aprobación pueden usarse como enlaces de afiliado."
+  },
+  fr: {
+    activityHeader: "Activités réservables",
+    activityCopy: "Expériences GetYourGuide adaptées à ce quartier et à votre sélection.",
+    activityDisclosure: "Liens externes GetYourGuide ; après validation, ils peuvent être utilisés comme liens affiliés."
+  },
+  pt: {
+    activityHeader: "Atividades reserváveis",
+    activityCopy: "Experiências GetYourGuide adequadas para este bairro e sua seleção.",
+    activityDisclosure: "Links externos da GetYourGuide; após aprovação, podem ser usados como links afiliados."
+  },
+  it: {
+    activityHeader: "Attività prenotabili",
+    activityCopy: "Esperienze GetYourGuide adatte a questo quartiere e alla tua selezione.",
+    activityDisclosure: "Link esterni GetYourGuide; dopo l'approvazione possono essere usati come link affiliati."
+  },
+  ja: {
+    activityHeader: "予約できるアクティビティ",
+    activityCopy: "この地区と選択内容に合う GetYourGuide 体験。",
+    activityDisclosure: "外部の GetYourGuide リンクです。承認後はアフィリエイトリンクとして利用できます。"
+  },
+  zh: {
+    activityHeader: "可预订活动",
+    activityCopy: "适合该街区和你所选条件的 GetYourGuide 体验。",
+    activityDisclosure: "外部 GetYourGuide 链接；获批后可作为联盟链接使用。"
+  }
+};
+
+Object.entries(activityCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
+
+const getYourGuideLegalCopy = {
+  de: {
+    privacyCopyThree: "Auf der Website sind externe Links und Bilder aus öffentlichen Quellen eingebunden. Beim Aufruf externer Inhalte können die jeweiligen Anbieter eigene Zugriffsdaten verarbeiten. Für Anzeigen ist Google AdSense eingebunden. Zusätzlich ist GetYourGuide Partner Analytics mit der Partner-ID DBBA4V9 eingebunden, damit externe Aktivitätslinks und mögliche Partnerbuchungen zugeordnet werden können.",
+    cookiesCopyOne: "Diese Website speichert für die Bedienung lokale Browser-Einstellungen, damit Sprache, Bezirksauswahl und Cookie-Hinweis beim nächsten Besuch erhalten bleiben. Zusätzlich sind Google AdSense und GetYourGuide Partner Analytics für Anzeigen-, Integrations- und Affiliate-Zuordnung eingebunden.",
+    cookieCopy: "Diese Website speichert lokale Einstellungen wie Sprache, Bezirksauswahl und diese Cookie-Entscheidung. Außerdem sind Google AdSense und GetYourGuide Partner Analytics eingebunden; externe Partner können dabei technische Daten und Cookies zur Zuordnung verarbeiten."
+  },
+  en: {
+    privacyCopyThree: "External links and images from public sources are embedded on the website. When external content is opened, the respective providers may process their own access data. Google AdSense is embedded for ads. GetYourGuide Partner Analytics is also embedded with partner ID DBBA4V9 so external activity links and potential partner bookings can be attributed.",
+    cookiesCopyOne: "This website stores local browser settings so language, borough selection and cookie notice remain available on the next visit. Google AdSense and GetYourGuide Partner Analytics are also embedded for ads, integrations and affiliate attribution.",
+    cookieCopy: "This website stores local settings such as language, borough selection and this cookie decision. Google AdSense and GetYourGuide Partner Analytics are embedded; external partners may process technical data and cookies for attribution."
+  },
+  es: {
+    privacyCopyThree: "La web incluye enlaces externos e imágenes de fuentes públicas. Al abrir contenidos externos, los respectivos proveedores pueden procesar sus propios datos de acceso. Google AdSense está integrado para anuncios. También está integrado GetYourGuide Partner Analytics con el ID de socio DBBA4V9 para atribuir enlaces de actividades externas y posibles reservas de afiliado.",
+    cookiesCopyOne: "Esta web guarda ajustes locales del navegador para conservar idioma, borough y aviso de cookies. Además, Google AdSense y GetYourGuide Partner Analytics están integrados para anuncios, integraciones y atribución de afiliado.",
+    cookieCopy: "Esta web guarda ajustes locales como idioma, borough y esta decisión de cookies. Google AdSense y GetYourGuide Partner Analytics están integrados; socios externos pueden procesar datos técnicos y cookies para atribución."
+  },
+  fr: {
+    privacyCopyThree: "Le site intègre des liens externes et des images provenant de sources publiques. Lors de l'ouverture de contenus externes, les fournisseurs concernés peuvent traiter leurs propres données d'accès. Google AdSense est intégré pour les annonces. GetYourGuide Partner Analytics est également intégré avec l'ID partenaire DBBA4V9 afin d'attribuer les liens d'activités externes et les éventuelles réservations partenaires.",
+    cookiesCopyOne: "Ce site enregistre des réglages locaux du navigateur afin de conserver la langue, le choix du borough et l'avis cookies. Google AdSense et GetYourGuide Partner Analytics sont également intégrés pour les annonces, les intégrations et l'attribution affiliée.",
+    cookieCopy: "Ce site enregistre des réglages locaux comme la langue, le borough et cette décision cookies. Google AdSense et GetYourGuide Partner Analytics sont intégrés ; des partenaires externes peuvent traiter des données techniques et des cookies pour l'attribution."
+  },
+  pt: {
+    privacyCopyThree: "O site inclui links externos e imagens de fontes públicas. Ao abrir conteúdos externos, os respectivos provedores podem processar seus próprios dados de acesso. Google AdSense está integrado para anúncios. GetYourGuide Partner Analytics também está integrado com o ID de parceiro DBBA4V9 para atribuir links externos de atividades e possíveis reservas de afiliado.",
+    cookiesCopyOne: "Este site salva configurações locais do navegador para manter idioma, escolha de borough e aviso de cookies. Google AdSense e GetYourGuide Partner Analytics também estão integrados para anúncios, integrações e atribuição de afiliado.",
+    cookieCopy: "Este site salva configurações locais como idioma, borough e esta decisão sobre cookies. Google AdSense e GetYourGuide Partner Analytics estão integrados; parceiros externos podem processar dados técnicos e cookies para atribuição."
+  },
+  it: {
+    privacyCopyThree: "Il sito include link esterni e immagini da fonti pubbliche. Aprendo contenuti esterni, i rispettivi fornitori possono trattare propri dati di accesso. Google AdSense è integrato per gli annunci. È integrato anche GetYourGuide Partner Analytics con ID partner DBBA4V9 per attribuire link esterni alle attività ed eventuali prenotazioni affiliate.",
+    cookiesCopyOne: "Questo sito salva impostazioni locali del browser per mantenere lingua, scelta del distretto e avviso cookie. Google AdSense e GetYourGuide Partner Analytics sono integrati per annunci, integrazioni e attribuzione affiliata.",
+    cookieCopy: "Questo sito salva impostazioni locali come lingua, distretto e questa decisione sui cookie. Google AdSense e GetYourGuide Partner Analytics sono integrati; partner esterni possono trattare dati tecnici e cookie per l'attribuzione."
+  },
+  ja: {
+    privacyCopyThree: "本サイトには外部リンクと公開ソースの画像が含まれます。外部コンテンツを開くと、各提供者が独自のアクセスデータを処理する場合があります。広告のため Google AdSense を組み込んでいます。また、外部アクティビティリンクと提携予約の帰属を行うため、パートナーID DBBA4V9 の GetYourGuide Partner Analytics も組み込んでいます。",
+    cookiesCopyOne: "本サイトは、言語、行政区選択、Cookie通知を保持するため、ブラウザのローカル設定を保存します。広告、連携、アフィリエイト帰属のため Google AdSense と GetYourGuide Partner Analytics も組み込まれています。",
+    cookieCopy: "本サイトは、言語、行政区、このCookie決定などのローカル設定を保存します。Google AdSense と GetYourGuide Partner Analytics が組み込まれており、外部パートナーが帰属のため技術データやCookieを処理する場合があります。"
+  },
+  zh: {
+    privacyCopyThree: "网站包含外部链接和来自公开来源的图片。打开外部内容时，相应提供者可能处理自己的访问数据。Google AdSense 用于广告。网站还集成了合作伙伴 ID DBBA4V9 的 GetYourGuide Partner Analytics，用于归因外部活动链接和可能的合作伙伴预订。",
+    cookiesCopyOne: "本网站会保存本地浏览器设置，以便保留语言、行政区选择和 Cookie 提示。Google AdSense 和 GetYourGuide Partner Analytics 也用于广告、集成和联盟归因。",
+    cookieCopy: "本网站保存语言、行政区和本次 Cookie 决定等本地设置。Google AdSense 和 GetYourGuide Partner Analytics 已集成；外部合作伙伴可能为归因处理技术数据和 Cookie。"
+  }
+};
+
+Object.entries(getYourGuideLegalCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
+
 function t(key) {
   return translations[currentLanguage]?.[key] || translations.de[key] || key;
 }
@@ -4876,6 +4970,233 @@ function sightsMarkup(sights, item) {
   `;
 }
 
+const getYourGuidePartnerId = "DBBA4V9";
+const getYourGuideAffiliateSuffix = `partner_id=${getYourGuidePartnerId}`;
+
+const activityCatalog = {
+  centralPark: {
+    title: "Central Park Highlights Walking Tour",
+    url: "https://www.getyourguide.com/new-york-city-l59/new-york-city-25-hour-central-park-highlights-walking-tour-t358270/",
+    kind: "walking"
+  },
+  edge: {
+    title: "NYC: Edge Observation Deck",
+    url: "https://gyg.me/QYXjz2TS",
+    kind: "ticket"
+  },
+  brooklynBridge: {
+    title: "Brooklyn Bridge & DUMBO Walking Tour",
+    url: "https://www.getyourguide.com/brooklyn-l2034/brooklyn-bridge-and-dumbo-2-hour-walking-tour-in-nyc-t21767/",
+    kind: "walking"
+  },
+  empireState: {
+    title: "Empire State Building Observatory & Museum",
+    url: "https://www.getyourguide.com/new-york-city-l59/nyc-empire-state-building-observation-deck-tickets-t1029649/",
+    kind: "ticket"
+  },
+  statueLiberty: {
+    title: "Statue of Liberty & Ellis Island Ferry",
+    url: "https://www.getyourguide.com/en-gb/new-york-city-l59/statue-of-liberty-ellis-island-ticket-options-with-ferry-t393246/",
+    kind: "ticket"
+  },
+  moma: {
+    title: "Museum of Modern Art (MoMA) Entry Ticket",
+    url: "https://www.getyourguide.com/new-york-city-l59/skip-the-line-tickets-museum-of-modern-art-t14885/",
+    kind: "culture"
+  },
+  broadway: {
+    title: "Broadway Story & Secrets Experience",
+    url: "https://www.getyourguide.com/new-york-city-l59/nyc-story-and-secrets-of-broadway-small-group-experience-t1140796/",
+    kind: "culture"
+  },
+  lowerEastFood: {
+    title: "Lower East Side Food Tour",
+    url: "https://www.getyourguide.com/new-york-city-l59/new-york-lower-east-side-food-tour-t192588/",
+    kind: "food"
+  },
+  greenwichFood: {
+    title: "Greenwich Village Food & Culture Tour",
+    url: "https://www.getyourguide.com/new-york-city-l59/heart-soul-of-greenwich-village-food-and-culture-tour-t519122/",
+    kind: "food"
+  },
+  chinatownFood: {
+    title: "Chinatown & Little Italy Food Tour",
+    url: "https://www.getyourguide.com/new-york-l59/nyc-chinatown-et-little-italy-lunchtime-food-tour-t418173/",
+    kind: "food"
+  },
+  astoriaFood: {
+    title: "Astoria Queens Food Tour",
+    url: "https://www.getyourguide.com/new-york-city-l59/nyc-queens-around-the-world-food-tour-t1169029/",
+    kind: "food"
+  },
+  queensCulture: {
+    title: "Queens Street Food, Chinatown & Little India Tour",
+    url: "https://www.getyourguide.com/new-york-city-l59/new-york-queens-borough-walking-tour-t998649/",
+    kind: "food"
+  },
+  bronxZoo: {
+    title: "Bronx Zoo Entry Ticket",
+    url: "https://www.getyourguide.com/en-gb/new-york-city-l59/nyc-bronx-zoo-entry-ticket-t1065671/",
+    kind: "ticket"
+  }
+};
+
+const neighborhoodActivityMap = {
+  "Upper West Side": ["centralPark", "moma", "broadway"],
+  "Upper East Side": ["centralPark", "moma", "empireState"],
+  "Morningside Heights": ["centralPark", "moma", "broadway"],
+  Harlem: ["centralPark", "broadway", "moma"],
+  "East Harlem": ["centralPark", "moma", "bronxZoo"],
+  Midtown: ["empireState", "broadway", "moma"],
+  "Hell's Kitchen": ["broadway", "empireState", "centralPark"],
+  "Murray Hill": ["empireState", "moma", "broadway"],
+  "Kips Bay": ["empireState", "moma", "statueLiberty"],
+  Chelsea: ["greenwichFood", "moma", "empireState"],
+  "Hudson Yards": ["edge", "empireState", "broadway"],
+  Flatiron: ["empireState", "greenwichFood", "moma"],
+  Gramercy: ["empireState", "greenwichFood", "moma"],
+  "Greenwich Village": ["greenwichFood", "broadway", "moma"],
+  "West Village": ["greenwichFood", "broadway", "lowerEastFood"],
+  "East Village": ["lowerEastFood", "greenwichFood", "broadway"],
+  "Lower East Side": ["lowerEastFood", "chinatownFood", "statueLiberty"],
+  SoHo: ["chinatownFood", "greenwichFood", "moma"],
+  TriBeCa: ["statueLiberty", "chinatownFood", "brooklynBridge"],
+  Chinatown: ["chinatownFood", "lowerEastFood", "statueLiberty"],
+  NoHo: ["greenwichFood", "chinatownFood", "moma"],
+  "Financial District": ["statueLiberty", "brooklynBridge", "empireState"],
+  "Battery Park City": ["statueLiberty", "brooklynBridge", "empireState"],
+  Williamsburg: ["brooklynBridge", "greenwichFood", "queensCulture"],
+  DUMBO: ["brooklynBridge", "statueLiberty", "empireState"],
+  "Downtown Brooklyn": ["brooklynBridge", "statueLiberty", "broadway"],
+  "Park Slope": ["brooklynBridge", "greenwichFood", "moma"],
+  "Bed-Stuy": ["brooklynBridge", "queensCulture", "greenwichFood"],
+  Bushwick: ["brooklynBridge", "queensCulture", "lowerEastFood"],
+  Greenpoint: ["brooklynBridge", "queensCulture", "astoriaFood"],
+  "Coney Island": ["brooklynBridge", "statueLiberty", "empireState"],
+  "Long Island City": ["moma", "queensCulture", "astoriaFood"],
+  Astoria: ["astoriaFood", "queensCulture", "moma"],
+  Flushing: ["queensCulture", "astoriaFood", "moma"],
+  "Jackson Heights": ["queensCulture", "astoriaFood", "moma"],
+  "Forest Hills": ["queensCulture", "moma", "centralPark"],
+  Jamaica: ["queensCulture", "statueLiberty", "moma"],
+  "Rockaway Beach": ["statueLiberty", "brooklynBridge", "queensCulture"],
+  Sunnyside: ["queensCulture", "astoriaFood", "moma"],
+  "Mott Haven": ["bronxZoo", "centralPark", "moma"],
+  Concourse: ["bronxZoo", "empireState", "centralPark"],
+  Fordham: ["bronxZoo", "centralPark", "moma"],
+  Belmont: ["bronxZoo", "queensCulture", "centralPark"],
+  Riverdale: ["bronxZoo", "centralPark", "moma"],
+  Kingsbridge: ["bronxZoo", "centralPark", "moma"],
+  "Throgs Neck": ["bronxZoo", "statueLiberty", "queensCulture"],
+  "City Island": ["bronxZoo", "statueLiberty", "queensCulture"],
+  "St. George": ["statueLiberty", "brooklynBridge", "empireState"],
+  Tompkinsville: ["statueLiberty", "brooklynBridge", "queensCulture"],
+  Stapleton: ["statueLiberty", "brooklynBridge", "empireState"],
+  "Snug Harbor": ["statueLiberty", "brooklynBridge", "bronxZoo"],
+  "New Dorp": ["statueLiberty", "brooklynBridge", "empireState"],
+  Tottenville: ["statueLiberty", "brooklynBridge", "empireState"],
+  "Great Kills": ["statueLiberty", "brooklynBridge", "empireState"],
+  "West Brighton": ["statueLiberty", "brooklynBridge", "bronxZoo"]
+};
+
+function getYourGuideUrl(url) {
+  if (url.includes("gyg.me/")) return url;
+  if (!getYourGuideAffiliateSuffix) return url;
+  const glue = url.includes("?") ? "&" : "?";
+  return `${url}${glue}${getYourGuideAffiliateSuffix.replace(/^\?/, "")}`;
+}
+
+function activityContext(activity) {
+  const lines = {
+    walking: {
+      de: "Geführte Tour, wenn du den Ort nicht nur sehen, sondern besser verstehen möchtest.",
+      en: "Guided tour if you want to understand the place, not just see it.",
+      es: "Tour guiado si quieres entender el lugar, no solo verlo.",
+      fr: "Visite guidée pour comprendre le lieu, pas seulement le voir.",
+      pt: "Tour guiado para entender o lugar, não apenas vê-lo.",
+      it: "Tour guidato per capire il luogo, non solo vederlo.",
+      ja: "見るだけでなく場所の背景も知りたい場合に向くガイドツアーです。",
+      zh: "适合不只是看景，也想了解地点背景的导览。"
+    },
+    ticket: {
+      de: "Guter Ticket-Stopp für einen planbaren New-York-Klassiker.",
+      en: "A practical ticket stop for a classic New York experience.",
+      es: "Buena opción con entrada para una experiencia clásica de Nueva York.",
+      fr: "Une bonne option billet pour un classique new-yorkais facile à planifier.",
+      pt: "Boa opção com ingresso para uma experiência clássica de Nova York.",
+      it: "Una buona opzione con biglietto per un classico di New York.",
+      ja: "計画しやすいニューヨーク定番体験のチケットです。",
+      zh: "适合提前安排的纽约经典体验门票。"
+    },
+    culture: {
+      de: "Passt besonders gut, wenn Kultur, Architektur oder Bühne wichtig sind.",
+      en: "Best when culture, architecture or stage experiences matter.",
+      es: "Encaja especialmente si importan la cultura, la arquitectura o el escenario.",
+      fr: "Convient si la culture, l'architecture ou la scène comptent pour vous.",
+      pt: "Combina quando cultura, arquitetura ou palco são importantes.",
+      it: "Adatto se contano cultura, architettura o spettacolo.",
+      ja: "文化、建築、舞台体験を重視する場合に向いています。",
+      zh: "适合重视文化、建筑或舞台体验的行程。"
+    },
+    food: {
+      de: "Passend, wenn du das Viertel über Essen, Geschichten und lokale Wege erleben möchtest.",
+      en: "Good if you want to experience the area through food, stories and local routes.",
+      es: "Adecuado si quieres vivir la zona a través de comida, historias y rutas locales.",
+      fr: "Bien si vous voulez découvrir le quartier par la cuisine, les récits et les itinéraires locaux.",
+      pt: "Bom para viver a área por comida, histórias e caminhos locais.",
+      it: "Adatto per vivere la zona attraverso cibo, storie e percorsi locali.",
+      ja: "食、物語、ローカルな道筋から地区を体験したい場合に合います。",
+      zh: "适合通过美食、故事和本地路线体验街区。"
+    }
+  };
+  return lines[activity.kind]?.[currentLanguage] || lines[activity.kind]?.de || "";
+}
+
+function tripActivities(item, sights = []) {
+  const keys = neighborhoodActivityMap[item.name] || [];
+  const sightText = sights.join(" ").toLowerCase();
+  const boosted = [];
+  if (/central park|park/.test(sightText)) boosted.push("centralPark");
+  if (/edge|hudson yards/.test(sightText)) boosted.push("edge");
+  if (/bridge|dumbo|brooklyn/.test(sightText)) boosted.push("brooklynBridge");
+  if (/empire|rockefeller|midtown/.test(sightText)) boosted.push("empireState");
+  if (/statue|liberty|ellis|battery/.test(sightText)) boosted.push("statueLiberty");
+  if (/moma|museum|gallery|met/.test(sightText)) boosted.push("moma");
+  if (/food|market|restaurant|chinatown|little italy/.test(sightText)) boosted.push("lowerEastFood");
+  return [...boosted, ...keys, "empireState", "statueLiberty", "moma"]
+    .filter((key, index, list) => activityCatalog[key] && list.indexOf(key) === index)
+    .slice(0, 3)
+    .map((key) => activityCatalog[key]);
+}
+
+function activitiesMarkup(item, sights) {
+  const activities = tripActivities(item, sights);
+  return `
+    <div class="activity-block">
+      <div class="activity-block-header">
+        <span>${t("activityHeader")}</span>
+        <p>${t("activityCopy")}</p>
+      </div>
+      <div class="activity-list">
+        ${activities
+          .map(
+            (activity, index) => `
+              <a class="activity-item" href="${safeAttr(getYourGuideUrl(activity.url))}" target="_blank" rel="sponsored nofollow noreferrer">
+                <span>${String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <strong>${activity.title}</strong>
+                  <p>${activityContext(activity)}</p>
+                </div>
+              </a>
+            `
+          )
+          .join("")}
+      </div>
+      <small>${t("activityDisclosure")}</small>
+    </div>
+  `;
+}
+
 const restaurantRecommendations = {
   Inwood: ["Indian Road Cafe", "Dyckman Street Restaurants", "Garden Cafe"],
   "Washington Heights": ["Malecon", "Tung Thong Thai", "Fort Washington Avenue Cafes"],
@@ -5896,6 +6217,7 @@ function renderTripPlanner() {
               ${restaurantsMarkup(restaurantIdeas(item, sights), item)}
             </div>
           </div>
+          ${activitiesMarkup(item, sights)}
         </article>
       `;
     });

@@ -601,7 +601,12 @@ a {
   margin-top: 6px;
   min-height: 42px;
   padding: 0 18px;
+  text-decoration: none;
   width: max-content;
+}
+
+.pass-feature-copy .pass-feature-action:hover {
+  background: #000;
 }
 
 .pass-feature-copy small {

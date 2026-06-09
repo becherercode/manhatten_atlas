@@ -13,7 +13,7 @@ const neighborhoods = [
     prices:
       "Im Manhattan-Vergleich bleibt Inwood relativ erreichbar. Die Preisdynamik entsteht vor allem durch Parknähe, A-Train-Anbindung und begrenztes Angebot.",
     outlook:
-      "Die Zukunft liegt weniger in spektakulaeren Neubauten als in sanfter Verdichtung, Erhalt der Wohnsubstanz und besserer Verbindung zum Harlem River.",
+      "Die Zukunft liegt weniger in spektakulären Neubauten als in sanfter Verdichtung, Erhalt der Wohnsubstanz und besserer Verbindung zum Harlem River.",
     character: "Gut für Menschen, die Manhattan wollen, aber Luft, Hügel und Nachbarschaftsruhe brauchen."
   },
   {
@@ -28,7 +28,7 @@ const neighborhoods = [
     history:
       "Das Viertel wuchs stark mit der U-Bahn und wurde im 20. Jahrhundert ein Zentrum dominikanischer Kultur in New York.",
     prices:
-      "Noch moderater als Downtown, aber beliebt bei Haushalten, die Platz, Express-Zuege und Parks suchen.",
+      "Noch moderater als Downtown, aber beliebt bei Haushalten, die Platz, Express-Züge und Parks suchen.",
     outlook:
       "Aufwertung wird weiterkommen, doch lokale Geschäfte und lange Wohnbindung bleiben ein starkes Gegengewicht.",
     character: "Lebendig, laut, familiär und eines der kulturell klarsten Viertel Manhattans."
@@ -45,7 +45,7 @@ const neighborhoods = [
     history:
       "Benannt nach Alexander Hamilton, später Teil der Harlem Renaissance und heute bekannt für gut erhaltene Reihenhäuser.",
     prices:
-      "Preislich zwischen Washington Heights und dem zentralen Harlem. Brownstone-Bloecke treiben Kaufpreise deutlich nach oben.",
+      "Preislich zwischen Washington Heights und dem zentralen Harlem. Brownstone-Blöcke treiben Kaufpreise deutlich nach oben.",
     outlook:
       "Die Mischung aus Columbia-Nähe, Substanz und U-Bahn macht das Viertel für langfristige Käufer interessant.",
     character: "Elegant, wohnlich und leiser als viele Downtown-Alternativen."
@@ -65,7 +65,7 @@ const neighborhoods = [
       "Weiter unter vielen Downtown-Lagen, aber hochwertige Brownstones und neue Apartments haben die Spanne stark vergrößert.",
     outlook:
       "Die zentrale Frage bleibt Balance: Investitionen und neue Infrastruktur, ohne die kulturelle Basis zu verdrängen.",
-    character: "Ein Viertel mit Gewicht, Rhythmus und einer Geschichte, die man im Straßenbild noch spuert."
+    character: "Ein Viertel mit Gewicht, Rhythmus und einer Geschichte, die man im Straßenbild noch spürt."
   },
   {
     name: "East Harlem",
@@ -115,7 +115,7 @@ const neighborhoods = [
     prices:
       "Sehr gefragt durch Central Park, Riverside Park, Schulen und stabile Gebäudesubstanz.",
     outlook:
-      "Große Preisspruenge sind weniger wahrscheinlich als konstante Knappheit und Premiums für gute Grundrisse.",
+      "Große Preissprünge sind weniger wahrscheinlich als konstante Knappheit und Premiums für gute Grundrisse.",
     character: "Zivilisiert, kultiviert und im besten Sinn alltagstauglich."
   },
   {
@@ -157,7 +157,7 @@ const neighborhoods = [
     region: "midtown",
     area: "Core Manhattan",
     imageTitle: "Midtown Manhattan",
-    vibe: "Bürotürme, Hotels, Pendlerstroeme und Ikonen",
+    vibe: "Bürotürme, Hotels, Pendlerströme und Ikonen",
     price: "$$$$",
     rent: "4.3k-6.4k",
     future: "Umbau vom reinen Bürozentrum",
@@ -166,7 +166,7 @@ const neighborhoods = [
     prices:
       "Wohnlagen sind teuer, aber stark von Mikro-Lage, Gebäudealter und Lärmprofil abhängig.",
     outlook:
-      "Office-to-residential-Umbauten, modernisierte Büros und bessere öffentliche Räume prägen die naechste Phase.",
+      "Office-to-residential-Umbauten, modernisierte Büros und bessere öffentliche Räume prägen die nächste Phase.",
     character: "Nicht immer romantisch, aber unschlagbar vernetzt."
   },
   {
@@ -179,11 +179,11 @@ const neighborhoods = [
     rent: "3.9k-5.5k",
     future: "solide, wenig dramatisch",
     history:
-      "Aus einer wohlhabenden Wohnlage entwickelte sich ein dichtes Quartier zwischen Diplomatie, Midtown-Arbeit und jungen Berufstaetigen.",
+      "Aus einer wohlhabenden Wohnlage entwickelte sich ein dichtes Quartier zwischen Diplomatie, Midtown-Arbeit und jungen Berufstätigen.",
     prices:
       "Oft etwas erreichbarer als Flatiron oder West Village, aber klar im Manhattan-Premiumsegment.",
     outlook:
-      "Die UN-Nähe und gute Verkehrsanbindung sichern Nachfrage, große Identitätsspruenge sind weniger wahrscheinlich.",
+      "Die UN-Nähe und gute Verkehrsanbindung sichern Nachfrage, große Identitätssprünge sind weniger wahrscheinlich.",
     character: "Pragmatisch, zentral und komfortabel."
   },
   {
@@ -259,16 +259,16 @@ const neighborhoods = [
     region: "midtown",
     area: "East Central",
     imageTitle: "Gramercy Park",
-    vibe: "Private Parklage, Townhouses und leise Exklusivitaet",
+    vibe: "Private Parklage, Townhouses und leise Exklusivität",
     price: "$$$$",
     rent: "4.8k-7.0k",
     future: "knapp und konservativ",
     history:
       "Gramercy Park ist einer der wenigen privaten Parks New Yorks und gab dem Viertel eine ruhige, exklusive Identität.",
     prices:
-      "Kleine Verfuegbarkeit und historische Substanz machen das Viertel teuer, besonders rund um den Park.",
+      "Kleine Verfügbarkeit und historische Substanz machen das Viertel teuer, besonders rund um den Park.",
     outlook:
-      "Aenderungen kommen langsam; der Wert liegt gerade in der Stabilitaet.",
+      "Änderungen kommen langsam; der Wert liegt gerade in der Stabilität.",
     character: "Diskret, altstädtisch und ein bisschen unnahbar."
   },
   {
@@ -303,7 +303,7 @@ const neighborhoods = [
       "Eines der teuersten Wohnviertel der Stadt: viel Nachfrage, wenig Angebot, starker Charme-Aufschlag.",
     outlook:
       "Wenig Neubau bedeutet dauerhafte Knappheit; Restaurants und Luxusretail bleiben stark.",
-    character: "Sehr schön, sehr begehrt, sehr wenig zufaellig."
+    character: "Sehr schön, sehr begehrt, sehr wenig zufällig."
   },
   {
     name: "East Village",
@@ -317,9 +317,9 @@ const neighborhoods = [
     history:
       "Von immigrantischen Tenements zu Punk, Kunst und Nachtleben: Das East Village trägt viele Gegenkultur-Schichten.",
     prices:
-      "Teurer als sein raues Image vermuten laesst, besonders westlich und nahe Union Square.",
+      "Teurer als sein raues Image vermuten lässt, besonders westlich und nahe Union Square.",
     outlook:
-      "Die Nachfrage von jungen Berufstaetigen und NYU-Umfeld bleibt hoch; kleine Geschäfte kaempfen mit Mieten.",
+      "Die Nachfrage von jungen Berufstätigen und NYU-Umfeld bleibt hoch; kleine Geschäfte kämpfen mit Mieten.",
     character: "Unberechenbar, lebendig und sehr New York."
   },
   {
@@ -385,7 +385,7 @@ const neighborhoods = [
     history:
       "Chinatown entstand im 19. Jahrhundert und ist bis heute ein wichtiges Zentrum chinesischer und asiatisch-amerikanischer Kultur.",
     prices:
-      "Gegenüber SoHo und TriBeCa noch guenstiger, aber die Nähe zu Luxuslagen erhöht den Druck.",
+      "Gegenüber SoHo und TriBeCa noch günstiger, aber die Nähe zu Luxuslagen erhöht den Druck.",
     outlook:
       "Die Zukunft hängt stark an Gewerbemieten, Tourismus und dem Schutz kleiner Familienbetriebe.",
     character: "Sinnlich, dicht und wirtschaftlich vielschichtig."
@@ -404,7 +404,7 @@ const neighborhoods = [
     prices:
       "Sehr kleines Angebot und architektonische Qualität sorgen für ein klares Premium.",
     outlook:
-      "Neue Projekte bleiben selten; der Wert liegt in Lage, Substanz und Exklusivitaet.",
+      "Neue Projekte bleiben selten; der Wert liegt in Lage, Substanz und Exklusivität.",
     character: "Klein, kultiviert und für Kenner."
   },
   {
@@ -439,7 +439,7 @@ const neighborhoods = [
       "Hohe Mieten durch Wasserblick, Schulen, Parks und große Apartmenthäuser.",
     outlook:
       "Resilienz gegen Sturmfluten und steigende Wasserstände wird zum zentralen Zukunftsthema.",
-    character: "Gruen, kontrolliert und familienfreundlich."
+    character: "Grün, kontrolliert und familienfreundlich."
   }
 ];
 
@@ -1926,7 +1926,7 @@ const translations = {
     marketCopy: "Un pulso rapido del mercado antes de comparar dos barrios directamente.",
     statIndexTitle: "Indice de renta",
     statProfilesTitle: "Perfiles",
-    sourcesPrefix: "Las notas de precios y mercado se basan en indicadores publicos de",
+    sourcesPrefix: "Las notas de precios y mercado se basan en indicadores públicos de",
     sourcesSuffix: "y datos de barrios de Wikipedia. Esta web no sustituye el asesoramiento inmobiliario.",
     compareEyebrow: "Dos barrios",
     compareTitle: "Comparar barrios",
@@ -1943,7 +1943,7 @@ const translations = {
     analysisEyebrow: "Analisis",
     emptyTitle: "Elige una tarjeta.",
     emptyCopy:
-      "Aqui apareceran historia, nivel de precios, dinamica futura y una breve lectura del caracter.",
+      "Aqui apareceran historia, nivel de precios, dinâmica futura y una breve lectura del caracter.",
     sourcesTitle: "Fuentes y contexto",
     rentLabel: "Renta aprox.",
     monthLabel: "mes",
@@ -2275,7 +2275,7 @@ const translations = {
     boroughSelectAria: "Selecionar borough",
     regionFilterAria: "Filtrar região",
     boroughsLabel: "Boroughs",
-    heroEyebrow: "Historia, precos, futuro",
+    heroEyebrow: "História, preços, futuro",
     heroTitle: "Bairros de Nova York",
     heroCopy:
       "Um atlas curado dos principais bairros de Nova York, com análises de mercado, história e futuro, além de imagens de alta qualidade que revelam o caráter de cada lugar.",
@@ -2294,13 +2294,13 @@ const translations = {
     marketCopy: "Um pulso rapido do mercado antes de comparar dois bairros diretamente.",
     statIndexTitle: "Indice de aluguel",
     statProfilesTitle: "Perfis",
-    sourcesPrefix: "As notas de preco e mercado se baseiam em indicadores publicos de",
+    sourcesPrefix: "As notas de preço e mercado se baseiam em indicadores públicos de",
     sourcesSuffix: "e dados de bairros da Wikipedia. Este site nao substitui consultoria imobiliaria.",
     compareEyebrow: "Dois bairros",
     compareTitle: "Comparar bairros",
     compareFirst: "Primeiro bairro",
     compareSecond: "Segundo bairro",
-    comparePrice: "Nivel de preco",
+    comparePrice: "Nível de preço",
     compareRent: "Faixa de aluguel",
     compareFuture: "Futuro",
     compareCharacter: "Caracter",
@@ -2311,11 +2311,11 @@ const translations = {
     analysisEyebrow: "Analise",
     emptyTitle: "Escolha um cartao.",
     emptyCopy:
-      "Aqui aparecem historia, nivel de preco, dinamica futura e uma breve leitura do caracter.",
+      "Aqui aparecem história, nível de preço, dinâmica futura e uma breve leitura do caráter.",
     sourcesTitle: "Fontes e contexto",
     rentLabel: "Aluguel aprox.",
     monthLabel: "mes",
-    priceLevel: "Nivel de preco",
+    priceLevel: "Nível de preço",
     rentFact: "Aluguel",
     futureFact: "Futuro",
     noResults: "Nenhum bairro correspondente encontrado.",
@@ -2423,7 +2423,7 @@ const translations = {
     tripPreviewFood: "e atrações",
     adAria: "Anúncio",
     adLabel: "Anúncio",
-    adCopy: "Um anúncio discreto do Google aparecerá aqui mais tarde.",
+    adCopy: "Um anúncio discreto do Google aparecerá aquí mais tarde.",
     legalAria: "Informações legais",
     legalEyebrow: "Legal",
     legalTitle: "Impressum, privacidade e cookies",
@@ -3986,7 +3986,17 @@ const customImageSources = {
   "Mott Street":
     "https://commons.wikimedia.org/wiki/Special:FilePath/Mott_Street%2C_Chinatown%2C_Manhattan%2C_New_York_%287237361180%29.jpg?width=2400",
   "Canal Street (Manhattan)":
-    "https://commons.wikimedia.org/wiki/Special:FilePath/Canal_Street%2C_Chinatown%2C_Manhattan%2C_New_York_%287237368412%29.jpg?width=2400"
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Canal_Street%2C_Chinatown%2C_Manhattan%2C_New_York_%287237368412%29.jpg?width=2400",
+  "Bedstuy Brownstones":
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Bedstuybrownstone1.jpg?width=2400",
+  "Bushwick Brooklyn Art":
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Bushwick_Brooklyn_Art_875.jpg?width=2400",
+  "Jackson Heights, Queens NY":
+    "https://commons.wikimedia.org/wiki/Special:FilePath/Jackson_Heights%2C_Queens_NY.jpg?width=2400",
+  "St George Full Skyline 2023":
+    "https://commons.wikimedia.org/wiki/Special:FilePath/St_George_Full_Skyline_2023.png?width=2400",
+  "St. George Ferry Terminal":
+    "https://commons.wikimedia.org/wiki/Special:FilePath/St._George_Ferry_Terminal%2C_Staten_Island%2C_New_York_City%2C_20231002_1621_1749.jpg?width=2400"
 };
 
 function safeAttr(value) {
@@ -4155,14 +4165,14 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
     },
     es: {
       vibe: `${item.name} combina arquitectura, vida urbana e identidad local en ${item.area}.`,
-      future: "transformacion activa a largo plazo",
+      future: "transformación activa a largo plazo",
       description: `${item.name} se entiende mejor por su ubicacion, su arquitectura y su ritmo cotidiano. El barrio mezcla vivienda, vida publica, cultura y demanda inmobiliaria en un perfil muy propio de Nueva York.`,
       history: `${item.name} se formo por capas de historia urbana: transporte, crecimiento residencial, inmigracion, comercio, instituciones culturales y nuevas olas de inversion. Esas capas todavia se leen en las calles, los edificios y los negocios locales.`,
-      prices: `La renta estimada de unos $${item.rent} al mes sirve como orientacion. Los precios reales cambian mucho segun edificio, luz, ascensor, servicios, metro y cercania a parques o al agua. El nivel relativo de precios aqui es ${item.price}.`,
-      outlook: `${item.name} seguira cambiando por la demanda de vivienda, mejoras del espacio publico, resiliencia climatica, transporte y transformacion comercial. Su futuro dependera de que la inversion mejore tambien la vida diaria del barrio.`,
-      developments: `Los proyectos alrededor de ${item.name} se concentran en renovaciones, vivienda nueva donde la normativa lo permite, mejores espacios publicos e infraestructura cercana. El cambio sera mas visible en corredores clave que en cada manzana.`,
+      prices: `La renta estimada de unos $${item.rent} al mes sirve como orientación. Los precios reales cambian mucho según edificio, luz, ascensor, servicios, metro y cercanía a parques o al agua. El nivel relativo de precios aquí es ${item.price}.`,
+      outlook: `${item.name} seguirá cambiando por la demanda de vivienda, mejoras del espacio público, resiliencia climática, transporte y transformación comercial. Su futuro dependera de que la inversión mejore también la vida diaria del barrio.`,
+      developments: `Los proyectos alrededor de ${item.name} se concentran en renovaciones, vivienda nueva donde la normativa lo permite, mejores espacios públicos e infraestructura cercana. El cambio será más visible en corredores clave que en cada manzana.`,
       events: `La vida cultural de ${item.name} se apoya en parques, restaurantes, galerias, espacios de espectaculo, escuelas, mercados y eventos recurrentes. Ahi se ve cuando el barrio es mas que un mercado residencial.`,
-      expectation: `La expectativa es una demanda sostenida con cambios desiguales por manzana. ${item.name} ganara valor si combina movilidad, identidad, espacio publico y servicios locales estables.`,
+      expectation: `La expectativa es una demanda sostenida con cambios desiguales por manzana. ${item.name} ganará valor si combina movilidad, identidad, espacio público y servicios locales estables.`,
       character: `${item.name} se define por ${item.vibe.toLowerCase()}. Su atractivo nace del encuentro entre rutinas diarias, arquitectura y vida en la calle.`
     },
     fr: {
@@ -4170,7 +4180,7 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
       future: "transformation active a long terme",
       description: `${item.name} se comprend par sa position, son architecture et son rythme quotidien. Le quartier combine logement, vie publique, lieux culturels et demande immobiliere dans un profil tres new-yorkais.`,
       history: `${item.name} s'est construit par couches successives : transports, habitat, immigration, commerce, institutions culturelles puis reinvestissement. Ces traces restent visibles dans les rues, les immeubles et les commerces.`,
-      prices: `La fourchette d'environ $${item.rent} par mois sert de repere. Les prix varient selon l'immeuble, la lumiere, l'ascenseur, les services, le metro et la proximite des parcs ou de l'eau. Le niveau relatif est ${item.price}.`,
+      prices: `La fourchette d'environ $${item.rent} par mois sert de repère. Les prix varient selon l'immeuble, la lumière, l'ascenseur, les services, le métro et la proximité des parcs ou de l'eau. Le niveau relatif est ${item.price}.`,
       outlook: `${item.name} devrait continuer a evoluer avec la demande residentielle, les espaces publics, la resilience climatique, les transports et le commerce. Son avenir dependra de la qualite de cette transformation au quotidien.`,
       developments: `Les projets autour de ${item.name} passent par des renovations, du logement neuf lorsque le zonage le permet, des espaces publics ameliores et des infrastructures proches. Le changement sera surtout visible sur certains axes.`,
       events: `La vie culturelle de ${item.name} s'appuie sur parcs, restaurants, galeries, scenes, ecoles, marches et evenements recurrents. Ces moments montrent quand le quartier devient une scene publique.`,
@@ -4182,11 +4192,11 @@ function localizedNeighborhood(item, extra = extendedProfiles[item.name] || {}) 
       future: "transformacao ativa de longo prazo",
       description: `${item.name} e melhor entendido pela localizacao, pela arquitetura e pelo ritmo cotidiano. O bairro mistura moradia, vida publica, cultura e demanda imobiliaria em um perfil tipico de Nova York.`,
       history: `${item.name} cresceu em camadas: transporte, habitacao, imigracao, comercio, instituicoes culturais e novas ondas de investimento. Essas camadas ainda aparecem nas ruas, nos edificios e nos negocios locais.`,
-      prices: `A faixa de aluguel de cerca de $${item.rent} por mes serve como orientacao. Os precos variam conforme predio, luz, elevador, servicos, acesso ao metro e proximidade de parques ou da agua. O nivel relativo aqui e ${item.price}.`,
-      outlook: `${item.name} deve continuar mudando com demanda por moradia, melhorias urbanas, resiliencia climatica, transporte e comercio. O futuro depende de a nova valorizacao tambem fortalecer a vida diaria do bairro.`,
-      developments: `Os projetos em torno de ${item.name} passam por reformas, novas moradias onde o zoneamento permite, espacos publicos melhores e infraestrutura proxima. A mudanca deve aparecer mais em corredores especificos.`,
-      events: `A vida cultural de ${item.name} vem de parques, restaurantes, galerias, espacos de apresentacao, escolas, mercados e eventos recorrentes. Esses momentos mostram o bairro como palco publico.`,
-      expectation: `A tendencia e demanda continua, com mudancas diferentes de rua para rua. ${item.name} ganha valor quando combina mobilidade, identidade, espaco publico e servicos locais estaveis.`,
+      prices: `A faixa de aluguel de cerca de $${item.rent} por mês serve como orientação. Os preços variam conforme prédio, luz, elevador, serviços, acesso ao metrô e proximidade de parques ou da água. O nível relativo aquí é ${item.price}.`,
+      outlook: `${item.name} deve continuar mudando com demanda por moradia, melhorias urbanas, resiliencia climática, transporte e comercio. O futuro depende de a nova valorizacao tambem fortalecer a vida diaria do bairro.`,
+      developments: `Os projetos em torno de ${item.name} passam por reformas, novas moradias onde o zoneamento permite, espaços públicos melhores e infraestrutura próxima. A mudança deve aparecer mais em corredores especificos.`,
+      events: `A vida cultural de ${item.name} vem de parques, restaurantes, galerias, espaços de apresentação, escolas, mercados e eventos recorrentes. Esses momentos mostram o bairro como palco público.`,
+      expectation: `A tendência é demanda continua, com mudanças diferentes de rua para rua. ${item.name} ganha valor quando combina mobilidade, identidade, espaço público e serviços locais estáveis.`,
       character: `${item.name} se define por ${item.vibe.toLowerCase()}. O apelo esta no encontro entre rotina diaria, arquitetura e vida nas ruas.`
     },
     it: {
@@ -4270,7 +4280,7 @@ function expandedText(item, extra, type) {
       `${item.name} lässt sich historisch als Teil einer größeren ${boroughName}- und New-York-Bewegung lesen: Erst entstanden Verkehrsachsen, Parks, Hafen- oder Gewerbeflächen, danach folgten Wohnhäuser, Läden, Schulen, Kirchen und kulturelle Orte. Diese Schichten sind wichtig, weil New York nicht gleichmäßig gewachsen ist. Manche Viertel wurden durch Industrie und Handel groß, andere durch Universitäten, Theater, Einwanderung, Wohlstand, Häfen oder Bahnlinien.`,
       `Im Straßenbild sieht man diese Geschichte bis heute. Gebäudehöhen, Blockgrößen, Ladenfronten und Parks verraten, ob ein Viertel eher aus alten Wohnblöcken, ehemaligen Lagerhäusern, Brownstones, Bürotürmen oder geplanten Neubauten besteht. Bei ${item.name} zeigt sich das besonders in der Mischung aus ${item.vibe.toLowerCase()}. Dadurch entsteht ein eigener Maßstab, der den Immobilienmarkt genauso prägt wie die kulturelle Identität.`,
       `Soziale Geschichte spielt ebenfalls eine große Rolle. Viele Manhattan-Viertel wurden von Einwanderung, Community-Organisation, Kunst, Musik, Religion oder politischem Aktivismus geformt. Diese lokalen Netzwerke entscheiden oft darüber, ob Veränderung als Aufwertung, Verlust oder neue Chance wahrgenommen wird. Bei ${item.name} ist deshalb nicht nur interessant, was gebaut wird, sondern auch, wer schon lange dort lebt und welche Institutionen das Viertel zusammenhalten.`,
-      `Für die Zukunft bedeutet diese historische Tiefe: Neue Projekte müssen sich an einer vorhandenen Identität messen lassen. Wenn neue Wohnungen, Hotels, Büros oder Infrastruktur entstehen, verändern sie nicht nur Preise, sondern auch Rhythmus, Publikum und Alltag. Genau deshalb ist Geschichte hier kein Rückblick am Rand, sondern der Schlüssel, um die naechsten Jahre von ${item.name} zu verstehen.`
+      `Für die Zukunft bedeutet diese historische Tiefe: Neue Projekte müssen sich an einer vorhandenen Identität messen lassen. Wenn neue Wohnungen, Hotels, Büros oder Infrastruktur entstehen, verändern sie nicht nur Preise, sondern auch Rhythmus, Publikum und Alltag. Genau deshalb ist Geschichte hier kein Rückblick am Rand, sondern der Schlüssel, um die nächsten Jahre von ${item.name} zu verstehen.`
     ],
     prices: [
       item.prices,
@@ -4289,18 +4299,18 @@ function expandedText(item, extra, type) {
     ],
     events: [
       extra.events,
-      `Events sind für die Analyse wichtig, weil sie zeigen, wann ein Viertel nur Wohnort ist und wann es zur Buehne für Besucher, Kultur und Gastronomie wird. Wiederkehrende Festivals, Museumsprogramme, Parkevents oder Straßenfeste schaffen Aufmerksamkeit und können lokale Geschäfte stärken.`,
+      `Events sind für die Analyse wichtig, weil sie zeigen, wann ein Viertel nur Wohnort ist und wann es zur Bühne für Besucher, Kultur und Gastronomie wird. Wiederkehrende Festivals, Museumsprogramme, Parkevents oder Straßenfeste schaffen Aufmerksamkeit und können lokale Geschäfte stärken.`,
       `Bei ${item.name} liegt der Wert deshalb nicht nur in Architektur oder Lage. Entscheidend ist auch, ob es Orte gibt, an denen Menschen regelmäßig zusammenkommen: Parks, Theater, Märkte, Musikorte, Kirchen, Schulen oder Community-Zentren.`
     ],
     expectation: [
       extra.expectation,
       `Kurzfristig werden Mieten und Verfügbarkeit weiter stark vom gesamtstädtischen Markt abhängen. Mittel- bis langfristig zählen vor allem neue Infrastruktur, Klimaschutz, Arbeitsplätze und die Frage, ob lokale Identität erhalten bleibt.`,
-      `Die wahrscheinlichste Entwicklung für ${item.name}: keine komplette Neuerfindung, sondern eine Verdichtung vorhandener Tendenzen. Das Viertel wird stärker nachgefragt, wenn es gute Mobilitaet, klare Identität und stabile Alltagsangebote verbinden kann.`
+      `Die wahrscheinlichste Entwicklung für ${item.name}: keine komplette Neuerfindung, sondern eine Verdichtung vorhandener Tendenzen. Das Viertel wird stärker nachgefragt, wenn es gute Mobilität, klare Identität und stabile Alltagsangebote verbinden kann.`
     ],
     character: [
       item.character,
-      `Der Charakter eines Viertels entsteht aus kleinen Signalen: Wie laut sind die Straßen abends? Gibt es eher Familien, Studierende, Touristen, Büroangestellte oder langjaehrige Bewohner? Sind die Erdgeschosse lokal oder global? Fühlt sich der öffentliche Raum offen, exklusiv, improvisiert oder geplant an?`,
-      `${item.name} wirkt besonders durch ${item.vibe.toLowerCase()}. Genau diese Atmosphaere entscheidet oft, ob Menschen das Viertel nur besuchen, dort arbeiten oder wirklich dort wohnen wollen.`
+      `Der Charakter eines Viertels entsteht aus kleinen Signalen: Wie laut sind die Straßen abends? Gibt es eher Familien, Studierende, Touristen, Büroangestellte oder langjährige Bewohner? Sind die Erdgeschosse lokal oder global? Fühlt sich der öffentliche Raum offen, exklusiv, improvisiert oder geplant an?`,
+      `${item.name} wirkt besonders durch ${item.vibe.toLowerCase()}. Genau diese Atmosphäre entscheidet oft, ob Menschen das Viertel nur besuchen, dort arbeiten oder wirklich dort wohnen wollen.`
     ]
   };
 
@@ -4364,10 +4374,42 @@ function galleryTitles(item) {
     ],
     "NoHo": ["NoHo, Manhattan", "Astor Place", "The Public Theater", "Cooper Union"],
     "Financial District": ["Financial District, Manhattan", "Wall Street", "New York Stock Exchange", "South Street Seaport"],
-    "Battery Park City": ["Battery Park City", "Brookfield Place (New York City)", "Wagner Park", "Hudson River Park"]
+    "Battery Park City": ["Battery Park City", "Brookfield Place (New York City)", "Wagner Park", "Hudson River Park"],
+    "Williamsburg": ["Williamsburg, Brooklyn", "Domino Park", "East River State Park", "Williamsburg Bridge"],
+    "DUMBO": ["DUMBO, Brooklyn", "Brooklyn Bridge Park", "Manhattan Bridge", "Jane's Carousel"],
+    "Park Slope": ["Park Slope", "Prospect Park", "Grand Army Plaza", "Old Stone House (Brooklyn)"],
+    "Bed-Stuy": ["Bedford-Stuyvesant, Brooklyn", "Bedstuy Brownstones", "Fulton Street, Brooklyn", "Herbert Von King Park"],
+    "Bushwick": ["Bushwick, Brooklyn", "Bushwick Brooklyn Art", "Maria Hernandez Park", "Myrtle Avenue"],
+    "Downtown Brooklyn": ["Downtown Brooklyn", "Brooklyn Borough Hall", "Fulton Mall", "MetroTech Center"],
+    "Greenpoint": ["Greenpoint, Brooklyn", "WNYC Transmitter Park", "Greenpoint Avenue", "Newtown Creek"],
+    "Coney Island": ["Coney Island", "Coney Island Boardwalk", "Luna Park, Coney Island", "New York Aquarium"],
+    "Long Island City": ["Long Island City", "Gantry Plaza State Park", "Pepsi-Cola sign", "MoMA PS1"],
+    "Astoria": ["Astoria, Queens", "Astoria Park", "Hell Gate Bridge", "Museum of the Moving Image"],
+    "Flushing": ["Flushing, Queens", "Flushing Meadows-Corona Park", "Main Street, Flushing", "Queens Botanical Garden"],
+    "Jackson Heights": ["Jackson Heights, Queens", "Roosevelt Avenue (Queens)", "Jackson Heights, Queens NY", "Travers Park"],
+    "Forest Hills": ["Forest Hills, Queens", "Forest Hills Gardens", "Forest Hills Stadium", "Queens Boulevard"],
+    "Jamaica": ["Jamaica, Queens", "Jamaica Center", "King Manor", "Sutphin Boulevard-Archer Avenue-JFK Airport station"],
+    "Rockaway Beach": ["Rockaway Beach, Queens", "Rockaway Beach and Boardwalk", "Jamaica Bay", "Rockaway Park"],
+    "Sunnyside": ["Sunnyside, Queens", "Sunnyside Gardens, Queens", "Queens Boulevard", "Sunnyside Yard"],
+    "Mott Haven": ["Mott Haven, Bronx", "Bruckner Boulevard", "Willis Avenue Bridge", "Bronx Terminal Market"],
+    "Concourse": ["Grand Concourse (Bronx)", "Yankee Stadium", "Bronx Museum of the Arts", "Joyce Kilmer Park"],
+    "Fordham": ["Fordham, Bronx", "Fordham Road", "Fordham University", "New York Botanical Garden"],
+    "Belmont": ["Arthur Avenue", "Belmont, Bronx", "Arthur Avenue Retail Market", "Bronx Zoo"],
+    "Riverdale": ["Riverdale, Bronx", "Wave Hill", "Van Cortlandt Park", "Henry Hudson Parkway"],
+    "Kingsbridge": ["Kingsbridge, Bronx", "Kingsbridge Armory", "Broadway Bridge", "Van Cortlandt Park"],
+    "Throgs Neck": ["Throggs Neck", "Throgs Neck Bridge", "Ferry Point Park", "East River"],
+    "City Island": ["City Island, Bronx", "City Island Avenue", "Orchard Beach", "Long Island Sound"],
+    "St. George": ["St. George, Staten Island", "St George Full Skyline 2023", "St. George Ferry Terminal", "Staten Island Ferry"],
+    "Tompkinsville": ["Tompkinsville, Staten Island", "Bay Street, Staten Island", "Staten Island Railway", "St. George, Staten Island"],
+    "Stapleton": ["Stapleton, Staten Island", "Stapleton Waterfront", "Bay Street, Staten Island", "Staten Island Railway"],
+    "Snug Harbor": ["Sailors' Snug Harbor", "Snug Harbor Cultural Center", "New York Chinese Scholar's Garden", "Staten Island Botanical Garden"],
+    "New Dorp": ["New Dorp, Staten Island", "New Dorp Lane", "Midland Beach", "Staten Island Mall"],
+    "Tottenville": ["Tottenville, Staten Island", "Conference House", "Tottenville station", "Raritan Bay"],
+    "Great Kills": ["Great Kills, Staten Island", "Great Kills Park", "Great Kills Harbor", "Staten Island Railway"],
+    "West Brighton": ["West New Brighton, Staten Island", "Staten Island Zoo", "Forest Avenue, Staten Island", "Snug Harbor Cultural Center"]
   };
 
-  return [...new Set(galleries[item.name] || [item.imageTitle, item.name, `${item.name}, Manhattan`])].slice(0, 4);
+  return [...new Set(galleries[item.name] || [item.imageTitle, item.name])].slice(0, 4);
 }
 
 function galleryMarkup(item, index) {
@@ -5281,7 +5323,7 @@ function tripContextLine(key, item) {
       en: "Best planned with a little time, because this is where atmosphere and movement build up.",
       es: "Conviene planearlo con algo de tiempo, porque aquí se concentra mucha atmósfera y movimiento.",
       fr: "À prévoir avec un peu de temps, car l'atmosphère et le mouvement y sont particulièrement présents.",
-      pt: "Vale planejar com um pouco de tempo, porque aqui há muita atmosfera e movimento.",
+      pt: "Vale planejar com um pouco de tempo, porque aquí há muita atmosfera e movimento.",
       it: "Meglio prevedere un po' di tempo, perché qui si concentrano atmosfera e movimento.",
       ja: "雰囲気と人の動きが強く出る場所なので、少し時間を取って訪れるのがおすすめです。",
       zh: "最好预留一些时间，因为这里的氛围和人流最能体现城市感。"
@@ -6560,7 +6602,7 @@ const extendedProfiles = {
     description:
       "Washington Heights ist dicht, musikalisch, dominikanisch geprägt und topografisch dramatisch. Die Nachbarschaft verbindet Hudson River, George Washington Bridge, laute Einkaufsstraßen und intime Wohnblocks mit erstaunlich viel Höhenlage.",
     developments:
-      "Die größten Veränderungen entstehen eher durch Sanierung, kleinere Neubauten und neue Gastronomie als durch einen einzelnen Megaprojekt-Boom. Die Nähe zu Columbia Medical Center und die gute A-Train-Anbindung stuetzen Nachfrage.",
+      "Die größten Veränderungen entstehen eher durch Sanierung, kleinere Neubauten und neue Gastronomie als durch einen einzelnen Megaprojekt-Boom. Die Nähe zu Columbia Medical Center und die gute A-Train-Anbindung stützen Nachfrage.",
     events:
       "United Palace, Little Dominican Republic, Fort Tryon Park und die Dyckman-Corridors sorgen für Konzerte, Kulturprogramme, Straßenleben und dominikanische Community-Events.",
     expectation:
@@ -6570,7 +6612,7 @@ const extendedProfiles = {
     description:
       "Hamilton Heights wirkt wie eine ruhigere, architektonisch feinere Schwester von Harlem: Brownstones, breite Treppen, historische Districts und die Nähe zu City College und Columbia Manhattanville.",
     developments:
-      "Die staerkste Dynamik kommt von der Broadway- und Amsterdam-Avenue-Achse, von sanierten Brownstones und von der Ausstrahlung der Columbia-Manhattanville-Entwicklung im Süden.",
+      "Die stärkste Dynamik kommt von der Broadway- und Amsterdam-Avenue-Achse, von sanierten Brownstones und von der Ausstrahlung der Columbia-Manhattanville-Entwicklung im Süden.",
     events:
       "City College, Riverbank State Park, lokale Open-Studio-Formate und kleinere Jazz- und Literaturprogramme geben dem Viertel akademische und kulturelle Energie.",
     expectation:
@@ -6578,19 +6620,19 @@ const extendedProfiles = {
   },
   "Harlem": {
     description:
-      "Harlem ist kein einheitlicher Markt, sondern ein kultureller Stadtteil mit mehreren Schichten: 125th Street, Brownstone-Bloecke, Gospel, Jazz, Restaurants, Kirchen, Theater und eine lange Geschichte Schwarzer Selbstorganisation.",
+      "Harlem ist kein einheitlicher Markt, sondern ein kultureller Stadtteil mit mehreren Schichten: 125th Street, Brownstone-Blöcke, Gospel, Jazz, Restaurants, Kirchen, Theater und eine lange Geschichte Schwarzer Selbstorganisation.",
     developments:
-      "Relevant sind die weitere Staerkung von 125th Street, neue Wohn- und Hotelprojekte, Kulturinstitutionen wie das Apollo und die Rückkehr beziehungsweise Erneuerung großer Kunstorte. Auch die Subway-Entwicklung in East Harlem strahlt auf Central Harlem aus.",
+      "Relevant sind die weitere Stärkung von 125th Street, neue Wohn- und Hotelprojekte, Kulturinstitutionen wie das Apollo und die Rückkehr beziehungsweise Erneuerung großer Kunstorte. Auch die Subway-Entwicklung in East Harlem strahlt auf Central Harlem aus.",
     events:
       "Harlem Week, Apollo-Programme, Jazz in lokalen Clubs, Gospel-Angebote, Straßenfeste und Kulturprogramme rund um 125th Street sind zentrale Besuchsgründe.",
     expectation:
-      "Harlem wird weiter investieren und zugleich um kulturelle Kontinuitaet ringen. Die Zukunft hängt stark daran, ob neue Projekte lokale Unternehmen und Bewohner einbeziehen."
+      "Harlem wird weiter investieren und zugleich um kulturelle Kontinuität ringen. Die Zukunft hängt stark daran, ob neue Projekte lokale Unternehmen und Bewohner einbeziehen."
   },
   "East Harlem": {
     description:
       "East Harlem, El Barrio, ist rauer, lokaler und weniger poliert als die Upper East Side direkt südlich davon. Puerto-ricanische Geschichte, Sozialwohnungsbauten, Museen, Schulen und alte Gewerbestraßen liegen hier eng zusammen.",
     developments:
-      "Das wichtigste Zukunftsprojekt ist die Second Avenue Subway Phase 2. Die Q-Linie soll von 96th Street bis 125th Street verlaengert werden, mit neuen Stationen bei 106th, 116th und 125th Street. Das kann Erreichbarkeit, Ladenlagen und Immobilienwerte stark verändern.",
+      "Das wichtigste Zukunftsprojekt ist die Second Avenue Subway Phase 2. Die Q-Linie soll von 96th Street bis 125th Street verlängert werden, mit neuen Stationen bei 106th, 116th und 125th Street. Das kann Erreichbarkeit, Ladenlagen und Immobilienwerte stark verändern.",
     events:
       "El Museo del Barrio, Museum of the City of New York, La Marqueta und Community-Feste geben dem Viertel ein klares kulturelles Profil.",
     expectation:
@@ -6600,9 +6642,9 @@ const extendedProfiles = {
     description:
       "Morningside Heights ist ein Hochschulplateau zwischen Riverside Park und Morningside Park. Es wirkt ruhiger als Midtown, aber dichter und institutioneller als klassische Wohnviertel.",
     developments:
-      "Columbia, Barnard und benachbarte Manhattanville-Projekte stabilisieren Nachfrage. Die bauliche Zukunft ist weniger spektakulaer, aber kontinuierlich: Modernisierung von Campusflächen, Wohnheimen, Laboren und Erdgeschossnutzungen.",
+      "Columbia, Barnard und benachbarte Manhattanville-Projekte stabilisieren Nachfrage. Die bauliche Zukunft ist weniger spektakulär, aber kontinuierlich: Modernisierung von Campusflächen, Wohnheimen, Laboren und Erdgeschossnutzungen.",
     events:
-      "Universitaetsvortraege, Cathedral-Konzerte, Book Culture, Riverside-Kulturprogramme und akademische Festivals sind typisch.",
+      "Universitätsvorträge, Cathedral-Konzerte, Book Culture, Riverside-Kulturprogramme und akademische Festivals sind typisch.",
     expectation:
       "Das Viertel bleibt ein stabiler Wissens- und Wohnstandort. Preislich begrenzt vor allem das knappe Angebot die Entspannung."
   },
@@ -6612,7 +6654,7 @@ const extendedProfiles = {
     developments:
       "Große Neubauflächen sind selten. Veränderungen entstehen durch Sanierungen, einzelne Luxusprojekte an Broadway/Amsterdam und Investitionen in Parks, Kulturhäuser und Verkehr.",
     events:
-      "Lincoln Center, Beacon Theatre, American Museum of Natural History, SummerStage-nahe Programme und Wochenmaerkte machen das Viertel ganzjaehrig aktiv.",
+      "Lincoln Center, Beacon Theatre, American Museum of Natural History, SummerStage-nahe Programme und Wochenmärkte machen das Viertel ganzjährig aktiv.",
     expectation:
       "Die Zukunft ist weniger Boom als Dauerknappheit. Gute Grundrisse, Parknähe und Familieninfrastruktur bleiben die Preistreiber."
   },
@@ -6652,7 +6694,7 @@ const extendedProfiles = {
     developments:
       "Die Zukunft hängt an Midtown-East-Investitionen, Grand-Central-Nähe und dem medizinisch-akademischen Wachstum südlich in Kips Bay. Einzelne Wohnsanierungen und neue Gastronomie verändern die Erdgeschosse.",
     events:
-      "Morgan Library, UN-nahe Veranstaltungen, Rooftop- und Bar-Szene sowie kleine Nachbarschaftsmaerkte prägen den Kalender.",
+      "Morgan Library, UN-nahe Veranstaltungen, Rooftop- und Bar-Szene sowie kleine Nachbarschaftsmärkte prägen den Kalender.",
     expectation:
       "Murray Hill bleibt ein solider Nutzwert-Markt: zentral, gut vermietbar, aber weniger ikonisch als seine Nachbarn."
   },
@@ -6670,7 +6712,7 @@ const extendedProfiles = {
     description:
       "Chelsea ist eine Mischung aus Kunstmarkt, LGBTQ+-Geschichte, Industrie-Lofts, High Line, Nightlife und neuen Luxuswohnhäusern.",
     developments:
-      "Die High-Line- und West-Chelsea-Zone bleibt der staerkste Entwicklungsraum. Neue Wohnprojekte, Galerien, Hotels und Office-Umnutzungen entstehen besonders westlich von Tenth Avenue.",
+      "Die High-Line- und West-Chelsea-Zone bleibt der stärkste Entwicklungsraum. Neue Wohnprojekte, Galerien, Hotels und Office-Umnutzungen entstehen besonders westlich von Tenth Avenue.",
     events:
       "Gallery Openings am Donnerstagabend, High-Line-Programme, Chelsea Market, Pride-Events und Kunstmessen machen Chelsea zu einem dauernden Kulturkorridor.",
     expectation:
@@ -6680,7 +6722,7 @@ const extendedProfiles = {
     description:
       "Hudson Yards ist Manhattans neuestes Grossquartier: vertikal, geplant, hochpreisig und noch immer im Aufbau seiner sozialen Identität.",
     developments:
-      "Der Western Rail Yard ist das große naechste Kapitel. Der Plan sieht tausende neue Wohnungen, dauerhaft erschwingliche Einheiten, öffentliche Flächen, Schule, Kita und weitere Mixed-Use-Bauten über aktiven Bahnanlagen vor.",
+      "Der Western Rail Yard ist das große nächste Kapitel. Der Plan sieht tausende neue Wohnungen, dauerhaft erschwingliche Einheiten, öffentliche Flächen, Schule, Kita und weitere Mixed-Use-Bauten über aktiven Bahnanlagen vor.",
     events:
       "The Shed, Edge, High Line, Public-Space-Programme, Retail-Events und Corporate-Veranstaltungen bestimmen die Frequenz.",
     expectation:
@@ -6688,9 +6730,9 @@ const extendedProfiles = {
   },
   "Flatiron": {
     description:
-      "Flatiron ist eines der am besten lesbaren Stadtbilder Manhattans: ikonisches Dreiecksgebäude, Madison Square, Designbueros, Fitness, Restaurants und kurze Wege.",
+      "Flatiron ist eines der am besten lesbaren Stadtbilder Manhattans: ikonisches Dreiecksgebäude, Madison Square, Designbüros, Fitness, Restaurants und kurze Wege.",
     developments:
-      "Die Zukunft liegt in Büro-Modernisierung, Broadway- und Fifth-Avenue-Public-Realm-Projekten sowie in der weiteren Aktivierung rund um Madison Square. Das Flatiron Building bleibt ein identitaetsstiftender Anker.",
+      "Die Zukunft liegt in Büro-Modernisierung, Broadway- und Fifth-Avenue-Public-Realm-Projekten sowie in der weiteren Aktivierung rund um Madison Square. Das Flatiron Building bleibt ein identitätsstiftender Anker.",
     events:
       "Madison Square Park Conservancy, Design- und Food-Events, Eataly, saisonale Installationen und Tech-/Design-Treffen prägen den Alltag.",
     expectation:
@@ -6698,19 +6740,19 @@ const extendedProfiles = {
   },
   "Gramercy": {
     description:
-      "Gramercy ist leise, knapp und institutionell alt: private Parklage, Townhouses, kleine Blocks und ein Wohngefuehl, das bewusst nicht nach Spektakel sucht.",
+      "Gramercy ist leise, knapp und institutionell alt: private Parklage, Townhouses, kleine Blocks und ein Wohngefühl, das bewusst nicht nach Spektakel sucht.",
     developments:
       "Große Neubauten sind wegen Denkmalschutz und kleiner Parzellen selten. Veränderung entsteht eher an den Rändern Richtung Union Square, Kips Bay und Flatiron.",
     events:
       "Gramercy Park Hotel-Geschichte, Players Club, Irving Plaza, Union-Square-Nähe und saisonale Parktraditionen bilden die kulturelle Umgebung.",
     expectation:
-      "Die Exklusivitaet bleibt stabil. Gramercy wird sich langsam entwickeln und gerade deshalb wertvoll bleiben."
+      "Die Exklusivität bleibt stabil. Gramercy wird sich langsam entwickeln und gerade deshalb wertvoll bleiben."
   },
   "Greenwich Village": {
     description:
       "Greenwich Village ist ein historisch dichter Kulturraum: unregelmäßige Straßen, Jazz, Cafes, NYU, Aktivismus, Theater und eine starke Erinnerung an Gegenkultur.",
     developments:
-      "NYU, kleinere Umnutzungen und Sanierungen sind die stärksten Kraefte. Großer Neubau ist durch historische Schutzgebiete begrenzt, was das Angebot knapp hält.",
+      "NYU, kleinere Umnutzungen und Sanierungen sind die stärksten Kräfte. Großer Neubau ist durch historische Schutzgebiete begrenzt, was das Angebot knapp hält.",
     events:
       "Washington Square Park, Village Vanguard, Comedy Cellar, Halloween-Parade-nahe Routen, NYU-Events und kleine Theater machen das Village dauerhaft aktiv.",
     expectation:
@@ -6718,9 +6760,9 @@ const extendedProfiles = {
   },
   "West Village": {
     description:
-      "West Village ist Manhattans romantischstes Wohnbild: schmale Straßen, niedrige Häuser, Restaurants, intime Bars und ein Maßstab, der fast europaeisch wirkt.",
+      "West Village ist Manhattans romantischstes Wohnbild: schmale Straßen, niedrige Häuser, Restaurants, intime Bars und ein Maßstab, der fast europäisch wirkt.",
     developments:
-      "Durch Denkmalschutz und kleine Grundstuecke entstehen wenige Grossprojekte. Veränderungen liegen eher in Retail, Restaurantmieten, Hudson-River-Park-Anbindung und Luxus-Sanierungen.",
+      "Durch Denkmalschutz und kleine Grundstücke entstehen wenige Grossprojekte. Veränderungen liegen eher in Retail, Restaurantmieten, Hudson-River-Park-Anbindung und Luxus-Sanierungen.",
     events:
       "Pride-Geschichte rund um Stonewall, Jazzclubs, Bleecker Street, Hudson River Park, Little Island und Whitney-Nähe schaffen einen dichten Kulturkalender.",
     expectation:
@@ -6738,7 +6780,7 @@ const extendedProfiles = {
   },
   "Lower East Side": {
     description:
-      "Die Lower East Side ist eine der dichtesten Geschichtsschichten New Yorks: Einwanderung, Tenements, jüdische, chinesische, lateinamerikanische und kuenstlerische Spuren, heute gemischt mit Bars und Galerien.",
+      "Die Lower East Side ist eine der dichtesten Geschichtsschichten New Yorks: Einwanderung, Tenements, jüdische, chinesische, lateinamerikanische und künstlerische Spuren, heute gemischt mit Bars und Galerien.",
     developments:
       "ESCR und East River Park sind die größten Zukunftsthemen. Dazu wirken Essex Crossing, neue Hotels und Luxuswohnungen am Rand auf Preise und Laufkundschaft.",
     events:
@@ -6750,7 +6792,7 @@ const extendedProfiles = {
     description:
       "SoHo ist Architekturmarke und Shopping-Magnet zugleich: Gusseisenfassaden, alte Lofts, Luxusretail, Designläden und ein Straßenbild mit internationaler Anziehung.",
     developments:
-      "Der SoHo/NoHo Neighborhood Plan ermöglicht mehr Wohnnutzung und dauerhaft erschwingliche Wohnungen in passenden Baukoerpern. Gleichzeitig bleibt Denkmalschutz ein starker Rahmen.",
+      "Der SoHo/NoHo Neighborhood Plan ermöglicht mehr Wohnnutzung und dauerhaft erschwingliche Wohnungen in passenden Baukörpern. Gleichzeitig bleibt Denkmalschutz ein starker Rahmen.",
     events:
       "Design Week, Pop-up-Retail, Galerien, Mode-Events und Produktlaunches machen SoHo zu einem ständigen Schaufenster.",
     expectation:
@@ -6758,7 +6800,7 @@ const extendedProfiles = {
   },
   "TriBeCa": {
     description:
-      "TriBeCa ist großzuegiger als viele Downtown-Viertel: Lagerhaus-Lofts, breite Straßen, Prominenz, Schulen, Restaurants und eine hohe Eigentumsquote.",
+      "TriBeCa ist großzügiger als viele Downtown-Viertel: Lagerhaus-Lofts, breite Straßen, Prominenz, Schulen, Restaurants und eine hohe Eigentumsquote.",
     developments:
       "Die Zukunft dreht sich um hochwertige Umnutzungen, Schul- und Familieninfrastruktur und Lower-Manhattan-Resilienz. Neue Flächen sind knapp, daher bleibt Sanierung wichtiger als Massenneubau.",
     events:
@@ -6768,7 +6810,7 @@ const extendedProfiles = {
   },
   "Chinatown": {
     description:
-      "Chinatown ist Markt, Wohnviertel, Erinnerungsraum und Wirtschaftssystem zugleich. Restaurants, Fisch- und Gemueseläden, Familienbetriebe und enge Tenement-Strukturen bilden eine seltene urbane Dichte.",
+      "Chinatown ist Markt, Wohnviertel, Erinnerungsraum und Wirtschaftssystem zugleich. Restaurants, Fisch- und Gemüseläden, Familienbetriebe und enge Tenement-Strukturen bilden eine seltene urbane Dichte.",
     developments:
       "Große Eingriffe sind politisch sensibel. Themen sind die Zukunft kleiner Gewerbe, Tourismusdruck, benachbarte Luxusentwicklung und das Justiz-/Civic-Center-Umfeld rund um White Street.",
     events:
@@ -6784,17 +6826,17 @@ const extendedProfiles = {
     events:
       "Public Theater, Astor Place, kleine Galerien, Designstores, NYU-nahe Kultur und Restaurants geben NoHo sein konzentriertes Profil.",
     expectation:
-      "NoHo bleibt knapp und teuer. Neue Wohnoptionen werden eher punktuell als flaechig sichtbar."
+      "NoHo bleibt knapp und teuer. Neue Wohnoptionen werden eher punktuell als flächig sichtbar."
   },
   "Financial District": {
     description:
       "FiDi ist historischer Ursprung, Finanzsymbol und zunehmend Wohnviertel. Enge koloniale Straßen treffen auf Hochhäuser, Fährterminals, Hotels und neue Apartmenttürme.",
     developments:
-      "Lower Manhattan Coastal Resiliency ist zentral. Dazu kommen große Office-to-Residential-Konversionen, etwa in frueheren Bürogebäuden, und die Weiterentwicklung des Seaport- und Water-Street-Korridors.",
+      "Lower Manhattan Coastal Resiliency ist zentral. Dazu kommen große Office-to-Residential-Konversionen, etwa in früheren Bürogebäuden, und die Weiterentwicklung des Seaport- und Water-Street-Korridors.",
     events:
-      "Stone Street, Seaport, Governors-Island-Faehren, 9/11 Memorial, Wall-Street-Tourismus und Sommerprogramme am Wasser bringen Besucher.",
+      "Stone Street, Seaport, Governors-Island-Fähren, 9/11 Memorial, Wall-Street-Tourismus und Sommerprogramme am Wasser bringen Besucher.",
     expectation:
-      "FiDi wird wohnlicher und weniger reines Büroviertel. Klimaschutz und Umnutzung alter Büroflächen entscheiden über die naechste Phase."
+      "FiDi wird wohnlicher und weniger reines Büroviertel. Klimaschutz und Umnutzung alter Büroflächen entscheiden über die nächste Phase."
   },
   "Battery Park City": {
     description:

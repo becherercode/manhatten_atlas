@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New York Trip Planner</title>
     <link rel="preconnect" href="https://en.wikipedia.org" />
-<link rel="stylesheet" href="./styles.css?v=118" />
+<link rel="stylesheet" href="./styles.css?v=122" />
 </head>
   <body class="trip-page">
     <header class="hero">
@@ -101,51 +101,26 @@
               </label>
             </div>
 
-            <div class="custom-neighborhood-block">
-              <label>
-                <span data-i18n="customNeighborhoodLabel">Eigenes Viertel prüfen</span>
-                <select id="customNeighborhoodSelect">
-                  <option value="" data-i18n="customNeighborhoodNone">Kein eigenes Viertel ausgewählt</option>
-                </select>
-              </label>
-              <p data-i18n="customNeighborhoodCopy">
-                Du hast bereits ein Viertel im Blick? Prüfe, wie gut es zu deinem Budget, deinem Reisestil und deinen wichtigsten New-York-Zielen passt.
-              </p>
-            </div>
-
             <div class="trip-attraction-block">
               <span data-i18n="tripAttractionsTitle">Was möchtest du unbedingt sehen?</span>
-              <div class="attraction-chips" aria-label="Gewünschte Sehenswürdigkeiten" data-i18n-aria-label="tripAttractionsAria">
-                <button class="attraction-chip" type="button" data-attraction="times-square">Times Square</button>
-                <button class="attraction-chip" type="button" data-attraction="central-park">Central Park</button>
-                <button class="attraction-chip" type="button" data-attraction="empire-state">Empire State Building</button>
-                <button class="attraction-chip" type="button" data-attraction="statue-liberty">Statue of Liberty</button>
-                <button class="attraction-chip" type="button" data-attraction="brooklyn-bridge">Brooklyn Bridge</button>
-                <button class="attraction-chip" type="button" data-attraction="high-line">High Line</button>
-                <button class="attraction-chip" type="button" data-attraction="one-world">One World Trade Center</button>
-                <button class="attraction-chip" type="button" data-attraction="broadway">Broadway</button>
-                <button class="attraction-chip" type="button" data-attraction="met-museum">The Met</button>
-                <button class="attraction-chip" type="button" data-attraction="moma">MoMA</button>
-                <button class="attraction-chip" type="button" data-attraction="rockefeller-center">Rockefeller Center</button>
-                <button class="attraction-chip" type="button" data-attraction="grand-central">Grand Central Terminal</button>
-                <button class="attraction-chip" type="button" data-attraction="nine-eleven">9/11 Memorial</button>
-                <button class="attraction-chip" type="button" data-attraction="bryant-library">Bryant Park & NY Public Library</button>
-                <button class="attraction-chip" type="button" data-attraction="summit-one">SUMMIT One Vanderbilt</button>
-                <button class="attraction-chip" type="button" data-attraction="chelsea-market">Chelsea Market</button>
-                <button class="attraction-chip" type="button" data-attraction="dumbo">DUMBO</button>
-                <button class="attraction-chip" type="button" data-attraction="brooklyn-bridge-park">Brooklyn Bridge Park</button>
-                <button class="attraction-chip" type="button" data-attraction="prospect-park">Prospect Park</button>
-                <button class="attraction-chip" type="button" data-attraction="coney-island">Coney Island</button>
-                <button class="attraction-chip" type="button" data-attraction="flushing-meadows">Flushing Meadows</button>
-                <button class="attraction-chip" type="button" data-attraction="moma-ps1">MoMA PS1</button>
-                <button class="attraction-chip" type="button" data-attraction="astoria-park">Astoria Park</button>
-                <button class="attraction-chip" type="button" data-attraction="bronx-zoo">Bronx Zoo</button>
-                <button class="attraction-chip" type="button" data-attraction="yankee-stadium">Yankee Stadium</button>
-                <button class="attraction-chip" type="button" data-attraction="botanical-garden">New York Botanical Garden</button>
-                <button class="attraction-chip" type="button" data-attraction="arthur-avenue">Arthur Avenue</button>
-                <button class="attraction-chip" type="button" data-attraction="staten-island-ferry">Staten Island Ferry</button>
-                <button class="attraction-chip" type="button" data-attraction="snug-harbor">Snug Harbor</button>
-                <button class="attraction-chip" type="button" data-attraction="historic-richmond-town">Historic Richmond Town</button>
+              <p data-i18n="tripAttractionsSearchCopy">
+                Tippe ein Ziel ein, zum Beispiel Central Park, Broadway oder Bronx Zoo. Passende Vorschläge erscheinen automatisch.
+              </p>
+              <div class="attraction-search" role="search">
+                <input
+                  id="attractionSearchInput"
+                  type="search"
+                  autocomplete="off"
+                  aria-controls="attractionSuggestions"
+                  aria-label="Sehenswürdigkeit suchen"
+                  data-i18n-aria-label="tripAttractionSearchAria"
+                  data-i18n-placeholder="tripAttractionSearchPlaceholder"
+                  placeholder="Sehenswürdigkeit suchen"
+                />
+                <div class="attraction-suggestions" id="attractionSuggestions" aria-live="polite"></div>
+              </div>
+              <div class="selected-attractions" id="selectedAttractions" aria-label="Ausgewählte Sehenswürdigkeiten" data-i18n-aria-label="tripAttractionsAria">
+                <span class="selected-attractions-empty" data-i18n="tripAttractionsEmpty">Noch keine Pflichtziele ausgewählt.</span>
               </div>
             </div>
 
@@ -212,6 +187,6 @@
       </div>
     </div>
 
-    <script src="./app.js?v=118"></script>
+    <script src="./app.js?v=122"></script>
   </body>
 </html>

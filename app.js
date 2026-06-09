@@ -1373,18 +1373,20 @@ const cookieMarketing = document.querySelector("#cookieMarketing");
 const resetCookieChoice = document.querySelector("#resetCookieChoice");
 const legalToggles = document.querySelectorAll(".legal-toggle");
 const tripPreferenceButtons = document.querySelectorAll(".trip-chip");
-const attractionButtons = document.querySelectorAll(".attraction-chip");
+const attractionSearchInput = document.querySelector("#attractionSearchInput");
+const attractionSuggestions = document.querySelector("#attractionSuggestions");
+const selectedAttractionsContainer = document.querySelector("#selectedAttractions");
 const tripBorough = document.querySelector("#tripBorough");
 const tripBudget = document.querySelector("#tripBudget");
 const tripStyle = document.querySelector("#tripStyle");
 const tripOutput = document.querySelector("#tripOutput");
 const tripUpdateButton = document.querySelector("#tripUpdateButton");
 const tripUpdateHint = document.querySelector("#tripUpdateHint");
-const customNeighborhoodSelect = document.querySelector("#customNeighborhoodSelect");
 
 let selectedRegion = "all";
 let selectedNeighborhood = null;
 let tripHasPendingChanges = false;
+const selectedAttractionKeys = new Set();
 
 function getSavedBorough() {
   try {
@@ -1616,9 +1618,6 @@ const translations = {
     tripUpdateHint: "Ändere deine Auswahl und aktualisiere danach die Ergebnisse.",
     tripUpdatePending: "Auswahl geändert. Klicke auf „Empfehlungen aktualisieren“.",
     tripUpdateFresh: "Empfehlungen sind aktuell.",
-    customNeighborhoodLabel: "Eigenes Viertel prüfen",
-    customNeighborhoodNone: "Kein eigenes Viertel ausgewählt",
-    customNeighborhoodCopy: "Du hast bereits ein Viertel im Blick? Prüfe, wie gut es zu deinem Budget, deinem Reisestil und deinen wichtigsten New-York-Zielen passt.",
     customResultEyebrow: "Dein Viertel-Check",
     customResultTitle: "So passt dieses Viertel zu dir",
     customDistanceTitle: "Entfernung zu deinen Zielen",
@@ -1650,9 +1649,6 @@ const translations = {
     hotelBooking: "Hotelprofil",
     hotelTitle: "Passende Unterkunft wählen",
     hotelNote: "Redaktionelle Orientierung auf Basis der NYC-Atlas-Viertellogik, ergänzt durch bekannte Hotelguides wie den MICHELIN Guide.",
-    hotelTypeLabel: "Hoteltyp",
-    hotelLocationLabel: "Lage",
-    hotelComfortLabel: "Komfort",
     hotelAuto: "automatisch passend",
     hotelFlexible: "Flexibel",
     hotelBestMatch: "Beste Mischung",
@@ -1806,9 +1802,6 @@ const translations = {
     tripUpdateHint: "Change your selection, then update the results.",
     tripUpdatePending: "Selection changed. Click “Update recommendations”.",
     tripUpdateFresh: "Recommendations are up to date.",
-    customNeighborhoodLabel: "Check your own neighborhood",
-    customNeighborhoodNone: "No custom neighborhood selected",
-    customNeighborhoodCopy: "Already have a neighborhood in mind? Check how well it fits your budget, travel style and must-see New York plans.",
     customResultEyebrow: "Your neighborhood check",
     customResultTitle: "How this neighborhood fits you",
     customDistanceTitle: "Distance to your targets",
@@ -1840,9 +1833,6 @@ const translations = {
     hotelBooking: "Hotel profile",
     hotelTitle: "Choose suitable lodging",
     hotelNote: "Editorial guidance based on the NYC Atlas neighborhood logic, complemented by established hotel guides such as the MICHELIN Guide.",
-    hotelTypeLabel: "Hotel type",
-    hotelLocationLabel: "Location",
-    hotelComfortLabel: "Comfort",
     hotelAuto: "automatic match",
     hotelFlexible: "Flexible",
     hotelBestMatch: "Best mix",
@@ -1996,9 +1986,6 @@ const translations = {
     tripUpdateHint: "Cambia tu selección y luego actualiza los resultados.",
     tripUpdatePending: "Selección modificada. Haz clic en “Actualizar recomendaciones”.",
     tripUpdateFresh: "Las recomendaciones están actualizadas.",
-    customNeighborhoodLabel: "Comprobar un barrio propio",
-    customNeighborhoodNone: "Ningún barrio propio seleccionado",
-    customNeighborhoodCopy: "¿Ya tienes un barrio en mente? Comprueba qué tan bien encaja con tu presupuesto, tu estilo de viaje y tus planes imprescindibles en Nueva York.",
     customResultEyebrow: "Tu análisis de barrio",
     customResultTitle: "Cómo encaja este barrio contigo",
     customDistanceTitle: "Distancia a tus objetivos",
@@ -2030,9 +2017,6 @@ const translations = {
     hotelBooking: "Perfil de hotel",
     hotelTitle: "Elegir alojamiento adecuado",
     hotelNote: "Orientación editorial basada en la lógica de barrios de NYC Atlas, complementada por guías hoteleras reconocidas como la Guía MICHELIN.",
-    hotelTypeLabel: "Tipo de hotel",
-    hotelLocationLabel: "Ubicación",
-    hotelComfortLabel: "Comodidad",
     hotelAuto: "automático",
     hotelFlexible: "Flexible",
     hotelBestMatch: "Mejor combinación",
@@ -2186,9 +2170,6 @@ const translations = {
     tripUpdateHint: "Modifiez votre sélection, puis actualisez les résultats.",
     tripUpdatePending: "Sélection modifiée. Cliquez sur « Actualiser les recommandations ».",
     tripUpdateFresh: "Les recommandations sont à jour.",
-    customNeighborhoodLabel: "Vérifier un quartier choisi",
-    customNeighborhoodNone: "Aucun quartier choisi",
-    customNeighborhoodCopy: "Vous avez déjà un quartier en tête ? Vérifiez s’il correspond à votre budget, à votre style de voyage et à vos incontournables à New York.",
     customResultEyebrow: "Votre analyse de quartier",
     customResultTitle: "Comment ce quartier vous correspond",
     customDistanceTitle: "Distance vers vos objectifs",
@@ -2220,9 +2201,6 @@ const translations = {
     hotelBooking: "Profil hôtel",
     hotelTitle: "Choisir un hébergement adapté",
     hotelNote: "Orientation éditoriale basée sur la logique des quartiers de NYC Atlas, complétée par des guides hôteliers reconnus comme le Guide MICHELIN.",
-    hotelTypeLabel: "Type d'hôtel",
-    hotelLocationLabel: "Emplacement",
-    hotelComfortLabel: "Confort",
     hotelAuto: "automatique",
     hotelFlexible: "Flexible",
     hotelBestMatch: "Meilleur équilibre",
@@ -2376,9 +2354,6 @@ const translations = {
     tripUpdateHint: "Altere sua seleção e depois atualize os resultados.",
     tripUpdatePending: "Seleção alterada. Clique em “Atualizar recomendações”.",
     tripUpdateFresh: "As recomendações estão atualizadas.",
-    customNeighborhoodLabel: "Verificar um bairro próprio",
-    customNeighborhoodNone: "Nenhum bairro próprio selecionado",
-    customNeighborhoodCopy: "Já tem um bairro em mente? Veja se ele combina com seu orçamento, seu estilo de viagem e seus planos essenciais em Nova York.",
     customResultEyebrow: "Seu check de bairro",
     customResultTitle: "Como este bairro combina com você",
     customDistanceTitle: "Distância até seus pontos",
@@ -2410,9 +2385,6 @@ const translations = {
     hotelBooking: "Perfil de hotel",
     hotelTitle: "Escolher hospedagem adequada",
     hotelNote: "Orientação editorial baseada na lógica de bairros do NYC Atlas, complementada por guias de hotéis reconhecidos como o Guia MICHELIN.",
-    hotelTypeLabel: "Tipo de hotel",
-    hotelLocationLabel: "Localização",
-    hotelComfortLabel: "Conforto",
     hotelAuto: "automático",
     hotelFlexible: "Flexível",
     hotelBestMatch: "Melhor combinação",
@@ -2566,9 +2538,6 @@ const translations = {
     tripUpdateHint: "更改选择后再更新结果。",
     tripUpdatePending: "选择已更改。点击“更新推荐”。",
     tripUpdateFresh: "推荐已是最新。",
-    customNeighborhoodLabel: "检查自选街区",
-    customNeighborhoodNone: "未选择自选街区",
-    customNeighborhoodCopy: "已经有心仪的街区了吗？看看它与你的预算、旅行风格和纽约必看计划是否匹配。",
     customResultEyebrow: "你的街区检查",
     customResultTitle: "这个街区与你的匹配度",
     customDistanceTitle: "到目标景点的距离",
@@ -2600,9 +2569,6 @@ const translations = {
     hotelBooking: "酒店档案",
     hotelTitle: "选择合适住宿",
     hotelNote: "基于 NYC Atlas 街区逻辑的编辑性建议，并参考 MICHELIN Guide 等知名酒店指南。",
-    hotelTypeLabel: "酒店类型",
-    hotelLocationLabel: "位置",
-    hotelComfortLabel: "舒适度",
     hotelAuto: "自动匹配",
     hotelFlexible: "灵活",
     hotelBestMatch: "最佳组合",
@@ -2754,9 +2720,6 @@ translations.it = {
   tripUpdateHint: "Modifica la selezione e poi aggiorna i risultati.",
   tripUpdatePending: "Selezione modificata. Clicca su “Aggiorna raccomandazioni”.",
   tripUpdateFresh: "Le raccomandazioni sono aggiornate.",
-  customNeighborhoodLabel: "Verifica un quartiere specifico",
-  customNeighborhoodNone: "Nessun quartiere selezionato",
-  customNeighborhoodCopy: "Hai già un quartiere in mente? Verifica quanto si adatta al tuo budget, al tuo stile di viaggio e ai tuoi obiettivi principali a New York.",
   customResultEyebrow: "Controllo del quartiere",
   customResultTitle: "Quanto questo quartiere fa per te",
   customDistanceTitle: "Distanza dai tuoi obiettivi",
@@ -2788,9 +2751,6 @@ translations.it = {
   hotelBooking: "Profilo hotel",
   hotelTitle: "Scegliere un alloggio adatto",
   hotelNote: "Orientamento editoriale basato sulla logica dei quartieri di NYC Atlas, integrato da guide alberghiere riconosciute come la Guida MICHELIN.",
-  hotelTypeLabel: "Tipo di hotel",
-  hotelLocationLabel: "Posizione",
-  hotelComfortLabel: "Comfort",
   hotelAuto: "automatico",
   hotelFlexible: "Flessibile",
   hotelBestMatch: "Miglior equilibrio",
@@ -2941,9 +2901,6 @@ translations.ja = {
   tripUpdateHint: "選択を変更したら、結果を更新してください。",
   tripUpdatePending: "選択が変更されました。「おすすめを更新」をクリックしてください。",
   tripUpdateFresh: "おすすめは最新です。",
-  customNeighborhoodLabel: "気になる地区を確認",
-  customNeighborhoodNone: "地区が選択されていません",
-  customNeighborhoodCopy: "すでに気になる地区がありますか？予算、旅行スタイル、ニューヨークで必ず行きたい場所に合うか確認できます。",
   customResultEyebrow: "地区チェック",
   customResultTitle: "この地区があなたに合うか",
   customDistanceTitle: "目的地までの距離",
@@ -2975,9 +2932,6 @@ translations.ja = {
   hotelBooking: "ホテルプロフィール",
   hotelTitle: "合う宿泊先を選ぶ",
   hotelNote: "NYC Atlas の地区ロジックに基づく編集上の目安で、MICHELIN Guide などの著名なホテルガイドも参考にしています。",
-  hotelTypeLabel: "ホテルタイプ",
-  hotelLocationLabel: "立地",
-  hotelComfortLabel: "快適さ",
   hotelAuto: "自動で調整",
   hotelFlexible: "柔軟",
   hotelBestMatch: "最適なバランス",
@@ -3584,6 +3538,77 @@ const homepagePassCopy = {
 };
 
 Object.entries(homepagePassCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
+
+const attractionSearchCopy = {
+  de: {
+    tripAttractionsSearchCopy:
+      "Tippe ein Ziel ein, zum Beispiel Central Park, Broadway oder Bronx Zoo. Passende Vorschläge erscheinen automatisch.",
+    tripAttractionSearchPlaceholder: "Sehenswürdigkeit suchen",
+    tripAttractionSearchAria: "Sehenswürdigkeit suchen",
+    tripAttractionsEmpty: "Noch keine Pflichtziele ausgewählt.",
+    tripAttractionsNoResults: "Kein passender Vorschlag gefunden."
+  },
+  en: {
+    tripAttractionsSearchCopy:
+      "Type a place, for example Central Park, Broadway or Bronx Zoo. Matching suggestions appear automatically.",
+    tripAttractionSearchPlaceholder: "Search for a sight",
+    tripAttractionSearchAria: "Search for a sight",
+    tripAttractionsEmpty: "No must-see places selected yet.",
+    tripAttractionsNoResults: "No matching suggestion found."
+  },
+  es: {
+    tripAttractionsSearchCopy:
+      "Escribe un lugar, por ejemplo Central Park, Broadway o Bronx Zoo. Las sugerencias aparecen automáticamente.",
+    tripAttractionSearchPlaceholder: "Buscar atracción",
+    tripAttractionSearchAria: "Buscar atracción",
+    tripAttractionsEmpty: "Aún no hay lugares imprescindibles seleccionados.",
+    tripAttractionsNoResults: "No se encontró ninguna sugerencia."
+  },
+  fr: {
+    tripAttractionsSearchCopy:
+      "Saisissez un lieu, par exemple Central Park, Broadway ou Bronx Zoo. Les suggestions apparaissent automatiquement.",
+    tripAttractionSearchPlaceholder: "Rechercher un site",
+    tripAttractionSearchAria: "Rechercher un site",
+    tripAttractionsEmpty: "Aucun incontournable sélectionné pour l'instant.",
+    tripAttractionsNoResults: "Aucune suggestion correspondante."
+  },
+  pt: {
+    tripAttractionsSearchCopy:
+      "Digite um lugar, por exemplo Central Park, Broadway ou Bronx Zoo. Sugestões correspondentes aparecem automaticamente.",
+    tripAttractionSearchPlaceholder: "Buscar atração",
+    tripAttractionSearchAria: "Buscar atração",
+    tripAttractionsEmpty: "Nenhuma atração obrigatória selecionada ainda.",
+    tripAttractionsNoResults: "Nenhuma sugestão correspondente encontrada."
+  },
+  it: {
+    tripAttractionsSearchCopy:
+      "Digita un luogo, per esempio Central Park, Broadway o Bronx Zoo. I suggerimenti compaiono automaticamente.",
+    tripAttractionSearchPlaceholder: "Cerca attrazione",
+    tripAttractionSearchAria: "Cerca attrazione",
+    tripAttractionsEmpty: "Nessuna tappa imperdibile selezionata.",
+    tripAttractionsNoResults: "Nessun suggerimento trovato."
+  },
+  ja: {
+    tripAttractionsSearchCopy:
+      "Central Park、Broadway、Bronx Zoo など、見たい場所を入力してください。候補が自動で表示されます。",
+    tripAttractionSearchPlaceholder: "観光スポットを検索",
+    tripAttractionSearchAria: "観光スポットを検索",
+    tripAttractionsEmpty: "必ず行きたい場所はまだ選択されていません。",
+    tripAttractionsNoResults: "一致する候補がありません。"
+  },
+  zh: {
+    tripAttractionsSearchCopy:
+      "输入地点，例如 Central Park、Broadway 或 Bronx Zoo。匹配建议会自动显示。",
+    tripAttractionSearchPlaceholder: "搜索景点",
+    tripAttractionSearchAria: "搜索景点",
+    tripAttractionsEmpty: "尚未选择必看地点。",
+    tripAttractionsNoResults: "未找到匹配建议。"
+  }
+};
+
+Object.entries(attractionSearchCopy).forEach(([language, copy]) => {
   Object.assign(translations[language], copy);
 });
 
@@ -4487,9 +4512,7 @@ function selectedTripPreferences() {
 }
 
 function selectedAttractions() {
-  return Array.from(attractionButtons)
-    .filter((button) => button.classList.contains("active"))
-    .map((button) => button.dataset.attraction);
+  return Array.from(selectedAttractionKeys);
 }
 
 function setTripPending(isPending) {
@@ -4504,38 +4527,6 @@ function allTripNeighborhoodEntries() {
   return Object.entries(boroughs).flatMap(([boroughKey, borough]) =>
     borough.neighborhoods.map((item) => ({ boroughKey, boroughName: borough.name, item }))
   );
-}
-
-function renderCustomNeighborhoodOptions() {
-  if (!customNeighborhoodSelect) return;
-  const currentValue = customNeighborhoodSelect.value;
-  customNeighborhoodSelect.innerHTML = `
-    <option value="">${t("customNeighborhoodNone")}</option>
-    ${Object.entries(boroughs)
-      .map(
-        ([boroughKey, borough]) => `
-          <optgroup label="${borough.name}">
-            ${borough.neighborhoods
-              .map((item) => `<option value="${boroughKey}|${safeAttr(item.name)}">${item.name}</option>`)
-              .join("")}
-          </optgroup>
-        `
-      )
-      .join("")}
-  `;
-  if ([...customNeighborhoodSelect.options].some((option) => option.value === currentValue)) {
-    customNeighborhoodSelect.value = currentValue;
-  }
-}
-
-function selectedCustomNeighborhood() {
-  const value = customNeighborhoodSelect?.value || "";
-  if (!value) return null;
-  const [boroughKey, ...nameParts] = value.split("|");
-  const name = nameParts.join("|");
-  const borough = boroughs[boroughKey];
-  const item = borough?.neighborhoods.find((neighborhood) => neighborhood.name === name);
-  return item && borough ? { item, boroughName: borough.name } : null;
 }
 
 const attractionMap = {
@@ -4780,6 +4771,122 @@ const attractionMap = {
     tags: ["quiet", "sights"]
   }
 };
+
+function attractionEntries() {
+  return Object.entries(attractionMap).map(([key, attraction]) => ({
+    key,
+    ...attraction
+  }));
+}
+
+function normalizeSearchText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function attractionSearchMatches(query) {
+  const normalizedQuery = normalizeSearchText(query);
+  const entries = attractionEntries().filter((entry) => !selectedAttractionKeys.has(entry.key));
+
+  if (!normalizedQuery) {
+    return entries
+      .filter((entry) =>
+        ["times-square", "central-park", "empire-state", "statue-liberty", "brooklyn-bridge", "broadway"].includes(
+          entry.key
+        )
+      )
+      .slice(0, 6);
+  }
+
+  return entries
+    .map((entry) => {
+      const label = normalizeSearchText(entry.label);
+      const boroughs = normalizeSearchText(entry.boroughs.join(" "));
+      const neighborhoods = normalizeSearchText(entry.neighborhoods.join(" "));
+      const tags = normalizeSearchText(entry.tags.join(" "));
+      let score = 0;
+      if (label === normalizedQuery) score += 50;
+      if (label.startsWith(normalizedQuery)) score += 34;
+      if (label.includes(normalizedQuery)) score += 22;
+      if (boroughs.includes(normalizedQuery)) score += 9;
+      if (neighborhoods.includes(normalizedQuery)) score += 7;
+      if (tags.includes(normalizedQuery)) score += 4;
+      return { ...entry, score };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score || a.label.localeCompare(b.label))
+    .slice(0, 6);
+}
+
+function renderSelectedAttractions() {
+  if (!selectedAttractionsContainer) return;
+
+  if (!selectedAttractionKeys.size) {
+    selectedAttractionsContainer.innerHTML = `
+      <span class="selected-attractions-empty" data-i18n="tripAttractionsEmpty">${t("tripAttractionsEmpty")}</span>
+    `;
+    return;
+  }
+
+  selectedAttractionsContainer.innerHTML = Array.from(selectedAttractionKeys)
+    .map((key) => {
+      const attraction = attractionMap[key];
+      if (!attraction) return "";
+      return `
+        <button class="selected-attraction-chip" type="button" data-remove-attraction="${safeAttr(key)}">
+          <span>${safeAttr(attraction.label)}</span>
+          <b aria-hidden="true">×</b>
+        </button>
+      `;
+    })
+    .join("");
+}
+
+function renderAttractionSuggestions() {
+  if (!attractionSuggestions) return;
+  const matches = attractionSearchMatches(attractionSearchInput?.value || "");
+
+  if (!matches.length) {
+    attractionSuggestions.innerHTML = `
+      <span class="attraction-suggestion-empty">${t("tripAttractionsNoResults")}</span>
+    `;
+    return;
+  }
+
+  attractionSuggestions.innerHTML = matches
+    .map(
+      (entry) => `
+        <button class="attraction-suggestion" type="button" data-attraction="${safeAttr(entry.key)}">
+          <strong>${safeAttr(entry.label)}</strong>
+          <span>${safeAttr(entry.boroughs.join(" · "))}</span>
+        </button>
+      `
+    )
+    .join("");
+}
+
+function addSelectedAttraction(key) {
+  if (!attractionMap[key] || selectedAttractionKeys.has(key)) return;
+  selectedAttractionKeys.add(key);
+  if (attractionSearchInput) {
+    attractionSearchInput.value = "";
+    attractionSearchInput.focus();
+  }
+  renderSelectedAttractions();
+  renderAttractionSuggestions();
+  setTripPending(true);
+}
+
+function removeSelectedAttraction(key) {
+  selectedAttractionKeys.delete(key);
+  renderSelectedAttractions();
+  renderAttractionSuggestions();
+  setTripPending(true);
+}
 
 const neighborhoodCoords = {
   Inwood: [40.8677, -73.9212],
@@ -5852,7 +5959,7 @@ function hotelPreferenceValues(preferences, profile) {
 }
 
 function hotelTierFit(candidate, budget) {
-  if (budget === "value") return candidate.tier === "budget" ? 18 : candidate.tier === "balanced" ? 8 : -10;
+  if (budget === "budget") return candidate.tier === "budget" ? 18 : candidate.tier === "balanced" ? 8 : -10;
   if (budget === "premium") return candidate.tier === "premium" ? 18 : candidate.tier === "balanced" ? 7 : -6;
   return candidate.tier === "balanced" ? 14 : 5;
 }
@@ -5940,88 +6047,6 @@ function hotelLinksMarkup(links) {
       `
     )
     .join("");
-}
-
-function hotelSelectMarkup(name, label, options) {
-  return `
-    <label>
-      <span>${label}</span>
-      <select data-hotel-control="${name}">
-        ${options
-          .map((option) => `<option value="${option.value}">${option.label}</option>`)
-          .join("")}
-      </select>
-    </label>
-  `;
-}
-
-function hotelControlsMarkup() {
-  return `
-    <div class="hotel-filter-grid" aria-label="${t("hotelTitle")}">
-      ${hotelSelectMarkup("type", t("hotelTypeLabel"), [
-        { value: "best-match", label: t("hotelBestMatch") },
-        { value: "budget", label: t("hotelBudget") },
-        { value: "boutique", label: t("hotelBoutique") },
-        { value: "luxury", label: t("hotelLuxury") },
-        { value: "family", label: t("hotelFamily") },
-        { value: "apartment", label: t("hotelApartment") }
-      ])}
-      ${hotelSelectMarkup("location", t("hotelLocationLabel"), [
-        { value: "auto", label: t("hotelAuto") },
-        { value: "sights", label: t("hotelNearSights") },
-        { value: "subway", label: t("hotelNearSubway") },
-        { value: "nightlife", label: t("hotelNearNightlife") },
-        { value: "restaurants", label: t("hotelNearRestaurants") },
-        { value: "quiet", label: t("hotelQuiet") }
-      ])}
-      ${hotelSelectMarkup("comfort", t("hotelComfortLabel"), [
-        { value: "flexible", label: t("hotelFlexible") },
-        { value: "breakfast", label: t("hotelBreakfast") },
-        { value: "rating", label: t("hotelRating") },
-        { value: "view", label: t("hotelView") },
-        { value: "design", label: t("hotelDesign") }
-      ])}
-    </div>
-  `;
-}
-
-function findTripHotelItem(name, boroughName) {
-  return Object.values(boroughs)
-    .flatMap((borough) => borough.neighborhoods.map((item) => ({ item, boroughName: borough.name })))
-    .find((entry) => entry.item.name === name && entry.boroughName === boroughName);
-}
-
-function updateHotelCardLinks(card) {
-  const match = findTripHotelItem(card.dataset.neighborhood, card.dataset.borough);
-  const linksContainer = card.querySelector(".hotel-links");
-  if (!match || !linksContainer) return;
-
-  const preferences = card.dataset.preferences ? card.dataset.preferences.split("|").filter(Boolean) : [];
-  const attractions = card.dataset.attractions ? card.dataset.attractions.split("|").filter(Boolean) : [];
-  const options = {
-    comfort: card.querySelector('[data-hotel-control="comfort"]')?.value || "flexible",
-    location: card.querySelector('[data-hotel-control="location"]')?.value || "auto",
-    type: card.querySelector('[data-hotel-control="type"]')?.value || "best-match"
-  };
-  const links = hotelLinks(
-    match.item,
-    card.dataset.budget || "balanced",
-    match.boroughName,
-    preferences,
-    attractions,
-    options
-  );
-  linksContainer.innerHTML = hotelLinksMarkup(links);
-}
-
-function bindHotelCards() {
-  document.querySelectorAll(".hotel-column").forEach((card) => {
-    card.querySelectorAll("[data-hotel-control]").forEach((select) => {
-      if (select.dataset.hotelBound === "true") return;
-      select.dataset.hotelBound = "true";
-      select.addEventListener("change", () => updateHotelCardLinks(card));
-    });
-  });
 }
 
 function tripRecommendationItems() {
@@ -6370,50 +6395,6 @@ function estimatedHotelNightlyPrice(item, boroughName) {
   return Math.round(adjusted / 10) * 10;
 }
 
-function customNeighborhoodMarkup(selection, preferences, attractions, budget, style) {
-  if (!selection) return "";
-  const { item, boroughName } = selection;
-  const localized = localizedNeighborhood(item, extendedProfiles[item.name]);
-  const score = tripScore(item, preferences, budget, style, boroughName, attractions);
-  const hotelPrice = estimatedHotelNightlyPrice(item, boroughName);
-  const mapAttractions = attractions.length ? attractions : [];
-  return `
-    <article class="trip-result-card custom-neighborhood-card">
-      <div class="trip-result-hero">
-        <div>
-          <p class="eyebrow">${t("customResultEyebrow")} · ${boroughName}</p>
-          <h3>${item.name}</h3>
-          <p>${shortText(localized.description, 230)}</p>
-          <div class="trip-pill-row">
-            <span class="trip-pill">${fitLabel(score)}</span>
-            <span class="trip-pill">${t("customBudgetTitle")}: ${item.price}</span>
-            <span class="trip-pill">${t("hotelNightlyLabel")} $${hotelPrice}</span>
-          </div>
-        </div>
-      </div>
-      ${tripMapMarkup(item, boroughName, mapAttractions)}
-      <div class="custom-check-grid">
-        <section>
-          <span>${t("customBudgetTitle")}</span>
-          <p>${budgetFitText(item, budget)}</p>
-        </section>
-        <section>
-          <span>${t("customStyleTitle")}</span>
-          <p>${styleFitText(item, style)}</p>
-        </section>
-        <section>
-          <span>${t("customPriorityTitle")}</span>
-          <div class="custom-fit-row">${priorityFitMarkup(item, boroughName, preferences)}</div>
-        </section>
-        <section class="custom-distance-section">
-          <span>${t("customDistanceTitle")}</span>
-          ${attractionDistanceMarkup(item, attractions)}
-        </section>
-      </div>
-    </article>
-  `;
-}
-
 function recommendationSectionIntroMarkup(hasCustomSelection) {
   if (!hasCustomSelection) return "";
   return `
@@ -6449,7 +6430,6 @@ function bindRecommendationSwitcher() {
           }
         });
         bindTripMaps();
-        bindHotelCards();
       });
     });
   });
@@ -6462,15 +6442,8 @@ function renderTripPlanner() {
   const attractions = selectedAttractions();
   const budget = tripBudget?.value || "balanced";
   const style = tripStyle?.value || "first-time";
-  const customSelection = selectedCustomNeighborhood();
   const scored = variedTripResults(
     tripRecommendationItems()
-      .filter(
-        ({ item, boroughName }) =>
-          !customSelection ||
-          item.name !== customSelection.item.name ||
-          boroughName !== customSelection.boroughName
-      )
       .map(({ item, boroughName }) => ({
         item,
         boroughName,
@@ -6514,10 +6487,9 @@ function renderTripPlanner() {
               <div class="hotel-column-header">
                 <span>${t("hotelBooking")}</span>
                 <h4>${t("hotelTitle")}</h4>
+                <p>${t("hotelNote")}</p>
               </div>
-              ${hotelControlsMarkup()}
               <div class="hotel-links">${hotelLinksMarkup(links)}</div>
-              <div class="trip-note">${t("hotelNote")}</div>
             </div>
             <div class="trip-column sights-column">
               <div class="sights-column-header">
@@ -6567,12 +6539,10 @@ function renderTripPlanner() {
       </div>
     </section>
   `;
-  const customMarkup = customNeighborhoodMarkup(customSelection, preferences, attractions, budget, style);
-  const sectionIntroMarkup = recommendationSectionIntroMarkup(Boolean(customSelection));
-  tripOutput.innerHTML = `${customMarkup}${sectionIntroMarkup}${recommendationMarkup}`;
+  const sectionIntroMarkup = recommendationSectionIntroMarkup(false);
+  tripOutput.innerHTML = `${sectionIntroMarkup}${recommendationMarkup}`;
   bindRecommendationSwitcher();
   bindTripMaps();
-  bindHotelCards();
 }
 
 const extendedProfiles = {
@@ -6987,13 +6957,14 @@ function applyLanguage(language, options = {}) {
   if (tripUpdateHint) {
     tripUpdateHint.textContent = tripHasPendingChanges ? t("tripUpdatePending") : t("tripUpdateFresh");
   }
+  renderSelectedAttractions();
+  renderAttractionSuggestions();
 
   updateBoroughInterface();
   renderRegionSegments();
   renderCards();
   renderCompareSelectors(true);
   renderComparison();
-  renderCustomNeighborhoodOptions();
   renderTripPlanner();
   if (isNeighborhoodPage()) {
     renderNeighborhoodPage();
@@ -7036,16 +7007,28 @@ tripPreferenceButtons.forEach((button) => {
     setTripPending(true);
   });
 });
-attractionButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    button.classList.toggle("active");
-    setTripPending(true);
-  });
+attractionSearchInput?.addEventListener("input", renderAttractionSuggestions);
+attractionSearchInput?.addEventListener("focus", renderAttractionSuggestions);
+attractionSearchInput?.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter") return;
+  const firstSuggestion = attractionSuggestions?.querySelector("[data-attraction]");
+  if (!firstSuggestion) return;
+  event.preventDefault();
+  addSelectedAttraction(firstSuggestion.dataset.attraction);
+});
+attractionSuggestions?.addEventListener("click", (event) => {
+  const suggestion = event.target.closest("[data-attraction]");
+  if (!suggestion) return;
+  addSelectedAttraction(suggestion.dataset.attraction);
+});
+selectedAttractionsContainer?.addEventListener("click", (event) => {
+  const removeButton = event.target.closest("[data-remove-attraction]");
+  if (!removeButton) return;
+  removeSelectedAttraction(removeButton.dataset.removeAttraction);
 });
 tripBudget?.addEventListener("change", () => setTripPending(true));
 tripStyle?.addEventListener("change", () => setTripPending(true));
 tripBorough?.addEventListener("change", () => setTripPending(true));
-customNeighborhoodSelect?.addEventListener("change", () => setTripPending(true));
 tripUpdateButton?.addEventListener("click", () => {
   renderTripPlanner();
   setTripPending(false);

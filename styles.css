@@ -771,6 +771,133 @@ a {
   text-transform: uppercase;
 }
 
+.trip-attraction-block > p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin: -4px 0 0;
+  max-width: 760px;
+}
+
+.attraction-search {
+  display: grid;
+  gap: 10px;
+}
+
+.attraction-search input {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(17, 17, 20, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(17, 17, 20, 0.055);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  min-height: 50px;
+  outline: none;
+  padding: 0 16px;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.attraction-search input:focus {
+  background: #fff;
+  border-color: rgba(0, 113, 227, 0.38);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1), 0 16px 34px rgba(17, 17, 20, 0.08);
+}
+
+.attraction-suggestions {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.attraction-suggestion {
+  align-items: start;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(17, 17, 20, 0.07);
+  border-radius: 8px;
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  gap: 3px;
+  font: inherit;
+  min-height: 58px;
+  padding: 11px 12px;
+  text-align: left;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.attraction-suggestion:hover {
+  background: #fff;
+  border-color: rgba(0, 113, 227, 0.22);
+  box-shadow: 0 12px 26px rgba(17, 17, 20, 0.08);
+  transform: translateY(-1px);
+}
+
+.attraction-suggestion strong {
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.attraction-suggestion span {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.attraction-suggestion-empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+  grid-column: 1 / -1;
+  padding: 4px 2px;
+}
+
+.selected-attractions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 34px;
+}
+
+.selected-attractions-empty {
+  color: rgba(17, 17, 20, 0.52);
+  font-size: 0.88rem;
+}
+
+.selected-attraction-chip {
+  align-items: center;
+  background: linear-gradient(135deg, #111114, #2b2f36);
+  border: 1px solid rgba(17, 17, 20, 0.18);
+  border-radius: 999px;
+  box-shadow: 0 12px 24px rgba(17, 17, 20, 0.13);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 780;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 10px 0 14px;
+}
+
+.selected-attraction-chip b {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 20px;
+  justify-content: center;
+  line-height: 1;
+  width: 20px;
+}
+
 .attraction-chips {
   display: grid;
   gap: 8px;
@@ -840,45 +967,6 @@ a {
   text-transform: none;
 }
 
-.custom-neighborhood-block {
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(17, 17, 20, 0.08);
-  border-radius: 8px;
-  display: grid;
-  gap: 10px;
-  padding: 16px;
-}
-
-.custom-neighborhood-block label {
-  color: var(--muted);
-  display: grid;
-  font-size: 0.72rem;
-  font-weight: 800;
-  gap: 8px;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-}
-
-.custom-neighborhood-block select {
-  appearance: none;
-  background:
-    rgba(255, 255, 255, 0.92)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Cpath fill='%23111114' fill-opacity='.78' d='M5.4 7.4 10 12l4.6-4.6 1.1 1.2-5.7 5.7-5.7-5.7z'/%3E%3C/svg%3E")
-      right 14px center / 16px no-repeat;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--ink);
-  font: inherit;
-  min-height: 48px;
-  outline: none;
-  padding: 0 42px 0 14px;
-  text-transform: none;
-}
-
-.custom-neighborhood-block p {
-  font-size: 0.92rem;
-}
-
 .trip-action-row {
   align-items: center;
   display: grid;
@@ -930,10 +1018,6 @@ a {
 
 .trip-result-card {
   overflow: hidden;
-}
-
-.custom-neighborhood-card {
-  border-color: rgba(0, 113, 227, 0.18);
 }
 
 .recommendation-section-intro {
@@ -1430,6 +1514,13 @@ a {
   text-transform: none;
 }
 
+.hotel-column-header p {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
 .sights-column-header {
   display: grid;
   gap: 5px;
@@ -1484,39 +1575,6 @@ a {
   font-size: 0.86rem;
   line-height: 1.5;
   margin: 0;
-}
-
-.hotel-filter-grid {
-  display: grid;
-  flex: 0 0 auto;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.hotel-filter-grid label {
-  color: var(--muted);
-  display: grid;
-  font-size: 0.68rem;
-  font-weight: 850;
-  gap: 6px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.hotel-filter-grid select {
-  appearance: none;
-  background:
-    rgba(255, 255, 255, 0.92)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Cpath fill='%23111114' fill-opacity='.78' d='M5.4 7.4 10 12l4.6-4.6 1.1 1.2-5.7 5.7-5.7-5.7z'/%3E%3C/svg%3E")
-      right 12px center / 16px no-repeat;
-  border: 1px solid rgba(17, 17, 20, 0.1);
-  border-radius: 8px;
-  color: var(--ink);
-  font: inherit;
-  min-height: 42px;
-  outline: none;
-  padding: 0 38px 0 12px;
-  text-transform: none;
 }
 
 .trip-column ul {
@@ -3092,8 +3150,7 @@ a {
   .compare-selectors select,
   .trip-select,
   .budget-select,
-  .style-select,
-  .custom-neighborhood-select {
+  .style-select {
     border-radius: 8px;
     min-height: 48px;
   }
@@ -3211,7 +3268,7 @@ a {
 
   .trip-chips,
   .attraction-chips,
-  .hotel-preference-grid {
+  .attraction-suggestions {
     display: grid;
     grid-template-columns: 1fr;
   }

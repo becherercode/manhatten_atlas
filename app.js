@@ -4047,6 +4047,17 @@ function neighborhoodPageMatch() {
   return entries.find(({ item }) => slugify(item.name) === requestedSlug) || null;
 }
 
+function hasNeighborhoodRequest() {
+  const params = new URLSearchParams(window.location.search);
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  return Boolean(
+    params.get("borough") ||
+      params.get("neighborhood") ||
+      params.get("name") ||
+      pathParts.includes("viertel")
+  );
+}
+
 function isNeighborhoodPage() {
   return document.body.classList.contains("neighborhood-page");
 }
@@ -6936,6 +6947,10 @@ function renderNeighborhoodPage() {
   const relatedSection = document.querySelector("#relatedNeighborhoods");
 
   if (!match) {
+    if (!hasNeighborhoodRequest()) {
+      window.location.replace(`${siteRootPrefix()}index.html#viertel`);
+      return;
+    }
     if (heroTitle) heroTitle.textContent = t("neighborhoodNotFoundTitle");
     if (heroCopy) heroCopy.textContent = t("neighborhoodNotFoundCopy");
     if (detailPanel) {

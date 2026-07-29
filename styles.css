@@ -3448,3 +3448,7 @@ a {
     height: 270px;
   }
 }
+
+.ad-section {
+  display: none !important;
+}

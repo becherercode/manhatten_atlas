@@ -3456,18 +3456,23 @@ a {
 /* Interactive Map Styling */
 .map-container {
   width: 100%;
+  min-height: 440px;
   margin-bottom: 32px;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  background: var(--panel);
+  background: #f5f5f7;
+  position: relative;
 }
 
 .atlas-map {
   width: 100%;
-  height: 440px;
+  height: 440px !important;
+  min-height: 440px !important;
+  display: block !important;
   z-index: 1;
+  background: #e5e5ea;
 }
 
 .leaflet-popup-content-wrapper {

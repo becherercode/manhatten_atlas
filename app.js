@@ -4164,25 +4164,30 @@ function initAtlasMap() {
   if (!mapElem) return;
 
   if (typeof L === "undefined") {
-    mapElem.innerHTML = `<div style="padding: 32px; text-align: center; color: #6e6e73; font-size: 0.95rem;">Lade interaktive Karte...</div>`;
-    setTimeout(initAtlasMap, 500);
+    setTimeout(initAtlasMap, 300);
     return;
   }
 
   if (!atlasMapInstance) {
     const center = boroughCenters[activeBoroughKey] || [40.7831, -73.9712];
-    atlasMapInstance = L.map("atlasMap", { scrollWheelZoom: false }).setView(center, 12);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 18,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    atlasMapInstance = L.map("atlasMap", { 
+      scrollWheelZoom: false,
+      zoomControl: true 
+    }).setView(center, 12);
+
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+      maxZoom: 19,
+      subdomains: "abcd",
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
     }).addTo(atlasMapInstance);
 
-    setTimeout(() => atlasMapInstance?.invalidateSize(), 200);
-    setTimeout(() => atlasMapInstance?.invalidateSize(), 800);
+    setTimeout(() => atlasMapInstance?.invalidateSize(), 150);
+    setTimeout(() => atlasMapInstance?.invalidateSize(), 600);
+    setTimeout(() => atlasMapInstance?.invalidateSize(), 1500);
   } else {
     const center = boroughCenters[activeBoroughKey] || [40.7831, -73.9712];
     atlasMapInstance.setView(center, 12);
-    setTimeout(() => atlasMapInstance?.invalidateSize(), 100);
+    setTimeout(() => atlasMapInstance?.invalidateSize(), 150);
   }
 }
 

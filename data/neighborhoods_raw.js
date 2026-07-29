@@ -1,0 +1,444 @@
+[
+  {
+    name: "Inwood",
+    region: "uptown",
+    area: "Nordspitze",
+    imageTitle: "Inwood Hill Park",
+    vibe: "Felsen, Parkland und ruhige Wohnstraßen",
+    price: "$$",
+    rent: "2.4k-3.4k",
+    future: "stabil mit punktueller Aufwertung",
+    history:
+      "Inwood ist eines der ältesten besiedelten Gebiete Manhattans. Der Lenape-Bezug ist hier besonders sichtbar, später prägten irische und dominikanische Communities das Viertel.",
+    prices:
+      "Im Manhattan-Vergleich bleibt Inwood relativ erreichbar. Die Preisdynamik entsteht vor allem durch Parknähe, A-Train-Anbindung und begrenztes Angebot.",
+    outlook:
+      "Die Zukunft liegt weniger in spektakulären Neubauten als in sanfter Verdichtung, Erhalt der Wohnsubstanz und besserer Verbindung zum Harlem River.",
+    character: "Gut für Menschen, die Manhattan wollen, aber Luft, Hügel und Nachbarschaftsruhe brauchen."
+  },
+  {
+    name: "Washington Heights",
+    region: "uptown",
+    area: "Upper Manhattan",
+    imageTitle: "Washington Heights, Manhattan",
+    vibe: "Dominikanische Kultur, Hudson-Blicke, starke Community",
+    price: "$$",
+    rent: "2.6k-3.8k",
+    future: "nachgefragt, aber community-geprägt",
+    history:
+      "Das Viertel wuchs stark mit der U-Bahn und wurde im 20. Jahrhundert ein Zentrum dominikanischer Kultur in New York.",
+    prices:
+      "Noch moderater als Downtown, aber beliebt bei Haushalten, die Platz, Express-Züge und Parks suchen.",
+    outlook:
+      "Aufwertung wird weiterkommen, doch lokale Geschäfte und lange Wohnbindung bleiben ein starkes Gegengewicht.",
+    character: "Lebendig, laut, familiär und eines der kulturell klarsten Viertel Manhattans."
+  },
+  {
+    name: "Hamilton Heights",
+    region: "uptown",
+    area: "West Harlem",
+    imageTitle: "Hamilton Heights, Manhattan",
+    vibe: "Brownstones, Campusnähe und historische Straßen",
+    price: "$$",
+    rent: "2.8k-4.0k",
+    future: "wachsendes Interesse",
+    history:
+      "Benannt nach Alexander Hamilton, später Teil der Harlem Renaissance und heute bekannt für gut erhaltene Reihenhäuser.",
+    prices:
+      "Preislich zwischen Washington Heights und dem zentralen Harlem. Brownstone-Blöcke treiben Kaufpreise deutlich nach oben.",
+    outlook:
+      "Die Mischung aus Columbia-Nähe, Substanz und U-Bahn macht das Viertel für langfristige Käufer interessant.",
+    character: "Elegant, wohnlich und leiser als viele Downtown-Alternativen."
+  },
+  {
+    name: "Harlem",
+    region: "uptown",
+    area: "Central Harlem",
+    imageTitle: "Harlem",
+    vibe: "Musikgeschichte, Brownstones und große Boulevards",
+    price: "$$",
+    rent: "2.9k-4.3k",
+    future: "weiterer Druck, starke Identität",
+    history:
+      "Harlem wurde weltweit durch die Harlem Renaissance, Jazz, Literatur und Schwarze Kulturgeschichte bekannt.",
+    prices:
+      "Weiter unter vielen Downtown-Lagen, aber hochwertige Brownstones und neue Apartments haben die Spanne stark vergrößert.",
+    outlook:
+      "Die zentrale Frage bleibt Balance: Investitionen und neue Infrastruktur, ohne die kulturelle Basis zu verdrängen.",
+    character: "Ein Viertel mit Gewicht, Rhythmus und einer Geschichte, die man im Straßenbild noch spürt."
+  },
+  {
+    name: "East Harlem",
+    region: "uptown",
+    area: "El Barrio",
+    imageTitle: "East Harlem",
+    vibe: "Puerto-ricanische Wurzeln, Museen, bezahlbarere Kanten",
+    price: "$$",
+    rent: "2.7k-3.9k",
+    future: "viel Entwicklungsspielraum",
+    history:
+      "El Barrio ist eng mit puerto-ricanischer Migration, Community-Organisation und Kulturinstitutionen wie El Museo del Barrio verbunden.",
+    prices:
+      "Im Osten und Norden vergleichsweise erreichbarer, während neue Projekte nahe Park Avenue und Second Avenue Druck erzeugen.",
+    outlook:
+      "Neue Verkehrsanbindungen und Wohnprojekte können viel verändern; Schutz vor Verdrängung bleibt entscheidend.",
+    character: "Direkt, lokal und kulturell sehr eigenständig."
+  },
+  {
+    name: "Morningside Heights",
+    region: "uptown",
+    area: "Academic Acropolis",
+    imageTitle: "Morningside Heights",
+    vibe: "Columbia, Kirchen, Buchläden, ruhige Dichte",
+    price: "$$$",
+    rent: "3.3k-4.8k",
+    future: "stabil durch Institutionen",
+    history:
+      "Das Viertel wurde durch Columbia University, Barnard, Riverside Church und Cathedral of St. John the Divine geprägt.",
+    prices:
+      "Die Nachfrage ist robust, weil Studierende, Forschende und Familien um wenige gut angebundene Blocks konkurrieren.",
+    outlook:
+      "Institutionelles Wachstum und begrenzte Flächen halten den Markt stabil, mit wenig Raum für radikale Veränderung.",
+    character: "Intellektuell, grün und etwas abgehoben vom hektischeren Manhattan."
+  },
+  {
+    name: "Upper West Side",
+    region: "uptown",
+    area: "West Side",
+    imageTitle: "Upper West Side",
+    vibe: "Parks, Kultur, Familien und klassische Apartmenthäuser",
+    price: "$$$$",
+    rent: "4.6k-6.5k",
+    future: "dauerhaft knapp",
+    history:
+      "Vom Boulevard-Ausbau und der U-Bahn profitierend, wurde die Upper West Side zum Wohnquartier für Kultur, Bildung und Familien.",
+    prices:
+      "Sehr gefragt durch Central Park, Riverside Park, Schulen und stabile Gebäudesubstanz.",
+    outlook:
+      "Große Preissprünge sind weniger wahrscheinlich als konstante Knappheit und Premiums für gute Grundrisse.",
+    character: "Zivilisiert, kultiviert und im besten Sinn alltagstauglich."
+  },
+  {
+    name: "Upper East Side",
+    region: "uptown",
+    area: "East Side",
+    imageTitle: "Upper East Side",
+    vibe: "Museen, Townhouses, Parknähe und alte Eleganz",
+    price: "$$$$",
+    rent: "4.0k-6.2k",
+    future: "stabil, mit Second-Avenue-Effekt",
+    history:
+      "Die Upper East Side steht für Gilded-Age-Mansions, Museum Mile und eine der etabliertesten Wohnlagen der Stadt.",
+    prices:
+      "Hohe Kaufkraft, viele Co-ops und Central-Park-Nähe halten das Niveau hoch; weiter östlich ist es etwas zugänglicher.",
+    outlook:
+      "Die Second Avenue Subway stärkt Yorkville und den östlichen Rand langfristig.",
+    character: "Ruhig, gepflegt und teurer als es auf den ersten Blick manchmal wirkt."
+  },
+  {
+    name: "Hell's Kitchen",
+    region: "midtown",
+    area: "West Midtown",
+    imageTitle: "Hell's Kitchen, Manhattan",
+    vibe: "Theaternähe, Restaurants, rauere Westseite",
+    price: "$$$",
+    rent: "4.0k-5.8k",
+    future: "profitiert von Hudson Yards",
+    history:
+      "Einst Arbeiter- und Hafenviertel, später eng mit Broadway, Nachtleben und immigrantischen Communities verbunden.",
+    prices:
+      "Die Lage zwischen Midtown, Hudson River Park und Theater District sorgt für hohe Mietnachfrage.",
+    outlook:
+      "Mehr Büros und Wohnhochhäuser im Westen verschieben die Wahrnehmung Richtung Premium-Westside.",
+    character: "Urban, praktisch und mit mehr Kanten als Midtowns glatte Fassaden."
+  },
+  {
+    name: "Midtown",
+    region: "midtown",
+    area: "Core Manhattan",
+    imageTitle: "Midtown Manhattan",
+    vibe: "Bürotürme, Hotels, Pendlerströme und Ikonen",
+    price: "$$$$",
+    rent: "4.3k-6.4k",
+    future: "Umbau vom reinen Bürozentrum",
+    history:
+      "Midtown wurde im 20. Jahrhundert zum kommerziellen Herz Manhattans, mit Grand Central, Rockefeller Center und Empire State Building.",
+    prices:
+      "Wohnlagen sind teuer, aber stark von Mikro-Lage, Gebäudealter und Lärmprofil abhängig.",
+    outlook:
+      "Office-to-residential-Umbauten, modernisierte Büros und bessere öffentliche Räume prägen die nächste Phase.",
+    character: "Nicht immer romantisch, aber unschlagbar vernetzt."
+  },
+  {
+    name: "Murray Hill",
+    region: "midtown",
+    area: "East Midtown",
+    imageTitle: "Murray Hill, Manhattan",
+    vibe: "Townhouses, Bars, UN-Nähe und Pendlerkomfort",
+    price: "$$$",
+    rent: "3.9k-5.5k",
+    future: "solide, wenig dramatisch",
+    history:
+      "Aus einer wohlhabenden Wohnlage entwickelte sich ein dichtes Quartier zwischen Diplomatie, Midtown-Arbeit und jungen Berufstätigen.",
+    prices:
+      "Oft etwas erreichbarer als Flatiron oder West Village, aber klar im Manhattan-Premiumsegment.",
+    outlook:
+      "Die UN-Nähe und gute Verkehrsanbindung sichern Nachfrage, große Identitätssprünge sind weniger wahrscheinlich.",
+    character: "Pragmatisch, zentral und komfortabel."
+  },
+  {
+    name: "Kips Bay",
+    region: "midtown",
+    area: "East Side",
+    imageTitle: "Kips Bay, Manhattan",
+    vibe: "Medizin, Wohnblocks und East-River-Nähe",
+    price: "$$$",
+    rent: "3.8k-5.4k",
+    future: "stetige Verdichtung",
+    history:
+      "Historisch ein Ostfluss-Landungsgebiet, heute geprägt von Krankenhäusern, NYU-Medizin und großen Wohnanlagen.",
+    prices:
+      "Etwas weniger glamourös, dadurch im Vergleich zu Gramercy oder Flatiron gelegentlich effizienter bepreist.",
+    outlook:
+      "Gesundheits- und Forschungscluster halten die Nachfrage stabil; Waterfront-Verbesserungen können helfen.",
+    character: "Unaufgeregt, zentral und funktional."
+  },
+  {
+    name: "Chelsea",
+    region: "midtown",
+    area: "West Side",
+    imageTitle: "Chelsea, Manhattan",
+    vibe: "Galerien, High Line, Design und Nachtleben",
+    price: "$$$$",
+    rent: "5.0k-7.0k",
+    future: "weiter Premium-Westside",
+    history:
+      "Chelsea wandelte sich von Industrie und Arbeiterwohnen zu einem Zentrum für Kunst, Design und LGBTQ+-Geschichte.",
+    prices:
+      "High Line, Galerien und neue Luxusprojekte haben das Viertel klar ins obere Segment gehoben.",
+    outlook:
+      "Die Westside-Entwicklung bleibt stark; Altbau-Charme und Neubau-Luxus koexistieren weiter.",
+    character: "Kreativ, polished und abends deutlich lebendiger als morgens."
+  },
+  {
+    name: "Hudson Yards",
+    region: "midtown",
+    area: "Far West Side",
+    imageTitle: "Hudson Yards, Manhattan",
+    vibe: "Glas, Luxus, Büros und neue Stadtplanung",
+    price: "$$$$",
+    rent: "5.5k-8.0k",
+    future: "noch nicht fertig erzählt",
+    history:
+      "Auf ehemaligen Bahnflächen entstand eines der größten privaten Entwicklungsprojekte der USA.",
+    prices:
+      "Neubau, Amenities und Lage an High Line und 7-Train setzen sehr hohe Mieten.",
+    outlook:
+      "Die soziale und kulturelle Tiefe muss noch wachsen; baulich bleibt das Gebiet ein Zukunftslabor.",
+    character: "Sehr neu, sehr vertikal, eher Produkt als gewachsenes Viertel."
+  },
+  {
+    name: "Flatiron",
+    region: "midtown",
+    area: "Central",
+    imageTitle: "Flatiron Building",
+    vibe: "Architektur, Büro-Lofts und Madison Square",
+    price: "$$$$",
+    rent: "5.0k-7.2k",
+    future: "hohe Resilienz",
+    history:
+      "Das Flatiron Building machte die Gegend ikonisch; ehemalige Handels- und Produktionsräume wurden zu Büros und Wohnungen.",
+    prices:
+      "Sehr zentral, sehr begrenztes Angebot und hoher Design-Faktor treiben Preise.",
+    outlook:
+      "Hybrid Work verändert Büroflächen, aber Madison Square und die Lage bleiben magnetisch.",
+    character: "Kompakt, elegant und für Manhattan-Verhältnisse erstaunlich lesbar."
+  },
+  {
+    name: "Gramercy",
+    region: "midtown",
+    area: "East Central",
+    imageTitle: "Gramercy Park",
+    vibe: "Private Parklage, Townhouses und leise Exklusivität",
+    price: "$$$$",
+    rent: "4.8k-7.0k",
+    future: "knapp und konservativ",
+    history:
+      "Gramercy Park ist einer der wenigen privaten Parks New Yorks und gab dem Viertel eine ruhige, exklusive Identität.",
+    prices:
+      "Kleine Verfügbarkeit und historische Substanz machen das Viertel teuer, besonders rund um den Park.",
+    outlook:
+      "Änderungen kommen langsam; der Wert liegt gerade in der Stabilität.",
+    character: "Diskret, altstädtisch und ein bisschen unnahbar."
+  },
+  {
+    name: "Greenwich Village",
+    region: "downtown",
+    area: "Village",
+    imageTitle: "Greenwich Village",
+    vibe: "Boheme, Jazz, NYU und verwinkelte Straßen",
+    price: "$$$$",
+    rent: "5.0k-7.5k",
+    future: "dauerhaft knapp",
+    history:
+      "Das Village war Zentrum für Künstler, Beat-Kultur, LGBTQ+-Geschichte und Gegenkultur.",
+    prices:
+      "Historischer Charme, geringe Hochhausdichte und globale Nachfrage halten Preise extrem hoch.",
+    outlook:
+      "Erhaltungsregeln begrenzen Neubau; die Spannung zwischen Campus, Tourismus und Nachbarschaft bleibt.",
+    character: "Romantisch, dicht und fast immer teurer als man gehofft hat."
+  },
+  {
+    name: "West Village",
+    region: "downtown",
+    area: "Village",
+    imageTitle: "West Village",
+    vibe: "Kopfsteinpflaster, kleine Häuser, Restaurants",
+    price: "$$$$$",
+    rent: "5.8k-8.5k",
+    future: "ultra-knapp",
+    history:
+      "Der West Village-Straßenplan folgt alten Wegen statt dem Manhattan Grid und bewahrte dadurch einen eigenen Maßstab.",
+    prices:
+      "Eines der teuersten Wohnviertel der Stadt: viel Nachfrage, wenig Angebot, starker Charme-Aufschlag.",
+    outlook:
+      "Wenig Neubau bedeutet dauerhafte Knappheit; Restaurants und Luxusretail bleiben stark.",
+    character: "Sehr schön, sehr begehrt, sehr wenig zufällig."
+  },
+  {
+    name: "East Village",
+    region: "downtown",
+    area: "East Side",
+    imageTitle: "East Village, Manhattan",
+    vibe: "Musik, Bars, Tenements und studentische Energie",
+    price: "$$$",
+    rent: "4.0k-5.8k",
+    future: "weiter beliebt, rauer Kern bleibt",
+    history:
+      "Von immigrantischen Tenements zu Punk, Kunst und Nachtleben: Das East Village trägt viele Gegenkultur-Schichten.",
+    prices:
+      "Teurer als sein raues Image vermuten lässt, besonders westlich und nahe Union Square.",
+    outlook:
+      "Die Nachfrage von jungen Berufstätigen und NYU-Umfeld bleibt hoch; kleine Geschäfte kämpfen mit Mieten.",
+    character: "Unberechenbar, lebendig und sehr New York."
+  },
+  {
+    name: "Lower East Side",
+    region: "downtown",
+    area: "LES",
+    imageTitle: "Lower East Side",
+    vibe: "Einwanderungsgeschichte, Nachtleben, Galerien",
+    price: "$$$",
+    rent: "4.0k-5.9k",
+    future: "starke Gentrifizierungsdynamik",
+    history:
+      "Die Lower East Side ist ein Kernort jüdischer, italienischer, chinesischer und puerto-ricanischer Einwanderungsgeschichte.",
+    prices:
+      "Altbau-Tenements und neue Luxusbauten erzeugen eine große Spanne, aber die Richtung bleibt teuer.",
+    outlook:
+      "Neue Projekte am East River und Tourismusdruck verändern den Rand; kulturelle Institutionen halten Erinnerung sichtbar.",
+    character: "Geschichtet, laut und abends besonders intensiv."
+  },
+  {
+    name: "SoHo",
+    region: "downtown",
+    area: "Cast-Iron District",
+    imageTitle: "SoHo, Manhattan",
+    vibe: "Gusseisenfassaden, Mode, Lofts und globaler Retail",
+    price: "$$$$$",
+    rent: "6.0k-9.0k",
+    future: "Luxus bleibt, Nutzungsmix im Wandel",
+    history:
+      "Aus Industrie-Lofts wurde ein Künstlerquartier und dann eine der bekanntesten Shopping-Lagen New Yorks.",
+    prices:
+      "Sehr hohe Kauf- und Mietpreise, besonders für große Lofts und renovierte historische Gebäude.",
+    outlook:
+      "Regeln für Wohnen und Retail werden weiter diskutiert; die Marke SoHo bleibt extrem stark.",
+    character: "Schön, teuer und tagsüber oft mehr Laufsteg als Wohnstrasse."
+  },
+  {
+    name: "TriBeCa",
+    region: "downtown",
+    area: "Downtown West",
+    imageTitle: "Tribeca",
+    vibe: "Lagerhaus-Lofts, Prominenz, Schulen und Ruhe",
+    price: "$$$$$",
+    rent: "6.2k-9.5k",
+    future: "Premium bleibt Premium",
+    history:
+      "TriBeCa wandelte sich von Lager- und Handelsgebiet zu einem der exklusivsten Wohnviertel Manhattans.",
+    prices:
+      "Sehr großes Wohnflächenformat, gute Schulen und Prominenz treiben Spitzenpreise.",
+    outlook:
+      "Kaum Flächenreserven und starke Eigentumsbasis sprechen für anhaltende Knappheit.",
+    character: "Luxus ohne viel Lärm, mit breiten Straßen und schwerem Backstein."
+  },
+  {
+    name: "Chinatown",
+    region: "downtown",
+    area: "Lower Manhattan",
+    imageTitle: "Doyers Street",
+    vibe: "Märkte, Restaurants, Familienbetriebe und Dichte",
+    price: "$$",
+    rent: "3.2k-4.8k",
+    future: "Druck durch Nachbarviertel",
+    history:
+      "Chinatown entstand im 19. Jahrhundert und ist bis heute ein wichtiges Zentrum chinesischer und asiatisch-amerikanischer Kultur.",
+    prices:
+      "Gegenüber SoHo und TriBeCa noch günstiger, aber die Nähe zu Luxuslagen erhöht den Druck.",
+    outlook:
+      "Die Zukunft hängt stark an Gewerbemieten, Tourismus und dem Schutz kleiner Familienbetriebe.",
+    character: "Sinnlich, dicht und wirtschaftlich vielschichtig."
+  },
+  {
+    name: "NoHo",
+    region: "downtown",
+    area: "North of Houston",
+    imageTitle: "NoHo, Manhattan",
+    vibe: "Landmark-Lofts, Theaternähe und Boutique-Luxus",
+    price: "$$$$$",
+    rent: "5.8k-8.8k",
+    future: "klein, knapp, begehrt",
+    history:
+      "NoHo liegt zwischen Village und East Village und bewahrt viele historische Loft- und Theatergebäude.",
+    prices:
+      "Sehr kleines Angebot und architektonische Qualität sorgen für ein klares Premium.",
+    outlook:
+      "Neue Projekte bleiben selten; der Wert liegt in Lage, Substanz und Exklusivität.",
+    character: "Klein, kultiviert und für Kenner."
+  },
+  {
+    name: "Financial District",
+    region: "downtown",
+    area: "FiDi",
+    imageTitle: "Financial District, Manhattan",
+    vibe: "Wall Street, Hochhäuser, Wassernähe und neue Wohnungen",
+    price: "$$$$",
+    rent: "4.5k-6.6k",
+    future: "mehr Wohnen, weniger reines Büro",
+    history:
+      "Hier begann New York als Handelsstadt; Wall Street machte das Viertel später zum globalen Finanzsymbol.",
+    prices:
+      "Luxus-Türme und umgebaute Bürogebäude dominieren, mit Premium für Aussicht und Amenities.",
+    outlook:
+      "Office-to-residential-Konversionen können FiDi noch stärker zum Wohnviertel machen.",
+    character: "Tagsüber sehr geschäftig, nachts ruhiger als viele erwarten."
+  },
+  {
+    name: "Battery Park City",
+    region: "downtown",
+    area: "Hudson Waterfront",
+    imageTitle: "Battery Park City",
+    vibe: "Promenaden, Familien, Wasser und geplante Ruhe",
+    price: "$$$$",
+    rent: "4.8k-7.0k",
+    future: "Klimaanpassung als Schlüssel",
+    history:
+      "Battery Park City entstand auf aufgeschüttetem Land als geplantes Waterfront-Quartier.",
+    prices:
+      "Hohe Mieten durch Wasserblick, Schulen, Parks und große Apartmenthäuser.",
+    outlook:
+      "Resilienz gegen Sturmfluten und steigende Wasserstände wird zum zentralen Zukunftsthema.",
+    character: "Grün, kontrolliert und familienfreundlich."
+  }
+]

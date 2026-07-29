@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New York Neighborhood Atlas</title>
-    <link rel="preconnect" href="https://en.wikipedia.org" />
-<link rel="stylesheet" href="./styles.css?v=123" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <link rel="stylesheet" href="./styles.css?v=125" />
 </head>
   <body>
     <header class="hero">
@@ -68,6 +69,9 @@
         <div class="section-heading">
           <p class="eyebrow" data-i18n="chooseEyebrow">Viertel wählen</p>
           <h2 data-i18n="neighborhoodsTitle">Nachbarschaften</h2>
+        </div>
+        <div class="map-container">
+          <div id="atlasMap" class="atlas-map" aria-label="Interaktive Karte von New York City"></div>
         </div>
         <div class="neighborhood-grid" id="neighborhoodGrid" aria-live="polite"></div>
       </section>

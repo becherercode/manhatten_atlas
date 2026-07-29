@@ -4098,6 +4098,155 @@ function stars(price) {
   return price;
 }
 
+const neighborhoodCoords = {
+  "Inwood": [40.8677, -73.9212],
+  "Washington Heights": [40.8417, -73.9394],
+  "Hamilton Heights": [40.8242, -73.9481],
+  "Harlem": [40.8116, -73.9465],
+  "East Harlem": [40.7957, -73.9425],
+  "Morningside Heights": [40.8080, -73.9626],
+  "Upper West Side": [40.7870, -73.9754],
+  "Upper East Side": [40.7736, -73.9566],
+  "Midtown": [40.7549, -73.9840],
+  "Hell's Kitchen": [40.7638, -73.9918],
+  "Chelsea": [40.7465, -74.0014],
+  "Greenwich Village": [40.7336, -74.0027],
+  "East Village": [40.7264, -73.9818],
+  "SoHo": [40.7233, -74.0030],
+  "Tribeca": [40.7163, -74.0086],
+  "Financial District": [40.7075, -74.0089],
+  "Battery Park City": [40.7119, -74.0152],
+  "Williamsburg": [40.7081, -73.9571],
+  "DUMBO": [40.7033, -73.9881],
+  "Greenpoint": [40.7302, -73.9515],
+  "Bushwick": [40.6944, -73.9213],
+  "Bed-Stuy": [40.6872, -73.9418],
+  "Park Slope": [40.6710, -73.9814],
+  "Downtown Brooklyn": [40.6925, -73.9875],
+  "Coney Island": [40.5755, -73.9827],
+  "Astoria": [40.7644, -73.9235],
+  "Long Island City": [40.7447, -73.9485],
+  "Flushing": [40.7675, -73.8331],
+  "Jackson Heights": [40.7557, -73.8831],
+  "Sunnyside": [40.7433, -73.9228],
+  "Forest Hills": [40.7181, -73.8448],
+  "Jamaica": [40.7026, -73.7890],
+  "Rockaway Beach": [40.5860, -73.8160],
+  "Mott Haven": [40.8090, -73.9229],
+  "Riverdale": [40.8908, -73.9125],
+  "Belmont": [40.8532, -73.8885],
+  "City Island": [40.8466, -73.7885],
+  "Fordham": [40.8615, -73.8966],
+  "Throgs Neck": [40.8179, -73.8164],
+  "Concourse": [40.8291, -73.9248],
+  "Kingsbridge": [40.8804, -73.9037],
+  "St. George": [40.6437, -74.0736],
+  "Stapleton": [40.6267, -74.0754],
+  "Tompkinsville": [40.6358, -74.0766],
+  "New Dorp": [40.5734, -74.1166],
+  "Great Kills": [40.5484, -74.1507],
+  "Tottenville": [40.5126, -74.2504]
+};
+
+const boroughCenters = {
+  "manhattan": [40.7831, -73.9712],
+  "brooklyn": [40.6782, -73.9442],
+  "queens": [40.7282, -73.7949],
+  "bronx": [40.8448, -73.8648],
+  "staten-island": [40.5795, -74.1502]
+};
+
+let atlasMapInstance = null;
+let atlasMapMarkers = [];
+
+function initAtlasMap() {
+  const mapElem = document.getElementById("atlasMap");
+  if (!mapElem) return;
+
+  if (typeof L === "undefined") {
+    mapElem.innerHTML = `<div style="padding: 32px; text-align: center; color: #6e6e73; font-size: 0.95rem;">Lade interaktive Karte...</div>`;
+    setTimeout(initAtlasMap, 500);
+    return;
+  }
+
+  if (!atlasMapInstance) {
+    const center = boroughCenters[activeBoroughKey] || [40.7831, -73.9712];
+    atlasMapInstance = L.map("atlasMap", { scrollWheelZoom: false }).setView(center, 12);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(atlasMapInstance);
+
+    setTimeout(() => atlasMapInstance?.invalidateSize(), 200);
+    setTimeout(() => atlasMapInstance?.invalidateSize(), 800);
+  } else {
+    const center = boroughCenters[activeBoroughKey] || [40.7831, -73.9712];
+    atlasMapInstance.setView(center, 12);
+    setTimeout(() => atlasMapInstance?.invalidateSize(), 100);
+  }
+}
+
+function updateMapMarkers(filteredItems = null) {
+  const mapElem = document.getElementById("atlasMap");
+  if (!mapElem || typeof L === "undefined") return;
+
+  if (!atlasMapInstance) {
+    initAtlasMap();
+  }
+
+  if (!atlasMapInstance) return;
+
+  atlasMapMarkers.forEach((m) => atlasMapInstance.removeLayer(m));
+  atlasMapMarkers = [];
+
+  const itemsToMark = filteredItems || activeNeighborhoods();
+  const bounds = L.latLngBounds();
+
+  itemsToMark.forEach((item) => {
+    const coords = neighborhoodCoords[item.name] || [40.7128, -74.0060];
+    const customIcon = L.divIcon({
+      className: "custom-map-pin",
+      iconSize: [18, 18],
+      iconAnchor: [9, 9]
+    });
+
+    const marker = L.marker(coords, { icon: customIcon }).addTo(atlasMapInstance);
+    const localized = localizedNeighborhood(item);
+
+    marker.bindPopup(`
+      <strong>${item.name}</strong>
+      <span style="color: #6e6e73; font-size: 0.85rem;">${item.area} &bull; ${stars(item.price)}</span>
+      <p style="margin: 6px 0 2px 0;">${shortText(localized.vibe, 90)}</p>
+      <a href="${neighborhoodUrl(item)}">${t("navNeighborhoods") || "Viertel"} &rarr;</a>
+    `);
+
+    marker.on("click", () => {
+      const card = document.querySelector(`.card[data-name="${safeAttr(item.name)}"]`);
+      if (card) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        card.classList.add("highlight");
+        setTimeout(() => card.classList.remove("highlight"), 2200);
+      }
+    });
+
+    atlasMapMarkers.push(marker);
+    bounds.extend(coords);
+  });
+
+  if (itemsToMark.length > 0 && atlasMapMarkers.length > 0) {
+    try {
+      if (itemsToMark.length === 1) {
+        const coords = neighborhoodCoords[itemsToMark[0].name] || [40.7128, -74.0060];
+        atlasMapInstance.setView(coords, 13);
+      } else {
+        atlasMapInstance.fitBounds(bounds, { padding: [35, 35], maxZoom: 13 });
+      }
+    } catch {
+      // Ignore map bounds edge cases
+    }
+  }
+}
+
 function renderCards() {
   if (!grid || !searchInput) return;
 
@@ -4129,6 +4278,7 @@ function renderCards() {
     : `<div class="no-results">${t("noResults")}</div>`;
 
   hydrateImages();
+  updateMapMarkers(filtered);
 }
 
 function shortText(text, limit = 150) {
@@ -7142,6 +7292,7 @@ selectedNeighborhood =
   activeNeighborhoods().find((item) => item.name === currentBorough().defaultSelected) ||
   activeNeighborhoods()[0];
 applyLanguage(currentLanguage);
+initAtlasMap();
 openLegalHashTarget();
 if (isNeighborhoodPage()) {
   renderNeighborhoodPage();
@@ -7153,3 +7304,10 @@ if (document.body.classList.contains("borough-page")) {
 }
 renderTripPlanner();
 showCookieBanner();
+
+window.addEventListener("load", () => {
+  initAtlasMap();
+  setTimeout(() => {
+    atlasMapInstance?.invalidateSize();
+  }, 300);
+});

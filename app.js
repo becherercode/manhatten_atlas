@@ -1404,7 +1404,18 @@ function saveBorough(borough) {
   }
 }
 
-let activeBoroughKey = boroughs[getSavedBorough()] ? getSavedBorough() : "manhattan";
+function initialBoroughKey() {
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const boroughIndex = pathParts.indexOf("bezirke");
+  const pathBorough = boroughIndex >= 0 ? pathParts[boroughIndex + 1] : "";
+  if (document.body.classList.contains("borough-page") && Object.hasOwn(boroughs, pathBorough)) {
+    return pathBorough;
+  }
+  const savedBorough = getSavedBorough();
+  return Object.hasOwn(boroughs, savedBorough) ? savedBorough : "manhattan";
+}
+
+let activeBoroughKey = initialBoroughKey();
 
 function getCookieChoice() {
   try {
@@ -1433,6 +1444,10 @@ function showCookieBanner() {
 function hideCookieBanner(choice) {
   saveCookieChoice(choice);
   cookieBanner?.classList.remove("visible");
+  if (!hasMarketingConsent() && marketingScriptsLoaded()) {
+    window.location.reload();
+    return;
+  }
   if (hasMarketingConsent()) {
     loadMarketingScripts();
   }
@@ -1440,6 +1455,10 @@ function hideCookieBanner(choice) {
 
 function hasMarketingConsent() {
   return ["accepted", "marketing", "all"].includes(getCookieChoice());
+}
+
+function marketingScriptsLoaded() {
+  return Boolean(document.querySelector("#nycAtlasAdsenseScript, #nycAtlasGetYourGuideScript"));
 }
 
 function canLoadMarketingScripts() {
@@ -3902,9 +3921,13 @@ function updateBoroughInterface() {
   document.documentElement.style.setProperty("--hero-image", `url("${borough.heroImage}")`);
   document.title = document.body.classList.contains("trip-page")
     ? t("tripPageTitle")
-    : boroughHeroTitle();
+    : document.body.classList.contains("borough-page")
+      ? `${glance[currentLanguage] || glance.de} | NYC Atlas`
+      : boroughHeroTitle();
   document.querySelectorAll(".nav-context").forEach((element) => {
-    element.textContent = isNeighborhoodPage() ? t("neighborhoodPageEyebrow") : t("tripNavContext");
+    element.textContent = document.body.classList.contains("borough-page")
+      ? borough.name
+      : isNeighborhoodPage() ? t("neighborhoodPageEyebrow") : t("tripNavContext");
   });
   document.querySelectorAll("[data-i18n='heroTitle']").forEach((element) => {
     element.textContent = boroughHeroTitle();
@@ -4070,28 +4093,45 @@ function setElementImage(element, source) {
   element.style.setProperty("--hero-image", `url("${cleanSource}")`);
 }
 
+const imageSourceRequests = new Map();
+const hydratedImageTitles = new WeakMap();
+
+function imageSource(title) {
+  if (!imageSourceRequests.has(title)) {
+    const request = (async () => {
+      if (customImageSources[title]) return customImageSources[title];
+      const response = await fetch(imageUrl(title), { mode: "cors" });
+      if (!response.ok) throw new Error(`Image request failed: ${response.status}`);
+      const data = await response.json();
+      return data?.thumbnail?.source || data?.originalimage?.source || null;
+    })();
+    imageSourceRequests.set(title, request);
+    // Keep failures cached too, so typing cannot repeatedly hit a failing endpoint.
+  }
+  return imageSourceRequests.get(title);
+}
+
 async function hydrateImages() {
   const cards = document.querySelectorAll("[data-image-title]");
-
-  cards.forEach(async (card) => {
+  await Promise.all(Array.from(cards, async (card) => {
+    const title = card.dataset.imageTitle;
+    if (hydratedImageTitles.get(card) === title) return;
+    hydratedImageTitles.set(card, title);
     try {
-      const customSource = customImageSources[card.dataset.imageTitle];
-      if (customSource) {
-        setElementImage(card, customSource);
-        return;
-      }
-
-      const response = await fetch(imageUrl(card.dataset.imageTitle), { mode: "cors" });
-      if (!response.ok) return;
-      const data = await response.json();
-      const source = data?.originalimage?.source || data?.thumbnail?.source;
+      const source = await imageSource(title);
+      if (card.dataset.imageTitle !== title || !card.isConnected) return;
       if (source) {
         setElementImage(card, source);
+        card.classList.remove("image-fallback");
+      } else {
+        card.classList.add("image-fallback");
       }
     } catch {
-      card.classList.add("image-fallback");
+      if (card.dataset.imageTitle === title && card.isConnected) {
+        card.classList.add("image-fallback");
+      }
     }
-  });
+  }));
 }
 
 function stars(price) {
@@ -6973,8 +7013,10 @@ function renderNeighborhoodPage() {
   const index = borough.neighborhoods.indexOf(item);
 
   if (hero) {
+    if (hero.dataset.imageTitle !== item.imageTitle) {
+      hero.style.setProperty("--hero-image", fallbackGradient(index));
+    }
     hero.dataset.imageTitle = item.imageTitle;
-    hero.style.setProperty("--hero-image", fallbackGradient(index));
   }
   if (heroEyebrow) {
     heroEyebrow.textContent = `${t("neighborhoodPageEyebrow")} · ${borough.name} · ${item.area}`;
@@ -7020,7 +7062,7 @@ function applyLanguage(language, options = {}) {
   updateBoroughInterface();
   renderRegionSegments();
   renderCards();
-  renderCompareSelectors(true);
+  renderCompareSelectors();
   renderComparison();
   renderTripPlanner();
   if (isNeighborhoodPage()) {
@@ -7134,6 +7176,11 @@ resetCookieChoice?.addEventListener("click", () => {
     localStorage.removeItem("nycAtlasCookieChoice");
   } catch {
     // Ignore storage errors in direct file previews.
+  }
+  // Removing script tags cannot stop code that has already executed.
+  if (!hasMarketingConsent() && marketingScriptsLoaded()) {
+    window.location.reload();
+    return;
   }
   showCookieBanner();
 });

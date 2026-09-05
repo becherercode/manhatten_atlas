@@ -127,7 +127,7 @@ function imageCard(title) {
   return card;
 }
 
-test('concurrent and repeated image hydration share one request and prefer thumbnail', async () => {
+test('concurrent and repeated image hydration share one request and prefer original resolution', async () => {
   let calls = 0;
   const h = harness({ fetch: async () => {
     calls++;
@@ -137,12 +137,12 @@ test('concurrent and repeated image hydration share one request and prefer thumb
   h.groups.set('[data-image-title]', [a, b]);
   await Promise.all([h.run('hydrateImages()'), h.run('hydrateImages()')]);
   assert.equal(calls, 1);
-  assert.equal(a.properties['--image'], 'url("small.jpg")');
+  assert.equal(a.properties['--image'], 'url("large.jpg")');
   const replacement = imageCard('Harlem');
   h.groups.set('[data-image-title]', [replacement]);
   await h.run('hydrateImages()');
   assert.equal(calls, 1);
-  assert.equal(replacement.properties['--image'], 'url("small.jpg")');
+  assert.equal(replacement.properties['--image'], 'url("large.jpg")');
 });
 
 test('failed image requests show fallback and are not repeated on rerender', async () => {

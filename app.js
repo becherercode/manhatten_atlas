@@ -4103,7 +4103,7 @@ function imageSource(title) {
       const response = await fetch(imageUrl(title), { mode: "cors" });
       if (!response.ok) throw new Error(`Image request failed: ${response.status}`);
       const data = await response.json();
-      return data?.thumbnail?.source || data?.originalimage?.source || null;
+      return data?.originalimage?.source || data?.thumbnail?.source || null;
     })();
     imageSourceRequests.set(title, request);
     // Keep failures cached too, so typing cannot repeatedly hit a failing endpoint.
